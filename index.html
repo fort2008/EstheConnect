@@ -4,206 +4,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EstheConnect Center</title>
-  <meta name="description" content="EstheConnect Center - Votre passerelle vers les meilleurs soins esthétiques, dentaires et capillaires.">
-  <meta name="author" content="EstheConnect Team">
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3048/3048398.png" type="image/png" />
+  <title>EsthéConnect Center</title>
   <style>
-    :root {
-      --rose-chic: #d36cae;
-      --rose-clair: #f4c1d9;
-      --dore: #c49b43;
-      --gris-fonce: #333;
-      --gris-clair: #eee;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fff0f6;
-      color: var(--gris-fonce);
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: linear-gradient(90deg, var(--rose-chic), var(--dore));
-      padding: 1rem 2rem;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    header h1 {
-      font-weight: 700;
-      margin: 0;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 2rem;
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    h2 {
-      color: var(--rose-chic);
-      border-bottom: 3px solid var(--dore);
-      padding-bottom: 0.3rem;
-    }
-
-    h3 {
-      color: var(--dore);
-      margin-top: 2rem;
-    }
-
-    section.services article {
-      background: var(--rose-clair);
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      margin: 1rem 0;
-      box-shadow: 0 2px 6px rgba(196, 155, 67, 0.3);
-    }
-
-    .btn-devis {
-      display: inline-block;
-      margin: 2rem 0 3rem;
-      background: var(--dore);
-      color: white;
-      padding: 0.7rem 1.8rem;
-      border-radius: 25px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-
-    .btn-devis:hover {
-      background: var(--rose-chic);
-    }
-
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      max-width: 100%;
-      margin-bottom: 1.5rem;
-    }
-
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(196, 155, 67, 0.3);
-    }
-
-    footer {
-      background: var(--rose-chic);
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-    }
-
-    a.contact-link {
-      color: var(--dore);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    a.contact-link:hover {
-      text-decoration: underline;
-    }
-
-    #topBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--rose-chic);
-      color: white;
-      border: none;
-      padding: 0.6rem 1rem;
-      border-radius: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    }
+    body { font-family: sans-serif; margin: 0; background: #fff9f5; }
+    section { padding: 40px 20px; text-align: center; }
+    h2 { color: #b97a6d; }
+    .gallery img { width: 300px; margin: 10px; border-radius: 10px; }
   </style>
 </head>
 <body>
+  <header>
+    <h1>EsthéConnect Center</h1>
+    <p>Soins esthétiques, dentaires, cheveux et médecine</p>
+  </header>
 
-<header>
-  <h1>EstheConnect Center</h1>
-  <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#services">Services</a>
-    <a href="#videos">Vidéos</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<main>
-  <section id="accueil">
-    <h2>Bienvenue chez EstheConnect Center</h2>
-    <p>Nous vous connectons aux meilleures cliniques esthétiques, dentaires et capillaires à travers le monde. Notre équipe vous accompagne de A à Z.</p>
-  </section>
-
-  <section id="services" class="services">
-    <h2>Nos Services</h2>
-    <article><h3>💉 Soins Esthétiques</h3><p>Interventions telles que la liposuccion, le BBL, le J-Plasma et la lipo-démarcation.</p></article>
-    <article><h3>😁 Médecine Dentaire</h3><p>Blanchiment, facettes, implants dentaires et smile design.</p></article>
-    <article><h3>🧑‍🦲 Greffe de Cheveux & Barbe</h3><p>Techniques FUE ou DHI contre la calvitie.</p></article>
-    <article><h3>🚺 Chirurgie Réparatrice</h3><p>Reconstruction post-traumatique ou post-chirurgicale.</p></article>
-    <article><h3>🛳️ Accompagnement VIP</h3><p>Hébergement, transferts, assistant personnel.</p></article>
-    <a href="#contact" class="btn-devis">Demander un devis</a>
-  </section>
-
-  <section id="videos">
-    <h2>Vidéos</h2>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/3E7bFbQAlGg" title="Présentation EstheConnect" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/RhC0TxLNCqg" title="Témoignage client" frameborder="0" allowfullscreen></iframe>
+  <section>
+    <h2>Galerie Chirurgie Esthétique</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/300x200?text=Chirurgie+Avant" />
+      <img src="https://via.placeholder.com/300x200?text=Chirurgie+Après" />
+      <img src="https://via.placeholder.com/300x200?text=Chirurgie+Avant+2" />
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>WhatsApp : <a class="contact-link" href="https://wa.me/21628296239" target="_blank">+216 28 296 239</a></p>
-    <p>Email : <a class="contact-link" href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
-    <form action="https://formspree.io/f/mleqgoyj" method="POST">
-      <p><input type="text" name="name" placeholder="Votre nom" required style="width:100%;padding:0.6rem;margin-top:0.5rem;"></p>
-      <p><input type="email" name="email" placeholder="Votre email" required style="width:100%;padding:0.6rem;"></p>
-      <p><textarea name="message" placeholder="Votre message" required style="width:100%;padding:0.6rem;height:120px;"></textarea></p>
-      <button type="submit" class="btn-devis">Envoyer</button>
-    </form>
+  <section>
+    <h2>Galerie Soins Dentaires</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/300x200?text=Dentaire+Avant" />
+      <img src="https://via.placeholder.com/300x200?text=Dentaire+Après" />
+      <img src="https://via.placeholder.com/300x200?text=Dentaire+Avant+2" />
+    </div>
   </section>
-</main>
 
-<button id="topBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑ Haut</button>
+  <section>
+    <h2>Galerie Greffe de Cheveux</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/300x200?text=Cheveux+Avant" />
+      <img src="https://via.placeholder.com/300x200?text=Cheveux+Après" />
+      <img src="https://via.placeholder.com/300x200?text=Cheveux+Avant+2" />
+    </div>
+  </section>
 
-<footer>
-  &copy; 2025 EstheConnect Center. Tous droits réservés.
-</footer>
+  <section>
+    <h2>Galerie Médecine Esthétique</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/300x200?text=Médecine+Avant" />
+      <img src="https://via.placeholder.com/300x200?text=Médecine+Après" />
+      <img src="https://via.placeholder.com/300x200?text=Médecine+Avant+2" />
+    </div>
+  </section>
 
+  <footer>
+    <p>&copy; 2025 EsthéConnect Center</p>
+  </footer>
 </body>
 </html>
