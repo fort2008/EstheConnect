@@ -4,33 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EstheConnect — Plateforme esthétique</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/EstheConnect/favicon.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://fort2008.github.io/EstheConnect/" />
   <meta name="description" content="EstheConnect — Comparez les cliniques, demandez un devis et réservez vos interventions esthétiques en toute confiance." />
   <meta name="theme-color" content="#f48fb1" />
   <meta property="og:title" content="EstheConnect — Plateforme esthétique" />
   <meta property="og:description" content="Comparez les cliniques, demandez un devis et réservez en toute confiance." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/img/slide1.jpg" />
+  <meta property="og:image" content="https://fort2008.github.io/EstheConnect/assets/img/slide1.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "EstheConnect Center",
-    "url": "https://fort2008.github.io/EstheConnect/",
-    "logo": "https://fort2008.github.io/EstheConnect/favicon.svg",
-    "contactPoint": [{"@type":"ContactPoint","contactType":"customer support","telephone":"+21628296239","email":"aboprof.bm2@gmail.com"}]
-  }
-  </script>
-
   <style>
-    :root{ --rose:#f48fb1; --rose-200:#f8c7d7; --rose-50:#fff2f6; --doré:#c9a227; --encre:#2a2333; --gris:#6b6b7a; --bg:#fff; --shadow:0 10px 30px rgba(0,0,0,.08); --radius:18px;}
+    :root{
+      --rose:#f48fb1; --rose-200:#f8c7d7; --rose-50:#fff2f6;
+      --doré:#c9a227; --encre:#2a2333; --gris:#6b6b7a; --bg:#fff;
+      --shadow:0 10px 30px rgba(0,0,0,.08); --radius:18px;
+    }
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;color:var(--encre);background:var(--bg)}
     .container{max-width:1200px;margin:auto;padding:0 18px}
 
+    /* Top bar */
     .topbar{position:sticky;top:0;z-index:80;background:linear-gradient(90deg,var(--rose),#e66495);color:#fff}
     .topbar-inner{max-width:1200px;margin:auto;display:flex;align-items:center;gap:16px;padding:10px 16px}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
@@ -40,6 +33,7 @@
     .nav a{color:#fff;text-decoration:none;font-weight:600;opacity:.95}
     .cta{margin-left:8px;background:#fff;color:#e23c78;padding:10px 14px;border-radius:14px;font-weight:800;box-shadow:var(--shadow)}
 
+    /* Mega menu */
     .megabar{position:sticky;top:54px;z-index:70;background:#fff;border-bottom:3px solid var(--doré)}
     .mega-wrap{max-width:1200px;margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
     .menu{display:flex;flex-wrap:wrap;gap:6px}
@@ -55,10 +49,8 @@
     .badge{width:42px;height:42px;border-radius:50%;border:2px solid var(--rose);display:grid;place-items:center;font-weight:800;color:#e23c78;background:#fff}
     .item a{color:var(--encre);text-decoration:none;font-weight:650}
 
-    .wapp{position:fixed;right:18px;bottom:18px;z-index:90;background:#25D366;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;box-shadow:var(--shadow)}
-    .wapp svg{width:28px;height:28px;fill:#fff}
-
-    .hero{position:relative;isolation:isolate;min-height:72vh;display:grid;place-items:center;overflow:hidden;border-bottom:4px solid var(--doré)}
+    /* Hero slider */
+    .hero{position:relative;isolation:isolate;min-height:72vh;display:grid;place-items:center;overflow:hidden;border-bottom:4px solid var(--doré);background:#f7f0f4}
     .hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease-in-out}
     .hero .slide.active{opacity:1}
     .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.25), rgba(0,0,0,.05));z-index:0}
@@ -71,6 +63,7 @@
     .dots button{width:10px;height:10px;border-radius:50%;border:0;background:#ffffffaa;cursor:pointer}
     .dots button.active{background:#fff}
 
+    /* Financement */
     .financement{background:var(--rose-50);padding:48px 0;border-bottom:3px solid var(--doré)}
     .financement h2{font-size:clamp(26px,4.2vw,40px);margin:0 0 10px}
     .financement p.lead{color:#584f63;font-size:18px;margin:0 0 24px}
@@ -86,10 +79,12 @@
     .calc input{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:12px;font-size:16px}
     .calc .result{background:#f7f7fb;border:1px dashed #d9d5e2;border-radius:12px;padding:12px;font-weight:800}
     .note{font-size:13px;color:#6b6b7a;margin-top:8px}
-    .faq{margin-top:22px}
-    .faq details{background:#fff;border:1px solid #eee;border-radius:14px;padding:12px 14px;margin:8px 0}
-    .faq summary{cursor:pointer;font-weight:800}
 
+    /* WhatsApp */
+    .wapp{position:fixed;right:18px;bottom:18px;z-index:90;background:#25D366;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;box-shadow:var(--shadow)}
+    .wapp svg{width:28px;height:28px;fill:#fff}
+
+    /* Mobile */
     .burger{display:none;margin-left:auto}
     .drawer{display:none}
     @media (max-width:900px){
@@ -99,7 +94,6 @@
       .drawer{display:block;padding:10px 16px;border-top:1px solid #eee}
       .acc{border:1px solid #eee;border-radius:14px;margin:8px 0}
       .acc summary{cursor:pointer;list-style:none;padding:12px 14px;font-weight:800}
-      .acc summary::marker{display:none}
       .acc .panel-mobile{padding:0 12px 10px 12px}
       .panel-mobile .item{padding:10px}
       .hero{min-height:60vh}
@@ -109,6 +103,7 @@
   </style>
 </head>
 <body>
+  <!-- TOP -->
   <div class="topbar">
     <div class="topbar-inner">
       <div class="brand">
@@ -125,10 +120,12 @@
     </div>
   </div>
 
+  <!-- MEGA MENU -->
   <div class="megabar">
     <div class="mega-wrap">
       <button class="burger" onclick="document.getElementById('drawer').classList.toggle('open')">☰ Menu</button>
       <ul class="menu" role="menubar" aria-label="Catégories">
+        <!-- Seins -->
         <li role="none">
           <button role="menuitem" aria-haspopup="true">Seins</button>
           <div class="panel" role="group" aria-label="Seins">
@@ -144,6 +141,7 @@
             </div>
           </div>
         </li>
+        <!-- Liposuccion -->
         <li role="none">
           <button role="menuitem" aria-haspopup="true">Liposuccion</button>
           <div class="panel" role="group" aria-label="Liposuccion">
@@ -156,6 +154,7 @@
             </div>
           </div>
         </li>
+        <!-- Visage -->
         <li role="none">
           <button role="menuitem" aria-haspopup="true">Visage</button>
           <div class="panel" role="group" aria-label="Visage">
@@ -171,6 +170,7 @@
             </div>
           </div>
         </li>
+        <!-- Corps -->
         <li role="none">
           <button role="menuitem" aria-haspopup="true">Corps</button>
           <div class="panel" role="group" aria-label="Corps">
@@ -185,6 +185,7 @@
             </div>
           </div>
         </li>
+        <!-- Perte de poids -->
         <li role="none">
           <button role="menuitem" aria-haspopup="true">Perte de poids</button>
           <div class="panel" role="group" aria-label="Perte de poids">
@@ -195,6 +196,7 @@
             </div>
           </div>
         </li>
+        <!-- Cheveux -->
         <li role="none">
           <button role="menuitem" aria-haspopup="true">Cheveux</button>
           <div class="panel" role="group" aria-label="Cheveux">
@@ -204,6 +206,7 @@
             </div>
           </div>
         </li>
+        <!-- Peau -->
         <li role="none">
           <button role="menuitem" aria-haspopup="true">Peau</button>
           <div class="panel" role="group" aria-label="Peau">
@@ -213,6 +216,7 @@
             </div>
           </div>
         </li>
+        <!-- Dents -->
         <li role="none">
           <button role="menuitem" aria-haspopup="true">Dents</button>
           <div class="panel" role="group" aria-label="Dents">
@@ -223,6 +227,7 @@
             </div>
           </div>
         </li>
+        <!-- Hommes -->
         <li role="none">
           <button role="menuitem" aria-haspopup="true">Hommes</button>
           <div class="panel" role="group" aria-label="Hommes">
@@ -239,12 +244,14 @@
     </div>
   </div>
 
+  <!-- HERO / SLIDER -->
   <section class="hero" id="accueil" aria-label="Diaporama">
-    <div class="slide active" style="background-image:url('assets/img/slide1.jpg')"></div>
-    <div class="slide" style="background-image:url('assets/img/slide2.jpg')"></div>
-    <div class="slide" style="background-image:url('assets/img/slide3.jpg')"></div>
-    <div class="slide" style="background-image:url('assets/img/slide4.jpg')"></div>
-    <div class="slide" style="background-image:url('assets/img/slide5.jpg')"></div>
+    <!-- chemins absolus vers tes images -->
+    <div class="slide active" style="background-image:url('/EstheConnect/assets/img/slide1.jpg?v=3')"></div>
+    <div class="slide" style="background-image:url('/EstheConnect/assets/img/slide2.jpg?v=3')"></div>
+    <div class="slide" style="background-image:url('/EstheConnect/assets/img/slide3.jpg?v=3')"></div>
+    <div class="slide" style="background-image:url('/EstheConnect/assets/img/slide4.jpg?v=3')"></div>
+    <div class="slide" style="background-image:url('/EstheConnect/assets/img/slide5.jpg?v=3')"></div>
 
     <div class="content">
       <h1>EstheConnect — Plateforme esthétique</h1>
@@ -255,6 +262,7 @@
     <div class="dots" aria-label="Navigation diaporama"></div>
   </section>
 
+  <!-- FINANCEMENT -->
   <section id="financement" class="financement">
     <div class="container">
       <h2>Financement & paiement</h2>
@@ -271,6 +279,7 @@
           </ul>
           <a class="btn" href="https://wa.me/21628296239" target="_blank" rel="noopener">Je demande un plan</a>
         </div>
+
         <div class="card">
           <span class="chip">Classique</span>
           <h3>Virement / Carte</h3>
@@ -281,6 +290,7 @@
           </ul>
           <a class="btn" href="#contact">Obtenir un RIB / infos</a>
         </div>
+
         <div class="card">
           <span class="chip">Simulation</span>
           <h3>Calculez votre mensualité</h3>
@@ -298,21 +308,26 @@
     </div>
   </section>
 
+  <!-- CONTENU EXEMPLE -->
   <main class="container" style="margin:30px auto">
     <h1 id="galerie" style="font-size:clamp(28px,4vw,42px);line-height:1.1;margin:18px 0">Facettes dentaires</h1>
     <p style="font-size:18px;color:#584f63">Exemple de page pour tester le méga-menu et le diaporama. Remplace ce contenu par tes sections (services, prix, contact…).</p>
     <p id="contact">Devis & infos : <a href="https://wa.me/21628296239" target="_blank" rel="noopener">WhatsApp</a> • <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
   </main>
 
+  <!-- WhatsApp -->
   <a class="wapp" href="https://wa.me/21628296239" target="_blank" aria-label="WhatsApp EstheConnect" rel="noopener">
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.49c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.34-.81-.72-1.36-1.6-1.52-1.87-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.52-.44-.45-.61-.46l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.96.93-.96 2.26 0 1.33.98 2.61 1.12 2.79.14.18 1.93 2.95 4.67 4.02.65.28 1.16.45 1.56.58.65.21 1.25.18 1.72.11.52-.08 1.59-.65 1.81-1.27.22-.62.22-1.14.16-1.25-.07-.11-.25-.18-.52-.32zM16.02 4C9.95 4 5 8.95 5 15.02c0 2.47 .79 4.76 2.14 6.62L6 28l6.55 -1.72c1.8 1.19 3.96 1.88 6.28 1.88 6.06 0 11 -4.95 11 -11.02S22.08 4 16.02 4zm0 20.03c-2.29 0 -4.41 -.77 -6.1 -2.06l-.44 -.33 -3.64 .96 .97 -3.56 -.29 -.46A9.97 9.97 0 0 1 6.04 15c0 -5.51 4.47 -9.98 9.98 -9.98 5.51 0 9.98 4.47 9.98 9.98a9.97 9.97 0 0 1 -9.98 10.01z"/></svg>
   </a>
 
+  <!-- JS (slider + simulateur) -->
   <script>
   document.addEventListener('DOMContentLoaded', function(){
+    /* SLIDER */
     const slides = document.querySelectorAll('.hero .slide');
     const dotsWrap = document.querySelector('.hero .dots');
     if(!slides.length || !dotsWrap) return;
+
     let i = 0, timer = null, delay = 4500;
 
     slides.forEach((_, idx) => {
@@ -334,29 +349,32 @@
     function restart(){ stop(); start(); }
 
     slides[0].classList.add('active'); dots[0].classList.add('active'); start();
+
     const hero = document.querySelector('.hero');
     hero.addEventListener('mouseenter', stop);
     hero.addEventListener('mouseleave', start);
+    window.addEventListener('keydown', e=>{
+      if(e.key === 'ArrowRight') go();
+      if(e.key === 'ArrowLeft') go((i-1+slides.length)%slides.length, true);
+    });
 
-    // Simulateur
+    /* SIMULATEUR FINANCEMENT */
     const amt = document.getElementById('amt');
     const months = document.getElementById('months');
     const rate = document.getElementById('rate');
     const mensu = document.getElementById('mensu');
     function update(){
-      if(!amt || !months || !rate || !mensu) return;
-      const P = parseFloat(amt.value || 0);
-      const n = parseInt(months.value || 0, 10);
-      const t = parseFloat(rate.value || 0) / 100 / 12;
-      if(!P || !n){ mensu.textContent = 'Mensualité estimée : — €/mois'; return; }
-      let M = 0;
-      if(t === 0) M = P / n; else M = P * t / (1 - Math.pow(1 + t, -n));
-      mensu.textContent = 'Mensualité estimée : ' + M.toFixed(2).replace('.', ',') + ' €/mois';
+      const P = parseFloat(amt?.value || 0);
+      const n = parseInt(months?.value || 0, 10);
+      const t = parseFloat(rate?.value || 0) / 100 / 12;
+      if(!P || !n){ if(mensu) mensu.textContent = 'Mensualité estimée : — €/mois'; return; }
+      let M = t === 0 ? (P/n) : P * t / (1 - Math.pow(1 + t, -n));
+      if(mensu) mensu.textContent = 'Mensualité estimée : ' + M.toFixed(2).replace('.', ',') + ' €/mois';
     }
     ['input','change'].forEach(evt=>{
-      if(amt) amt.addEventListener(evt, update);
-      if(months) months.addEventListener(evt, update);
-      if(rate) rate.addEventListener(evt, update);
+      amt?.addEventListener(evt, update);
+      months?.addEventListener(evt, update);
+      rate?.addEventListener(evt, update);
     });
   });
   </script>
