@@ -13,20 +13,14 @@
   <meta property="og:title" content="EstheConnect — Plateforme esthétique" />
   <meta property="og:description" content="Comparez les cliniques, demandez un devis et réservez en toute confiance." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/img/slide1.jpg" />
+  <meta property="og:image" content="https://images.pexels.com/photos/5254682/pexels-photo-5254682.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600&h=1000" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
     :root{
-      --rose:#f48fb1;          /* rose chic */
-      --rose-200:#f8c7d7;
-      --rose-50:#fff2f6;
-      --doré:#c9a227;          /* doré élégant */
-      --encre:#2a2333;         /* texte principal */
-      --gris:#6b6b7a;
-      --bg:#fff;
-      --shadow:0 10px 30px rgba(0,0,0,.08);
-      --radius:18px;
+      --rose:#f48fb1; --rose-200:#f8c7d7; --rose-50:#fff2f6;
+      --doré:#c9a227; --encre:#2a2333; --gris:#6b6b7a; --bg:#fff;
+      --shadow:0 10px 30px rgba(0,0,0,.08); --radius:18px;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;color:var(--encre);background:var(--bg)}
@@ -49,8 +43,6 @@
     .menu > li > button{appearance:none;border:0;background:transparent;padding:10px 14px;border-radius:12px;font-weight:700;color:#2b2440}
     .menu > li > button:hover{background:var(--rose-50)}
     .menu > li:focus-within > button{outline:2px solid var(--rose)}
-
-    /* PANNEAU MEGA */
     .panel{position:absolute;left:0;top:100%;min-width:320px;transform:translateY(8px);background:#fff;border:1px solid #eee;border-radius:var(--radius);box-shadow:var(--shadow);padding:14px;opacity:0;visibility:hidden;transition:.2s}
     .menu > li:hover .panel,.menu > li:focus-within .panel{opacity:1;visibility:visible}
     .panel-grid{display:grid;grid-template-columns:repeat(2,minmax(180px,1fr));gap:10px;min-width:560px}
@@ -265,119 +257,4 @@
         <details class="acc"><summary>Visage</summary><div class="panel-mobile">
           <div class="item"><div class="badge">Li</div><a href="#">Lifting visage & cou</a></div>
           <div class="item"><div class="badge">Y</div><a href="#">Yeux</a></div>
-          <div class="item"><div class="badge">N</div><a href="#">Nez</a></div>
-          <div class="item"><div class="badge">O</div><a href="#">Oreilles</a></div>
-          <div class="item"><div class="badge">P</div><a href="#">Pommettes</a></div>
-          <div class="item"><div class="badge">M</div><a href="#">Menton</a></div>
-          <div class="item"><div class="badge">L</div><a href="#">Lèvres</a></div>
-          <div class="item"><div class="badge">Pe</div><a href="#">Peau & injections</a></div>
-        </div></details>
-        <details class="acc"><summary>Corps</summary><div class="panel-mobile">
-          <div class="item"><div class="badge">B</div><a href="#">Bras</a></div>
-          <div class="item"><div class="badge">J</div><a href="#">Jambes</a></div>
-          <div class="item"><div class="badge">V</div><a href="#">Ventre</a></div>
-          <div class="item"><div class="badge">F</div><a href="#">Fesses</a></div>
-          <div class="item"><div class="badge">MM</div><a href="#">Mommy Makeover</a></div>
-          <div class="item"><div class="badge">Pu</div><a href="#">Zone pubienne / génitale</a></div>
-          <div class="item"><div class="badge">Ci</div><a href="#">Cicatrices</a></div>
-        </div></details>
-        <details class="acc"><summary>Perte de poids</summary><div class="panel-mobile">
-          <div class="item"><div class="badge">By</div><a href="#">Bypass gastrique</a></div>
-          <div class="item"><div class="badge">Sl</div><a href="#">Sleeve gastrectomie</a></div>
-          <div class="item"><div class="badge">In</div><a href="#">Intolérances alimentaires</a></div>
-        </div></details>
-        <details class="acc"><summary>Cheveux</summary><div class="panel-mobile">
-          <div class="item"><div class="badge">Tx</div><a href="#">Transplantation capillaire</a></div>
-          <div class="item"><div class="badge">Bb</div><a href="#">Greffe barbe (FUE)</a></div>
-        </div></details>
-        <details class="acc"><summary>Peau</summary><div class="panel-mobile">
-          <div class="item"><div class="badge">PRP</div><a href="#">PRP + soins post-op</a></div>
-          <div class="item"><div class="badge">La</div><a href="#">Laser / Peelings</a></div>
-        </div></details>
-        <details class="acc"><summary>Dents</summary><div class="panel-mobile">
-          <div class="item"><div class="badge">Fa</div><a href="#">Facettes céramiques</a></div>
-          <div class="item"><div class="badge">Bl</div><a href="#">Blanchiment in-office</a></div>
-          <div class="item"><div class="badge">Im</div><a href="#">Implant + pilier</a></div>
-        </div></details>
-        <details class="acc"><summary>Hommes</summary><div class="panel-mobile">
-          <div class="item"><div class="badge">Se</div><a href="#">Seins & mamelons</a></div>
-          <div class="item"><div class="badge">Li</div><a href="#">Liposuccion</a></div>
-          <div class="item"><div class="badge">Ch</div><a href="#">Cheveux</a></div>
-          <div class="item"><div class="badge">Ci</div><a href="#">Circoncision</a></div>
-          <div class="item"><div class="badge">Am</div><a href="#">Augmentation transgenres</a></div>
-        </div></details>
-      </div>
-    </div>
-  </div>
-
-  <!-- HERO SLIDER -->
-  <section class="hero" id="accueil" aria-label="Diaporama">
-    <div class="slide active" style="background-image:url('assets/img/slide1.jpg')"></div>
-    <div class="slide" style="background-image:url('assets/img/slide2.jpg')"></div>
-    <div class="slide" style="background-image:url('assets/img/slide3.jpg')"></div>
-
-    <div class="content">
-      <h1>EstheConnect — Plateforme esthétique</h1>
-      <p>Comparez les cliniques, obtenez un devis et réservez en toute confiance.</p>
-      <a href="https://wa.me/21628296239" target="_blank" rel="noopener" class="btn">Contact WhatsApp</a>
-      <a href="#financement" class="btn secondary">Financement</a>
-    </div>
-
-    <div class="dots" aria-label="Navigation diaporama"></div>
-  </section>
-
-  <!-- CONTENU DE DEMO -->
-  <main style="max-width:1000px;margin:30px auto;padding:0 18px">
-    <h1 id="galerie" style="font-size:clamp(28px,4vw,42px);line-height:1.1;margin:18px 0">Facettes dentaires</h1>
-    <p style="font-size:18px;color:#584f63">Exemple de page pour tester le méga-menu et le diaporama. Remplace ce contenu par tes sections (services, prix, contact…).</p>
-    <p id="financement">Astuce : pour lier chaque entrée du menu à tes pages GitHub Pages, remplace simplement l’attribut <code>href="#"</code> par l’URL ou l’ancre correspondante.</p>
-  </main>
-
-  <!-- Bouton WhatsApp flottant -->
-  <a class="wapp" href="https://wa.me/21628296239" target="_blank" aria-label="WhatsApp EstheConnect" rel="noopener">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.49c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.34-.81-.72-1.36-1.6-1.52-1.87-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.52-.44-.45-.61-.46l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.96.93-.96 2.26 0 1.33.98 2.61 1.12 2.79.14.18 1.93 2.95 4.67 4.02.65.28 1.16.45 1.56.58.65.21 1.25.18 1.72.11.52-.08 1.59-.65 1.81-1.27.22-.62.22-1.14.16-1.25-.07-.11-.25-.18-.52-.32zM16.02 4C9.95 4 5 8.95 5 15.02c0 2.47.79 4.76 2.14 6.62L6 28l6.55-1.72c1.8 1.19 3.96 1.88 6.28 1.88 6.06 0 11-4.95 11-11.02S22.08 4 16.02 4zm0 20.03c-2.29 0-4.41-.77-6.1-2.06l-.44-.33-3.64.96.97-3.56-.29-.46A9.97 9.97 0 0 1 6.04 15c0-5.51 4.47-9.98 9.98-9.98 5.51 0 9.98 4.47 9.98 9.98a9.97 9.97 0 0 1-9.98 10.01z"/></svg>
-  </a>
-
-  <!-- JS du slider -->
-  <script>
-  (function(){
-    const slides = document.querySelectorAll('.hero .slide');
-    const dotsWrap = document.querySelector('.hero .dots');
-    let i = 0, timer = null, delay = 4500;
-
-    // Crée les puces
-    slides.forEach((_, idx) => {
-      const b = document.createElement('button');
-      b.setAttribute('aria-label', 'Aller à la diapo ' + (idx+1));
-      b.addEventListener('click', () => go(idx, true));
-      dotsWrap.appendChild(b);
-    });
-    const dots = dotsWrap.querySelectorAll('button');
-
-    function go(next, user=false){
-      slides[i].classList.remove('active'); dots[i].classList.remove('active');
-      i = (typeof next === 'number') ? next : (i+1)%slides.length;
-      slides[i].classList.add('active'); dots[i].classList.add('active');
-      if(user){ restart(); }
-    }
-    function start(){ timer = setInterval(go, delay); }
-    function stop(){ clearInterval(timer); }
-    function restart(){ stop(); start(); }
-
-    // Init
-    slides[0].classList.add('active');
-    dots[0].classList.add('active');
-    start();
-
-    // Pause au survol + navigation clavier
-    const hero = document.querySelector('.hero');
-    hero.addEventListener('mouseenter', stop);
-    hero.addEventListener('mouseleave', start);
-    window.addEventListener('keydown', e=>{
-      if(e.key === 'ArrowRight') go();
-      if(e.key === 'ArrowLeft') go((i-1+slides.length)%slides.length, true);
-    });
-  })();
-  </script>
-</body>
-</html>
+          <div class="item"><div cl
