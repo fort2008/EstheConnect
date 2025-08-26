@@ -24,6 +24,7 @@
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;color:var(--encre);background:var(--bg)}
+    .container{max-width:1200px;margin:auto;padding:0 18px}
 
     /* BARRE SUPERIEURE */
     .topbar{position:sticky;top:0;z-index:80;background:linear-gradient(90deg,var(--rose),#e66495);color:#fff}
@@ -70,6 +71,27 @@
     .dots button{width:10px;height:10px;border-radius:50%;border:0;background:#ffffffaa;cursor:pointer}
     .dots button.active{background:#fff}
 
+    /* SECTION FINANCEMENT */
+    .financement{background:var(--rose-50);padding:48px 0;border-bottom:3px solid var(--doré)}
+    .financement h2{font-size:clamp(26px,4.2vw,40px);margin:0 0 10px}
+    .financement p.lead{color:#584f63;font-size:18px;margin:0 0 24px}
+    .fin-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+    .card{background:#fff;border:1px solid #eee;border-radius:18px;box-shadow:var(--shadow);padding:18px}
+    .card h3{margin:0 0 8px;font-size:20px}
+    .chip{display:inline-block;background:var(--rose-200);color:#7a2b4a;font-weight:700;padding:6px 10px;border-radius:999px;font-size:12px;margin-bottom:10px}
+    .list{margin:10px 0 0 0;padding:0;list-style:none}
+    .list li{padding:6px 0 6px 28px;position:relative}
+    .list li::before{content:"✓";position:absolute;left:0;top:6px;color:#1a7f37;font-weight:900}
+    .calc{display:grid;gap:10px}
+    .calc .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+    .calc input{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:12px;font-size:16px}
+    .calc .result{background:#f7f7fb;border:1px dashed #d9d5e2;border-radius:12px;padding:12px;font-weight:800}
+    .note{font-size:13px;color:#6b6b7a;margin-top:8px}
+
+    .faq{margin-top:22px}
+    .faq details{background:#fff;border:1px solid #eee;border-radius:14px;padding:12px 14px;margin:8px 0}
+    .faq summary{cursor:pointer;font-weight:800}
+
     /* MOBILE */
     .burger{display:none;margin-left:auto}
     .drawer{display:none}
@@ -84,6 +106,8 @@
       .acc .panel-mobile{padding:0 12px 10px 12px}
       .panel-mobile .item{padding:10px}
       .hero{min-height:60vh}
+      .fin-grid{grid-template-columns:1fr}
+      .calc .row{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -101,6 +125,7 @@
         <a href="#galerie">Photos avant / après</a>
         <a href="#avis">Avis</a>
         <a href="#etranger">Chirurgie à l’étranger</a>
+        <a href="#financement">Financement</a>
         <a class="cta" href="https://wa.me/21628296239" target="_blank" rel="noopener">Réserver en ligne</a>
       </nav>
     </div>
@@ -257,4 +282,78 @@
         <details class="acc"><summary>Visage</summary><div class="panel-mobile">
           <div class="item"><div class="badge">Li</div><a href="#">Lifting visage & cou</a></div>
           <div class="item"><div class="badge">Y</div><a href="#">Yeux</a></div>
-          <div class="item"><div cl
+          <div class="item"><div class="badge">N</div><a href="#">Nez</a></div>
+          <div class="item"><div class="badge">O</div><a href="#">Oreilles</a></div>
+          <div class="item"><div class="badge">P</div><a href="#">Pommettes</a></div>
+          <div class="item"><div class="badge">M</div><a href="#">Menton</a></div>
+          <div class="item"><div class="badge">L</div><a href="#">Lèvres</a></div>
+          <div class="item"><div class="badge">Pe</div><a href="#">Peau & injections</a></div>
+        </div></details>
+        <details class="acc"><summary>Corps</summary><div class="panel-mobile">
+          <div class="item"><div class="badge">B</div><a href="#">Bras</a></div>
+          <div class="item"><div class="badge">J</div><a href="#">Jambes</a></div>
+          <div class="item"><div class="badge">V</div><a href="#">Ventre</a></div>
+          <div class="item"><div class="badge">F</div><a href="#">Fesses</a></div>
+          <div class="item"><div class="badge">MM</div><a href="#">Mommy Makeover</a></div>
+          <div class="item"><div class="badge">Pu</div><a href="#">Zone pubienne / génitale</a></div>
+          <div class="item"><div class="badge">Ci</div><a href="#">Cicatrices</a></div>
+        </div></details>
+        <details class="acc"><summary>Perte de poids</summary><div class="panel-mobile">
+          <div class="item"><div class="badge">By</div><a href="#">Bypass gastrique</a></div>
+          <div class="item"><div class="badge">Sl</div><a href="#">Sleeve gastrectomie</a></div>
+          <div class="item"><div class="badge">In</div><a href="#">Intolérances alimentaires</a></div>
+        </div></details>
+        <details class="acc"><summary>Cheveux</summary><div class="panel-mobile">
+          <div class="item"><div class="badge">Tx</div><a href="#">Transplantation capillaire</a></div>
+          <div class="item"><div class="badge">Bb</div><a href="#">Greffe barbe (FUE)</a></div>
+        </div></details>
+        <details class="acc"><summary>Peau</summary><div class="panel-mobile">
+          <div class="item"><div class="badge">PRP</div><a href="#">PRP + soins post-op</a></div>
+          <div class="item"><div class="badge">La</div><a href="#">Laser / Peelings</a></div>
+        </div></details>
+        <details class="acc"><summary>Dents</summary><div class="panel-mobile">
+          <div class="item"><div class="badge">Fa</div><a href="#">Facettes céramiques</a></div>
+          <div class="item"><div class="badge">Bl</div><a href="#">Blanchiment in-office</a></div>
+          <div class="item"><div class="badge">Im</div><a href="#">Implant + pilier</a></div>
+        </div></details>
+        <details class="acc"><summary>Hommes</summary><div class="panel-mobile">
+          <div class="item"><div class="badge">Se</div><a href="#">Seins & mamelons</a></div>
+          <div class="item"><div class="badge">Li</div><a href="#">Liposuccion</a></div>
+          <div class="item"><div class="badge">Ch</div><a href="#">Cheveux</a></div>
+          <div class="item"><div class="badge">Ci</div><a href="#">Circoncision</a></div>
+          <div class="item"><div class="badge">Am</div><a href="#">Augmentation transgenres</a></div>
+        </div></details>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SLIDER (IMAGES PRO EN LIGNE) -->
+  <section class="hero" id="accueil" aria-label="Diaporama">
+    <div class="slide active" style="background-image:url('https://images.pexels.com/photos/5254682/pexels-photo-5254682.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600&h=1000')"></div>
+    <div class="slide" style="background-image:url('https://images.pexels.com/photos/3738340/pexels-photo-3738340.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600&h=1000')"></div>
+    <div class="slide" style="background-image:url('https://source.unsplash.com/_tx1dNUDfi4/1600x1000')"></div>
+
+    <div class="content">
+      <h1>EstheConnect — Plateforme esthétique</h1>
+      <p>Comparez les cliniques, obtenez un devis et réservez en toute confiance.</p>
+      <a href="https://wa.me/21628296239" target="_blank" rel="noopener" class="btn">Contact WhatsApp</a>
+      <a href="#financement" class="btn secondary">Financement</a>
+    </div>
+    <div class="dots" aria-label="Navigation diaporama"></div>
+  </section>
+
+  <!-- 🟡 SECTION FINANCEMENT -->
+  <section id="financement" class="financement">
+    <div class="container">
+      <h2>Financement & paiement</h2>
+      <p class="lead">Solutions souples pour planifier sereinement votre intervention. Devis gratuit et sans engagement.</p>
+
+      <div class="fin-grid">
+        <div class="card">
+          <span class="chip">Échelonné</span>
+          <h3>Paiement en plusieurs fois</h3>
+          <ul class="list">
+            <li>Échéancier 3×, 6× ou 12× (selon éligibilité)</li>
+            <li>Versement d’acompte & calendrier clair</li>
+            <li>Sans frais cachés — conditions communiquées avant accord</li>
+          </ul>
