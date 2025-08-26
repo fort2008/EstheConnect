@@ -1,1 +1,3 @@
-
+User-agent: *
+Allow: /
+Sitemap: https://fort2008.github.io/EstheConnect/sitemap.xml
