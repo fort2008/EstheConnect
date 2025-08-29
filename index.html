@@ -3,246 +3,301 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EstheConnect Center – Soins esthétiques haut de gamme</title>
-  <meta name="description" content="Plateforme EstheConnect Center : soins esthétiques, dentaires, greffe, chirurgies. Design chic rose & doré. Contact WhatsApp & Email cliquables." />
-  <link rel="preload" as="video" href="assets/video/hero.mp4" />
-  <link rel="preload" as="image" href="assets/img/hero-poster.jpg" />
+  <title>EstheConnect Center — Aesthetics Premium</title>
+  <meta name="description" content="Chirurgie & médecine esthétique, dentaire, capillaire. Réseau de cliniques partenaires, accompagnement VIP de A à Z." />
+  <!-- SEO -->
+  <link rel="canonical" href="./index.html" />
+  <link rel="alternate" href="./index.html?lang=fr" hreflang="fr" />
+  <link rel="alternate" href="./index.html?lang=nl" hreflang="nl" />
+  <link rel="alternate" href="./index.html?lang=en" hreflang="en" />
+  <link rel="alternate" href="./index.html?lang=de" hreflang="de" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"EstheConnect Center",
+    "url":"https://fort2008.github.io/EstheConnect/",
+    "contactPoint":[{"@type":"ContactPoint","contactType":"customer support","availableLanguage":["fr","nl","en","de"]}]
+  }
+  </script>
+
   <style>
-    :root{
-      --rose:#f5e6ee; --rose-2:#e9cddd; --or:#d4af37; --encre:#1a1a1a; --blanc:#ffffff;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--blanc);color:var(--encre);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif}
+    :root{--rose:#f5e6ee;--or:#d4af37;--encre:#1a1a1a;--blanc:#fff}
+    *{box-sizing:border-box}html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;color:var(--encre);background:#fff}
     a{color:inherit;text-decoration:none}
     .container{width:min(1200px,94vw);margin:0 auto}
-    /* HEADER */
-    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #f0f0f0}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0;gap:.75rem}
-    .brand{display:flex;gap:.6rem;align-items:center;font-weight:700;letter-spacing:.5px}
+    header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #eee}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.8rem 0}
+    .brand{display:flex;gap:.6rem;align-items:center;font-weight:800;letter-spacing:.2px}
     .brand .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--or),#f8e28c)}
-    .menu{display:flex;flex-wrap:wrap;gap:.8rem}
-    .menu a{padding:.5rem .8rem;border-radius:999px;border:1px solid transparent}
+    .menu{display:flex;gap:.6rem;flex-wrap:wrap}
+    .menu a{padding:.45rem .75rem;border-radius:999px;border:1px solid transparent}
     .menu a:hover{border-color:#eee;background:#fafafa}
-    .lang{display:flex;gap:.35rem;align-items:center}
-    .lang button{padding:.35rem .6rem;border-radius:999px;border:1px solid #e9e9e9;background:#fff;cursor:pointer;font-size:.9rem}
+    .lang{display:flex;gap:.35rem}
+    .lang button{padding:.35rem .6rem;border-radius:999px;border:1px solid #e9e9e9;background:#fff;cursor:pointer}
     .lang button.active{border-color:var(--or);box-shadow:0 0 0 2px rgba(212,175,55,.18)}
-    /* HERO */
+    /* Hero */
     .hero{position:relative;min-height:72vh;display:grid;place-items:center;overflow:hidden}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.35));}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.35))}
     .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .hero .content{position:relative;z-index:1;color:#fff;text-align:center;padding:2rem;}
-    .pill{display:inline-flex;gap:.4rem;align-items:center;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);padding:.35rem .75rem;border-radius:999px;font-size:.85rem}
-    h1{font-size:clamp(1.8rem,4vw,3rem);margin:.8rem 0;font-weight:800;letter-spacing:.3px}
-    .sub{font-size:clamp(1rem,2.2vw,1.15rem);opacity:.95;max-width:900px;margin:0 auto 1.2rem}
-    .cta{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
-    .btn{padding:.75rem 1rem;border-radius:999px;border:1px solid transparent;cursor:pointer}
-    .btn-primary{background:linear-gradient(135deg,var(--or),#f8e28c);color:#573b00;font-weight:700}
-    .btn-ghost{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);color:#fff}
-    /* SECTIONS */
+    .hero .content{position:relative;z-index:1;color:#fff;text-align:center;padding:2rem}
+    .pill{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.45);padding:.35rem .75rem;border-radius:999px}
+    h1{font-size:clamp(1.9rem,4vw,3.1rem);margin:.8rem 0}
+    .sub{opacity:.95;max-width:900px;margin:0 auto 1.2rem}
+    .cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+    .btn{padding:.75rem 1rem;border-radius:999px;border:1px solid #e9e9e9;background:#fff;cursor:pointer}
+    .btn-primary{background:linear-gradient(135deg,var(--or),#f8e28c);color:#573b00;border:none;font-weight:700}
+    /* Ken Burns fallback image */
+    .hero.fallback{background:#000;min-height:72vh}
+    .hero .kb{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.85;animation:kb 18s ease-in-out infinite alternate}
+    @keyframes kb{from{transform:scale(1)} to{transform:scale(1.08)}}
+    /* Sections / cards */
     section{padding:3rem 0}
     .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-    .card{grid-column:span 12;background:linear-gradient(180deg,var(--rose),#fff);border:1px solid #f2e9ef;border-radius:1.25rem;padding:1.2rem;box-shadow:0 8px 24px rgba(212,175,55,.08)}
+    .card{grid-column:span 12;background:linear-gradient(180deg,var(--rose),#fff);border:1px solid #f2e9ef;border-radius:1.2rem;padding:1.1rem;box-shadow:0 8px 24px rgba(212,175,55,.08)}
+    .card img{width:100%;border-radius:.9rem;display:block}
+    .muted{opacity:.8}.small{font-size:.92rem}
     @media(min-width:680px){.card{grid-column:span 6}} @media(min-width:1024px){.card{grid-column:span 4}}
-    .card h3{margin:.2rem 0 .4rem;font-size:1.05rem}
-    .muted{opacity:.8}
-    /* FOOTER */
     footer{background:var(--rose);border-top:1px solid #f2e9ef}
-    footer .grid{display:grid;gap:1rem}
-    @media(min-width:800px){footer .grid{grid-template-columns:1.2fr 1fr 1fr}}
-    .small{font-size:.92rem}
-    .hidden-mobile{display:none} @media(min-width:720px){.hidden-mobile{display:initial}}
   </style>
 </head>
 <body>
-  <!-- i18n multi-langues FR/NL/EN/DE. La phrase « -50 € » a été supprimée. -->
-  <header>
-    <div class="container nav">
-      <div class="brand"><span class="dot"></span> <span data-i18n="brand">EstheConnect Center</span></div>
-      <nav class="menu hidden-mobile">
-        <a href="#services" data-i18n="nav.services">Services</a>
-        <a href="#avant-apres" data-i18n="nav.beforeAfter">Avant/Après</a>
-        <a href="#infos" data-i18n="nav.info">Infos</a>
-        <a href="#contact" data-i18n="nav.contact">Contact</a>
-      </nav>
-      <div class="lang" aria-label="Sélecteur de langue">
-        <button data-lang="fr" class="active">FR</button>
-        <button data-lang="nl">NL</button>
-        <button data-lang="en">EN</button>
-        <button data-lang="de">DE</button>
-      </div>
+<header>
+  <div class="container nav">
+    <div class="brand"><span class="dot"></span><span data-i18n="brand">EstheConnect Center</span></div>
+    <nav class="menu">
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#avant-apres" data-i18n="nav.ba">Avant/Après</a>
+      <a href="#infos" data-i18n="nav.info">Infos</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="lang" aria-label="Language">
+      <button data-lang="fr" class="active">FR</button>
+      <button data-lang="nl">NL</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="de">DE</button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <section class="hero" aria-label="Héro esthétique en vidéo">
-    <video id="heroVideo" autoplay muted loop playsinline poster="assets/img/hero-poster.jpg">
-      <source src="assets/video/hero.mp4" type="video/mp4" />
-      <img src="assets/img/hero-poster.jpg" alt="Beauté & esthétique – EstheConnect" />
-    </video>
-    <div class="content">
-      <span class="pill" data-i18n="hero.pill">Beauté & Esthétique premium</span>
-      <h1 data-i18n="hero.h1">Soins esthétiques haut de gamme, en toute confiance</h1>
-      <p class="sub" data-i18n="hero.sub">Chirurgie & médecine esthétique, dentaire, greffe… Un réseau de cliniques partenaires triées sur le volet. Accompagnement personnalisé de A à Z.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="#contact" data-i18n="hero.cta1">Demander un devis</a>
-        <a class="btn btn-ghost" href="#services" data-i18n="hero.cta2">Explorer les services</a>
-      </div>
+<!-- HERO: if assets/video/hero.mp4 exists it will play; else we show a moving image (Ken Burns) -->
+<section class="hero" aria-label="Héro esthétique vidéo">
+  <video id="heroVideo" autoplay muted loop playsinline
+         poster="https://source.unsplash.com/NTkdYuOFJPM/1600x900">
+    <source src="assets/video/hero.mp4" type="video/mp4" />
+    <!-- Fallback image if the browser ignores <video> -->
+    <img src="https://source.unsplash.com/NTkdYuOFJPM/1600x900" alt="Clinique esthétique moderne">
+  </video>
+  <div class="content">
+    <span class="pill" data-i18n="hero.pill">Beauté & Esthétique premium</span>
+    <h1 data-i18n="hero.h1">Soins esthétiques haut de gamme, en toute confiance</h1>
+    <p class="sub" data-i18n="hero.sub">Chirurgie & médecine esthétique, dentaire, capillaire… Un réseau de cliniques partenaires triées sur le volet. Accompagnement personnalisé de A à Z.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#contact" data-i18n="hero.cta1">Demander un devis</a>
+      <a class="btn" href="#services" data-i18n="hero.cta2">Explorer les services</a>
     </div>
-  </section>
+  </div>
+</section>
 
+<main class="container">
+  <!-- SERVICES -->
   <section id="services">
-    <div class="container">
-      <h2 data-i18n="services.title">Nos services</h2>
-      <div class="cards">
-        <article class="card">
-          <h3 data-i18n="services.surgery.title">Chirurgie & Silhouette</h3>
-          <p class="muted" data-i18n="services.surgery.desc">Liposuccion, lipolifting des bras, abdominoplastie, BBL, lifting, etc.</p>
-        </article>
-        <article class="card">
-          <h3 data-i18n="services.aesthetic.title">Médecine esthétique</h3>
-          <p class="muted" data-i18n="services.aesthetic.desc">Botox, fillers, skin boosters, PRP, lasers, peelings.</p>
-        </article>
-        <article class="card">
-          <h3 data-i18n="services.dental.title">Dentaire</h3>
-          <p class="muted" data-i18n="services.dental.desc">Facettes, implants, blanchiment, aligneurs.</p>
-        </article>
-        <article class="card">
-          <h3 data-i18n="services.hair.title">Greffe capillaire</h3>
-          <p class="muted" data-i18n="services.hair.desc">FUE, DHI, traitement PRP & suivi.</p>
-        </article>
-        <article class="card">
-          <h3 data-i18n="services.vip.title">Accompagnement VIP</h3>
-          <p class="muted" data-i18n="services.vip.desc">Hôtel, transferts, interprète, concierge 24/7.</p>
-        </article>
-        <article class="card">
-          <h3 data-i18n="services.packs.title">Devis & Packs</h3>
-          <p class="muted" data-i18n="services.packs.desc">Forfaits transparents, sans frais cachés. Mention « -50 € » retirée.</p>
-        </article>
-      </div>
+    <h2 data-i18n="index.servicesTitle">Nos services</h2>
+    <div class="cards">
+      <article class="card">
+        <img src="https://source.unsplash.com/05KAWeDoWos/1000x700" alt="Médecine/soin visage (HIFU)">
+        <h3 data-i18n="index.aestheticTitle">Médecine esthétique</h3>
+        <p class="muted" data-i18n="index.aestheticDesc">Botox, fillers, skin boosters, PRP, lasers, peelings.</p>
+      </article>
+      <article class="card">
+        <img src="https://source.unsplash.com/Un-obKS-gVw/1000x700" alt="Injection esthétique (botox)">
+        <h3 data-i18n="index.injectTitle">Injections</h3>
+        <p class="muted" data-i18n="index.injectDesc">Zones visage, rajeunissement, profil harmonieux.</p>
+      </article>
+      <article class="card">
+        <img src="https://source.unsplash.com/jXKIJ87MWYM/1000x700" alt="Dentaire / facettes">
+        <h3 data-i18n="index.dentalTitle">Dentaire</h3>
+        <p class="muted" data-i18n="index.dentalDesc">Facettes, implants, blanchiment, aligneurs.</p>
+      </article>
+      <article class="card">
+        <img src="https://source.unsplash.com/NNjU-IQJzRM/1000x700" alt="Capillaire / PRP / greffe">
+        <h3 data-i18n="index.hairTitle">Capillaire</h3>
+        <p class="muted" data-i18n="index.hairDesc">FUE, DHI, traitements PRP & suivi.</p>
+      </article>
     </div>
   </section>
 
+  <!-- AVANT / APRES (visuels génériques) -->
   <section id="avant-apres">
-    <div class="container">
-      <h2 data-i18n="beforeAfter.title">Avant / Après</h2>
-      <p class="muted" data-i18n="beforeAfter.note">Importez vos images dans <code>assets/before-after/</code> et utilisez exactement les mêmes noms de fichiers dans le HTML.</p>
-      <div class="cards">
-        <figure class="card">
-          <img src="assets/before-after/exemple1-apres.jpg" alt="Résultat – exemple 1" loading="lazy" style="width:100%;border-radius:.85rem" />
-          <figcaption class="muted" data-i18n="beforeAfter.ex1">Résultat réel – exemple 1</figcaption>
-        </figure>
-        <figure class="card">
-          <img src="assets/before-after/exemple2-apres.jpg" alt="Résultat – exemple 2" loading="lazy" style="width:100%;border-radius:.85rem" />
-          <figcaption class="muted" data-i18n="beforeAfter.ex2">Résultat réel – exemple 2</figcaption>
-        </figure>
-        <figure class="card">
-          <img src="assets/before-after/exemple3-apres.jpg" alt="Résultat – exemple 3" loading="lazy" style="width:100%;border-radius:.85rem" />
-          <figcaption class="muted" data-i18n="beforeAfter.ex3">Résultat réel – exemple 3</figcaption>
-        </figure>
-      </div>
+    <h2 data-i18n="beforeAfter.title">Avant / Après</h2>
+    <p class="muted small" data-i18n="beforeAfter.note">Exemples visuels génériques. Remplacez par vos cas réels si souhaité.</p>
+    <div class="cards">
+      <figure class="card">
+        <img src="https://source.unsplash.com/Fdku_oMrDvk/1000x700" alt="Cabinet clinique">
+        <figcaption class="muted" data-i18n="beforeAfter.ex1">Résultat réel – exemple 1</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="https://source.unsplash.com/L-J5360mIcc/1000x700" alt="Salle dentaire moderne">
+        <figcaption class="muted" data-i18n="beforeAfter.ex2">Résultat réel – exemple 2</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="https://source.unsplash.com/eanrNELMjgo/1000x700" alt="Équipe esthétique sourire">
+        <figcaption class="muted" data-i18n="beforeAfter.ex3">Résultat réel – exemple 3</figcaption>
+      </figure>
     </div>
   </section>
 
+  <!-- INFOS -->
   <section id="infos">
-    <div class="container">
-      <h2 data-i18n="info.title">Informations pratiques</h2>
-      <div class="cards">
-        <div class="card"><h3 data-i18n="info.transparency.title">Transparence</h3><p class="muted" data-i18n="info.transparency.desc">Devis détaillé, post-op inclus selon pack. Aucune mention « -50 € ».</p></div>
-        <div class="card"><h3 data-i18n="info.quality.title">Qualité</h3><p class="muted" data-i18n="info.quality.desc">Cliniques certifiées, chirurgiens expérimentés, suivi continu.</p></div>
-        <div class="card"><h3 data-i18n="info.privacy.title">Discrétion</h3><p class="muted" data-i18n="info.privacy.desc">Données sécurisées, accompagnement confidentiel.</p></div>
-      </div>
+    <h2 data-i18n="info.title">Informations pratiques</h2>
+    <div class="cards">
+      <div class="card"><h3 data-i18n="info.transparency.title">Transparence</h3><p class="muted" data-i18n="info.transparency.desc">Devis détaillé, post-op inclus selon pack.</p></div>
+      <div class="card"><h3 data-i18n="info.quality.title">Qualité</h3><p class="muted" data-i18n="info.quality.desc">Cliniques certifiées, chirurgiens expérimentés, suivi continu.</p></div>
+      <div class="card"><h3 data-i18n="info.privacy.title">Discrétion</h3><p class="muted" data-i18n="info.privacy.desc">Données sécurisées, accompagnement confidentiel.</p></div>
     </div>
   </section>
+</main>
 
-  <footer id="contact">
-    <div class="container" style="padding:2rem 0">
-      <div class="grid">
-        <div>
-          <h3 data-i18n="footer.brand">EstheConnect Center</h3>
-          <p class="small" data-i18n="footer.tagline">Un accompagnement premium pour vos soins esthétiques, en toute sérénité.</p>
-        </div>
-        <div>
-          <h4 data-i18n="footer.contact">Nous contacter</h4>
-          <p class="small">
-            <span data-i18n="footer.whatsapp">WhatsApp :</span> <a href="https://wa.me/21628296239" target="_blank" rel="noopener">+216 28 296 239</a><br/>
-            <span>Email :</span> <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a>
-          </p>
-        </div>
-        <div>
-          <h4 data-i18n="footer.legal">Réseaux & Légal</h4>
-          <p class="small">
-            <a href="#">Instagram</a> · <a href="#">TikTok</a><br/>
-            <a href="#" data-i18n="footer.mentions">Mentions légales</a>
-          </p>
-        </div>
-      </div>
-      <p class="small" style="margin-top:1rem;opacity:.7">© <span id="year"></span> <span data-i18n="brand">EstheConnect Center</span>. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
+<!-- CONTACT / FOOTER -->
+<footer id="contact">
+  <div class="container" style="padding:2rem 0">
+    <div class="cards">
+      <article class="card" style="grid-column:span 12">
+        <h3 data-i18n="contact.h1">Contact & Devis</h3>
+        <p class="muted" data-i18n="contact.intro">Expliquez votre projet : réponse rapide avec plan & devis détaillé.</p>
+        <p class="small">
+          <a id="waLink" href="https://wa.me/21628296239?text=Bonjour%20EstheConnect%2C%20je%20souhaite%20un%20devis%20pour%20..." target="_blank" rel="noopener">WhatsApp</a>
+          · <a href="mailto:aboprof.bm2@gmail.com">Email</a>
+        </p>
+      </article>
     </div>
-  </footer>
+    <p class="small" style="opacity:.7;margin-top:1rem">© <span id="year"></span> <span data-i18n="brand">EstheConnect Center</span>. <span data-i18n="common.rights">Tous droits réservés.</span></p>
+  </div>
+</footer>
 
-  <script>
-    // Année dynamique
-    document.getElementById('year').textContent = new Date().getFullYear();
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    // i18n dictionnaires
+  // Language pack
+  (function(){
     const I18N = {
-      fr: {
-        brand: "EstheConnect Center",
-        nav: {services:"Services", beforeAfter:"Avant/Après", info:"Infos", contact:"Contact"},
-        hero: {pill:"Beauté & Esthétique premium", h1:"Soins esthétiques haut de gamme, en toute confiance", sub:"Chirurgie & médecine esthétique, dentaire, greffe… Un réseau de cliniques partenaires triées sur le volet. Accompagnement personnalisé de A à Z.", cta1:"Demander un devis", cta2:"Explorer les services"},
-        services: {title:"Nos services", surgery:{title:"Chirurgie & Silhouette", desc:"Liposuccion, lipolifting des bras, abdominoplastie, BBL, lifting, etc."}, aesthetic:{title:"Médecine esthétique", desc:"Botox, fillers, skin boosters, PRP, lasers, peelings."}, dental:{title:"Dentaire", desc:"Facettes, implants, blanchiment, aligneurs."}, hair:{title:"Greffe capillaire", desc:"FUE, DHI, traitement PRP & suivi."}, vip:{title:"Accompagnement VIP", desc:"Hôtel, transferts, interprète, concierge 24/7."}, packs:{title:"Devis & Packs", desc:"Forfaits transparents, sans frais cachés. Mention « -50 € » retirée."}},
-        beforeAfter:{title:"Avant / Après", note:"Importez vos images dans assets/before-after/ et utilisez exactement les mêmes noms de fichiers.", ex1:"Résultat réel – exemple 1", ex2:"Résultat réel – exemple 2", ex3:"Résultat réel – exemple 3"},
-        info:{title:"Informations pratiques", transparency:{title:"Transparence", desc:"Devis détaillé, post-op inclus selon pack. Aucune mention « -50 € »."}, quality:{title:"Qualité", desc:"Cliniques certifiées, chirurgiens expérimentés, suivi continu."}, privacy:{title:"Discrétion", desc:"Données sécurisées, accompagnement confidentiel."}},
-        footer:{brand:"EstheConnect Center", tagline:"Un accompagnement premium pour vos soins esthétiques, en toute sérénité.", contact:"Nous contacter", legal:"Réseaux & Légal", mentions:"Mentions légales", rights:"Tous droits réservés."}
+      fr:{brand:"EstheConnect Center",nav:{services:"Services",ba:"Avant/Après",info:"Infos",contact:"Contact"},
+          hero:{pill:"Beauté & Esthétique premium",h1:"Soins esthétiques haut de gamme, en toute confiance",
+                sub:"Chirurgie & médecine esthétique, dentaire, capillaire… Un réseau de cliniques partenaires triées sur le volet. Accompagnement personnalisé de A à Z.",
+                cta1:"Demander un devis",cta2:"Explorer les services"},
+          index:{servicesTitle:"Nos services",
+                 aestheticTitle:"Médecine esthétique", aestheticDesc:"Botox, fillers, skin boosters, PRP, lasers, peelings.",
+                 injectTitle:"Injections", injectDesc:"Zones visage, rajeunissement, profil harmonieux.",
+                 dentalTitle:"Dentaire", dentalDesc:"Facettes, implants, blanchiment, aligneurs.",
+                 hairTitle:"Capillaire", hairDesc:"FUE, DHI, traitements PRP & suivi."},
+          beforeAfter:{title:"Avant / Après",note:"Exemples visuels génériques. Remplacez par vos cas réels si souhaité.",ex1:"Résultat réel – exemple 1",ex2:"Résultat réel – exemple 2",ex3:"Résultat réel – exemple 3"},
+          info:{title:"Informations pratiques",
+                transparency:{title:"Transparence",desc:"Devis détaillé, post-op inclus selon pack."},
+                quality:{title:"Qualité",desc:"Cliniques certifiées, chirurgiens expérimentés, suivi continu."},
+                privacy:{title:"Discrétion",desc:"Données sécurisées, accompagnement confidentiel."}},
+          contact:{h1:"Contact & Devis",intro:"Expliquez votre projet : réponse rapide avec plan & devis détaillé."},
+          common:{rights:"Tous droits réservés."}
       },
-      nl: {
-        brand: "EstheConnect Center",
-        nav: {services:"Diensten", beforeAfter:"Voor/Na", info:"Info", contact:"Contact"},
-        hero: {pill:"Premium Schoonheid & Esthetiek", h1:"Hoogwaardige esthetische zorg, met vertrouwen", sub:"Chirurgie & esthetische geneeskunde, tandheelkunde, haartransplantatie… Een netwerk van zorgvuldig geselecteerde klinieken. Persoonlijke begeleiding van A tot Z.", cta1:"Offerte aanvragen", cta2:"Diensten ontdekken"},
-        services: {title:"Onze diensten", surgery:{title:"Chirurgie & Silhouet", desc:"Liposuctie, armlipolifting, buikwandcorrectie, BBL, lifting, enz."}, aesthetic:{title:"Esthetische geneeskunde", desc:"Botox, fillers, skin boosters, PRP, lasers, peelings."}, dental:{title:"Tandheelkunde", desc:"Facings, implantaten, bleken, aligners."}, hair:{title:"Haartransplantatie", desc:"FUE, DHI, PRP-behandeling & opvolging."}, vip:{title:"VIP‑Begeleiding", desc:"Hotel, transfers, tolk, 24/7 conciërge."}, packs:{title:"Offertes & Pakketten", desc:"Transparante formules, geen verborgen kosten. Vermelding ‘-50 €’ verwijderd."}},
-        beforeAfter:{title:"Voor / Na", note:"Importeer je beelden in assets/before-after/ en gebruik exact dezelfde bestandsnamen.", ex1:"Reëel resultaat – voorbeeld 1", ex2:"Reëel resultaat – voorbeeld 2", ex3:"Reëel resultaat – voorbeeld 3"},
-        info:{title:"Praktische info", transparency:{title:"Transparantie", desc:"Gedetailleerde offertes, post‑op volgens pakket. Geen vermelding ‘-50 €’."}, quality:{title:"Kwaliteit", desc:"Gecertificeerde klinieken, ervaren chirurgen, continue opvolging."}, privacy:{title:"Discretie", desc:"Beveiligde gegevens, vertrouwelijke begeleiding."}},
-        footer:{brand:"EstheConnect Center", tagline:"Premium begeleiding voor uw esthetische zorg, met gemoedsrust.", contact:"Contact", legal:"Netwerken & Juridisch", mentions:"Wettelijke vermeldingen", rights:"Alle rechten voorbehouden."}
+      nl:{brand:"EstheConnect Center",nav:{services:"Diensten",ba:"Voor/Na",info:"Info",contact:"Contact"},
+          hero:{pill:"Premium Schoonheid & Esthetiek",h1:"Hoogwaardige esthetische zorg, met vertrouwen",
+                sub:"Chirurgie & esthetische geneeskunde, tandheelkunde, haar… Netwerk van zorgvuldig geselecteerde klinieken. Persoonlijke begeleiding van A tot Z.",
+                cta1:"Offerte aanvragen",cta2:"Diensten ontdekken"},
+          index:{servicesTitle:"Onze diensten",
+                 aestheticTitle:"Esthetische geneeskunde",aestheticDesc:"Botox, fillers, skin boosters, PRP, lasers, peelings.",
+                 injectTitle:"Injecties",injectDesc:"Gelaatszones, verjonging, harmonieus profiel.",
+                 dentalTitle:"Tandheelkunde",dentalDesc:"Facings, implantaten, bleken, aligners.",
+                 hairTitle:"Haar",hairDesc:"FUE, DHI, PRP-behandeling & opvolging."},
+          beforeAfter:{title:"Voor / Na",note:"Generieke voorbeelden. Vervang door echte cases indien gewenst.",ex1:"Reëel resultaat – voorbeeld 1",ex2:"Reëel resultaat – voorbeeld 2",ex3:"Reëel resultaat – voorbeeld 3"},
+          info:{title:"Praktische info",
+                transparency:{title:"Transparantie",desc:"Gedetailleerde offerte, post-op per pakket."},
+                quality:{title:"Kwaliteit",desc:"Gecertificeerde klinieken, ervaren chirurgen, continue opvolging."},
+                privacy:{title:"Discretie",desc:"Beveiligde gegevens, vertrouwelijke begeleiding."}},
+          contact:{h1:"Contact & Offerte",intro:"Beschrijf uw project: snelle reactie met plan & gedetailleerde offerte."},
+          common:{rights:"Alle rechten voorbehouden."}
       },
-      en: {
-        brand: "EstheConnect Center",
-        nav: {services:"Services", beforeAfter:"Before/After", info:"Info", contact:"Contact"},
-        hero: {pill:"Premium Beauty & Aesthetics", h1:"High‑end aesthetic care you can trust", sub:"Surgery & aesthetic medicine, dental, hair… A network of carefully vetted partner clinics. Bespoke support from A to Z.", cta1:"Request a quote", cta2:"Explore services"},
-        services: {title:"Our Services", surgery:{title:"Surgery & Contouring", desc:"Liposuction, arm lipolifting, tummy tuck, BBL, lifting, etc."}, aesthetic:{title:"Aesthetic Medicine", desc:"Botox, fillers, skin boosters, PRP, lasers, peels."}, dental:{title:"Dental", desc:"Veneers, implants, whitening, aligners."}, hair:{title:"Hair Transplant", desc:"FUE, DHI, PRP treatment & follow‑up."}, vip:{title:"VIP Assistance", desc:"Hotel, transfers, interpreter, 24/7 concierge."}, packs:{title:"Quotes & Packages", desc:"Transparent packages, no hidden fees. ‘-50 €’ mention removed."}},
-        beforeAfter:{title:"Before / After", note:"Upload your images to assets/before-after/ and keep exact file names.", ex1:"Real result – sample 1", ex2:"Real result – sample 2", ex3:"Real result – sample 3"},
-        info:{title:"Practical information", transparency:{title:"Transparency", desc:"Detailed quote, post‑op per package. No ‘-50 €’ mention."}, quality:{title:"Quality", desc:"Certified clinics, experienced surgeons, continuous follow‑up."}, privacy:{title:"Privacy", desc:"Secure data, confidential assistance."}},
-        footer:{brand:"EstheConnect Center", tagline:"Premium support for your aesthetic journey, with peace of mind.", contact:"Contact us", legal:"Social & Legal", mentions:"Legal notice", rights:"All rights reserved."}
+      en:{brand:"EstheConnect Center",nav:{services:"Services",ba:"Before/After",info:"Info",contact:"Contact"},
+          hero:{pill:"Premium Beauty & Aesthetics",h1:"High-end aesthetic care you can trust",
+                sub:"Surgery & aesthetic medicine, dental, hair… A network of carefully vetted partner clinics. Bespoke support from A to Z.",
+                cta1:"Request a quote",cta2:"Explore services"},
+          index:{servicesTitle:"Our Services",
+                 aestheticTitle:"Aesthetic Medicine",aestheticDesc:"Botox, fillers, skin boosters, PRP, lasers, peels.",
+                 injectTitle:"Injectables",injectDesc:"Facial areas, rejuvenation, harmonious profile.",
+                 dentalTitle:"Dental",dentalDesc:"Veneers, implants, whitening, aligners.",
+                 hairTitle:"Hair",hairDesc:"FUE, DHI, PRP treatment & follow-up."},
+          beforeAfter:{title:"Before / After",note:"Generic visuals. Replace with your own cases if desired.",ex1:"Real result – sample 1",ex2:"Real result – sample 2",ex3:"Real result – sample 3"},
+          info:{title:"Practical information",
+                transparency:{title:"Transparency",desc:"Detailed quote, post-op per package."},
+                quality:{title:"Quality",desc:"Certified clinics, experienced surgeons, continuous follow-up."},
+                privacy:{title:"Privacy",desc:"Secure data, confidential assistance."}},
+          contact:{h1:"Contact & Quote",intro:"Tell us about your project: quick reply with plan & detailed quote."},
+          common:{rights:"All rights reserved."}
       },
-      de: {
-        brand: "EstheConnect Center",
-        nav: {services:"Leistungen", beforeAfter:"Vorher/Nachher", info:"Info", contact:"Kontakt"},
-        hero: {pill:"Premium Schönheit & Ästhetik", h1:"Hochwertige ästhetische Behandlungen mit Vertrauen", sub:"Chirurgie & Ästhetische Medizin, Dental, Haar… Ein Netzwerk sorgfältig geprüfter Partnerkliniken. Persönliche Begleitung von A bis Z.", cta1:"Angebot anfordern", cta2:"Leistungen entdecken"},
-        services: {title:"Unsere Leistungen", surgery:{title:"Chirurgie & Kontur", desc:"Liposuktion, Arm‑Lipolifting, Bauchdeckenstraffung, BBL, Lifting usw."}, aesthetic:{title:"Ästhetische Medizin", desc:"Botox, Filler, Skin Booster, PRP, Laser, Peelings."}, dental:{title:"Zahnmedizin", desc:"Veneers, Implantate, Bleaching, Aligner."}, hair:{title:"Haartransplantation", desc:"FUE, DHI, PRP‑Behandlung & Nachsorge."}, vip:{title:"VIP‑Begleitung", desc:"Hotel, Transfers, Dolmetscher, 24/7 Concierge."}, packs:{title:"Angebote & Pakete", desc:"Transparente Pakete, keine versteckten Kosten. Hinweis ‚-50 €‘ entfernt."}},
-        beforeAfter:{title:"Vorher / Nachher", note:"Bilder in assets/before-after/ ablegen und exakt gleiche Dateinamen verwenden.", ex1:"Reales Ergebnis – Beispiel 1", ex2:"Reales Ergebnis – Beispiel 2", ex3:"Reales Ergebnis – Beispiel 3"},
-        info:{title:"Praktische Infos", transparency:{title:"Transparenz", desc:"Detaillierter Kostenvoranschlag, Post‑Op je nach Paket. Kein Hinweis ‚-50 €‘."}, quality:{title:"Qualität", desc:"Zertifizierte Kliniken, erfahrene Chirurgen, kontinuierliche Betreuung."}, privacy:{title:"Diskretion", desc:"Gesicherte Daten, vertrauliche Begleitung."}},
-        footer:{brand:"EstheConnect Center", tagline:"Premium‑Begleitung für Ihre ästhetische Behandlung – mit Ruhe und Sicherheit.", contact:"Kontakt", legal:"Netzwerke & Rechtliches", mentions:"Impressum", rights:"Alle Rechte vorbehalten."}
+      de:{brand:"EstheConnect Center",nav:{services:"Leistungen",ba:"Vorher/Nachher",info:"Infos",contact:"Kontakt"},
+          hero:{pill:"Premium Schönheit & Ästhetik",h1:"Hochwertige ästhetische Behandlungen mit Vertrauen",
+                sub:"Chirurgie & Ästhetische Medizin, Dental, Haar… Netzwerk sorgfältig geprüfter Partnerkliniken. Persönliche Begleitung von A bis Z.",
+                cta1:"Angebot anfordern",cta2:"Leistungen entdecken"},
+          index:{servicesTitle:"Unsere Leistungen",
+                 aestheticTitle:"Ästhetische Medizin",aestheticDesc:"Botox, Filler, Skin Booster, PRP, Laser, Peelings.",
+                 injectTitle:"Injektionen",injectDesc:"Gesichtsbereiche, Verjüngung, harmonisches Profil.",
+                 dentalTitle:"Zahnmedizin",dentalDesc:"Veneers, Implantate, Bleaching, Aligner.",
+                 hairTitle:"Haar",hairDesc:"FUE, DHI, PRP-Behandlung & Nachsorge."},
+          beforeAfter:{title:"Vorher / Nachher",note:"Generische Beispielbilder. Bei Bedarf durch reale Fälle ersetzen.",ex1:"Reales Ergebnis – Beispiel 1",ex2:"Reales Ergebnis – Beispiel 2",ex3:"Reales Ergebnis – Beispiel 3"},
+          info:{title:"Praktische Infos",
+                transparency:{title:"Transparenz",desc:"Detaillierter Kostenvoranschlag, Post-Op je nach Paket."},
+                quality:{title:"Qualität",desc:"Zertifizierte Kliniken, erfahrene Chirurgen, kontinuierliche Betreuung."},
+                privacy:{title:"Diskretion",desc:"Gesicherte Daten, vertrauliche Begleitung."}},
+          contact:{h1:"Kontakt & Angebot",intro:"Beschreiben Sie Ihr Projekt: schnelle Antwort mit Plan & detailliertem Angebot."},
+          common:{rights:"Alle Rechte vorbehalten."}
       }
     };
-
-    const els = document.querySelectorAll('[data-i18n]');
-    const langBtns = document.querySelectorAll('.lang button');
     function applyLang(lang){
-      const dict = I18N[lang] || I18N.fr;
+      const d = I18N[lang]||I18N.fr;
       document.documentElement.lang = lang;
-      els.forEach(el=>{
-        const key = el.getAttribute('data-i18n');
-        const value = key.split('.').reduce((o,k)=>o&&o[k], dict);
-        if(typeof value === 'string'){ el.textContent = value; }
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        const val = key.split(".").reduce((o,k)=>o&&o[k], d);
+        if(typeof val==="string") el.textContent = val;
       });
-      langBtns.forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
-      localStorage.setItem('lang', lang);
+      document.querySelectorAll(".lang button").forEach(b=>b.classList.toggle("active", b.dataset.lang===lang));
+      localStorage.setItem("lang", lang);
     }
-    langBtns.forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
-    applyLang(localStorage.getItem('lang')||'fr');
+    // click handlers
+    document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+    // initial language from ?lang= or localStorage
+    (function(){
+      const p = new URLSearchParams(location.search).get("lang");
+      applyLang(p || localStorage.getItem("lang") || "fr");
+    })();
+  })();
 
-    // Data-saver: pause la vidéo
+  // Hero fallback to moving image if video unavailable
+  (function(){
     const v = document.getElementById('heroVideo');
-    if (navigator.connection && navigator.connection.saveData) { v.pause(); }
-    document.addEventListener('touchend',()=>{ if(v.paused) v.play().catch(()=>{}); },{once:true});
-  </script>
+    const hero = document.querySelector('section.hero');
+    function showFallback(){
+      if(!hero || hero.classList.contains('fallback')) return;
+      hero.classList.add('fallback');
+      const kb = document.createElement('div');
+      kb.className = 'kb';
+      kb.style.backgroundImage = 'url("https://source.unsplash.com/NTkdYuOFJPM/1600x900")';
+      hero.appendChild(kb);
+    }
+    if(v){
+      v.addEventListener('error', showFallback, {once:true});
+      setTimeout(()=>{ if(v.paused || v.readyState < 2) showFallback(); }, 1200);
+    } else { showFallback(); }
+  })();
+
+  // WhatsApp link: no numéro affiché, message prérempli
+  (function(){
+    const wa = document.getElementById('waLink');
+    if(wa){
+      const base = "https://wa.me/21628296239";
+      const text = "Bonjour EstheConnect, je souhaite un devis (intervention, dates, ville) :";
+      wa.href = base + "?text=" + encodeURIComponent(text);
+    }
+  })();
+</script>
 </body>
 </html>
