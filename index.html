@@ -5,41 +5,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EstheConnect Center — Plateforme esthétique</title>
-  <meta name="description" content="Plateforme esthétique: chirurgies seins, corps, visage, obésité, greffe capillaire, soins dentaires. Devis rapide via WhatsApp et e‑mail.">
+  <meta name="description" content="Plateforme esthétique: chirurgies seins, corps, visage, obésité, greffe capillaire, soins dentaires. Devis rapide via WhatsApp et e-mail.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23e91e63'/><circle cx='50' cy='50' r='30' fill='%23d4af37'/></svg>">
   <style>
     :root{--rose:#e91e63;--rose-10:#fde6ef;--gold:#d4af37;--text:#2b2b2b;--border:#f2cfe0}
+    html{scroll-behavior:smooth; scroll-padding-top:90px;}
     body{margin:0;background:#fff}
     a{color:inherit}
-    /* footer */
     .ec-footer{max-width:1100px;margin:40px auto;padding:0 16px 60px;color:#555;font-family:system-ui}
     .ec-footer small a{color:#c2185b;text-decoration:none}
+    .btn{background:linear-gradient(90deg,#e91e63,#ff7aa8);color:#fff;border:none;padding:10px 14px;border-radius:12px;font-weight:800;text-decoration:none}
   </style>
 </head>
 <body id="top">
 
-<!-- ========= NAVBAR ESTHECONNECT (DROPDOWNS) ========= -->
 <header class="ec-header">
   <style>
     .ec-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:2px solid #f7d7e5;font-family:system-ui,-apple-system,Segoe UI,Roboto}
     .ec-nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;gap:16px}
     .ec-brand{display:flex;align-items:center;gap:10px}
     .ec-brand .dot{width:10px;height:10px;border-radius:50%;background:#d4af37;box-shadow:0 0 0 4px rgba(212,175,55,.18)}
-    .ec-brand a{font-weight:800;color:#c2185b;text-decoration:none;font-size:20px}
-    .ec-menu{display:flex;gap:18px;align-items:center}
+    .ec-brand a{font-weight:800;color:#c2185b;text-decoration:none;font-size:20px;white-space:nowrap}
+    .ec-menu{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
     .ec-menu>li{position:relative;list-style:none}
-    .ec-menu>li>a{padding:10px 8px;border-radius:10px;text-decoration:none;color:#2b2b2b;font-weight:600}
+    .ec-menu>li>a{padding:10px 8px;border-radius:10px;text-decoration:none;color:#2b2b2b;font-weight:600;display:inline-block}
     .ec-menu>li>a:hover{background:#fde6ef;color:#c2185b}
-    /* dropdown */
-    .ec-dd{position:absolute;left:0;top:100%;background:#fff;border:1px solid #f1cada;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.08);padding:10px;display:none;min-width:260px}
+    .ec-dd{position:absolute;left:0;top:100%;background:#fff;border:1px solid #f1cada;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.08);padding:10px;display:none;min-width:270px}
     .ec-menu>li:hover .ec-dd{display:block}
     .ec-dd a{display:block;padding:10px 12px;border-radius:10px;color:#5a1240;text-decoration:none;font-weight:600}
     .ec-dd a:hover{background:#fff3f8;color:#c2185b}
-    /* CTA */
     .ec-cta{background:linear-gradient(90deg,#e91e63,#ff7aa8);color:#fff;padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:800}
     .ec-cta:hover{filter:brightness(.97)}
-    /* mobile */
-    @media (max-width:900px){
+    .ec-burger{display:none}
+    @media (max-width:980px){
       .ec-burger{display:block}
       .ec-menu{display:none;position:fixed;inset:64px 12px auto 12px;background:#fff;border:1px solid #f3cfe0;border-radius:16px;padding:12px}
       .ec-menu.open{display:block}
@@ -47,95 +45,63 @@
       .ec-dd{position:relative;border:none;box-shadow:none;display:block;padding:0;margin-left:8px}
       .ec-cta{display:inline-block;margin-top:8px}
     }
+    .ec-section{scroll-margin-top:100px}
   </style>
-
   <nav class="ec-nav">
     <div class="ec-brand">
       <span class="dot"></span>
       <a href="#top">EstheConnect Center</a>
     </div>
-
-    <button class="ec-burger ec-cta" style="display:none;border:none" aria-label="Menu" onclick="document.querySelector('.ec-menu').classList.toggle('open')">Menu</button>
-
+    <button class="ec-burger ec-cta" style="border:none" aria-label="Menu" onclick="document.querySelector('.ec-menu').classList.toggle('open')">Menu</button>
     <ul class="ec-menu">
       <li>
-        <a href="#seins">Seins ▾</a>
+        <a href="#interventions">Interventions ▾</a>
         <div class="ec-dd">
+          <strong style="display:block;padding:6px 12px;color:#7a1440">Seins</strong>
           <a data-proc="Augmentation mammaire" href="#seins">Augmentation mammaire</a>
           <a data-proc="Lipofilling mammaire" href="#seins">Lipofilling mammaire</a>
           <a data-proc="Lifting mammaire" href="#seins">Lifting mammaire</a>
           <a data-proc="Réduction mammaire" href="#seins">Réduction mammaire</a>
           <a data-proc="Asymétrie mammaire" href="#seins">Asymétrie mammaire</a>
-          <a data-proc="Gynécomastie" href="#seins">Gynécomastie (hommes)</a>
-        </div>
-      </li>
-
-      <li>
-        <a href="#corps">Corps ▾</a>
-        <div class="ec-dd">
+          <a data-proc="Gynécomastie" href="#seins">Gynécomastie</a>
+          <strong style="display:block;padding:6px 12px;color:#7a1440">Corps</strong>
           <a data-proc="Liposuccion" href="#corps">Liposuccion</a>
           <a data-proc="BBL (lipofilling fessier)" href="#corps">Lipofilling des fesses (BBL)</a>
           <a data-proc="Abdominoplastie" href="#corps">Abdominoplastie</a>
           <a data-proc="Mini abdominoplastie" href="#corps">Mini abdominoplastie</a>
-          <a data-proc="Lifting des bras" href="#corps">Lifting bras</a>
-          <a data-proc="Lifting des cuisses" href="#corps">Lifting cuisses</a>
-          <a data-proc="Implants fessiers" href="#corps">Implant fessier</a>
+          <a data-proc="Lifting des bras" href="#corps">Lifting des bras</a>
+          <a data-proc="Lifting des cuisses" href="#corps">Lifting des cuisses</a>
+          <a data-proc="Implants fessiers" href="#corps">Implants fessiers</a>
           <a data-proc="Vaser / J-Plasma" href="#corps">Vaser / J-Plasma</a>
-        </div>
-      </li>
-
-      <li>
-        <a href="#visage">Visage ▾</a>
-        <div class="ec-dd">
+          <strong style="display:block;padding:6px 12px;color:#7a1440">Visage</strong>
           <a data-proc="Lifting visage" href="#visage">Lifting visage</a>
-          <a data-proc="Blépharoplastie" href="#visage">Yeux : blépharoplastie</a>
+          <a data-proc="Blépharoplastie" href="#visage">Blépharoplastie</a>
           <a data-proc="Rhinoplastie" href="#visage">Rhinoplastie</a>
           <a data-proc="Lipofilling visage" href="#visage">Lipofilling visage</a>
-          <a data-proc="Liposuccion double menton" href="#visage">Liposuccion double menton</a>
+          <a data-proc="Liposuccion double menton" href="#visage">Double menton</a>
           <a data-proc="Bichectomie" href="#visage">Bichectomie</a>
           <a data-proc="Otoplastie" href="#visage">Otoplastie</a>
-        </div>
-      </li>
-
-      <li>
-        <a href="#obesite">Obésité ▾</a>
-        <div class="ec-dd">
-          <a data-proc="Bypass gastrique" href="#obesite">Bypass</a>
+          <strong style="display:block;padding:6px 12px;color:#7a1440">Autres</strong>
           <a data-proc="Sleeve gastrectomie" href="#obesite">Sleeve</a>
+          <a data-proc="Bypass gastrique" href="#obesite">Bypass</a>
           <a data-proc="Ballon gastrique" href="#obesite">Ballon gastrique</a>
-        </div>
-      </li>
-
-      <li>
-        <a href="#greffe">Greffe de cheveux ▾</a>
-        <div class="ec-dd">
-          <a data-proc="FUE 2500–3000 greffons" href="#greffe">FUE 2500–3000 greffons</a>
+          <a data-proc="FUE 2500–3000 greffons" href="#greffe">Greffe FUE</a>
           <a data-proc="Greffe barbe" href="#greffe">Greffe barbe</a>
-        </div>
-      </li>
-
-      <li>
-        <a href="#dents">Dents ▾</a>
-        <div class="ec-dd">
           <a data-proc="Facettes dentaires" href="#dents">Facettes dentaires</a>
           <a data-proc="Orthodontie invisible" href="#dents">Orthodontie invisible</a>
           <a data-proc="Blanchiment" href="#dents">Blanchiment</a>
           <a data-proc="Implant + pilier" href="#dents">Implant + pilier</a>
+          <a data-proc="Chirurgie intime" href="#intime">Chirurgie intime</a>
         </div>
       </li>
-
-      <li>
-        <a href="#intime">Chirurgie intime ▾</a>
-        <div class="ec-dd">
-          <a data-proc="Nymphoplastie" href="#intime">Nymphoplastie</a>
-          <a data-proc="Vaginoplastie" href="#intime">Vaginoplastie</a>
-          <a data-proc="Lipostructure grandes lèvres" href="#intime">Lipostructure des grandes lèvres</a>
-          <a data-proc="Hyménoplastie" href="#intime">Hyménoplastie</a>
-          <a data-proc="Pénoplastie" href="#intime">Hommes : pénoplastie</a>
-        </div>
-      </li>
-
-      <li><a class="ec-cta" href="prix.html">Tarifs</a></li>
+      <li><a href="#avantapres">Avant Après</a></li>
+      <li><a href="#chirurgiens">Chirurgiens</a></li>
+      <li><a href="#clinique">Clinique</a></li>
+      <li><a href="#temoignages">Témoignages</a></li>
+      <li><a href="#hotels">Hôtels</a></li>
+      <li><a href="prix.html">Tarifs</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#contact">Contact</a></li>
       <li><a class="ec-cta" href="#devis">Demande de devis</a></li>
     </ul>
   </nav>
@@ -154,28 +120,17 @@
       document.querySelector('.ec-menu')?.classList.remove('open');
     });
   });
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', e=>{
-      const id=a.getAttribute('href').slice(1);
-      const el=document.getElementById(id);
-      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
-    });
-  });
 </script>
 
-<!-- ========= SECTIONS (résumés) ========= -->
-<style>
-  .ec-section{max-width:1100px;margin:50px auto;padding:0 16px;font-family:system-ui}
-  .ec-section h2{color:#c2185b;font-size:clamp(26px,4vw,34px);margin-bottom:8px}
-  .ec-lead{color:#5b2243;background:#fff7fb;border:1px solid #f4cfe0;padding:12px 14px;border-radius:12px}
-  .ec-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
-  .ec-card{background:#fff;border:1px solid #f2cfe0;border-radius:16px;padding:14px}
-  .ec-card h3{margin:0 0 6px 0;color:#7a1440}
-  .ec-ul{margin:0;padding-left:18px}
-  .ec-ul li{margin:6px 0}
-  @media (max-width:900px){.ec-grid{grid-template-columns:1fr}}
-</style>
-
+<section class="ec-section" id="interventions">
+  <div class="ec-card" style="text-align:center; padding:24px; border:2px dashed #f3cfe0">
+    <h2 style="margin-top:0">Votre chirurgie esthétique — simple, accessible, à prix doux</h2>
+    <p class="ec-lead">Choisissez une intervention dans le menu ci-dessus, puis demandez votre <a class="btn" href="#devis">devis personnalisé</a>. Réponse rapide via WhatsApp.</p>
+    <div>
+      <span class="ec-chip">Seins</span><span class="ec-chip">Corps</span><span class="ec-chip">Visage</span><span class="ec-chip">Obésité</span><span class="ec-chip">Greffe</span><span class="ec-chip">Dents</span><span class="ec-chip">Intime</span>
+    </div>
+  </div>
+</section>
 <section id="seins" class="ec-section">
   <h2>Chirurgie des seins</h2>
   <p class="ec-lead">Augmentation (prothèses rondes/anatomiques), lipofilling, lifting (ptôse), réduction, asymétrie, gynécomastie.</p>
@@ -480,6 +435,7 @@
 
   <p class="note">* Prix indicatifs — devis personnalisé après photos & visio. Options (vol/hôtel/accompagnant) possibles. Contact : <a href="https://wa.me/21628296239" target="_blank">WhatsApp +216 28 296 239</a> · <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
 </section>
+
 
 <footer class="ec-footer">
   <hr style="border:none;border-top:1px solid #f3cfe0;margin:24px 0">

@@ -5,41 +5,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EstheConnect Center — Plateforme esthétique</title>
-  <meta name="description" content="Plateforme esthétique: chirurgies seins, corps, visage, obésité, greffe capillaire, soins dentaires. Devis rapide via WhatsApp et e‑mail.">
+  <meta name="description" content="Plateforme esthétique: chirurgies seins, corps, visage, obésité, greffe capillaire, soins dentaires. Devis rapide via WhatsApp et e-mail.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23e91e63'/><circle cx='50' cy='50' r='30' fill='%23d4af37'/></svg>">
   <style>
     :root{--rose:#e91e63;--rose-10:#fde6ef;--gold:#d4af37;--text:#2b2b2b;--border:#f2cfe0}
+    html{scroll-behavior:smooth; scroll-padding-top:90px;}
     body{margin:0;background:#fff}
     a{color:inherit}
-    /* footer */
     .ec-footer{max-width:1100px;margin:40px auto;padding:0 16px 60px;color:#555;font-family:system-ui}
     .ec-footer small a{color:#c2185b;text-decoration:none}
+    .btn{background:linear-gradient(90deg,#e91e63,#ff7aa8);color:#fff;border:none;padding:10px 14px;border-radius:12px;font-weight:800;text-decoration:none}
   </style>
 </head>
 <body id="top">
 
-<!-- ========= NAVBAR ESTHECONNECT (DROPDOWNS) ========= -->
 <header class="ec-header">
   <style>
     .ec-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:2px solid #f7d7e5;font-family:system-ui,-apple-system,Segoe UI,Roboto}
     .ec-nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;gap:16px}
     .ec-brand{display:flex;align-items:center;gap:10px}
     .ec-brand .dot{width:10px;height:10px;border-radius:50%;background:#d4af37;box-shadow:0 0 0 4px rgba(212,175,55,.18)}
-    .ec-brand a{font-weight:800;color:#c2185b;text-decoration:none;font-size:20px}
-    .ec-menu{display:flex;gap:18px;align-items:center}
+    .ec-brand a{font-weight:800;color:#c2185b;text-decoration:none;font-size:20px;white-space:nowrap}
+    .ec-menu{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
     .ec-menu>li{position:relative;list-style:none}
-    .ec-menu>li>a{padding:10px 8px;border-radius:10px;text-decoration:none;color:#2b2b2b;font-weight:600}
+    .ec-menu>li>a{padding:10px 8px;border-radius:10px;text-decoration:none;color:#2b2b2b;font-weight:600;display:inline-block}
     .ec-menu>li>a:hover{background:#fde6ef;color:#c2185b}
-    /* dropdown */
-    .ec-dd{position:absolute;left:0;top:100%;background:#fff;border:1px solid #f1cada;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.08);padding:10px;display:none;min-width:260px}
+    .ec-dd{position:absolute;left:0;top:100%;background:#fff;border:1px solid #f1cada;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.08);padding:10px;display:none;min-width:270px}
     .ec-menu>li:hover .ec-dd{display:block}
     .ec-dd a{display:block;padding:10px 12px;border-radius:10px;color:#5a1240;text-decoration:none;font-weight:600}
     .ec-dd a:hover{background:#fff3f8;color:#c2185b}
-    /* CTA */
     .ec-cta{background:linear-gradient(90deg,#e91e63,#ff7aa8);color:#fff;padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:800}
     .ec-cta:hover{filter:brightness(.97)}
-    /* mobile */
-    @media (max-width:900px){
+    .ec-burger{display:none}
+    @media (max-width:980px){
       .ec-burger{display:block}
       .ec-menu{display:none;position:fixed;inset:64px 12px auto 12px;background:#fff;border:1px solid #f3cfe0;border-radius:16px;padding:12px}
       .ec-menu.open{display:block}
@@ -47,95 +45,63 @@
       .ec-dd{position:relative;border:none;box-shadow:none;display:block;padding:0;margin-left:8px}
       .ec-cta{display:inline-block;margin-top:8px}
     }
+    .ec-section{scroll-margin-top:100px}
   </style>
-
   <nav class="ec-nav">
     <div class="ec-brand">
       <span class="dot"></span>
       <a href="#top">EstheConnect Center</a>
     </div>
-
-    <button class="ec-burger ec-cta" style="display:none;border:none" aria-label="Menu" onclick="document.querySelector('.ec-menu').classList.toggle('open')">Menu</button>
-
+    <button class="ec-burger ec-cta" style="border:none" aria-label="Menu" onclick="document.querySelector('.ec-menu').classList.toggle('open')">Menu</button>
     <ul class="ec-menu">
       <li>
-        <a href="#seins">Seins ▾</a>
+        <a href="#interventions">Interventions ▾</a>
         <div class="ec-dd">
+          <strong style="display:block;padding:6px 12px;color:#7a1440">Seins</strong>
           <a data-proc="Augmentation mammaire" href="#seins">Augmentation mammaire</a>
           <a data-proc="Lipofilling mammaire" href="#seins">Lipofilling mammaire</a>
           <a data-proc="Lifting mammaire" href="#seins">Lifting mammaire</a>
           <a data-proc="Réduction mammaire" href="#seins">Réduction mammaire</a>
           <a data-proc="Asymétrie mammaire" href="#seins">Asymétrie mammaire</a>
-          <a data-proc="Gynécomastie" href="#seins">Gynécomastie (hommes)</a>
-        </div>
-      </li>
-
-      <li>
-        <a href="#corps">Corps ▾</a>
-        <div class="ec-dd">
+          <a data-proc="Gynécomastie" href="#seins">Gynécomastie</a>
+          <strong style="display:block;padding:6px 12px;color:#7a1440">Corps</strong>
           <a data-proc="Liposuccion" href="#corps">Liposuccion</a>
           <a data-proc="BBL (lipofilling fessier)" href="#corps">Lipofilling des fesses (BBL)</a>
           <a data-proc="Abdominoplastie" href="#corps">Abdominoplastie</a>
           <a data-proc="Mini abdominoplastie" href="#corps">Mini abdominoplastie</a>
-          <a data-proc="Lifting des bras" href="#corps">Lifting bras</a>
-          <a data-proc="Lifting des cuisses" href="#corps">Lifting cuisses</a>
-          <a data-proc="Implants fessiers" href="#corps">Implant fessier</a>
+          <a data-proc="Lifting des bras" href="#corps">Lifting des bras</a>
+          <a data-proc="Lifting des cuisses" href="#corps">Lifting des cuisses</a>
+          <a data-proc="Implants fessiers" href="#corps">Implants fessiers</a>
           <a data-proc="Vaser / J-Plasma" href="#corps">Vaser / J-Plasma</a>
-        </div>
-      </li>
-
-      <li>
-        <a href="#visage">Visage ▾</a>
-        <div class="ec-dd">
+          <strong style="display:block;padding:6px 12px;color:#7a1440">Visage</strong>
           <a data-proc="Lifting visage" href="#visage">Lifting visage</a>
-          <a data-proc="Blépharoplastie" href="#visage">Yeux : blépharoplastie</a>
+          <a data-proc="Blépharoplastie" href="#visage">Blépharoplastie</a>
           <a data-proc="Rhinoplastie" href="#visage">Rhinoplastie</a>
           <a data-proc="Lipofilling visage" href="#visage">Lipofilling visage</a>
-          <a data-proc="Liposuccion double menton" href="#visage">Liposuccion double menton</a>
+          <a data-proc="Liposuccion double menton" href="#visage">Double menton</a>
           <a data-proc="Bichectomie" href="#visage">Bichectomie</a>
           <a data-proc="Otoplastie" href="#visage">Otoplastie</a>
-        </div>
-      </li>
-
-      <li>
-        <a href="#obesite">Obésité ▾</a>
-        <div class="ec-dd">
-          <a data-proc="Bypass gastrique" href="#obesite">Bypass</a>
+          <strong style="display:block;padding:6px 12px;color:#7a1440">Autres</strong>
           <a data-proc="Sleeve gastrectomie" href="#obesite">Sleeve</a>
+          <a data-proc="Bypass gastrique" href="#obesite">Bypass</a>
           <a data-proc="Ballon gastrique" href="#obesite">Ballon gastrique</a>
-        </div>
-      </li>
-
-      <li>
-        <a href="#greffe">Greffe de cheveux ▾</a>
-        <div class="ec-dd">
-          <a data-proc="FUE 2500–3000 greffons" href="#greffe">FUE 2500–3000 greffons</a>
+          <a data-proc="FUE 2500–3000 greffons" href="#greffe">Greffe FUE</a>
           <a data-proc="Greffe barbe" href="#greffe">Greffe barbe</a>
-        </div>
-      </li>
-
-      <li>
-        <a href="#dents">Dents ▾</a>
-        <div class="ec-dd">
           <a data-proc="Facettes dentaires" href="#dents">Facettes dentaires</a>
           <a data-proc="Orthodontie invisible" href="#dents">Orthodontie invisible</a>
           <a data-proc="Blanchiment" href="#dents">Blanchiment</a>
           <a data-proc="Implant + pilier" href="#dents">Implant + pilier</a>
+          <a data-proc="Chirurgie intime" href="#intime">Chirurgie intime</a>
         </div>
       </li>
-
-      <li>
-        <a href="#intime">Chirurgie intime ▾</a>
-        <div class="ec-dd">
-          <a data-proc="Nymphoplastie" href="#intime">Nymphoplastie</a>
-          <a data-proc="Vaginoplastie" href="#intime">Vaginoplastie</a>
-          <a data-proc="Lipostructure grandes lèvres" href="#intime">Lipostructure des grandes lèvres</a>
-          <a data-proc="Hyménoplastie" href="#intime">Hyménoplastie</a>
-          <a data-proc="Pénoplastie" href="#intime">Hommes : pénoplastie</a>
-        </div>
-      </li>
-
-      <li><a class="ec-cta" href="prix.html">Tarifs</a></li>
+      <li><a href="#avantapres">Avant Après</a></li>
+      <li><a href="#chirurgiens">Chirurgiens</a></li>
+      <li><a href="#clinique">Clinique</a></li>
+      <li><a href="#temoignages">Témoignages</a></li>
+      <li><a href="#hotels">Hôtels</a></li>
+      <li><a href="prix.html">Tarifs</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#contact">Contact</a></li>
       <li><a class="ec-cta" href="#devis">Demande de devis</a></li>
     </ul>
   </nav>
@@ -154,191 +120,7 @@
       document.querySelector('.ec-menu')?.classList.remove('open');
     });
   });
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', e=>{
-      const id=a.getAttribute('href').slice(1);
-      const el=document.getElementById(id);
-      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
-    });
-  });
 </script>
-
-<!-- ========= SECTIONS (résumés) ========= -->
-<style>
-  .ec-section{max-width:1100px;margin:50px auto;padding:0 16px;font-family:system-ui}
-  .ec-section h2{color:#c2185b;font-size:clamp(26px,4vw,34px);margin-bottom:8px}
-  .ec-lead{color:#5b2243;background:#fff7fb;border:1px solid #f4cfe0;padding:12px 14px;border-radius:12px}
-  .ec-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
-  .ec-card{background:#fff;border:1px solid #f2cfe0;border-radius:16px;padding:14px}
-  .ec-card h3{margin:0 0 6px 0;color:#7a1440}
-  .ec-ul{margin:0;padding-left:18px}
-  .ec-ul li{margin:6px 0}
-  @media (max-width:900px){.ec-grid{grid-template-columns:1fr}}
-</style>
-
-<section id="seins" class="ec-section">
-  <h2>Chirurgie des seins</h2>
-  <p class="ec-lead">Augmentation (prothèses rondes/anatomiques), lipofilling, lifting (ptôse), réduction, asymétrie, gynécomastie.</p>
-  <div class="ec-grid">
-    <div class="ec-card"><h3>Indications</h3><ul class="ec-ul"><li>Augmentation ou correction post‑grossesse/amaigrissement.</li><li>Ptôse → lifting avec/ sans prothèses.</li><li>Asymétrie & gynécomastie.</li></ul></div>
-    <div class="ec-card"><h3>Inclus</h3><ul class="ec-ul"><li>Bloc, anesthésie, honoraires, 1–2 nuits selon acte.</li><li>Soutien‑gorge/gaine post‑op si nécessaire.</li><li>Suivi et contrôles.</li></ul></div>
-  </div>
-</section>
-
-<section id="corps" class="ec-section">
-  <h2>Chirurgie de la silhouette (Corps)</h2>
-  <p class="ec-lead">Lipo 1–3 zones ou complète, BBL, abdominoplastie/mini, lifting bras/cuisses, implants fessiers, options Vaser & J‑Plasma.</p>
-  <div class="ec-grid">
-    <div class="ec-card"><h3>Techniques</h3><ul class="ec-ul"><li>Lipo : retrait graisses résistantes.</li><li>BBL : transfert de graisse vers les fesses.</li><li>Abdomino : excès peau + réparation diastasis.</li><li>Vaser/J‑Plasma : raffermissement & définition.</li></ul></div>
-    <div class="ec-card"><h3>Suites</h3><ul class="ec-ul"><li>Gaine 4–6 semaines, arrêt tabac recommandé.</li><li>Sport progressif, résultat 3–6 mois (définitif ~12 mois).</li></ul></div>
-  </div>
-</section>
-
-<section id="visage" class="ec-section">
-  <h2>Chirurgie du visage</h2>
-  <p class="ec-lead">Lifting, blépharoplastie, rhinoplastie, lipofilling, double menton, bichectomie, otoplastie.</p>
-  <div class="ec-grid">
-    <div class="ec-card"><h3>Objectifs</h3><ul class="ec-ul"><li>Rajeunissement harmonieux.</li><li>Regard défatigé & nez fonctionnel/esthétique.</li></ul></div>
-    <div class="ec-card"><h3>Généralités</h3><ul class="ec-ul"><li>Œdèmes/bleus transitoires.</li><li>Protection solaire cicatrices.</li></ul></div>
-  </div>
-</section>
-
-<section id="obesite" class="ec-section">
-  <h2>Chirurgie de l’obésité</h2>
-  <p class="ec-lead">Sleeve, bypass, ballon gastrique — bilan pré‑op & suivi nutritionnel.</p>
-  <div class="ec-grid">
-    <div class="ec-card"><h3>Parcours</h3><ul class="ec-ul"><li>Bilan multi‑disciplinaire.</li><li>Suivi vitaminique.</li></ul></div>
-    <div class="ec-card"><h3>Bénéfices</h3><ul class="ec-ul"><li>Perte pondérale durable.</li><li>Amélioration comorbidités.</li></ul></div>
-  </div>
-</section>
-
-<section id="greffe" class="ec-section">
-  <h2>Greffe capillaire</h2>
-  <p class="ec-lead">FUE 2500–3000 greffons, greffe barbe. PRP + soins post‑op selon forfait.</p>
-  <div class="ec-grid">
-    <div class="ec-card"><h3>Déroulement</h3><ul class="ec-ul"><li>Extraction FUE & implantation naturelle.</li><li>Reprise sociale 3–7 jours, résultat 9–12 mois.</li></ul></div>
-    <div class="ec-card"><h3>Conseils</h3><ul class="ec-ul"><li>Shampoing doux, protection soleil/mer.</li></ul></div>
-  </div>
-</section>
-
-<section id="dents" class="ec-section">
-  <h2>Soins dentaires esthétiques</h2>
-  <p class="ec-lead">Facettes, orthodontie invisible, blanchiment, implant + pilier.</p>
-  <div class="ec-grid">
-    <div class="ec-card"><h3>Facettes</h3><ul class="ec-ul"><li>Correction couleur/forme/alignement.</li></ul></div>
-    <div class="ec-card"><h3>Implants</h3><ul class="ec-ul"><li>Remplacement durable d’une dent absente.</li></ul></div>
-  </div>
-</section>
-
-<section id="intime" class="ec-section">
-  <h2>Chirurgie intime</h2>
-  <p class="ec-lead">Nymphoplastie, vaginoplastie, lipostructure, hyménoplastie, pénoplastie.</p>
-  <div class="ec-grid">
-    <div class="ec-card"><h3>Infos</h3><ul class="ec-ul"><li>Amélioration confort & esthétique.</li><li>Abstinence 4–6 semaines.</li></ul></div>
-    <div class="ec-card"><h3>Confidentialité</h3><ul class="ec-ul"><li>Parcours discret, accompagnement dédié.</li></ul></div>
-  </div>
-</section>
-
-<!-- ========= FORMULAIRE DEMANDE DE DEVIS ========= -->
-<section id="devis" class="ec-section">
-  <h2>Demande de devis</h2>
-  <p class="ec-lead">Obtenez un devis personnalisé GRATUIT. Réponse rapide via WhatsApp/Email.</p>
-  <form id="devis-form" class="ec-grid" onsubmit="ECsubmit(event)">
-    <style>
-      #devis-form input,#devis-form select,#devis-form textarea{width:100%;padding:12px;border:1px solid #f0c7dc;border-radius:12px;font-size:15px}
-      #devis-form button{background:linear-gradient(90deg,#e91e63,#ff7aa8);color:#fff;border:none;padding:12px 18px;border-radius:12px;font-weight:800;cursor:pointer}
-    </style>
-    <input type="text" id="nom" placeholder="Nom et prénom" required>
-    <input type="tel" id="tel" placeholder="Votre numéro de téléphone" required>
-    <input type="email" id="email" placeholder="Email" required>
-    <select id="demande-intervention" required>
-      <option value="" disabled selected>Intervention(s) souhaitée(s)</option>
-      <optgroup label="Seins">
-        <option>Augmentation mammaire</option>
-        <option>Lipofilling mammaire</option>
-        <option>Lifting mammaire</option>
-        <option>Réduction mammaire</option>
-        <option>Asymétrie mammaire</option>
-        <option>Gynécomastie</option>
-      </optgroup>
-      <optgroup label="Corps">
-        <option>Liposuccion</option>
-        <option>BBL (lipofilling fessier)</option>
-        <option>Abdominoplastie</option>
-        <option>Mini abdominoplastie</option>
-        <option>Lifting des bras</option>
-        <option>Lifting des cuisses</option>
-        <option>Implants fessiers</option>
-        <option>Vaser / J-Plasma</option>
-      </optgroup>
-      <optgroup label="Visage">
-        <option>Lifting visage</option>
-        <option>Blépharoplastie</option>
-        <option>Rhinoplastie</option>
-        <option>Lipofilling visage</option>
-        <option>Liposuccion double menton</option>
-        <option>Bichectomie</option>
-        <option>Otoplastie</option>
-      </optgroup>
-      <optgroup label="Obésité">
-        <option>Sleeve gastrectomie</option>
-        <option>Bypass gastrique</option>
-        <option>Ballon gastrique</option>
-      </optgroup>
-      <optgroup label="Greffe capillaire">
-        <option>FUE 2500–3000 greffons</option>
-        <option>Greffe barbe</option>
-      </optgroup>
-      <optgroup label="Dents">
-        <option>Facettes dentaires</option>
-        <option>Orthodontie invisible</option>
-        <option>Blanchiment</option>
-        <option>Implant + pilier</option>
-      </optgroup>
-      <optgroup label="Intime">
-        <option>Nymphoplastie</option>
-        <option>Vaginoplastie</option>
-        <option>Lipostructure grandes lèvres</option>
-        <option>Hyménoplastie</option>
-        <option>Pénoplastie</option>
-      </optgroup>
-    </select>
-    <textarea id="msg" rows="4" placeholder="Précisez vos objectifs, photos, dates souhaitées… (optionnel)"></textarea>
-    <button type="submit">JE VEUX UN DEVIS</button>
-    <p id="ec-ok" style="grid-column:1/-1;color:#2e7d32;display:none">Merci ! Préparez l’envoi via WhatsApp ou e‑mail ci‑dessous.</p>
-  </form>
-  <div style="margin-top:10px">
-    <a class="ec-cta" style="padding:10px 14px" target="_blank" id="ec-wa">Envoyer via WhatsApp</a>
-    <a class="ec-cta" style="padding:10px 14px;margin-left:8px" id="ec-mail">Envoyer par e-mail</a>
-  </div>
-</section>
-
-<script>
-  function ECsubmit(e){
-    e.preventDefault();
-    const nom=document.getElementById('nom').value.trim();
-    const tel=document.getElementById('tel').value.trim();
-    const email=document.getElementById('email').value.trim();
-    const inter=document.getElementById('demande-intervention').value;
-    const msg=document.getElementById('msg').value.trim();
-    const lines=[
-      'Nouvelle demande EstheConnect',
-      'Nom: '+nom,
-      'Téléphone: '+tel,
-      'Email: '+email,
-      'Intervention: '+inter,
-      msg?('Message: '+msg):''
-    ].filter(Boolean).join('%0A');
-    const wa=`https://wa.me/21628296239?text=${lines}`;
-    document.getElementById('ec-wa').href=wa;
-    const subject=encodeURIComponent('Demande de devis – '+inter);
-    const body=lines.replace(/%0A/g,'\n');
-    document.getElementById('ec-mail').href=`mailto:aboprof.bm2@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
-    document.getElementById('ec-ok').style.display='block';
-    document.getElementById('devis').scrollIntoView({behavior:'smooth'});
-  }
-</script>
-
 <section id="tarifs-estheconnect" class="tarifs-ec">
   <style>
     .tarifs-ec{--rose:#e91e63;--rose-10:#fde6ef;--gold:#d4af37;--text:#2b2b2b;--border:#f2cfe0;margin:40px auto;max-width:1100px;padding:0 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
@@ -480,7 +262,6 @@
 
   <p class="note">* Prix indicatifs — devis personnalisé après photos & visio. Options (vol/hôtel/accompagnant) possibles. Contact : <a href="https://wa.me/21628296239" target="_blank">WhatsApp +216 28 296 239</a> · <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
 </section>
-
 <footer class="ec-footer">
   <hr style="border:none;border-top:1px solid #f3cfe0;margin:24px 0">
   <small>
