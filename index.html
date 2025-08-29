@@ -1,317 +1,139 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EstheConnect — Plateforme esthétique</title>
-
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="canonical" href="https://fort2008.github.io/EstheConnect/" />
-
-  <meta name="description" content="EstheConnect — Comparez les cliniques, demandez un devis et réservez vos interventions esthétiques en toute confiance." />
-  <meta name="theme-color" content="#f48fb1" />
-
+<section id="tarifs-estheconnect" class="tarifs-ec">
   <style>
-    :root{
-      --rose:#f48fb1; --rose-200:#f8c7d7; --rose-50:#fff2f6;
-      --doré:#c9a227; --encre:#2a2333; --gris:#6b6b7a; --bg:#fff;
-      --shadow:0 10px 30px rgba(0,0,0,.08); --radius:18px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;color:var(--encre);background:var(--bg)}
-    .container{max-width:1200px;margin:auto;padding:0 18px}
-
-    /* TOP */
-    .topbar{position:sticky;top:0;z-index:80;background:linear-gradient(90deg,var(--rose),#e66495);color:#fff}
-    .topbar-inner{max-width:1200px;margin:auto;display:flex;align-items:center;gap:16px;padding:10px 16px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
-    .brand .logo{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#fff1f6;color:#e23c78;font-weight:900;box-shadow:var(--shadow)}
-    .brand small{opacity:.85;font-weight:600}
-    .nav{margin-left:auto;display:flex;align-items:center;gap:22px}
-    .nav a{color:#fff;text-decoration:none;font-weight:600;opacity:.95}
-    .cta{margin-left:8px;background:#fff;color:#e23c78;padding:10px 14px;border-radius:14px;font-weight:800;box-shadow:var(--shadow)}
-
-    /* MEGA MENU */
-    .megabar{position:sticky;top:54px;z-index:70;background:#fff;border-bottom:3px solid var(--doré)}
-    .mega-wrap{max-width:1200px;margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
-    .menu{display:flex;flex-wrap:wrap;gap:6px}
-    .menu > li{position:relative;list-style:none}
-    .menu > li > button{appearance:none;border:0;background:transparent;padding:10px 14px;border-radius:12px;font-weight:700;color:#2b2440}
-    .menu > li > button:hover{background:var(--rose-50)}
-    .menu > li:focus-within > button{outline:2px solid var(--rose)}
-    .panel{position:absolute;left:0;top:100%;min-width:320px;transform:translateY(8px);background:#fff;border:1px solid #eee;border-radius:var(--radius);box-shadow:var(--shadow);padding:14px;opacity:0;visibility:hidden;transition:.2s}
-    .menu > li:hover .panel,.menu > li:focus-within .panel{opacity:1;visibility:visible}
-    .panel-grid{display:grid;grid-template-columns:repeat(2,minmax(180px,1fr));gap:10px;min-width:560px}
-    .item{display:flex;align-items:center;gap:12px;padding:10px;border-radius:14px}
-    .item:hover{background:var(--rose-50)}
-    .badge{width:42px;height:42px;border-radius:50%;border:2px solid var(--rose);display:grid;place-items:center;font-weight:800;color:#e23c78;background:#fff}
-    .item a{color:var(--encre);text-decoration:none;font-weight:650}
-
-    /* HERO / SLIDER */
-    .hero{position:relative;isolation:isolate;min-height:72vh;display:grid;place-items:center;overflow:hidden;border-bottom:4px solid var(--doré);background:#f7f0f4}
-    .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease-in-out}
-    .slide.active{opacity:1}
-    .slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,.15), rgba(0,0,0,0));z-index:1}
-    .hero .content{position:relative;z-index:2;text-align:center;color:#fff;padding:0 18px}
-    .hero .content h1{font-size:clamp(30px,5vw,52px);line-height:1.05;margin:0 0 10px}
-    .hero .content p{font-size:clamp(15px,2.2vw,19px);opacity:.95;margin:0 0 22px}
-    .btn{display:inline-block;background:var(--doré);color:#fff;padding:12px 20px;border-radius:999px;font-weight:800;text-decoration:none;box-shadow:var(--shadow);margin:6px 8px}
-    .btn.secondary{background:#e23c78}
-    .dots{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:flex;gap:8px;z-index:2}
-    .dots button{width:10px;height:10px;border-radius:50%;border:0;background:#ffffffaa;cursor:pointer}
-    .dots button.active{background:#fff}
-
-    /* FINANCEMENT */
-    .financement{background:var(--rose-50);padding:48px 0;border-bottom:3px solid var(--doré)}
-    .financement h2{font-size:clamp(26px,4.2vw,40px);margin:0 0 10px}
-    .financement p.lead{color:#584f63;font-size:18px;margin:0 0 24px}
-    .fin-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
-    .card{background:#fff;border:1px solid #eee;border-radius:18px;box-shadow:var(--shadow);padding:18px}
-    .card h3{margin:0 0 8px;font-size:20px}
-    .chip{display:inline-block;background:var(--rose-200);color:#7a2b4a;font-weight:700;padding:6px 10px;border-radius:999px;font-size:12px;margin-bottom:10px}
-    .list{margin:10px 0 0 0;padding:0;list-style:none}
-    .list li{padding:6px 0 6px 28px;position:relative}
-    .list li::before{content:"✓";position:absolute;left:0;top:6px;color:#1a7f37;font-weight:900}
-    .calc{display:grid;gap:10px}
-    .calc .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-    .calc input{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:12px;font-size:16px}
-    .calc .result{background:#f7f7fb;border:1px dashed #d9d5e2;border-radius:12px;padding:12px;font-weight:800}
-    .note{font-size:13px;color:#6b6b7a;margin-top:8px}
-
-    /* WhatsApp */
-    .wapp{position:fixed;right:18px;bottom:18px;z-index:90;background:#25D366;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;box-shadow:var(--shadow)}
-    .wapp svg{width:28px;height:28px;fill:#fff}
-
-    /* MOBILE */
-    .burger{display:none;margin-left:auto}
-    .drawer{display:none}
-    @media (max-width:900px){
-      .megabar{top:unset;position:relative}
-      .menu{display:none}
-      .burger{display:inline-flex;align-items:center;gap:6px;background:var(--rose);color:#fff;border:0;border-radius:12px;padding:10px 12px;font-weight:800}
-      .drawer{display:block;padding:10px 16px;border-top:1px solid #eee}
-      .acc{border:1px solid #eee;border-radius:14px;margin:8px 0}
-      .acc summary{cursor:pointer;list-style:none;padding:12px 14px;font-weight:800}
-      .panel-mobile .item{padding:10px}
-      .hero{min-height:60vh}
-      .fin-grid{grid-template-columns:1fr}
-      .calc .row{grid-template-columns:1fr}
+    .tarifs-ec{--rose:#e91e63;--rose-10:#fde6ef;--gold:#d4af37;--text:#2b2b2b;--border:#f2cfe0;margin:40px auto;max-width:1100px;padding:0 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    .tarifs-ec h2{font-size:clamp(26px,4vw,34px);margin:22px 0 10px;color:var(--text)}
+    .tarifs-ec .card{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 6px 18px rgba(0,0,0,.04);overflow:hidden;margin:18px 0}
+    .tarifs-ec .head{display:flex;align-items:center;gap:10px;background:linear-gradient(90deg,var(--rose),#ff7aa8);color:#fff;padding:14px 18px;font-weight:700}
+    .tarifs-ec .head .dot{width:10px;height:10px;border-radius:99px;background:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.25)}
+    .tarifs-ec table{width:100%;border-collapse:collapse}
+    .tarifs-ec th,.tarifs-ec td{padding:13px 14px;border-bottom:1px solid #f6dbe6}
+    .tarifs-ec th{background:var(--rose-10);text-align:left;color:#7a1440}
+    .tarifs-ec td.price{font-weight:800;color:#c2185b}
+    .tarifs-ec .note{font-size:13px;color:#6b6b6b;margin-top:8px}
+    @media (max-width:640px){
+      .tarifs-ec th:nth-child(2),.tarifs-ec td:nth-child(2){text-align:right}
+      .tarifs-ec th{font-size:14px}
     }
   </style>
-</head>
-<body>
-  <!-- TOP -->
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <div class="logo">EC</div>
-        <div>EstheConnect<br /><small>Plateforme esthétique</small></div>
-      </div>
-      <nav class="nav">
-        <a href="#galerie">Photos avant / après</a>
-        <a href="#avis">Avis</a>
-        <a href="#etranger">Chirurgie à l’étranger</a>
-        <a href="#financement">Financement</a>
-        <a class="cta" href="https://wa.me/21628296239" target="_blank" rel="noopener">Réserver en ligne</a>
-      </nav>
-    </div>
+
+  <!-- CHIRURGIE DU SEIN -->
+  <div class="card">
+    <div class="head"><span class="dot"></span><span>Chirurgie du sein</span></div>
+    <table>
+      <thead><tr><th>Acte</th><th>Prix</th></tr></thead>
+      <tbody>
+        <tr><td>Augmentation mammaire avec prothèses rondes</td><td class="price">2 450€</td></tr>
+        <tr><td>Augmentation mammaire avec prothèses anatomiques</td><td class="price">2 450€</td></tr>
+        <tr><td>Liposuccion + lipofilling des seins</td><td class="price">2 650€</td></tr>
+      </tbody>
+    </table>
   </div>
 
-  <!-- MEGA MENU (raccourci) -->
-  <div class="megabar">
-    <div class="mega-wrap">
-      <button class="burger" onclick="document.getElementById('drawer').classList.toggle('open')">☰ Menu</button>
-      <ul class="menu" role="menubar" aria-label="Catégories">
-        <li role="none"><button role="menuitem" aria-haspopup="true">Seins</button>
-          <div class="panel" role="group" aria-label="Seins">
-            <div class="panel-grid">
-              <div class="item"><div class="badge">S</div><a href="#">Augmentation mammaire</a></div>
-              <div class="item"><div class="badge">L</div><a href="#">Lifting mammaire</a></div>
-              <div class="item"><div class="badge">R</div><a href="#">Réduction mammaire</a></div>
-              <div class="item"><div class="badge">C</div><a href="#">Correction mamelons</a></div>
-            </div>
-          </div>
-        </li>
-        <li role="none"><button role="menuitem" aria-haspopup="true">Liposuccion</button>
-          <div class="panel" role="group" aria-label="Liposuccion">
-            <div class="panel-grid">
-              <div class="item"><div class="badge">Li</div><a href="#">Liposuccion</a></div>
-              <div class="item"><div class="badge">Ls</div><a href="#">Liposculpture</a></div>
-              <div class="item"><div class="badge">BBL</div><a href="#">Brazilian Butt Lift</a></div>
-              <div class="item"><div class="badge">Gy</div><a href="#">Gynécomastie</a></div>
-            </div>
-          </div>
-        </li>
-        <li role="none"><button role="menuitem" aria-haspopup="true">Visage</button>
-          <div class="panel" role="group" aria-label="Visage">
-            <div class="panel-grid">
-              <div class="item"><div class="badge">N</div><a href="#">Rhinoplastie</a></div>
-              <div class="item"><div class="badge">Y</div><a href="#">Paupières</a></div>
-              <div class="item"><div class="badge">L</div><a href="#">Lèvres</a></div>
-              <div class="item"><div class="badge">Pe</div><a href="#">Peau & injections</a></div>
-            </div>
-          </div>
-        </li>
-        <li role="none"><button role="menuitem" aria-haspopup="true">Corps</button>
-          <div class="panel" role="group" aria-label="Corps">
-            <div class="panel-grid">
-              <div class="item"><div class="badge">B</div><a href="#">Bras</a></div>
-              <div class="item"><div class="badge">V</div><a href="#">Ventre</a></div>
-              <div class="item"><div class="badge">F</div><a href="#">Fesses</a></div>
-              <div class="item"><div class="badge">MM</div><a href="#">Mommy Makeover</a></div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
+  <div class="card">
+    <div class="head"><span class="dot"></span><span>Lifting des seins</span></div>
+    <table>
+      <thead><tr><th>Acte</th><th>Prix</th></tr></thead>
+      <tbody>
+        <tr><td>Lifting des seins avec prothèses rondes</td><td class="price">2 750€</td></tr>
+        <tr><td>Lifting des seins avec prothèses anatomiques</td><td class="price">2 750€</td></tr>
+        <tr><td>Lifting des seins sans prothèses</td><td class="price">2 150€</td></tr>
+        <tr><td>Réduction mammaire</td><td class="price">2 150€</td></tr>
+        <tr><td>Gynécomastie (hommes)</td><td class="price">1 750€</td></tr>
+      </tbody>
+    </table>
   </div>
 
-  <!-- HERO / SLIDER (LOCAL IMAGES + FALLBACKS) -->
-  <section class="hero" id="accueil" aria-label="Diaporama">
-    <div class="slide active">
-      <img alt="Clinique moderne" loading="eager"
-           src="assets/img/slide1.jpg"
-           onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&h=1000&q=80';" />
-    </div>
-    <div class="slide">
-      <img alt="Salle d'esthétique lumineuse"
-           src="assets/img/slide2.jpg"
-           onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1597764699510-4e26ebf0f122?auto=format&fit=crop&w=1600&h=1000&q=80';" />
-    </div>
-    <div class="slide">
-      <img alt="Cabinet dentaire moderne"
-           src="assets/img/slide3.jpg"
-           onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=1600&h=1000&q=80';" />
-    </div>
-    <div class="slide">
-      <img alt="Dermatologie et laser"
-           src="assets/img/slide4.jpg"
-           onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1600&h=1000&q=80';" />
-    </div>
-    <div class="slide">
-      <img alt="Bloc ou salle de soin stérile"
-           src="assets/img/slide5.jpg"
-           onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&h=1000&q=80';" />
-    </div>
+  <!-- SILHOUETTE / LIPO -->
+  <div class="card">
+    <div class="head"><span class="dot"></span><span>Chirurgie de la silhouette (Liposuccion)</span></div>
+    <table>
+      <thead><tr><th>Acte / Technique</th><th>Prix</th></tr></thead>
+      <tbody>
+        <tr><td>Liposuccion 1 zone</td><td class="price">1 350€</td></tr>
+        <tr><td>Liposuccion 2 zones</td><td class="price">1 550€</td></tr>
+        <tr><td>Liposuccion 3 zones</td><td class="price">1 750€</td></tr>
+        <tr><td>Liposuccion complète</td><td class="price">2 150€</td></tr>
+        <tr><td>Liposuccion complète + lipofilling des fesses (BBL)</td><td class="price">2 650€</td></tr>
+        <tr><td>Liposuccion complète + Vaser</td><td class="price">2 650€</td></tr>
+        <tr><td>Liposuccion complète HD</td><td class="price">2 650€</td></tr>
+        <tr><td>Liposuccion J-Plasma jusqu’à 2 zones</td><td class="price">3 550€</td></tr>
+        <tr><td>Liposuccion J-Plasma 3 zones et plus</td><td class="price">4 150€</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-    <div class="content">
-      <h1>EstheConnect — Plateforme esthétique</h1>
-      <p>Comparez les cliniques, obtenez un devis et réservez en toute confiance.</p>
-      <a href="https://wa.me/21628296239" target="_blank" rel="noopener" class="btn">Contact WhatsApp</a>
-      <a href="#financement" class="btn secondary">Financement</a>
-    </div>
-    <div class="dots" aria-label="Navigation diaporama"></div>
-  </section>
+  <!-- PLASTIE ABDOMINALE -->
+  <div class="card">
+    <div class="head"><span class="dot"></span><span>Plastie abdominale</span></div>
+    <table>
+      <thead><tr><th>Acte</th><th>Prix</th></tr></thead>
+      <tbody>
+        <tr><td>Abdominoplastie</td><td class="price">2 400€</td></tr>
+        <tr><td>Abdominoplastie + liposuccion</td><td class="price">2 900€</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <!-- FINANCEMENT -->
-  <section id="financement" class="financement">
-    <div class="container">
-      <h2>Financement & paiement</h2>
-      <p class="lead">Solutions souples pour planifier sereinement votre intervention. Devis gratuit et sans engagement.</p>
+  <!-- LIFTING BRAS / CUISSES & AUGMENTATION FESSES -->
+  <div class="card">
+    <div class="head"><span class="dot"></span><span>Lifting & Fesses</span></div>
+    <table>
+      <thead><tr><th>Acte</th><th>Prix</th></tr></thead>
+      <tbody>
+        <tr><td>Lifting des bras</td><td class="price">1 650€</td></tr>
+        <tr><td>Lifting des cuisses</td><td class="price">2 250€</td></tr>
+        <tr><td>Augmentation des fesses avec prothèses</td><td class="price">3 050€</td></tr>
+        <tr><td>Liposuccion complète + lipofilling des fesses (BBL)</td><td class="price">2 650€</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-      <div class="fin-grid">
-        <div class="card">
-          <span class="chip">Échelonné</span>
-          <h3>Paiement en plusieurs fois</h3>
-          <ul class="list">
-            <li>Échéancier 3×, 6× ou 12× (selon éligibilité)</li>
-            <li>Versement d’acompte & calendrier clair</li>
-            <li>Sans frais cachés — conditions communiquées avant accord</li>
-          </ul>
-          <a class="btn" href="https://wa.me/21628296239" target="_blank" rel="noopener">Je demande un plan</a>
-        </div>
-        <div class="card">
-          <span class="chip">Classique</span>
-          <h3>Virement / Carte</h3>
-          <ul class="list">
-            <li>Virement bancaire sécurisé (BE/TN/UE)</li>
-            <li>Carte bancaire selon clinique/partenaire</li>
-            <li>Facture et confirmation immédiate</li>
-          </ul>
-          <a class="btn" href="#contact">Obtenir un RIB / infos</a>
-        </div>
-        <div class="card">
-          <span class="chip">Simulation</span>
-          <h3>Calculez votre mensualité</h3>
-          <div class="calc">
-            <div class="row">
-              <input id="amt" type="number" min="0" step="50" placeholder="Montant (€) — ex. 3200" />
-              <input id="months" type="number" min="1" max="60" step="1" placeholder="Durée (mois) — ex. 12" />
-              <input id="rate" type="number" min="0" step="0.1" placeholder="TAEG (%) — ex. 6.5" />
-            </div>
-            <div class="result" id="mensu">Mensualité estimée : — €/mois</div>
-            <div class="note">Indicatif, hors assurances. Le taux dépend de votre profil et partenaire financier.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- VISAGE -->
+  <div class="card">
+    <div class="head"><span class="dot"></span><span>Chirurgie du visage</span></div>
+    <table>
+      <thead><tr><th>Acte</th><th>Prix</th></tr></thead>
+      <tbody>
+        <tr><td>Lifting cervico-facial</td><td class="price">2 300€</td></tr>
+        <tr><td>Lifting temporal</td><td class="price">1 950€</td></tr>
+        <tr><td>Lifting malaire</td><td class="price">1 950€</td></tr>
+        <tr><td>Lifting complet du visage</td><td class="price">2 900€</td></tr>
+        <tr><td>Lipofilling du visage</td><td class="price">1 550€</td></tr>
+        <tr><td>Blépharoplastie 2 paupières supérieures</td><td class="price">1 650€</td></tr>
+        <tr><td>Blépharoplastie 2 paupières inférieures</td><td class="price">1 650€</td></tr>
+        <tr><td>Blépharoplastie 4 paupières</td><td class="price">1 750€</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <!-- CONTENU EXEMPLE -->
-  <main class="container" style="margin:30px auto">
-    <h1 id="galerie" style="font-size:clamp(28px,4vw,42px);line-height:1.1;margin:18px 0">Facettes dentaires</h1>
-    <p style="font-size:18px;color:#584f63">Exemple de page pour tester le méga-menu et le diaporama. Remplace ce contenu par tes sections (services, prix, contact…).</p>
-    <p id="contact">Devis & infos : <a href="https://wa.me/21628296239" target="_blank" rel="noopener">WhatsApp</a> • <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
-  </main>
+  <!-- NEZ / LÈVRES / OREILLES / BICHAT / GREFFE -->
+  <div class="card">
+    <div class="head"><span class="dot"></span><span>Nez • Lèvres • Oreilles • Bichat • Greffe capillaire</span></div>
+    <table>
+      <thead><tr><th>Acte</th><th>Prix</th></tr></thead>
+      <tbody>
+        <tr><td>Rhinoplastie esthétique</td><td class="price">2 150€</td></tr>
+        <tr><td>Rhinoplastie ethnique</td><td class="price">2 350€</td></tr>
+        <tr><td>Rhinoplastie septoplastie</td><td class="price">2 350€</td></tr>
+        <tr><td>Lipofilling des lèvres</td><td class="price">950€</td></tr>
+        <tr><td>Otoplastie</td><td class="price">1 750€</td></tr>
+        <tr><td>Bichectomie (boules de Bichat)</td><td class="price">1 650€</td></tr>
+        <tr><td>Greffe de cheveux FUE – 2500 greffons</td><td class="price">1 550€</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <!-- WHATSAPP -->
-  <a class="wapp" href="https://wa.me/21628296239" target="_blank" aria-label="WhatsApp EstheConnect" rel="noopener">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.49c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.34-.81-.72-1.36-1.6-1.52-1.87-.16-.27-.02-.41 .12-.55 .12-.12 .27-.32 .41-.48 .14-.16 .18-.27 .27-.45 .09-.18 .05-.34 -.02-.48 -.07-.14 -.61-1.47 -.84-2.01 -.22-.52 -.44-.45 -.61-.46l-.52-.01c-.18 0 -.48 .07 -.73 .34 -.25 .27 -.96 .93 -.96 2.26 0 1.33 .98 2.61 1.12 2.79 .14 .18 1.93 2.95 4.67 4.02 .65 .28 1.16 .45 1.56 .58 .65 .21 1.25 .18 1.72 .11 .52 -.08 1.59 -.65 1.81 -1.27 .22 -.62 .22 -1.14 .16 -1.25 -.07 -.11 -.25 -.18 -.52 -.32zM16.02 4C9.95 4 5 8.95 5 15.02c0 2.47 .79 4.76 2.14 6.62L6 28l6.55 -1.72c1.8 1.19 3.96 1.88 6.28 1.88 6.06 0 11 -4.95 11 -11.02S22.08 4 16.02 4zm0 20.03c-2.29 0 -4.41 -.77 -6.1 -2.06l-.44 -.33 -3.64 .96 .97 -3.56 -.29 -.46A9.97 9.97 0 0 1 6.04 15c0 -5.51 4.47 -9.98 9.98 -9.98 5.51 0 9.98 4.47 9.98 9.98a9.97 9.97 0 0 1 -9.98 10.01z"/></svg>
-  </a>
+  <!-- OBÉSITÉ -->
+  <div class="card">
+    <div class="head"><span class="dot"></span><span>Chirurgie de l’obésité</span></div>
+    <table>
+      <thead><tr><th>Acte</th><th>Prix</th></tr></thead>
+      <tbody>
+        <tr><td>Anneau gastrique</td><td class="price">2 950€</td></tr>
+        <tr><td>Sleeve gastrectomie</td><td class="price">3 750€</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', function(){
-    // SLIDER
-    const slides = document.querySelectorAll('.hero .slide');
-    const dotsWrap = document.querySelector('.hero .dots');
-    if(!slides.length || !dotsWrap) return;
-
-    let i = 0, timer = null, delay = 4500;
-
-    slides.forEach((_, idx) => {
-      const b = document.createElement('button');
-      b.setAttribute('aria-label', 'Aller à la diapo ' + (idx+1));
-      b.addEventListener('click', () => go(idx, true));
-      dotsWrap.appendChild(b);
-    });
-    const dots = dotsWrap.querySelectorAll('button');
-
-    function go(next, user=false){
-      slides[i].classList.remove('active'); dots[i].classList.remove('active');
-      i = (typeof next === 'number') ? next : (i+1)%slides.length;
-      slides[i].classList.add('active'); dots[i].classList.add('active');
-      if(user){ restart(); }
-    }
-    function start(){ timer = setInterval(go, delay); }
-    function stop(){ clearInterval(timer); }
-    function restart(){ stop(); start(); }
-
-    slides[0].classList.add('active'); dots[0].classList.add('active'); start();
-
-    const hero = document.querySelector('.hero');
-    hero.addEventListener('mouseenter', stop);
-    hero.addEventListener('mouseleave', start);
-
-    // SIMULATEUR
-    const amt = document.getElementById('amt');
-    const months = document.getElementById('months');
-    const rate = document.getElementById('rate');
-    const mensu = document.getElementById('mensu');
-    function update(){
-      const P = parseFloat(amt?.value || 0);
-      const n = parseInt(months?.value || 0, 10);
-      const t = parseFloat(rate?.value || 0) / 100 / 12;
-      if(!P || !n){ if(mensu) mensu.textContent = 'Mensualité estimée : — €/mois'; return; }
-      const M = t === 0 ? (P/n) : P * t / (1 - Math.pow(1 + t, -n));
-      if(mensu) mensu.textContent = 'Mensualité estimée : ' + M.toFixed(2).replace('.', ',') + ' €/mois';
-    }
-    ['input','change'].forEach(evt=>{
-      amt?.addEventListener(evt, update);
-      months?.addEventListener(evt, update);
-      rate?.addEventListener(evt, update);
-    });
-  });
-  </script>
-</body>
-</html>
+  <p class="note">* Prix indicatifs non contractuels — devis personnalisé après photos & visio. Options (vol/hôtel/accompagnant) possibles. Contact : <a href="https://wa.me/21628296239" target="_blank">WhatsApp +216 28 296 239</a> · <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
+</section>
