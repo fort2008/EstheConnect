@@ -1,0 +1,1 @@
+Remplacez votre index.html par celui-ci et ajoutez visage.html à la racine du site.
