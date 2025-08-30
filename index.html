@@ -2,12 +2,16 @@
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Accueil — EstheConnect</title>
 
+<!-- Tes CSS existantes (laisse comme chez toi si présent en prod) -->
 <link rel="stylesheet" href="/EstheConnect/assets/css/style.css"/>
 <link rel="stylesheet" href="/EstheConnect/assets/site.css"/>
 <link rel="stylesheet" href="/EstheConnect/style.css"/>
 <link rel="stylesheet" href="assets/css/style.css"/>
 <link rel="stylesheet" href="assets/site.css"/>
 <link rel="stylesheet" href="style.css"/>
+
+<!-- Patch intégré -->
+<link rel="stylesheet" href="assets/css/ec-enhance.css"/>
 
 <style>
 :root{--ink:#111;--rose:#e6b0ba;--dark:#121212}
@@ -58,14 +62,13 @@ section{padding:40px 0}
 }
 </style>
 
-<!-- Chatbase recommandé : dans le <head> pour une initialisation fiable -->
-<script>
-  window.embeddedChatbotConfig = { chatbotId: "fFFT4q2Uol4y-qUwVpYBZ", domain: "www.chatbase.co" };
-</script>
+<!-- Chatbase (intégré) -->
+<script>window.embeddedChatbotConfig={chatbotId:"fFFT4q2Uol4y-qUwVpYBZ",domain:"www.chatbase.co"};</script>
 <script src="https://www.chatbase.co/embed.min.js" chatbotId="fFFT4q2Uol4y-qUwVpYBZ" domain="www.chatbase.co" defer></script>
 </head>
 
 <body>
+<!-- Top bar -->
 <div class="topbar-mini">
   <div class="wrap" style="display:flex;align-items:center;gap:18px;width:100%">
     <div style="display:flex;gap:16px;flex-wrap:wrap">
@@ -74,7 +77,7 @@ section{padding:40px 0}
       <a href="/EstheConnect/avis.html">AVIS</a>
       <a href="/EstheConnect/index.html#etranger">CHIRURGIE À L’ÉTRANGER</a>
       <a href="/EstheConnect/index.html#infos">INFOS</a>
-      <a href="/EstheConnect/index.html#contact">CONTACT</a>
+      <a href="#contact">CONTACT</a>
     </div>
     <div class="r">
       <div class="pills"><b>FR</b><a>NL</a><a>EN</a><a>DE</a></div>
@@ -83,6 +86,7 @@ section{padding:40px 0}
   </div>
 </div>
 
+<!-- Nav cats -->
 <nav class="nav-cats"><div class="wrap bar">
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/seins.html">Seins</a>
@@ -193,34 +197,25 @@ section{padding:40px 0}
 
 <script>
   document.getElementById('year').textContent=(new Date).getFullYear();
-
-  // v2: on sélectionne la modale AU MOMENT DU CLIC (le script peut être chargé avant la modale)
-  (function(){
-    document.addEventListener('click', function(e){
-      const trg = e.target.closest('[data-reserve-open]');
-      if(!trg) return;
-      e.preventDefault();
-      const modal = document.getElementById('reserveModal');
-      if(modal) modal.hidden = false;
-    });
-
-    document.addEventListener('click', function(e){
-      const modal = document.getElementById('reserveModal');
-      if(!modal) return;
-      if(e.target.id==='reserveClose' || e.target===modal) modal.hidden = true;
-    });
-    document.addEventListener('keydown', (e)=>{
-      const modal = document.getElementById('reserveModal');
-      if(e.key==='Escape' && modal) modal.hidden = true;
-    });
-
-    // Boutons pays -> ouvrir reserver.html
-    function hook(id, slug, label){
-      const el = document.querySelector(id);
-      if(!el) return;
-    }
-  })();
+  // Ouverture/fermeture modale Réserver (safe)
+  document.addEventListener('click', function(e){
+    const trg = e.target.closest('[data-reserve-open]');
+    if(!trg) return;
+    e.preventDefault();
+    const modal = document.getElementById('reserveModal');
+    if(modal) modal.hidden = false;
+  });
+  document.addEventListener('click', function(e){
+    const modal = document.getElementById('reserveModal');
+    if(!modal) return;
+    if(e.target.id==='reserveClose' || e.target===modal) modal.hidden = true;
+  });
+  document.addEventListener('keydown', (e)=>{
+    const modal = document.getElementById('reserveModal');
+    if(e.key==='Escape' && modal) modal.hidden = true;
+  });
 </script>
+<script defer src="assets/js/ec-enhance.js"></script>
 
 <!-- Modale Réservation -->
 <div class="reserve-modal" id="reserveModal" hidden>
@@ -246,5 +241,4 @@ section{padding:40px 0}
     </div>
   </div>
 </div>
-
 </body></html>

@@ -2,6 +2,7 @@
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Réserver — EstheConnect</title>
 <link rel="stylesheet" href="/EstheConnect/assets/css/style.css"/>
+<link rel="stylesheet" href="assets/css/ec-enhance.css"/>
 <style>
 body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:#0c0c0d;color:#eee}
 .wrap{max-width:900px;margin:0 auto;padding:0 16px}
@@ -10,11 +11,7 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvet
 .form input,.form select,.form textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font:inherit}
 .btn{display:inline-block;background:#e6b0ba;border:1px solid #e6b0ba;border-radius:12px;padding:10px 16px;font-weight:700;cursor:pointer;text-decoration:none;color:#111}
 </style>
-
-<!-- Chatbase aussi ici -->
-<script>
-  window.embeddedChatbotConfig = { chatbotId: "fFFT4q2Uol4y-qUwVpYBZ", domain: "www.chatbase.co" };
-</script>
+<script>window.embeddedChatbotConfig={chatbotId:"fFFT4q2Uol4y-qUwVpYBZ",domain:"www.chatbase.co"};</script>
 <script src="https://www.chatbase.co/embed.min.js" chatbotId="fFFT4q2Uol4y-qUwVpYBZ" domain="www.chatbase.co" defer></script>
 </head>
 <body>
@@ -37,16 +34,12 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvet
       <small>Votre numéro n’est jamais affiché publiquement.</small>
     </form>
   </main>
-
 <script>
-  // Préremplir depuis l'URL (?country=..#tn etc.)
   (function(){
     const url = new URL(location.href);
-    const country = url.searchParams.get('country');
-    if(country) document.querySelector('[name="country"]').value = country;
+    const c = url.searchParams.get('country');
+    if(c) document.querySelector('[name="country"]').value = c;
   })();
-
-  // Envoi WhatsApp
   document.getElementById('reserveForm').addEventListener('submit', function(e){
     e.preventDefault();
     const data = Object.fromEntries(new FormData(this));
@@ -54,4 +47,5 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvet
     location.href = `https://wa.me/21628296239?text=${msg}`;
   });
 </script>
+  <script defer src="assets/js/ec-enhance.js"></script>
 </body></html>
