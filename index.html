@@ -2,7 +2,7 @@
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Accueil — EstheConnect</title>
 
-<!-- Tes CSS existantes (laisse comme chez toi si présent en prod) -->
+<!-- Tes CSS existantes -->
 <link rel="stylesheet" href="/EstheConnect/assets/css/style.css"/>
 <link rel="stylesheet" href="/EstheConnect/assets/site.css"/>
 <link rel="stylesheet" href="/EstheConnect/style.css"/>
@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="assets/site.css"/>
 <link rel="stylesheet" href="style.css"/>
 
-<!-- Patch intégré -->
+<!-- Patch UI -->
 <link rel="stylesheet" href="assets/css/ec-enhance.css"/>
 
 <style>
@@ -62,13 +62,13 @@ section{padding:40px 0}
 }
 </style>
 
-<!-- Chatbase (intégré) -->
+<!-- Chatbase -->
 <script>window.embeddedChatbotConfig={chatbotId:"fFFT4q2Uol4y-qUwVpYBZ",domain:"www.chatbase.co"};</script>
 <script src="https://www.chatbase.co/embed.min.js" chatbotId="fFFT4q2Uol4y-qUwVpYBZ" domain="www.chatbase.co" defer></script>
 </head>
 
 <body>
-<!-- Top bar -->
+<!-- barre haute -->
 <div class="topbar-mini">
   <div class="wrap" style="display:flex;align-items:center;gap:18px;width:100%">
     <div style="display:flex;gap:16px;flex-wrap:wrap">
@@ -86,83 +86,284 @@ section{padding:40px 0}
   </div>
 </div>
 
-<!-- Nav cats -->
+<!-- barre basse + méga menus -->
 <nav class="nav-cats"><div class="wrap bar">
+
+  <!-- Seins -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/seins.html">Seins</a>
     <div class="menu-panel"><div class="mega">
-      <a href="/EstheConnect/seins-augmentation.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/style-chic.jpg)"></span><div><strong>Augmentation mammaire</strong><div style="color:#555">Implants ronds/anatomiques</div></div></a>
-      <a href="/EstheConnect/seins-remplacement-implants.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Remplacement d’implants</strong><div style="color:#555">Changement/retrait</div></div></a>
-      <a href="/EstheConnect/seins-lipofilling.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Augmentation par lipofilling</strong><div style="color:#555">Graisse autologue</div></div></a>
-      <a href="/EstheConnect/seins-lifting.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/acceuil.png)"></span><div><strong>Lifting mammaire</strong><div style="color:#555">Mastopexie</div></div></a>
-      <a href="/EstheConnect/seins-reduction-femmes.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/style-chic.jpg)"></span><div><strong>Réduction mammaire — Femmes</strong><div style="color:#555">Confort & posture</div></div></a>
-      <a href="/EstheConnect/seins-correction-mamelons.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Correction des mamelons</strong><div style="color:#555">Inversés, hypertrophiques…</div></div></a>
-      <a href="/EstheConnect/seins-transgenres.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Augmentation — transgenres</strong><div style="color:#555">Parcours MTF</div></div></a>
-      <a href="/EstheConnect/hommes-gynecomastie.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Réduction — Hommes</strong><div style="color:#555">Gynécomastie</div></div></a>
+      <a href="/EstheConnect/seins-augmentation.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/seins/seins-augmentation.jpg),
+          url(/EstheConnect/assets/img/hero/style-chic.jpg)"></span>
+        <div><strong>Augmentation mammaire</strong><div style="color:#555">Implants ronds/anatomiques</div></div>
+      </a>
+      <a href="/EstheConnect/seins-remplacement-implants.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/seins/seins-remplacement-implants.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Remplacement d’implants</strong><div style="color:#555">Changement/retrait</div></div>
+      </a>
+      <a href="/EstheConnect/seins-lipofilling.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/seins/seins-lipofilling.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Augmentation par lipofilling</strong><div style="color:#555">Graisse autologue</div></div>
+      </a>
+      <a href="/EstheConnect/seins-lifting.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/seins/seins-lifting.jpg),
+          url(/EstheConnect/assets/img/hero/acceuil.png)"></span>
+        <div><strong>Lifting mammaire</strong><div style="color:#555">Mastopexie</div></div>
+      </a>
+      <a href="/EstheConnect/seins-reduction-femmes.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/seins/seins-reduction.jpg),
+          url(/EstheConnect/assets/img/hero/style-chic.jpg)"></span>
+        <div><strong>Réduction mammaire — Femmes</strong><div style="color:#555">Confort & posture</div></div>
+      </a>
+      <a href="/EstheConnect/seins-correction-mamelons.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/seins/seins-correction-mamelons.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Correction des mamelons</strong><div style="color:#555">Inversés, hypertrophiques…</div></div>
+      </a>
+      <a href="/EstheConnect/seins-transgenres.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/seins/seins-transgenres.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Augmentation — transgenres</strong><div style="color:#555">Parcours MTF</div></div>
+      </a>
+      <a href="/EstheConnect/hommes-gynecomastie.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/hommes/gynecomastie.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Réduction — Hommes</strong><div style="color:#555">Gynécomastie</div></div>
+      </a>
     </div></div>
   </div>
 
+  <!-- Liposuccion -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/liposuccion.html">Liposuccion</a>
     <div class="menu-panel"><div class="mega">
-      <a href="/EstheConnect/lipo-liposuccion.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Liposuccion</strong><div style="color:#555">Zones ciblées</div></div></a>
-      <a href="/EstheConnect/lipo-lipofilling.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Lipofilling</strong><div style="color:#555">Réinjection de graisse</div></div></a>
-      <a href="/EstheConnect/lipo-bbl.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/style-chic.jpg)"></span><div><strong>BBL — Brazilian Butt Lift</strong><div style="color:#555">Fesses plus galbées</div></div></a>
-      <a href="/EstheConnect/lipo-liposculpture.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Liposculpture</strong><div style="color:#555">Définition musculaire</div></div></a>
+      <a href="/EstheConnect/lipo-liposuccion.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/lipo/liposuccion.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Liposuccion</strong><div style="color:#555">Zones ciblées</div></div>
+      </a>
+      <a href="/EstheConnect/lipo-lipofilling.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/lipo/lipofilling.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Lipofilling</strong><div style="color:#555">Réinjection de graisse</div></div>
+      </a>
+      <a href="/EstheConnect/lipo-bbl.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/lipo/bbl.jpg),
+          url(/EstheConnect/assets/img/hero/style-chic.jpg)"></span>
+        <div><strong>BBL — Brazilian Butt Lift</strong><div style="color:#555">Fesses plus galbées</div></div>
+      </a>
+      <a href="/EstheConnect/lipo-liposculpture.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/lipo/liposculpture.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Liposculpture</strong><div style="color:#555">Définition musculaire</div></div>
+      </a>
     </div></div>
   </div>
 
+  <!-- Visage -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/visage.html">Visage</a>
     <div class="menu-panel"><div class="mega">
-      <a href="/EstheConnect/visage-injections.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/style-chic.jpg)"></span><div><strong>Injections anti-âge</strong><div style="color:#555">Toxine & acide hyaluronique</div></div></a>
-      <a href="/EstheConnect/visage-blepharoplastie.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Blépharoplastie</strong><div style="color:#555">Paupières sup/inf</div></div></a>
-      <a href="/EstheConnect/visage-rhinoplastie.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Rhinoplastie</strong><div style="color:#555">Fonction & esthétique</div></div></a>
-      <a href="/EstheConnect/visage-mini-lift.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Mini-lift / Facelift</strong><div style="color:#555">Ovale du visage</div></div></a>
+      <a href="/EstheConnect/visage-injections.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/visage/injections.jpg),
+          url(/EstheConnect/assets/img/hero/style-chic.jpg)"></span>
+        <div><strong>Injections anti-âge</strong><div style="color:#555">Toxine & acide hyaluronique</div></div>
+      </a>
+      <a href="/EstheConnect/visage-blepharoplastie.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/visage/blepharoplastie.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Blépharoplastie</strong><div style="color:#555">Paupières sup/inf</div></div>
+      </a>
+      <a href="/EstheConnect/visage-rhinoplastie.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/visage/rhinoplastie.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Rhinoplastie</strong><div style="color:#555">Fonction & esthétique</div></div>
+      </a>
+      <a href="/EstheConnect/visage-mini-lift.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/visage/mini-lift.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Mini-lift / Facelift</strong><div style="color:#555">Ovale du visage</div></div>
+      </a>
     </div></div>
   </div>
 
+  <!-- Dents -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/dents.html">Dents</a>
     <div class="menu-panel"><div class="mega">
-      <a href="/EstheConnect/dents-facettes.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/dent.jpg)"></span><div><strong>Facettes dentaires</strong><div style="color:#555">Céramique / composite</div></div></a>
-      <a href="/EstheConnect/dents-implants.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/dent.jpg)"></span><div><strong>Implants</strong><div style="color:#555">Unitaires / bridges</div></div></a>
-      <a href="/EstheConnect/dents-all-on-4.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/dent.jpg)"></span><div><strong>All-on-4 / All-on-6</strong><div style="color:#555">Arcades complètes</div></div></a>
-      <a href="/EstheConnect/dents-couronnes.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/dent.jpg)"></span><div><strong>Couronnes & bridges</strong><div style="color:#555">Zircone / Emax</div></div></a>
+      <a href="/EstheConnect/dents-facettes.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/dents/facettes.jpg),
+          url(/EstheConnect/assets/img/hero/dent.jpg)"></span>
+        <div><strong>Facettes dentaires</strong><div style="color:#555">Céramique / composite</div></div>
+      </a>
+      <a href="/EstheConnect/dents-implants.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/dents/implants.jpg),
+          url(/EstheConnect/assets/img/hero/dent.jpg)"></span>
+        <div><strong>Implants</strong><div style="color:#555">Unitaires / bridges</div></div>
+      </a>
+      <a href="/EstheConnect/dents-all-on-4.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/dents/all-on-4.jpg),
+          url(/EstheConnect/assets/img/hero/dent.jpg)"></span>
+        <div><strong>All-on-4 / All-on-6</strong><div style="color:#555">Arcades complètes</div></div>
+      </a>
+      <a href="/EstheConnect/dents-couronnes.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/dents/couronnes.jpg),
+          url(/EstheConnect/assets/img/hero/dent.jpg)"></span>
+        <div><strong>Couronnes & bridges</strong><div style="color:#555">Zircone / Emax</div></div>
+      </a>
     </div></div>
   </div>
 
+  <!-- Cheveux -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/cheveux.html">Cheveux</a>
     <div class="menu-panel"><div class="mega">
-      <a href="/EstheConnect/cheveux-fue.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span><div><strong>Greffe FUE</strong><div style="color:#555">Extraction unitaire</div></div></a>
-      <a href="/EstheConnect/cheveux-dhi.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span><div><strong>DHI</strong><div style="color:#555">Implanteur CHOI</div></div></a>
-      <a href="/EstheConnect/cheveux-saphir.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span><div><strong>FUE Saphir</strong><div style="color:#555">Lames saphir</div></div></a>
-      <a href="/EstheConnect/cheveux-prp.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span><div><strong>PRP</strong><div style="color:#555">Stimulation</div></div></a>
+      <a href="/EstheConnect/cheveux-fue.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/cheveux/fue.jpg),
+          url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span>
+        <div><strong>Greffe FUE</strong><div style="color:#555">Extraction unitaire</div></div>
+      </a>
+      <a href="/EstheConnect/cheveux-dhi.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/cheveux/dhi.jpg),
+          url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span>
+        <div><strong>DHI</strong><div style="color:#555">Implanteur CHOI</div></div>
+      </a>
+      <a href="/EstheConnect/cheveux-saphir.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/cheveux/saphir.jpg),
+          url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span>
+        <div><strong>FUE Saphir</strong><div style="color:#555">Lames saphir</div></div>
+      </a>
+      <a href="/EstheConnect/cheveux-prp.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/cheveux/prp.jpg),
+          url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span>
+        <div><strong>PRP</strong><div style="color:#555">Stimulation</div></div>
+      </a>
     </div></div>
   </div>
 
+  <!-- Peau -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/peau.html">Peau</a>
     <div class="menu-panel"><div class="mega">
-      <a href="/EstheConnect/peau-peeling.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Peeling chimique</strong><div style="color:#555">Éclat & texture</div></div></a>
-      <a href="/EstheConnect/peau-laser-co2.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Laser CO₂</strong><div style="color:#555">Rides & cicatrices</div></div></a>
-      <a href="/EstheConnect/peau-cicatrices.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Cicatrices d’acné</strong><div style="color:#555">Protocoles combinés</div></div></a>
-      <a href="/EstheConnect/peau-microneedling.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Microneedling</strong><div style="color:#555">Collagène boost</div></div></a>
+      <a href="/EstheConnect/peau-peeling.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/peau/peeling.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Peeling chimique</strong><div style="color:#555">Éclat & texture</div></div>
+      </a>
+      <a href="/EstheConnect/peau-laser-co2.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/peau/laser-co2.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Laser CO₂</strong><div style="color:#555">Rides & cicatrices</div></div>
+      </a>
+      <a href="/EstheConnect/peau-cicatrices.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/peau/cicatrices.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Cicatrices d’acné</strong><div style="color:#555">Protocoles combinés</div></div>
+      </a>
+      <a href="/EstheConnect/peau-microneedling.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/peau/microneedling.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Microneedling</strong><div style="color:#555">Collagène boost</div></div>
+      </a>
     </div></div>
   </div>
 
+  <!-- Hommes -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/hommes.html">Hommes</a>
     <div class="menu-panel"><div class="mega">
-      <a href="/EstheConnect/hommes-gynecomastie.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Gynécomastie</strong><div style="color:#555">Réduction mammaire</div></div></a>
-      <a href="/EstheConnect/lipo-liposculpture.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Liposculpture HD</strong><div style="color:#555">Définition musculaire</div></div></a>
-      <a href="/EstheConnect/cheveux-barbe.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span><div><strong>Greffe de barbe</strong><div style="color:#555">Densification</div></div></a>
-      <a href="/EstheConnect/dents-implants.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/dent.jpg)"></span><div><strong>Implants dentaires</strong><div style="color:#555">Unitaires, bridges</div></div></a>
+      <a href="/EstheConnect/hommes-gynecomastie.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/hommes/gynecomastie.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Gynécomastie</strong><div style="color:#555">Réduction mammaire</div></div>
+      </a>
+      <a href="/EstheConnect/lipo-liposculpture.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/hommes/lipo-hd.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Liposculpture HD</strong><div style="color:#555">Définition musculaire</div></div>
+      </a>
+      <a href="/EstheConnect/cheveux-barbe.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/hommes/barbe.jpg),
+          url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span>
+        <div><strong>Greffe de barbe</strong><div style="color:#555">Densification</div></div>
+      </a>
+      <a href="/EstheConnect/dents-implants.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/hommes/implants-dentaires.jpg),
+          url(/EstheConnect/assets/img/hero/dent.jpg)"></span>
+        <div><strong>Implants dentaires</strong><div style="color:#555">Unitaires, bridges</div></div>
+      </a>
     </div></div>
   </div>
+
+  <!-- Perte de poids -->
+  <div class="menu">
+    <a class="menu-btn" href="/EstheConnect/perte-de-poids.html">Perte de poids</a>
+    <div class="menu-panel"><div class="mega">
+      <a href="/EstheConnect/pertepoids-ballon.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/perte-poids/ballon.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Ballon gastrique</strong><div style="color:#555">6–12 mois</div></div>
+      </a>
+      <a href="/EstheConnect/pertepoids-sleeve.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/perte-poids/sleeve.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Sleeve</strong><div style="color:#555">Chirurgie bariatrique</div></div>
+      </a>
+      <a href="/EstheConnect/pertepoids-bypass.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/perte-poids/bypass.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Bypass</strong><div style="color:#555">Roux-en-Y</div></div>
+      </a>
+      <a href="/EstheConnect/pertepoids-programme.html">
+        <span class="ico" style="background-image:
+          url(/EstheConnect/assets/img/perte-poids/programme.jpg),
+          url(/EstheConnect/assets/img/hero/hero.jpg)"></span>
+        <div><strong>Programme médical</strong><div style="color:#555">Suivi nutrition & med</div></div>
+      </a>
+    </div></div>
+  </div>
+
 </div></nav>
 
+<!-- HERO -->
 <header class="hero">
   <div class="bg" style="background-image:url('/EstheConnect/assets/img/hero/hero.jpg')"></div>
   <div class="content wrap">
@@ -177,15 +378,15 @@ section{padding:40px 0}
   <h2>Visage</h2>
   <div class="grid">
     <a class="card" href="/EstheConnect/visage.html">
-      <img src="/EstheConnect/assets/img/hero/style-chic.jpg" alt="Visage">
+      <img src="/EstheConnect/assets/img/visage/injections.jpg" onerror="this.src='/EstheConnect/assets/img/hero/style-chic.jpg'" alt="Visage">
       <div class="p"><strong>Visage esthétique</strong><div class="muted">Injections & anti-âge</div></div>
     </a>
     <a class="card" href="/EstheConnect/visage.html">
-      <img src="/EstheConnect/assets/img/hero/hero.jpg" alt="Chirurgie visage">
+      <img src="/EstheConnect/assets/img/visage/mini-lift.jpg" onerror="this.src='/EstheConnect/assets/img/hero/hero.jpg'" alt="Chirurgie visage">
       <div class="p"><strong>Chirurgie visage</strong><div class="muted">Mini-lift, blépharo, rhino…</div></div>
     </a>
     <a class="card" href="/EstheConnect/cheveux.html">
-      <img src="/EstheConnect/assets/img/hero/svc-capillaire.jpg" alt="Capillaire">
+      <img src="/EstheConnect/assets/img/cheveux/fue.jpg" onerror="this.src='/EstheConnect/assets/img/hero/svc-capillaire.jpg'" alt="Capillaire">
       <div class="p"><strong>Capillaire</strong><div class="muted">Greffe FUE/DHI, PRP</div></div>
     </a>
   </div>
@@ -193,11 +394,13 @@ section{padding:40px 0}
 
 <footer>© <span id="year"></span> EstheConnect — Plateforme esthétique</footer>
 
+<!-- Bulle WhatsApp -->
 <a class="fab fab-wa" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect" aria-label="WhatsApp">☎</a>
 
 <script>
   document.getElementById('year').textContent=(new Date).getFullYear();
-  // Ouverture/fermeture modale Réserver (safe)
+
+  // Modale "Réserver en ligne"
   document.addEventListener('click', function(e){
     const trg = e.target.closest('[data-reserve-open]');
     if(!trg) return;
