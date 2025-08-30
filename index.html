@@ -3,235 +3,285 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EstheConnect Center</title>
-  <meta name="description" content="Chirurgie esthétique, dentaire, greffe capillaire & soins premium." />
+  <title>EstheConnect — Plateforme esthétique</title>
+  <meta name="description" content="Comparez les cliniques, obtenez un devis, réservez en toute confiance. FR/NL/EN/DE." />
   <style>
-    :root{--rose:#d88aa6;--dore:#c7a440;--ink:#0f0f10}
+    :root{
+      --rose:#e9b5c8;     /* rose chic plus doux */
+      --rose-dark:#d88aa6;
+      --dore:#d7b362;     /* doré */
+      --dore-2:#f0d9a1;
+      --ink:#0e0c12;      /* fond sombre */
+      --ink-2:#16131a;
+      --text:#f6f6f7;
+      --muted:#cfcfd8;
+      --whatsapp:#25d366;
+    }
     *{box-sizing:border-box} html,body{margin:0;padding:0}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;color:#222;line-height:1.5;background:#fff}
-    [id]{scroll-margin-top:80px}
-    .site-header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:16px;justify-content:space-between;padding:14px 22px;background:rgba(255,255,255,.78);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid rgba(0,0,0,.06)}
-    .logo{font-weight:800;color:var(--ink);text-decoration:none}
-    .logo:hover{color:var(--rose)}
-    .main-nav{display:flex;flex-wrap:wrap;gap:14px}
-    .main-nav a{color:#333;text-decoration:none;font-weight:600}
-    .main-nav a:hover{color:var(--rose)}
-    .lang{display:flex;align-items:center;gap:8px}
-    .lang select{padding:8px 10px;border-radius:10px;border:1px solid #ddd;font-weight:700}
-    .hero-slider{position:relative;height:92vh;min-height:520px;margin-top:66px;overflow:hidden}
-    .slides{position:absolute;inset:0}
-    .slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease;background:var(--bg) center/cover no-repeat fixed;background-image:var(--bg)}
-    .slide.is-active{opacity:1}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(216,138,166,.46),rgba(199,164,64,.38));pointer-events:none}
-    .hero-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 18px}
-    .hero-content h1{font-size:clamp(28px,5vw,54px);line-height:1.1;margin:0 0 10px;text-shadow:0 2px 18px rgba(0,0,0,.35)}
-    .hero-content p{font-size:clamp(16px,2.4vw,22px);opacity:.98;margin:0 0 24px;text-shadow:0 2px 14px rgba(0,0,0,.35)}
-    .btn{display:inline-block;padding:12px 20px;border-radius:999px;border:2px solid transparent;text-decoration:none;font-weight:800;transition:.2s}
-    .btn-primary{background:var(--rose);color:#fff;box-shadow:0 6px 18px rgba(216,138,166,.35)}
-    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(216,138,166,.5)}
-    .btn-ghost{background:transparent;color:#fff;border-color:#fff}
-    .btn-ghost:hover{background:rgba(255,255,255,.12)}
-    .nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(0,0,0,.28);color:#fff;border:0;border-radius:999px;width:44px;height:44px;font-size:28px;line-height:44px;cursor:pointer}
-    .nav:hover{background:rgba(0,0,0,.45)} .nav.prev{left:16px}.nav.next{right:16px}
-    .dots{position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;gap:8px;z-index:3}
-    .dots button{width:10px;height:10px;border-radius:50%;border:0;background:rgba(255,255,255,.6);cursor:pointer}
-    .dots button.is-active{background:#fff}
-    @media (max-width:840px){.nav{display:none}}
-    section{padding:70px 24px;max-width:1100px;margin:0 auto}
-    h2.section-title{font-size:clamp(22px,3.2vw,32px);margin:0 0 14px;color:var(--ink)}
-    .muted{color:#666}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{border:1px solid #eee;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 24px rgba(0,0,0,.06)}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;color:#eaeaf0;background:var(--ink);line-height:1.5}
+    a{text-decoration:none;color:inherit}
+    [id]{scroll-margin-top:90px}
+
+    /* Topbar gradient */
+    .topbar{
+      position:sticky;top:0;z-index:9999;
+      background:linear-gradient(90deg,var(--rose) 0%, var(--dore) 100%);
+      color:#2b1f22;border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .topbar .wrap{
+      max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;
+      padding:10px 18px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .brand .badge{
+      width:38px;height:38px;border-radius:999px;background:#fff;color:#8a2a4c;
+      display:inline-flex;align-items:center;justify-content:center;font-weight:900;
+      border:2px solid rgba(0,0,0,.08); box-shadow:0 1px 0 rgba(255,255,255,.6) inset;
+    }
+    .brand .title{display:flex;flex-direction:column;line-height:1}
+    .brand .title span:first-child{font-size:16px}
+    .brand .title span:last-child{font-size:12px;opacity:.8}
+
+    .lang-pills{display:flex;gap:8px}
+    .lang-pills button{
+      border:0;border-radius:999px;padding:6px 10px;font-weight:700;cursor:pointer;
+      background:rgba(255,255,255,.85);color:#222;transition:.15s;
+    }
+    .lang-pills button:hover{transform:translateY(-1px)}
+    .lang-pills button.active{outline:2px solid #222}
+
+    /* Navbar */
+    .navbar{
+      background:var(--ink-2);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .navbar .wrap{
+      max-width:1200px;margin:0 auto;display:flex;gap:22px;overflow:auto;padding:12px 18px;
+      scrollbar-width:none;
+    }
+    .navbar .wrap::-webkit-scrollbar{display:none}
+    .navbar a{white-space:nowrap;color:#eee;padding:6px 0}
+    .navbar a:hover{color:var(--dore)}
+
+    /* Hero */
+    .hero{
+      position:relative;min-height:68vh;background:url('assets/img/hero/hero.jpg') center/cover no-repeat;
+      display:flex;align-items:center;justify-content:center;padding:80px 18px;
+      border-bottom:4px solid var(--dore);
+    }
+    .hero::before{
+      content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,.18), rgba(0,0,0,.65));
+    }
+    .hero .content{position:relative;text-align:center;max-width:960px}
+    .hero h1{font-size:clamp(28px,5.5vw,56px);margin:0 0 10px;color:var(--dore-2);text-shadow:0 2px 12px rgba(0,0,0,.6)}
+    .hero p{color:#e9e9ee;opacity:.95;margin:0 0 24px}
+
+    .btn{display:inline-block;padding:12px 18px;border-radius:999px;font-weight:800;border:2px solid transparent;transition:.2s}
+    .btn-primary{background:var(--dore-2);color:#2a1f12}
+    .btn-primary:hover{transform:translateY(-1px);filter:brightness(0.98)}
+    .btn-ghost{background:transparent;border-color:#fff;color:#fff}
+    .btn-ghost:hover{background:rgba(255,255,255,.08)}
+
+    /* Sections */
+    section{max-width:1200px;margin:0 auto;padding:40px 18px}
+    h2{font-size:clamp(22px,3.2vw,32px);color:#fff;margin:0 0 12px}
+    .muted{color:#b9b9c6}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .card{background:#19171e;border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;box-shadow:0 10px 32px rgba(0,0,0,.25)}
     .card img{width:100%;height:220px;object-fit:cover;display:block}
-    .card .p{padding:14px}
-    footer{padding:30px 24px;text-align:center;border-top:1px solid #eee;color:#666}
-    .accent{color:var(--rose);font-weight:800}
-    input,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid #ddd;font:inherit}
+    .card .p{padding:14px;color:#e7e7ee}
+
+    /* Footer */
+    footer{max-width:1200px;margin:0 auto;padding:30px 18px;color:#bdbdc8;border-top:1px solid rgba(255,255,255,.08)}
+
+    /* Floating WhatsApp */
+    .wa-float{
+      position:fixed;right:18px;bottom:18px;z-index:99;
+      width:58px;height:58px;border-radius:999px;background:var(--whatsapp);display:flex;align-items:center;justify-content:center;
+      color:#fff;font-size:28px;font-weight:900;box-shadow:0 10px 22px rgba(0,0,0,.3)
+    }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <a class="logo" href="#home">EstheConnect Center</a>
-    <nav class="main-nav">
-      <a href="#services" data-i18n="nav_services">Services</a>
-      <a href="#galerie"  data-i18n="nav_gallery">Avant/Après</a>
-      <a href="#contact"  data-i18n="nav_contact">Contact</a>
-    </nav>
-    <div class="lang">
-      <label for="langSel" data-i18n="label_lang">Langue</label>
-      <select id="langSel" aria-label="Language">
-        <option value="fr">FR</option>
-        <option value="nl">NL</option>
-        <option value="en">EN</option>
-        <option value="de">DE</option>
-      </select>
-    </div>
-  </header>
 
-  <section class="hero-slider" id="home" aria-label="EstheConnect Center">
-    <div class="slides">
-      <div class="slide is-active" style="--bg:url('assets/img/hero/lipo2.jpg')"></div>
-      <div class="slide"          style="--bg:url('assets/img/hero/dent.jpg')"></div>
-      <div class="slide"          style="--bg:url('assets/img/hero/svc-capillaire.jpg')"></div>
-      <div class="slide"          style="--bg:url('assets/img/hero/style-chic.jpg')"></div>
-      <div class="slide"          style="--bg:url('assets/img/hero/visage-lifting.png')"></div>
-      <div class="slide"          style="--bg:url('assets/img/hero/acceuil.png')"></div>
-    </div>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="hero-content">
-      <h1 data-i18n="hero_title">Esthétique & Médecine de pointe</h1>
-      <p data-i18n="hero_sub">Chirurgie, dentaire, greffe capillaire & soins premium – accompagnement complet.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" id="ctaWhatsapp" href="#" rel="noopener" data-i18n="btn_whatsapp">WhatsApp</a>
-        <a class="btn btn-ghost" href="#services" data-i18n="btn_services">Voir les services</a>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <div class="badge">EC</div>
+        <div class="title">
+          <span>EstheConnect</span>
+          <span data-i18n="strap">Plateforme esthétique</span>
+        </div>
+      </div>
+      <div class="lang-pills">
+        <button data-lang="fr" class="active">FR</button>
+        <button data-lang="nl">NL</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="de">DE</button>
       </div>
     </div>
-    <button class="nav prev" aria-label="Précédent">‹</button>
-    <button class="nav next" aria-label="Suivant">›</button>
-    <div class="dots" aria-label="Navigation diaporama"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="wrap">
+      <a href="#seins"         data-i18n="nav_seins">Seins</a>
+      <a href="#liposuccion"   data-i18n="nav_lipo">Liposuccion</a>
+      <a href="#visage"        data-i18n="nav_visage">Visage</a>
+      <a href="#corps"         data-i18n="nav_corps">Corps</a>
+      <a href="#pertepoids"    data-i18n="nav_perte">Perte de poids</a>
+      <a href="#cheveux"       data-i18n="nav_cheveux">Cheveux</a>
+      <a href="#peau"          data-i18n="nav_peau">Peau</a>
+      <a href="#dents"         data-i18n="nav_dents">Dents</a>
+      <a href="#hommes"        data-i18n="nav_hommes">Hommes</a>
+      <a href="#avantapres"    data-i18n="nav_avap">Photos avant / après</a>
+      <a href="#avis"          data-i18n="nav_avis">Avis</a>
+      <a href="#contact"       data-i18n="nav_contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home" aria-label="EstheConnect hero">
+    <div class="content">
+      <h1 data-i18n="hero_title">EstheConnect — Plateforme esthétique</h1>
+      <p data-i18n="hero_sub">Comparez les cliniques, obtenez un devis et réservez en toute confiance.</p>
+      <div class="cta">
+        <a class="btn btn-primary" id="ctaWhats" href="#">Contact WhatsApp</a>
+        <a class="btn btn-ghost" href="#financement" data-i18n="btn_fin">Financement</a>
+      </div>
+    </div>
   </section>
 
-  <section id="services">
-    <h2 class="section-title" data-i18n="svc_title">Nos services</h2>
-    <p class="muted" data-i18n="svc_desc">Chirurgie plastique, médecine esthétique, dentaire & greffe capillaire avec cliniques certifiées.</p>
-    <div class="grid" style="margin-top:12px">
+  <!-- EXEMPLES DE SECTIONS -->
+  <section id="seins">
+    <h2 data-i18n="h_seins">Seins</h2>
+    <p class="muted" data-i18n="p_seins">Augmentation, lifting, réduction — accompagnement complet.</p>
+  </section>
+
+  <section id="visage">
+    <h2 data-i18n="h_visage">Visage</h2>
+    <div class="grid">
       <article class="card">
-        <img src="assets/img/hero/visage-lifting.png" alt="Face aesthetics" />
-        <div class="p"><strong data-i18n="svc1_title">Visage & anti-âge</strong><br><span class="muted" data-i18n="svc1_sub">Injections, lipofilling, mini lift</span></div>
+        <img src="assets/img/hero/style-chic.jpg" alt="Visage esthétique">
+        <div class="p" data-i18n="c_visage1">Injections & anti-âge</div>
       </article>
       <article class="card">
-        <img src="assets/img/hero/lipo2.jpg" alt="Body surgery" />
-        <div class="p"><strong data-i18n="svc2_title">Chirurgie silhouette</strong><br><span class="muted" data-i18n="svc2_sub">Lipo, abdominoplastie, BBL</span></div>
+        <img src="assets/img/hero/hero.jpg" alt="Chirurgie visage">
+        <div class="p" data-i18n="c_visage2">Mini lift & lipofilling</div>
       </article>
       <article class="card">
-        <img src="assets/img/hero/dent.jpg" alt="Dental aesthetics" />
-        <div class="p"><strong data-i18n="svc3_title">Dentaire</strong><br><span class="muted" data-i18n="svc3_sub">Facettes, implants, blanchiment</span></div>
+        <img src="assets/img/hero/svc-capillaire.jpg" alt="Capillaire">
+        <div class="p" data-i18n="c_visage3">Greffe capillaire</div>
       </article>
     </div>
   </section>
 
-  <section id="galerie">
-    <h2 class="section-title" data-i18n="gal_title">Avant / Après</h2>
-    <p class="muted" data-i18n="gal_desc">Exemples illustratifs. Des galeries détaillées sont disponibles sur demande.</p>
-    <div class="grid" style="margin-top:12px">
-      <article class="card"><img src="assets/img/hero/style-chic.jpg"       alt="Silhouette" /></article>
-      <article class="card"><img src="assets/img/hero/svc-capillaire.jpg"   alt="Hair transplant" /></article>
-      <article class="card"><img src="assets/img/hero/acceuil.png"          alt="Smile" /></article>
+  <section id="dents">
+    <h2 data-i18n="h_dents">Dents</h2>
+    <div class="grid">
+      <article class="card">
+        <img src="assets/img/hero/dent.jpg" alt="Dentaire">
+        <div class="p" data-i18n="c_dent1">Facettes & implants</div>
+      </article>
+      <article class="card">
+        <img src="assets/img/hero/acceuil.png" alt="Sourire">
+        <div class="p" data-i18n="c_dent2">Blanchiment</div>
+      </article>
+      <article class="card">
+        <img src="assets/img/hero/hero.jpg" alt="Soins premium">
+        <div class="p" data-i18n="c_dent3">Soins premium</div>
+      </article>
     </div>
+  </section>
+
+  <section id="avantapres">
+    <h2 data-i18n="h_avap">Photos avant / après</h2>
+    <p class="muted" data-i18n="p_avap">Aperçu de résultats. Galeries détaillées disponibles sur demande.</p>
+    <div class="grid">
+      <article class="card"><img src="assets/img/hero/style-chic.jpg" alt="Avant Après 1"><div class="p">—</div></article>
+      <article class="card"><img src="assets/img/hero/svc-capillaire.jpg" alt="Avant Après 2"><div class="p">—</div></article>
+      <article class="card"><img src="assets/img/hero/dent.jpg" alt="Avant Après 3"><div class="p">—</div></article>
+    </div>
+  </section>
+
+  <section id="financement">
+    <h2 data-i18n="h_fin">Financement</h2>
+    <p class="muted" data-i18n="p_fin">Plans souples selon le pays et la clinique.</p>
   </section>
 
   <section id="contact">
-    <h2 class="section-title" data-i18n="ct_title">Contact & Devis</h2>
-    <p class="muted" data-i18n="ct_desc">Réponse rapide. Envoi de photos médicales sécurisé.</p>
-    <div class="grid" style="grid-template-columns:1.2fr 1fr;align-items:start">
-      <div class="card">
-        <div class="p">
-          <form onsubmit="return openWhatsApp(event)">
-            <label data-i18n="ct_name">Votre nom</label>
-            <input id="cName" required />
-            <br><br>
-            <label data-i18n="ct_msg">Votre demande</label>
-            <textarea id="cMsg" rows="4" required></textarea><br><br>
-            <button class="btn btn-primary" type="submit" data-i18n="ct_send">Envoyer via WhatsApp</button>
-          </form>
-        </div>
-      </div>
-      <div class="card">
-        <div class="p">
-          <strong>EstheConnect Center</strong><br>
-          <span class="muted" data-i18n="ct_langs">Accompagnement FR/NL/EN/DE</span><br><br>
-          <span class="muted" data-i18n="ct_wa">WhatsApp direct via le bouton ci-dessus</span><br>
-          <span class="muted">Email : aboprof.bm2@gmail.com</span>
-        </div>
-      </div>
-    </div>
+    <h2 data-i18n="h_contact">Contact & Devis</h2>
+    <p class="muted" data-i18n="p_contact">Réponse rapide. Envoi de photos sécurisé.</p>
   </section>
 
-  <footer>© <span id="year"></span> <span class="accent">EstheConnect Center</span></footer>
+  <footer>
+    © <span id="year"></span> EstheConnect — <span style="color:var(--dore)">Plateforme esthétique</span>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a class="wa-float" id="waFloat" href="#" aria-label="WhatsApp">⌁</a>
 
   <script>
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
-    const WA_PHONE = '21628296239';
-    const wbtn = document.getElementById('ctaWhatsapp');
-    if (wbtn){
-      const msg = encodeURIComponent("Bonjour, je souhaite plus d'infos via EstheConnect.");
-      wbtn.href = `https://wa.me/${WA_PHONE}?text=${msg}`;
-    }
-    function openWhatsApp(e){
-      e.preventDefault();
-      const name = document.getElementById('cName').value.trim();
-      const msg  = document.getElementById('cMsg').value.trim();
-      const text = encodeURIComponent(`Bonjour, je suis ${name}. ${msg}`);
-      window.open(`https://wa.me/${WA_PHONE}?text=${text}`, '_blank');
-      return false;
-    }
-    (function(){
-      const slider = document.querySelector('.hero-slider');
-      const slides = [...slider.querySelectorAll('.slide')];
-      const prev = slider.querySelector('.nav.prev');
-      const next = slider.querySelector('.nav.next');
-      const dotsWrap = slider.querySelector('.dots');
-      let i = 0, timer = null, delay = 5000;
-      slides.forEach((_, idx) => {
-        const b = document.createElement('button');
-        b.setAttribute('aria-label', `Slide ${idx+1}`);
-        b.addEventListener('click', () => go(idx, true));
-        dotsWrap.appendChild(b);
-      });
-      const dots = [...dotsWrap.children];
-      function go(n, user=false){
-        slides[i].classList.remove('is-active'); dots[i].classList.remove('is-active');
-        i = (n + slides.length) % slides.length;
-        slides[i].classList.add('is-active'); dots[i].classList.add('is-active');
-        if (user) restart();
-      }
-      function nextSlide(){ go(i+1); }
-      function prevSlide(){ go(i-1, true); }
-      function start(){ timer = setInterval(nextSlide, delay); }
-      function stop(){ clearInterval(timer); timer=null; }
-      function restart(){ stop(); start(); }
-      next.addEventListener('click', nextSlide);
-      prev.addEventListener('click', prevSlide);
-      slider.addEventListener('mouseenter', stop);
-      slider.addEventListener('mouseleave', start);
-      slides[0].classList.add('is-active'); dots[0].classList.add('is-active'); start();
-    })();
+
+    // WhatsApp (numéro masqué)
+    const WA = '21628296239';
+    const wMsg = encodeURIComponent("Bonjour, je souhaite des informations via EstheConnect.");
+    document.getElementById('ctaWhats').href = `https://wa.me/${WA}?text=${wMsg}`;
+    document.getElementById('waFloat').href = `https://wa.me/${WA}?text=${wMsg}`;
+
+    // Lang pills + i18n
     const I18N = {
-      fr:{label_lang:"Langue",nav_services:"Services",nav_gallery:"Avant/Après",nav_contact:"Contact",hero_title:"Esthétique & Médecine de pointe",hero_sub:"Chirurgie, dentaire, greffe capillaire & soins premium – accompagnement complet.",btn_whatsapp:"WhatsApp",btn_services:"Voir les services",svc_title:"Nos services",svc_desc:"Chirurgie plastique, médecine esthétique, dentaire & greffe capillaire avec cliniques certifiées.",svc1_title:"Visage & anti-âge",svc1_sub:"Injections, lipofilling, mini lift",svc2_title:"Chirurgie silhouette",svc2_sub:"Lipo, abdominoplastie, BBL",svc3_title:"Dentaire",svc3_sub:"Facettes, implants, blanchiment",gal_title:"Avant / Après",gal_desc:"Exemples illustratifs. Des galeries détaillées sont disponibles sur demande.",ct_title:"Contact & Devis",ct_desc:"Réponse rapide. Envoi de photos médicales sécurisé.",ct_name:"Votre nom",ct_msg:"Votre demande",ct_send:"Envoyer via WhatsApp",ct_langs:"Accompagnement FR/NL/EN/DE",ct_wa:"WhatsApp direct via le bouton ci-dessus"},
-      nl:{label_lang:"Taal",nav_services:"Diensten",nav_gallery:"Voor/Na",nav_contact:"Contact",hero_title:"Esthetiek & geavanceerde geneeskunde",hero_sub:"Plastische chirurgie, tandheelkunde, haartransplantatie & premium zorg.",btn_whatsapp:"WhatsApp",btn_services:"Diensten bekijken",svc_title:"Onze diensten",svc_desc:"Plastische chirurgie, esthetische geneeskunde, tandheelkunde & haartransplantatie met gecertificeerde klinieken.",svc1_title:"Gezicht & anti-aging",svc1_sub:"Injecties, lipofilling, mini-lift",svc2_title:"Silhouet chirurgie",svc2_sub:"Lipo, buikwandcorrectie, BBL",svc3_title:"Tandheelkunde",svc3_sub:"Facings, implantaten, bleken",gal_title:"Voor / Na",gal_desc:"Voorbeelden. Gedetailleerde galerijen op aanvraag.",ct_title:"Contact & Offerte",ct_desc:"Snelle reactie. Veilige verzending van medische foto’s.",ct_name:"Uw naam",ct_msg:"Uw aanvraag",ct_send:"Verstuur via WhatsApp",ct_langs:"Begeleiding FR/NL/EN/DE",ct_wa:"Rechtstreeks WhatsApp via de knop hierboven"},
-      en:{label_lang:"Language",nav_services:"Services",nav_gallery:"Before/After",nav_contact:"Contact",hero_title:"Aesthetics & Advanced Medicine",hero_sub:"Plastic surgery, dental, hair transplant & premium care.",btn_whatsapp:"WhatsApp",btn_services:"Browse services",svc_title:"Our Services",svc_desc:"Plastic surgery, aesthetic medicine, dental & hair transplant with certified clinics.",svc1_title:"Face & Anti-aging",svc1_sub:"Injectables, lipofilling, mini-lift",svc2_title:"Body Surgery",svc2_sub:"Lipo, tummy tuck, BBL",svc3_title:"Dental",svc3_sub:"Veneers, implants, whitening",gal_title:"Before / After",gal_desc:"Sample results. Detailed galleries on request.",ct_title:"Contact & Quote",ct_desc:"Fast reply. Secure medical photo sharing.",ct_name:"Your name",ct_msg:"Your request",ct_send:"Send via WhatsApp",ct_langs:"Support FR/NL/EN/DE",ct_wa:"Direct WhatsApp via the button above"},
-      de:{label_lang:"Sprache",nav_services:"Leistungen",nav_gallery:"Vorher/Nachher",nav_contact:"Kontakt",hero_title:"Ästhetik & moderne Medizin",hero_sub:"Plastische Chirurgie, Zahnmedizin, Haartransplantation & Premium-Betreuung.",btn_whatsapp:"WhatsApp",btn_services:"Leistungen ansehen",svc_title:"Unsere Leistungen",svc_desc:"Plastische Chirurgie, ästhetische Medizin, Zahnmedizin & Haartransplantation mit zertifizierten Kliniken.",svc1_title:"Gesicht & Anti-Aging",svc1_sub:"Injektionen, Lipofilling, Mini-Lift",svc2_title:"Körperchirurgie",svc2_sub:"Lipo, Bauchdeckenstraffung, BBL",svc3_title:"Zahnästhetik",svc3_sub:"Veneers, Implantate, Bleaching",gal_title:"Vorher / Nachher",gal_desc:"Beispiele. Detaillierte Galerien auf Anfrage.",ct_title:"Kontakt & Angebot",ct_desc:"Schnelle Antwort. Sichere Übermittlung medizinischer Fotos.",ct_name:"Ihr Name",ct_msg:"Ihre Anfrage",ct_send:"Per WhatsApp senden",ct_langs:"Betreuung FR/NL/EN/DE",ct_wa:"Direkt per WhatsApp über die Schaltfläche oben"}
+      fr:{strap:"Plateforme esthétique",
+          nav_seins:"Seins",nav_lipo:"Liposuccion",nav_visage:"Visage",nav_corps:"Corps",nav_perte:"Perte de poids",nav_cheveux:"Cheveux",nav_peau:"Peau",nav_dents:"Dents",nav_hommes:"Hommes",nav_avap:"Photos avant / après",nav_avis:"Avis",nav_contact:"Contact",
+          hero_title:"EstheConnect — Plateforme esthétique",hero_sub:"Comparez les cliniques, obtenez un devis et réservez en toute confiance.",btn_fin:"Financement",
+          h_seins:"Seins",p_seins:"Augmentation, lifting, réduction — accompagnement complet.",
+          h_visage:"Visage",c_visage1:"Injections & anti-âge",c_visage2:"Mini lift & lipofilling",c_visage3:"Greffe capillaire",
+          h_dents:"Dents",c_dent1:"Facettes & implants",c_dent2:"Blanchiment",c_dent3:"Soins premium",
+          h_avap:"Photos avant / après",p_avap:"Aperçu de résultats. Galeries détaillées disponibles sur demande.",
+          h_fin:"Financement",p_fin:"Plans souples selon le pays et la clinique.",
+          h_contact:"Contact & Devis",p_contact:"Réponse rapide. Envoi de photos sécurisé."},
+      nl:{strap:"Esthetisch platform",
+          nav_seins:"Borst",nav_lipo:"Liposuctie",nav_visage:"Gezicht",nav_corps:"Lichaam",nav_perte:"Gewichtsverlies",nav_cheveux:"Haar",nav_peau:"Huid",nav_dents:"Tanden",nav_hommes:"Mannen",nav_avap:"Voor/Na foto's",nav_avis:"Beoordelingen",nav_contact:"Contact",
+          hero_title:"EstheConnect — Esthetisch platform",hero_sub:"Vergelijk klinieken, vraag een offerte en boek met vertrouwen.",btn_fin:"Financiering",
+          h_seins:"Borst",p_seins:"Vergroting, lifting, verkleining — volledige begeleiding.",
+          h_visage:"Gezicht",c_visage1:"Injecties & anti-aging",c_visage2:"Mini-lift & lipofilling",c_visage3:"Haartransplantatie",
+          h_dents:"Tanden",c_dent1:"Facings & implantaten",c_dent2:"Bleken",c_dent3:"Premium zorg",
+          h_avap:"Voor / Na",p_avap:"Voorbeelden. Gedetailleerde galerijen op aanvraag.",
+          h_fin:"Financiering",p_fin:"Flexibele plannen per land en kliniek.",
+          h_contact:"Contact & Offerte",p_contact:"Snelle reactie. Veilige fotodeling."},
+      en:{strap:"Aesthetic platform",
+          nav_seins:"Breast",nav_lipo:"Liposuction",nav_visage:"Face",nav_corps:"Body",nav_perte:"Weight loss",nav_cheveux:"Hair",nav_peau:"Skin",nav_dents:"Teeth",nav_hommes:"Men",nav_avap:"Before/After photos",nav_avis:"Reviews",nav_contact:"Contact",
+          hero_title:"EstheConnect — Aesthetic Platform",hero_sub:"Compare clinics, get a quote and book with confidence.",btn_fin:"Financing",
+          h_seins:"Breast",p_seins:"Augmentation, lift, reduction — full support.",
+          h_visage:"Face",c_visage1:"Injectables & anti-aging",c_visage2:"Mini lift & lipofilling",c_visage3:"Hair transplant",
+          h_dents:"Teeth",c_dent1:"Veneers & implants",c_dent2:"Whitening",c_dent3:"Premium care",
+          h_avap:"Before / After",p_avap:"Sample results. Detailed galleries on request.",
+          h_fin:"Financing",p_fin:"Flexible plans by country and clinic.",
+          h_contact:"Contact & Quote",p_contact:"Fast reply. Secure photo sharing."},
+      de:{strap:"Ästhetische Plattform",
+          nav_seins:"Brust",nav_lipo:"Liposuktion",nav_visage:"Gesicht",nav_corps:"Körper",nav_perte:"Gewichtsverlust",nav_cheveux:"Haare",nav_peau:"Haut",nav_dents:"Zähne",nav_hommes:"Männer",nav_avap:"Vorher/Nachher Fotos",nav_avis:"Bewertungen",nav_contact:"Kontakt",
+          hero_title:"EstheConnect — Ästhetische Plattform",hero_sub:"Kliniken vergleichen, Angebot erhalten und mit Vertrauen buchen.",btn_fin:"Finanzierung",
+          h_seins:"Brust",p_seins:"Vergrößerung, Straffung, Verkleinerung — komplette Begleitung.",
+          h_visage:"Gesicht",c_visage1:"Injektionen & Anti-Aging",c_visage2:"Mini-Lift & Lipofilling",c_visage3:"Haartransplantation",
+          h_dents:"Zähne",c_dent1:"Veneers & Implantate",c_dent2:"Bleaching",c_dent3:"Premium Pflege",
+          h_avap:"Vorher / Nachher",p_avap:"Beispiele. Detaillierte Galerien auf Anfrage.",
+          h_fin:"Finanzierung",p_fin:"Flexible Pläne je Land und Klinik.",
+          h_contact:"Kontakt & Angebot",p_contact:"Schnelle Antwort. Sichere Fotoübermittlung."}
     };
-    const $ = (sel, ctx=document) => [...ctx.querySelectorAll(sel)];
-    const langSel = document.getElementById('langSel');
-    function setLang(lang){
-      const pack = I18N[lang] || I18N.fr;
-      document.documentElement.lang = lang;
-      $("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (pack[key]) el.textContent = pack[key];
-      });
-      const label = document.querySelector('label[for="langSel"]');
-      if (label) label.textContent = pack.label_lang || "Langue";
-      localStorage.setItem("ec_lang", lang);
-      const msg = encodeURIComponent((pack.hero_title ? '['+pack.hero_title+'] ' : '') + (pack.btn_whatsapp || 'Contact via WhatsApp.'));
-      const wbtn2 = document.getElementById('ctaWhatsapp');
-      if (wbtn2) wbtn2.href = `https://wa.me/${WA_PHONE}?text=${msg}`;
+    const $ = (s,ctx=document)=>[...ctx.querySelectorAll(s)];
+    const pills = document.querySelectorAll('.lang-pills button');
+    function setLang(l){
+      const p=I18N[l]||I18N.fr; document.documentElement.lang=l;
+      $("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n"); if(p[k]) el.textContent=p[k];});
+      pills.forEach(b=>b.classList.toggle('active', b.dataset.lang===l));
+      localStorage.setItem('esthe_lang', l);
     }
-    (function initLang(){
-      const urlLang = new URLSearchParams(location.search).get("lang");
-      const stored = localStorage.getItem("ec_lang");
-      const browser = (navigator.language||"fr").slice(0,2).toLowerCase();
-      const chosen = ["fr","nl","en","de"].includes(urlLang) ? urlLang
-                    : ["fr","nl","en","de"].includes(stored) ? stored
-                    : ["nl","en","de"].includes(browser) ? browser : "fr";
-      langSel.value = chosen; setLang(chosen);
-    })();
-    langSel.addEventListener("change", e => {
-      const v = e.target.value;
-      setLang(v);
-      const u = new URL(location.href); u.searchParams.set("lang", v); history.replaceState({}, "", u);
-    });
+    pills.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+    // init from storage or FR
+    setLang(localStorage.getItem('esthe_lang')||'fr');
   </script>
 </body>
 </html>
