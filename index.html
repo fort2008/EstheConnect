@@ -4,83 +4,50 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EstheConnect — Plateforme esthétique</title>
-  <meta name="description" content="Comparez les cliniques, obtenez un devis, réservez en toute confiance. FR/NL/EN/DE." />
+  <meta name="description" content="Comparez les cliniques, obtenez un devis et réservez en toute confiance. FR/NL/EN/DE." />
   <style>
     :root{
-      --rose:#e9b5c8;     /* rose chic plus doux */
-      --rose-dark:#d88aa6;
-      --dore:#d7b362;     /* doré */
-      --dore-2:#f0d9a1;
-      --ink:#0e0c12;      /* fond sombre */
-      --ink-2:#16131a;
-      --text:#f6f6f7;
-      --muted:#cfcfd8;
-      --whatsapp:#25d366;
+      --rose:#e9b5c8; --dore:#d7b362; --dore-2:#f0d9a1;
+      --ink:#0e0c12; --ink-2:#16131a; --text:#f6f6f7; --whatsapp:#25d366;
     }
     *{box-sizing:border-box} html,body{margin:0;padding:0}
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;color:#eaeaf0;background:var(--ink);line-height:1.5}
-    a{text-decoration:none;color:inherit}
-    [id]{scroll-margin-top:90px}
+    a{text-decoration:none;color:inherit} [id]{scroll-margin-top:90px}
 
     /* Topbar gradient */
-    .topbar{
-      position:sticky;top:0;z-index:9999;
-      background:linear-gradient(90deg,var(--rose) 0%, var(--dore) 100%);
-      color:#2b1f22;border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .topbar .wrap{
-      max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;
-      padding:10px 18px;
-    }
+    .topbar{position:sticky;top:0;z-index:9999;background:linear-gradient(90deg,var(--rose),var(--dore));color:#2b1f22;border-bottom:1px solid rgba(255,255,255,.06)}
+    .topbar .wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 18px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-    .brand .badge{
-      width:38px;height:38px;border-radius:999px;background:#fff;color:#8a2a4c;
-      display:inline-flex;align-items:center;justify-content:center;font-weight:900;
-      border:2px solid rgba(0,0,0,.08); box-shadow:0 1px 0 rgba(255,255,255,.6) inset;
-    }
-    .brand .title{display:flex;flex-direction:column;line-height:1}
-    .brand .title span:first-child{font-size:16px}
-    .brand .title span:last-child{font-size:12px;opacity:.8}
+    .badge{width:38px;height:38px;border-radius:999px;background:#fff;color:#8a2a4c;display:inline-flex;align-items:center;justify-content:center;font-weight:900;border:2px solid rgba(0,0,0,.08)}
+    .title{display:flex;flex-direction:column;line-height:1}
+    .title span:first-child{font-size:16px}
+    .title span:last-child{font-size:12px;opacity:.85}
 
     .lang-pills{display:flex;gap:8px}
-    .lang-pills button{
-      border:0;border-radius:999px;padding:6px 10px;font-weight:700;cursor:pointer;
-      background:rgba(255,255,255,.85);color:#222;transition:.15s;
-    }
-    .lang-pills button:hover{transform:translateY(-1px)}
+    .lang-pills button{border:0;border-radius:999px;padding:6px 10px;font-weight:700;cursor:pointer;background:rgba(255,255,255,.85);color:#222;transition:.15s}
     .lang-pills button.active{outline:2px solid #222}
 
     /* Navbar */
-    .navbar{
-      background:var(--ink-2);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .navbar .wrap{
-      max-width:1200px;margin:0 auto;display:flex;gap:22px;overflow:auto;padding:12px 18px;
-      scrollbar-width:none;
-    }
+    .navbar{background:var(--ink-2);border-bottom:1px solid rgba(255,255,255,.08)}
+    .navbar .wrap{max-width:1200px;margin:0 auto;display:flex;gap:22px;overflow:auto;padding:12px 18px;scrollbar-width:none}
     .navbar .wrap::-webkit-scrollbar{display:none}
     .navbar a{white-space:nowrap;color:#eee;padding:6px 0}
     .navbar a:hover{color:var(--dore)}
 
     /* Hero */
     .hero{
-      position:relative;min-height:68vh;background:url('assets/img/hero/hero.jpg') center/cover no-repeat;
-      display:flex;align-items:center;justify-content:center;padding:80px 18px;
-      border-bottom:4px solid var(--dore);
+      position:relative;min-height:68vh;
+      background:url('/EstheConnect/assets/img/hero/hero.jpg') center/cover no-repeat;
+      display:flex;align-items:center;justify-content:center;padding:80px 18px;border-bottom:4px solid var(--dore)
     }
-    .hero::before{
-      content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,.18), rgba(0,0,0,.65));
-    }
+    .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,.18), rgba(0,0,0,.65))}
     .hero .content{position:relative;text-align:center;max-width:960px}
     .hero h1{font-size:clamp(28px,5.5vw,56px);margin:0 0 10px;color:var(--dore-2);text-shadow:0 2px 12px rgba(0,0,0,.6)}
     .hero p{color:#e9e9ee;opacity:.95;margin:0 0 24px}
-
     .btn{display:inline-block;padding:12px 18px;border-radius:999px;font-weight:800;border:2px solid transparent;transition:.2s}
     .btn-primary{background:var(--dore-2);color:#2a1f12}
-    .btn-primary:hover{transform:translateY(-1px);filter:brightness(0.98)}
     .btn-ghost{background:transparent;border-color:#fff;color:#fff}
-    .btn-ghost:hover{background:rgba(255,255,255,.08)}
+    .btn-primary:hover,.btn-ghost:hover{transform:translateY(-1px)}
 
     /* Sections */
     section{max-width:1200px;margin:0 auto;padding:40px 18px}
@@ -89,17 +56,10 @@
     .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
     .card{background:#19171e;border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;box-shadow:0 10px 32px rgba(0,0,0,.25)}
     .card img{width:100%;height:220px;object-fit:cover;display:block}
-    .card .p{padding:14px;color:#e7e7ee}
 
-    /* Footer */
+    /* Footer & WhatsApp */
     footer{max-width:1200px;margin:0 auto;padding:30px 18px;color:#bdbdc8;border-top:1px solid rgba(255,255,255,.08)}
-
-    /* Floating WhatsApp */
-    .wa-float{
-      position:fixed;right:18px;bottom:18px;z-index:99;
-      width:58px;height:58px;border-radius:999px;background:var(--whatsapp);display:flex;align-items:center;justify-content:center;
-      color:#fff;font-size:28px;font-weight:900;box-shadow:0 10px 22px rgba(0,0,0,.3)
-    }
+    .wa-float{position:fixed;right:18px;bottom:18px;z-index:99;width:58px;height:58px;border-radius:999px;background:var(--whatsapp);display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;font-weight:900;box-shadow:0 10px 22px rgba(0,0,0,.3)}
   </style>
 </head>
 <body>
@@ -153,135 +113,91 @@
     </div>
   </section>
 
-  <!-- EXEMPLES DE SECTIONS -->
-  <section id="seins">
-    <h2 data-i18n="h_seins">Seins</h2>
-    <p class="muted" data-i18n="p_seins">Augmentation, lifting, réduction — accompagnement complet.</p>
-  </section>
-
+  <!-- VISAGE -->
   <section id="visage">
     <h2 data-i18n="h_visage">Visage</h2>
     <div class="grid">
       <article class="card">
-        <img src="assets/img/hero/style-chic.jpg" alt="Visage esthétique">
+        <img src="/EstheConnect/assets/img/hero/style-chic.jpg" alt="Visage esthétique" loading="lazy" onerror="this.src='/EstheConnect/assets/img/hero/hero.jpg'">
         <div class="p" data-i18n="c_visage1">Injections & anti-âge</div>
       </article>
       <article class="card">
-        <img src="assets/img/hero/hero.jpg" alt="Chirurgie visage">
+        <img src="/EstheConnect/assets/img/hero/hero.jpg" alt="Chirurgie visage" loading="lazy">
         <div class="p" data-i18n="c_visage2">Mini lift & lipofilling</div>
       </article>
       <article class="card">
-        <img src="assets/img/hero/svc-capillaire.jpg" alt="Capillaire">
+        <img src="/EstheConnect/assets/img/hero/svc-capillaire.jpg" alt="Capillaire" loading="lazy" onerror="this.src='/EstheConnect/assets/img/hero/hero.jpg'">
         <div class="p" data-i18n="c_visage3">Greffe capillaire</div>
       </article>
     </div>
   </section>
 
+  <!-- DENTS -->
   <section id="dents">
     <h2 data-i18n="h_dents">Dents</h2>
     <div class="grid">
       <article class="card">
-        <img src="assets/img/hero/dent.jpg" alt="Dentaire">
+        <img src="/EstheConnect/assets/img/hero/dent.jpg" alt="Dentaire" loading="lazy">
         <div class="p" data-i18n="c_dent1">Facettes & implants</div>
       </article>
       <article class="card">
-        <img src="assets/img/hero/acceuil.png" alt="Sourire">
+        <img src="/EstheConnect/assets/img/hero/acceuil.png" alt="Sourire" loading="lazy" onerror="this.src='/EstheConnect/assets/img/hero/hero.jpg'">
         <div class="p" data-i18n="c_dent2">Blanchiment</div>
       </article>
       <article class="card">
-        <img src="assets/img/hero/hero.jpg" alt="Soins premium">
+        <img src="/EstheConnect/assets/img/hero/hero.jpg" alt="Soins premium" loading="lazy">
         <div class="p" data-i18n="c_dent3">Soins premium</div>
       </article>
     </div>
   </section>
 
+  <!-- AVANT / APRÈS -->
   <section id="avantapres">
     <h2 data-i18n="h_avap">Photos avant / après</h2>
     <p class="muted" data-i18n="p_avap">Aperçu de résultats. Galeries détaillées disponibles sur demande.</p>
     <div class="grid">
-      <article class="card"><img src="assets/img/hero/style-chic.jpg" alt="Avant Après 1"><div class="p">—</div></article>
-      <article class="card"><img src="assets/img/hero/svc-capillaire.jpg" alt="Avant Après 2"><div class="p">—</div></article>
-      <article class="card"><img src="assets/img/hero/dent.jpg" alt="Avant Après 3"><div class="p">—</div></article>
+      <article class="card"><img src="/EstheConnect/assets/img/hero/style-chic.jpg" alt="Avant Après 1" loading="lazy"></article>
+      <article class="card"><img src="/EstheConnect/assets/img/hero/svc-capillaire.jpg" alt="Avant Après 2" loading="lazy"></article>
+      <article class="card"><img src="/EstheConnect/assets/img/hero/dent.jpg" alt="Avant Après 3" loading="lazy"></article>
     </div>
   </section>
 
+  <!-- FINANCEMENT -->
   <section id="financement">
     <h2 data-i18n="h_fin">Financement</h2>
     <p class="muted" data-i18n="p_fin">Plans souples selon le pays et la clinique.</p>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
     <h2 data-i18n="h_contact">Contact & Devis</h2>
     <p class="muted" data-i18n="p_contact">Réponse rapide. Envoi de photos sécurisé.</p>
   </section>
 
-  <footer>
-    © <span id="year"></span> EstheConnect — <span style="color:var(--dore)">Plateforme esthétique</span>
-  </footer>
+  <footer>© <span id="year"></span> EstheConnect — <span style="color:var(--dore)">Plateforme esthétique</span></footer>
 
-  <!-- Floating WhatsApp -->
+  <!-- Bouton WhatsApp flottant -->
   <a class="wa-float" id="waFloat" href="#" aria-label="WhatsApp">⌁</a>
 
   <script>
-    // Year
+    // Année
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // WhatsApp (numéro masqué)
-    const WA = '21628296239';
-    const wMsg = encodeURIComponent("Bonjour, je souhaite des informations via EstheConnect.");
-    document.getElementById('ctaWhats').href = `https://wa.me/${WA}?text=${wMsg}`;
-    document.getElementById('waFloat').href = `https://wa.me/${WA}?text=${wMsg}`;
+    const WA='21628296239';
+    const wMsg=encodeURIComponent("Bonjour, je souhaite des informations via EstheConnect.");
+    document.getElementById('ctaWhats').href=`https://wa.me/${WA}?text=${wMsg}`;
+    document.getElementById('waFloat').href=`https://wa.me/${WA}?text=${wMsg}`;
 
-    // Lang pills + i18n
-    const I18N = {
-      fr:{strap:"Plateforme esthétique",
-          nav_seins:"Seins",nav_lipo:"Liposuccion",nav_visage:"Visage",nav_corps:"Corps",nav_perte:"Perte de poids",nav_cheveux:"Cheveux",nav_peau:"Peau",nav_dents:"Dents",nav_hommes:"Hommes",nav_avap:"Photos avant / après",nav_avis:"Avis",nav_contact:"Contact",
-          hero_title:"EstheConnect — Plateforme esthétique",hero_sub:"Comparez les cliniques, obtenez un devis et réservez en toute confiance.",btn_fin:"Financement",
-          h_seins:"Seins",p_seins:"Augmentation, lifting, réduction — accompagnement complet.",
-          h_visage:"Visage",c_visage1:"Injections & anti-âge",c_visage2:"Mini lift & lipofilling",c_visage3:"Greffe capillaire",
-          h_dents:"Dents",c_dent1:"Facettes & implants",c_dent2:"Blanchiment",c_dent3:"Soins premium",
-          h_avap:"Photos avant / après",p_avap:"Aperçu de résultats. Galeries détaillées disponibles sur demande.",
-          h_fin:"Financement",p_fin:"Plans souples selon le pays et la clinique.",
-          h_contact:"Contact & Devis",p_contact:"Réponse rapide. Envoi de photos sécurisé."},
-      nl:{strap:"Esthetisch platform",
-          nav_seins:"Borst",nav_lipo:"Liposuctie",nav_visage:"Gezicht",nav_corps:"Lichaam",nav_perte:"Gewichtsverlies",nav_cheveux:"Haar",nav_peau:"Huid",nav_dents:"Tanden",nav_hommes:"Mannen",nav_avap:"Voor/Na foto's",nav_avis:"Beoordelingen",nav_contact:"Contact",
-          hero_title:"EstheConnect — Esthetisch platform",hero_sub:"Vergelijk klinieken, vraag een offerte en boek met vertrouwen.",btn_fin:"Financiering",
-          h_seins:"Borst",p_seins:"Vergroting, lifting, verkleining — volledige begeleiding.",
-          h_visage:"Gezicht",c_visage1:"Injecties & anti-aging",c_visage2:"Mini-lift & lipofilling",c_visage3:"Haartransplantatie",
-          h_dents:"Tanden",c_dent1:"Facings & implantaten",c_dent2:"Bleken",c_dent3:"Premium zorg",
-          h_avap:"Voor / Na",p_avap:"Voorbeelden. Gedetailleerde galerijen op aanvraag.",
-          h_fin:"Financiering",p_fin:"Flexibele plannen per land en kliniek.",
-          h_contact:"Contact & Offerte",p_contact:"Snelle reactie. Veilige fotodeling."},
-      en:{strap:"Aesthetic platform",
-          nav_seins:"Breast",nav_lipo:"Liposuction",nav_visage:"Face",nav_corps:"Body",nav_perte:"Weight loss",nav_cheveux:"Hair",nav_peau:"Skin",nav_dents:"Teeth",nav_hommes:"Men",nav_avap:"Before/After photos",nav_avis:"Reviews",nav_contact:"Contact",
-          hero_title:"EstheConnect — Aesthetic Platform",hero_sub:"Compare clinics, get a quote and book with confidence.",btn_fin:"Financing",
-          h_seins:"Breast",p_seins:"Augmentation, lift, reduction — full support.",
-          h_visage:"Face",c_visage1:"Injectables & anti-aging",c_visage2:"Mini lift & lipofilling",c_visage3:"Hair transplant",
-          h_dents:"Teeth",c_dent1:"Veneers & implants",c_dent2:"Whitening",c_dent3:"Premium care",
-          h_avap:"Before / After",p_avap:"Sample results. Detailed galleries on request.",
-          h_fin:"Financing",p_fin:"Flexible plans by country and clinic.",
-          h_contact:"Contact & Quote",p_contact:"Fast reply. Secure photo sharing."},
-      de:{strap:"Ästhetische Plattform",
-          nav_seins:"Brust",nav_lipo:"Liposuktion",nav_visage:"Gesicht",nav_corps:"Körper",nav_perte:"Gewichtsverlust",nav_cheveux:"Haare",nav_peau:"Haut",nav_dents:"Zähne",nav_hommes:"Männer",nav_avap:"Vorher/Nachher Fotos",nav_avis:"Bewertungen",nav_contact:"Kontakt",
-          hero_title:"EstheConnect — Ästhetische Plattform",hero_sub:"Kliniken vergleichen, Angebot erhalten und mit Vertrauen buchen.",btn_fin:"Finanzierung",
-          h_seins:"Brust",p_seins:"Vergrößerung, Straffung, Verkleinerung — komplette Begleitung.",
-          h_visage:"Gesicht",c_visage1:"Injektionen & Anti-Aging",c_visage2:"Mini-Lift & Lipofilling",c_visage3:"Haartransplantation",
-          h_dents:"Zähne",c_dent1:"Veneers & Implantate",c_dent2:"Bleaching",c_dent3:"Premium Pflege",
-          h_avap:"Vorher / Nachher",p_avap:"Beispiele. Detaillierte Galerien auf Anfrage.",
-          h_fin:"Finanzierung",p_fin:"Flexible Pläne je Land und Klinik.",
-          h_contact:"Kontakt & Angebot",p_contact:"Schnelle Antwort. Sichere Fotoübermittlung."}
+    // Mini i18n (FR/NL/EN/DE) pour les libellés clés
+    const I18N={
+      fr:{strap:"Plateforme esthétique",nav_seins:"Seins",nav_lipo:"Liposuccion",nav_visage:"Visage",nav_corps:"Corps",nav_perte:"Perte de poids",nav_cheveux:"Cheveux",nav_peau:"Peau",nav_dents:"Dents",nav_hommes:"Hommes",nav_avap:"Photos avant / après",nav_avis:"Avis",nav_contact:"Contact",hero_title:"EstheConnect — Plateforme esthétique",hero_sub:"Comparez les cliniques, obtenez un devis et réservez en toute confiance.",btn_fin:"Financement",h_visage:"Visage",c_visage1:"Injections & anti-âge",c_visage2:"Mini lift & lipofilling",c_visage3:"Greffe capillaire",h_dents:"Dents",c_dent1:"Facettes & implants",c_dent2:"Blanchiment",c_dent3:"Soins premium",h_avap:"Photos avant / après",p_avap:"Aperçu de résultats. Galeries détaillées disponibles sur demande.",h_fin:"Financement",p_fin:"Plans souples selon le pays et la clinique.",h_contact:"Contact & Devis",p_contact:"Réponse rapide. Envoi de photos sécurisé."}
     };
-    const $ = (s,ctx=document)=>[...ctx.querySelectorAll(s)];
-    const pills = document.querySelectorAll('.lang-pills button');
-    function setLang(l){
-      const p=I18N[l]||I18N.fr; document.documentElement.lang=l;
-      $("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n"); if(p[k]) el.textContent=p[k];});
-      pills.forEach(b=>b.classList.toggle('active', b.dataset.lang===l));
-      localStorage.setItem('esthe_lang', l);
-    }
-    pills.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
-    // init from storage or FR
-    setLang(localStorage.getItem('esthe_lang')||'fr');
+    const $=(s,ctx=document)=>[...ctx.querySelectorAll(s)];
+    const pills=document.querySelectorAll('.lang-pills button');
+    function setLang(l){const p=I18N[l.toLowerCase()]||I18N.fr;document.documentElement.lang=l.toLowerCase();$("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n");if(p[k])el.textContent=p[k];});pills.forEach(b=>b.classList.toggle('active',b.textContent===l));localStorage.setItem('esthe_lang',l);}
+    pills.forEach(b=>b.addEventListener('click',()=>setLang(b.textContent)));
+    setLang(localStorage.getItem('esthe_lang')||'FR');
   </script>
 </body>
 </html>
