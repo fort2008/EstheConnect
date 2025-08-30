@@ -4,170 +4,472 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EstheConnect — Plateforme esthétique</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <meta name="description" content="EstheConnect — Comparez les cliniques, demandez un devis et réservez vos interventions esthétiques en toute confiance." />
-  <meta name="theme-color" content="#f48fb1" />
 
-  <link rel="preload" as="image" href="assets/img/slide1.jpg">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://fort2008.github.io/EstheConnect/" />
+
+  <!-- Base SEO -->
+  <meta name="description" content="EstheConnect : Comparez les cliniques, obtenez un devis et réservez en toute confiance. Chirurgie esthétique, dentaire, capillaire. Photos avant/après, avis, financement." />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="EstheConnect — Plateforme esthétique" />
+  <meta property="og:description" content="Chirurgie esthétique, dentaire, capillaire. Devis rapide, accompagnement A→Z." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1600&auto=format&fit=crop" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon minimal -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23f7d3e1' x='0' y='0' width='100' height='100'/><text x='50' y='58' font-size='50' text-anchor='middle' fill='%238e195c'>EC</text></svg>">
+
+  <!-- Styles -->
+  <style>
+    :root{
+      --bg:#0f0e12;           /* noir velours */
+      --text:#f9f7fb;         /* ivoire */
+      --rose:#f7c1d6;         /* rose chic */
+      --rose-2:#ffdeea;
+      --gold:#d6b36a;         /* doré doux */
+      --muted:#b7a7b7;
+      --card:#17141c;
+      --shadow: 0 10px 30px rgba(214,179,106,.25);
+      --container: 1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+
+    /* Top language strip + upper nav */
+    .topbar{background:linear-gradient(90deg, rgba(247,193,214,.9), rgba(214,179,106,.9));color:#1b1323}
+    .topbar .inner{max-width:var(--container);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:.7rem 1rem}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800}
+    .brand .logo{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#fff2f7;border:2px solid rgba(0,0,0,.05);color:#c0167a;box-shadow:var(--shadow)}
+    .brand a{display:flex;align-items:center;gap:.6rem}
+    .pill{display:inline-flex;gap:.4rem;align-items:center;border:1px solid rgba(0,0,0,.1);background:rgba(255,255,255,.55);padding:.35rem .6rem;border-radius:999px}
+    .langs a{margin-left:.4rem}
+    .on{background:#fff;border:1px solid rgba(0,0,0,.15);padding:.2rem .55rem;border-radius:999px}
+
+    /* Main menu row */
+    .menubar{background:#201a24;border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:40}
+    .menubar .inner{max-width:var(--container);margin:auto;display:flex;gap:1rem;align-items:center;overflow:auto;padding:.7rem 1rem}
+    .menu a{padding:.45rem .7rem;border-radius:10px;white-space:nowrap;transition:.2s}
+    .menu a:hover{background:rgba(214,179,106,.18)}
+    .menu .cta{background:linear-gradient(135deg,var(--gold),var(--rose));color:#1b1323;font-weight:800;border:none}
+
+    /* Hero slider (simple static for now) */
+    .hero{position:relative;isolation:isolate;min-height:64vh;display:grid;place-items:center;overflow:hidden;border-bottom:3px solid var(--gold)}
+    .hero::before{content:'';position:absolute;inset:-10%;background:radial-gradient(60% 50% at 50% 40%, rgba(242,198,216,.28), transparent 60%), radial-gradient(40% 40% at 80% 20%, rgba(214,179,106,.22), transparent 60%), linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.65));z-index:0}
+    .hero-media{position:absolute;inset:0;opacity:.55;filter:contrast(1.05) saturate(1.05) brightness(.9);background:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat}
+    .hero-inner{position:relative;z-index:1;max-width:var(--container);margin:auto;text-align:center;padding:4rem 1rem}
+    .hero h1{font-size:clamp(2rem,4.2vw,3.2rem);margin:.9rem 0;background:linear-gradient(135deg,var(--rose-2),#fff,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{max-width:800px;margin:.5rem auto 1.25rem;color:#e9e2ee}
+    .buttons{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(214,179,106,.45);padding:.75rem 1rem;border-radius:14px;background:rgba(23,20,28,.65)}
+    .btn.primary{border:none;background:linear-gradient(135deg,var(--gold),var(--rose));color:#1b1323;font-weight:800}
+
+    /* Sections */
+    section{max-width:var(--container);margin:auto;padding:3rem 1rem}
+    h2{font-size:clamp(1.4rem,2.4vw,1.9rem);margin:0 0 1rem 0;color:var(--rose-2)}
+
+    /* Grid cards with images */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+    .card{grid-column:span 12;background:var(--card);border:1px solid rgba(214,179,106,.18);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    .card .media{height:200px;background:#222 center/cover no-repeat}
+    .card .content{padding:1rem 1.1rem}
+    .tag{display:inline-block;font-size:.75rem;background:rgba(242,198,216,.15);border:1px solid rgba(242,198,216,.35);padding:.2rem .5rem;border-radius:999px;color:#ffeef6}
+
+    @media (min-width:700px){
+      .card{grid-column:span 4}
+    }
+
+    /* Contact & footer */
+    .contact{display:grid;gap:1rem;grid-template-columns:1fr;align-items:center}
+    .panel{background:var(--card);border:1px solid rgba(214,179,106,.18);border-radius:18px;padding:1.1rem 1.25rem;box-shadow:var(--shadow)}
+    footer{border-top:1px solid rgba(214,179,106,.2);padding:1.5rem 1rem;color:var(--muted);text-align:center}
+
+    /* Floating WhatsApp (no number text) */
+    .wa{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:white;font-weight:900;font-size:24px;box-shadow:0 10px 25px rgba(0,0,0,.35);z-index:50}
+  </style>
 </head>
-<body>
-  <!-- TOP -->
+<body id="top">
+
+  <!-- Top strip -->
   <div class="topbar">
-    <div class="topbar-inner">
+    <div class="inner">
       <div class="brand">
-        <div class="logo">EC</div>
-        <div>EstheConnect<br /><small>Plateforme esthétique</small></div>
+        <a href="#top" aria-label="Retour page d'accueil">
+          <span class="logo">EC</span>
+          <span>EstheConnect</span>
+        </a>
+        <span class="pill" title="Plateforme esthétique">Plateforme esthétique</span>
       </div>
-      <nav class="nav">
-        <a href="#galerie">Photos avant / après</a>
-        <a href="#avis">Avis</a>
-        <a href="#etranger">Chirurgie à l’étranger</a>
-        <a href="#financement">Financement</a>
-        <a class="cta" href="https://wa.me/21628296239" target="_blank" rel="noopener">Réserver en ligne</a>
-      </nav>
+      <div class="langs" aria-label="Langues">
+        <span class="on">FR</span>
+        <a href="#nl">NL</a>
+        <a href="#en">EN</a>
+        <a href="#de">DE</a>
+      </div>
     </div>
   </div>
 
-  <!-- MEGA MENU (raccourci) -->
-  <div class="megabar">
-    <div class="mega-wrap">
-      <button class="burger" onclick="document.getElementById('drawer').classList.toggle('open')">☰ Menu</button>
-      <ul class="menu" role="menubar" aria-label="Catégories">
-        <li role="none"><button role="menuitem" aria-haspopup="true">Seins</button>
-          <div class="panel" role="group" aria-label="Seins">
-            <div class="panel-grid">
-              <div class="item"><div class="badge">S</div><a href="#">Augmentation mammaire</a></div>
-              <div class="item"><div class="badge">L</div><a href="#">Lifting mammaire</a></div>
-              <div class="item"><div class="badge">R</div><a href="#">Réduction mammaire</a></div>
-              <div class="item"><div class="badge">C</div><a href="#">Correction mamelons</a></div>
-            </div>
-          </div>
-        </li>
-        <li role="none"><button role="menuitem" aria-haspopup="true">Liposuccion</button>
-          <div class="panel" role="group" aria-label="Liposuccion">
-            <div class="panel-grid">
-              <div class="item"><div class="badge">Li</div><a href="#">Liposuccion</a></div>
-              <div class="item"><div class="badge">Ls</div><a href="#">Liposculpture</a></div>
-              <div class="item"><div class="badge">BBL</div><a href="#">Brazilian Butt Lift</a></div>
-              <div class="item"><div class="badge">Gy</div><a href="#">Gynécomastie</a></div>
-            </div>
-          </div>
-        </li>
-        <li role="none"><button role="menuitem" aria-haspopup="true">Visage</button>
-          <div class="panel" role="group" aria-label="Visage">
-            <div class="panel-grid">
-              <div class="item"><div class="badge">N</div><a href="#">Rhinoplastie</a></div>
-              <div class="item"><div class="badge">Y</div><a href="#">Paupières</a></div>
-              <div class="item"><div class="badge">L</div><a href="#">Lèvres</a></div>
-              <div class="item"><div class="badge">Pe</div><a href="#">Peau & injections</a></div>
-            </div>
-          </div>
-        </li>
-        <li role="none"><button role="menuitem" aria-haspopup="true">Corps</button>
-          <div class="panel" role="group" aria-label="Corps">
-            <div class="panel-grid">
-              <div class="item"><div class="badge">B</div><a href="#">Bras</a></div>
-              <div class="item"><div class="badge">V</div><a href="#">Ventre</a></div>
-              <div class="item"><div class="badge">F</div><a href="#">Fesses</a></div>
-              <div class="item"><div class="badge">MM</div><a href="#">Mommy Makeover</a></div>
-            </div>
-          </div>
-        </li>
-      </ul>
+  <!-- Main menu -->
+  <div class="menubar">
+    <div class="inner menu" role="navigation" aria-label="Navigation principale">
+      <a href="#seins">Seins</a>
+      <a href="#liposuccion">Liposuccion</a>
+      <a href="#visage">Visage</a>
+      <a href="#corps">Corps</a>
+      <a href="#poids">Perte de poids</a>
+      <a href="#cheveux">Cheveux</a>
+      <a href="#peau">Peau</a>
+      <a href="#dents">Dents</a>
+      <a href="#hommes">Hommes</a>
+      <a href="#avantapres">Photos avant / après</a>
+      <a href="#avis">Avis</a>
+      <a href="#etranger">Chirurgie à l’étranger</a>
+      <a href="#financement">Financement</a>
+      <a href="#contact" class="cta">Contact</a>
     </div>
   </div>
 
-  <!-- HERO / SLIDER with optional VIDEO -->
-  <section class="hero" id="accueil" aria-label="Diaporama">
-    <!-- Optional background video (put your file in assets/video/hero.mp4) -->
-    <div class="slide">
-      <video class="hero-video" autoplay muted loop playsinline poster="assets/img/slide1.jpg">
-        <source src="assets/video/hero.mp4" type="video/mp4" />
-      </video>
-    </div>
-
-    <div class="slide active">
-      <img alt="Clinique moderne" loading="eager" src="assets/img/slide1.jpg" />
-    </div>
-    <div class="slide">
-      <img alt="Salle d'esthétique lumineuse" src="assets/img/slide2.jpg" />
-    </div>
-    <div class="slide">
-      <img alt="Cabinet dentaire moderne" src="assets/img/slide3.jpg" />
-    </div>
-    <div class="slide">
-      <img alt="Dermatologie et laser" src="assets/img/slide4.jpg" />
-    </div>
-    <div class="slide">
-      <img alt="Bloc ou salle de soin stérile" src="assets/img/slide5.jpg" />
-    </div>
-
-    <div class="content">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-media" aria-hidden="true"></div>
+    <div class="hero-inner">
       <h1>EstheConnect — Plateforme esthétique</h1>
       <p>Comparez les cliniques, obtenez un devis et réservez en toute confiance.</p>
-      <a href="https://wa.me/21628296239" target="_blank" rel="noopener" class="btn">Contact WhatsApp</a>
-      <a href="#financement" class="btn secondary">Financement</a>
-    </div>
-    <div class="dots" aria-label="Navigation diaporama"></div>
-  </section>
-
-  <!-- FINANCEMENT -->
-  <section id="financement" class="financement">
-    <div class="container">
-      <h2>Financement & paiement</h2>
-      <p class="lead">Solutions souples pour planifier sereinement votre intervention. Devis gratuit et sans engagement.</p>
-
-      <div class="fin-grid">
-        <div class="card">
-          <span class="chip">Échelonné</span>
-          <h3>Paiement en plusieurs fois</h3>
-          <ul class="list">
-            <li>Échéancier 3×, 6× ou 12× (selon éligibilité)</li>
-            <li>Versement d’acompte & calendrier clair</li>
-            <li>Sans frais cachés — conditions communiquées avant accord</li>
-          </ul>
-          <a class="btn" href="https://wa.me/21628296239" target="_blank" rel="noopener">Je demande un plan</a>
-        </div>
-        <div class="card">
-          <span class="chip">Classique</span>
-          <h3>Virement / Carte</h3>
-          <ul class="list">
-            <li>Virement bancaire sécurisé (BE/TN/UE)</li>
-            <li>Carte bancaire selon clinique/partenaire</li>
-            <li>Facture et confirmation immédiate</li>
-          </ul>
-          <a class="btn" href="#contact">Obtenir un RIB / infos</a>
-        </div>
-        <div class="card">
-          <span class="chip">Simulation</span>
-          <h3>Calculez votre mensualité</h3>
-          <div class="calc">
-            <div class="row">
-              <input id="amt" type="number" min="0" step="50" placeholder="Montant (€) — ex. 3200" />
-              <input id="months" type="number" min="1" max="60" step="1" placeholder="Durée (mois) — ex. 12" />
-              <input id="rate" type="number" min="0" step="0.1" placeholder="TAEG (%) — ex. 6.5" />
-            </div>
-            <div class="result" id="mensu">Mensualité estimée : — €/mois</div>
-            <div class="note">Indicatif, hors assurances. Le taux dépend de votre profil et partenaire financier.</div>
-          </div>
-        </div>
+      <div class="buttons">
+        <a class="btn primary" href="https://wa.me/21628296239" target="_blank" rel="noopener">Contact WhatsApp</a>
+        <a class="btn" href="#financement">Financement</a>
       </div>
     </div>
   </section>
 
-  <!-- CONTENU EXEMPLE -->
-  <main class="container" style="margin:30px auto">
-    <h1 id="galerie" style="font-size:clamp(28px,4vw,42px);line-height:1.1;margin:18px 0">Facettes dentaires</h1>
-    <p style="font-size:18px;color:#584f63">Exemple de page pour tester le méga-menu et le diaporama. Remplace ce contenu par tes sections (services, prix, contact…).</p>
-    <p id="contact">Devis & infos : <a href="https://wa.me/21628296239" target="_blank" rel="noopener">WhatsApp</a> • <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
-  </main>
+  <!-- Sections with images -->
+  <section id="seins">
+    <h2>Seins</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1580281657527-47f249e8f3a0?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Chirurgie seins</span>
+          <h3>Augmentation · Lifting · Réduction</h3>
+          <p>Techniques actuelles, cicatrices discrètes, suivi post-op personnalisé.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1551292831-023188e78222?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Implants</span>
+          <h3>Prothèses & lipofilling</h3>
+          <p>Choix sur-mesure : prothèses, lipofilling, ou mix selon indication.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1606811047756-b4d5b9cbbff3?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Correction</span>
+          <h3>Mamelons / asymétries</h3>
+          <p>Corrections ciblées, récupération rapide.</p>
+        </div>
+      </article>
+    </div>
+  </section>
 
-  <!-- WHATSAPP -->
-  <a class="wapp" href="https://wa.me/21628296239" target="_blank" aria-label="WhatsApp EstheConnect" rel="noopener">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.49c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.34-.81-.72-1.36-1.6-1.52-1.87-.16-.27-.02-.41 .12-.55 .12-.12 .27-.32 .41-.48 .14-.16 .18-.27 .27-.45 .09-.18 .05-.34 -.02-.48 -.07-.14 -.61-1.47 -.84-2.01 -.22-.52 -.44-.45 -.61-.46l-.52-.01c-.18 0 -.48 .07 -.73 .34 -.25 .27 -.96 .93 -.96 2.26 0 1.33 .98 2.61 1.12 2.79 .14 .18 1.93 2.95 4.67 4.02 .65 .28 1.16 .45 1.56 .58 .65 .21 1.25 .18 1.72 .11 .52 -.08 1.59 -.65 1.81 -1.27 .22 -.62 .22 -1.14 .16 -1.25 -.07 -.11 -.25 -.18 -.52 -.32zM16.02 4C9.95 4 5 8.95 5 15.02c0 2.47 .79 4.76 2.14 6.62L6 28l6.55 -1.72c1.8 1.19 3.96 1.88 6.28 1.88 6.06 0 11 -4.95 11 -11.02S22.08 4 16.02 4zm0 20.03c-2.29 0 -4.41 -.77 -6.1 -2.06l-.44 -.33 -3.64 .96 .97 -3.56 -.29 -.46A9.97 9.97 0 0 1 6.04 15c0 -5.51 4.47 -9.98 9.98 -9.98 5.51 0 9.98 4.47 9.98 9.98a9.97 9.97 0 0 1 -9.98 10.01z"/></svg>
-  </a>
+  <section id="liposuccion">
+    <h2>Liposuccion</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Corps</span>
+          <h3>Liposuccion multi-zones</h3>
+          <p>Abdomen, hanches, dos, cuisses, bras. Canules fines, silhouette harmonisée.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1595689486070-5e0d1a08d4a6?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">BBL</span>
+          <h3>Lipo + transfert de graisse (BBL)</h3>
+          <p>Contouring avec transfert ciblé, équilibre hanche-taille.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1606813907291-76a1b2cd22a6?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Post-op</span>
+          <h3>Pressothérapie & PRP</h3>
+          <p>Récupération accélérée, résorption des œdèmes.</p>
+        </div>
+      </article>
+    </div>
+  </section>
 
-  <script src="assets/js/main.js"></script>
+  <section id="visage">
+    <h2>Visage</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Visage</span>
+          <h3>Rhinoplastie</h3>
+          <p>Fonction + esthétique, résultats naturels.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Visage</span>
+          <h3>Lifting cervico-facial</h3>
+          <p>Tension vectorielle, cicatrices camouflées.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Paupières</span>
+          <h3>Blépharoplastie</h3>
+          <p>Regard reposé, suites rapides.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="corps">
+    <h2>Corps</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Abdomen</span>
+          <h3>Abdominoplastie</h3>
+          <p>Gainage, diastasis, nombril naturel.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Bras/Cuisses</span>
+          <h3>Liftings</h3>
+          <p>Traitement excès cutané ciblé.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Maman</span>
+          <h3>Mommy Makeover</h3>
+          <p>Programme combiné selon objectifs.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="poids">
+    <h2>Perte de poids</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1549068106-b024baf5062d?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Médecine</span>
+          <h3>Ballon, suivi nutrition</h3>
+          <p>Parcours encadré, objectifs mesurables.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Bariatrique</span>
+          <h3>Sleeve / Bypass</h3>
+          <p>Centres spécialisés, suivi long terme.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1517341720795-3b2d7e0f47a3?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Coaching</span>
+          <h3>Sport & Nutrition</h3>
+          <p>Programme adapté, outils de suivi.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="cheveux">
+    <h2>Cheveux</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1628157588553-5f819c0e3d3b?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Greffe</span>
+          <h3>FUE / DHI</h3>
+          <p>Lignes naturelles, maximisation de greffons.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1556229010-aa3f7ff66f07?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">PRP</span>
+          <h3>PRP & mésothérapie</h3>
+          <p>Stimulation & densification capillaire.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1603652573486-3bbf3e06f98a?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Barbe</span>
+          <h3>Greffe barbe</h3>
+          <p>Remplissage zones clairsemées.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="peau">
+    <h2>Peau</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1544006659-56d93c1b4b52?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Laser</span>
+          <h3>Épilation / taches</h3>
+          <p>Technologies récentes, protocole sécurisé.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Injections</span>
+          <h3>Botox / Acide hyaluronique</h3>
+          <p>Effet naturel, zones ciblées.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Soins</span>
+          <h3>Peelings & skin boosters</h3>
+          <p>Éclat & qualité de peau.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="dents">
+    <h2>Dents</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Facettes</span>
+          <h3>Facettes e.max</h3>
+          <p>Smile design numérique, rendu naturel.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1588776814546-7f5f6a1f1004?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Implants</span>
+          <h3>Implants guidés</h3>
+          <p>Chirurgie guidée par gabarit, confort & précision.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1581594693700-95c00f2fb0da?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Esthétique</span>
+          <h3>Blanchiment</h3>
+          <p>Éclaircissement contrôlé, protocole sûr.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="hommes">
+    <h2>Hommes</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1516641393011-74d3f3d4d0c5?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Gynécomastie</span>
+          <h3>Traitement masculin</h3>
+          <p>Lipo + résection glandulaire selon cas.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1519751138087-5a3a1f66f0c6?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Nez</span>
+          <h3>Rhinoplastie</h3>
+          <p>Profil masculin, respect des proportions.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="media" style="background-image:url('https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="content">
+          <span class="tag">Maxillo</span>
+          <h3>Mentoplastie</h3>
+          <p>Projection & alignement du profil.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="avantapres">
+    <h2>Photos avant / après</h2>
+    <p>Galerie démo (placer vos propres photos plus tard).</p>
+    <div class="grid">
+      <article class="card"><div class="media" style="background-image:url('https://images.unsplash.com/photo-1536238200-5f9a46868f37?q=80&w=1200&auto=format&fit=crop');"></div><div class="content"><h3>Rhinoplastie</h3></div></article>
+      <article class="card"><div class="media" style="background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop');"></div><div class="content"><h3>Liposuccion</h3></div></article>
+      <article class="card"><div class="media" style="background-image:url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop');"></div><div class="content"><h3>Facettes</h3></div></article>
+    </div>
+  </section>
+
+  <section id="avis">
+    <h2>Avis</h2>
+    <div class="panel">
+      <p>⭐⭐⭐⭐⭐ “Organisation parfaite, prix clair, très bon suivi.”</p>
+      <p>⭐⭐⭐⭐⭐ “Résultat naturel, je recommande.”</p>
+    </div>
+  </section>
+
+  <section id="etranger">
+    <h2>Chirurgie à l’étranger</h2>
+    <div class="panel">
+      <p>Belgique · Tunisie · Italie · Turquie — Réseau de cliniques partenaires. Forfaits avec transferts et hôtel en option.</p>
+    </div>
+  </section>
+
+  <section id="financement">
+    <h2>Financement</h2>
+    <div class="panel">
+      <p>Solutions adaptées (sous réserve d’acceptation). Possibilité d’échelonnement. Demandez une simulation.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact & Devis Express</h2>
+    <div class="contact">
+      <div class="panel">
+        <form onsubmit="event.preventDefault(); alert('Merci ! Votre demande est envoyée.');">
+          <label>Nom<br><input required type="text" name="name" style="width:100%;padding:.7rem;border-radius:10px;border:1px solid rgba(214,179,106,.35);background:#0f0e12;color:#fff"></label><br><br>
+          <label>WhatsApp / Email<br><input required type="text" name="contact" style="width:100%;padding:.7rem;border-radius:10px;border:1px solid rgba(214,179,106,.35);background:#0f0e12;color:#fff"></label><br><br>
+          <label>Votre demande<br><textarea required name="msg" rows="4" style="width:100%;padding:.7rem;border-radius:12px;border:1px solid rgba(214,179,106,.35);background:#0f0e12;color:#fff"></textarea></label><br><br>
+          <button class="menu cta" type="submit" style="padding:.7rem 1rem;border-radius:999px;border:none;">Obtenir mon devis</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> EstheConnect · Design rose chic & doré · Tous droits réservés.
+  </footer>
+
+  <!-- Floating WhatsApp button (hides number text) -->
+  <a class="wa" href="https://wa.me/21628296239" target="_blank" rel="noopener" aria-label="WhatsApp">⌁</a>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
