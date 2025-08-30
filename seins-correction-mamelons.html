@@ -1,47 +1,101 @@
 <!doctype html><html lang="fr"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Correction des mamelons — EstheConnect</title>
+
+<link rel="stylesheet" href="/EstheConnect/assets/css/style.css"/>
 <link rel="stylesheet" href="/EstheConnect/assets/site.css"/>
-</head><body><div class="topbar"><div class="wrap"><div class="brand"><div class="badge">EC</div><div class="title"><span>EstheConnect</span><span>Plateforme esthétique</span></div></div><div class="lang-pills"><button class="active">FR</button><button>NL</button><button>EN</button><button>DE</button></div></div></div>
-<nav class="navbar"><div class="wrap">
-  <a href="/EstheConnect/index.html#home">Accueil</a>
+<link rel="stylesheet" href="/EstheConnect/style.css"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+<link rel="stylesheet" href="assets/site.css"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* Fallbacks when site CSS isn't found (keeps layout decent) */
+.fab{position:fixed;z-index:9999;display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;box-shadow:0 8px 28px rgba(0,0,0,.2);background:#25D366;color:#fff;font-size:28px;text-decoration:none}
+.fab-wa{left:18px;bottom:18px}
+.fab-chat{right:18px;bottom:18px;background:#ff8aa0}
+.topbar-mini{display:flex;align-items:center;gap:18px;justify-content:center;padding:10px 12px;background:#e8b1ba;color:#222}
+.topbar-mini a{text-decoration:none;color:#222;font-weight:600}
+.topbar-mini .r{margin-left:auto;display:flex;gap:10px}
+.pills{display:inline-flex;gap:8px}
+.pills b,.pills a{display:inline-block;border-radius:999px;padding:4px 8px;background:#fff3;border:1px solid #fff5;text-decoration:none;color:#222}
+.pills b{background:#fff}
+.nav-cats{background:#111}
+.nav-cats .wrap{max-width:1100px;margin:0 auto;display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 12px}
+.nav-cats a{color:#eee;text-decoration:none;font-weight:700}
+.hero{position:relative;min-height:62vh;color:#f4eac5;text-align:center;display:flex;align-items:center;justify-content:center}
+.hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.45)}
+.hero .content{position:relative;z-index:2;padding:24px}
+.btn-cta{display:inline-block;margin:6px 6px 0;padding:12px 18px;border-radius:999px;background:#fff2;color:#111;text-decoration:none;font-weight:800;border:2px solid #fff3}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:#fff;border:1px solid #eee;border-radius:14px;overflow:hidden}
+.card img{width:100%;height:160px;object-fit:cover;display:block}
+.card .p{padding:12px}
+.breadcrumb{max-width:1100px;margin:16px auto;color:#666}
+.choice-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.choice{display:flex;gap:12px;align-items:center;padding:12px;border:1px solid #eee;border-radius:14px;background:#fff;text-decoration:none;color:#222}
+.choice img{width:72px;height:72px;object-fit:cover;border-radius:10px}
+footer{padding:28px 16px;text-align:center;color:#666}
+.check{list-style:none;padding-left:0} .check li{margin:.25rem 0}
+</style>
+
+</head><body>
+<div class="topbar-mini">
+  <div class="wrap" style="display:flex;align-items:center;gap:18px;width:100%">
+    <div style="display:flex;gap:16px;flex-wrap:wrap">
+      <a href="/EstheConnect/avantapres.html">PHOTOS AVANT/APRÈS</a>
+      <a href="/EstheConnect/financement.html">PRIX</a>
+      <a href="/EstheConnect/avis.html">AVIS</a>
+      <a href="/EstheConnect/index.html#etranger">CHIRURGIE À L’ÉTRANGER</a>
+      <a href="/EstheConnect/index.html#infos">INFOS</a>
+      <a href="/EstheConnect/index.html#contact">CONTACT</a>
+    </div>
+    <div class="r">
+      <div class="pills"><b>FR</b><a>NL</a><a>EN</a><a>DE</a></div>
+      <a href="/EstheConnect/index.html#contact" class="btn-cta">RÉSERVER EN LIGNE</a>
+    </div>
+  </div>
+</div>
+<nav class="nav-cats"><div class="wrap">
   <a href="/EstheConnect/seins.html">Seins</a>
   <a href="/EstheConnect/liposuccion.html">Liposuccion</a>
   <a href="/EstheConnect/visage.html">Visage</a>
+  <a href="/EstheConnect/hommes.html">Corps</a>
+  <a href="/EstheConnect/perte-poids.html">Perte de poids</a>
+  <a href="/EstheConnect/cheveux.html">Cheveux</a>
+  <a href="/EstheConnect/peau.html">Peau</a>
   <a href="/EstheConnect/dents.html">Dents</a>
   <a href="/EstheConnect/hommes.html">Hommes</a>
-  <a href="/EstheConnect/avantapres.html">Photos avant/après</a>
-  <a href="/EstheConnect/avis.html">Avis</a>
 </div></nav>
-<section class="hero"><div class="content"><h1>Correction des mamelons</h1>
-  <p>Prix indicatif sur devis personnalisé. Séjour médical organisé de A à Z.</p>
-  <div class="cta">
-    <a class="btn btn-primary" href="https://wa.me/21628296239?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20Correction%20des%20mamelons">Réserver</a>
-    <a class="btn btn-ghost" href="/EstheConnect/financement.html">Financement</a>
+
+<header class="hero">
+  <div class="bg" style="background-image:url('/EstheConnect/assets/img/hero/hero.jpg')"></div>
+  <div class="content wrap">
+    <h1>Correction des mamelons</h1>
+    <p>Comparez les cliniques, obtenez un devis et réservez en toute confiance.</p>
+    <a class="btn-cta" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect">Devis WhatsApp</a>
+    <a class="btn-cta" href="/EstheConnect/financement.html">Financement</a>
   </div>
-</div></section>
-<section>
-  <div class="breadcrumb"><a href="/EstheConnect/index.html">Accueil</a> › <a href="/EstheConnect/seins.html">Seins</a> › <span class="kicker">Correction des mamelons</span></div>
+</header>
+
+<section class="wrap">
+  <div class="breadcrumb"><a href="/EstheConnect/index.html">Accueil</a> › <a href="/EstheConnect/seins.html">Seins</a> › <strong>Correction des mamelons</strong></div>
   <article class="procedure">
     <h3>À propos</h3>
-    <p>Correction des mamelons ombiliqués, hypertrophiques ou asymétriques, pour un rendu harmonieux et fonctionnel.</p>
+    <p>Ombiliqués, hypertrophiques ou asymétriques.</p>
     <h3>Le séjour & l’hospitalisation</h3>
     <ul class="check">
       <li>Transfert aéroport ⇄ hôtel/clinique (aller/retour).</li>
-      <li>Consultation préopératoire, bilan et accompagnement interprète FR/NL/EN/DE.</li>
-      <li>Hospitalisation : 0 nuit(s) en clinique selon l’acte.</li>
-      <li>Hébergement : 2 nuits d’hôtel 4★ (ou équivalent) avec petit-déjeuner.</li>
-      <li>Soins infirmiers & contrôles post-op.</li>
-      <li>Suivi à distance par l’équipe EstheConnect.</li>
+      <li>Consultation préopératoire + interprète FR/NL/EN/DE.</li>
+      <li>Hospitalisation : 0 nuit(s) selon l’acte.</li>
+      <li>Hébergement : 2 nuits d’hôtel 4★ (ou équivalent).</li>
+      <li>Soins post-op & suivi à distance.</li>
     </ul>
-    <h3>Bon à savoir</h3>
-    <p>Chaque dossier est validé par le chirurgien avec vos photos et antécédents. Un devis précis vous est communiqué avant toute réservation.</p>
   </article>
 </section>
-<footer>© <span id="year"></span> EstheConnect — <span style="color:var(--dore)">Plateforme esthétique</span></footer>
-<a class="wa-float" id="waFloat" href="#" aria-label="WhatsApp">⌁</a>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const WA='21628296239', wMsg=encodeURIComponent("Bonjour, je souhaite des informations via EstheConnect.");
-  document.getElementById('waFloat').href=`https://wa.me/${WA}?text=${wMsg}`;
-</script></body></html>
+
+<footer>© <span id="year"></span> EstheConnect — Plateforme esthétique</footer>
+<a class="fab fab-wa" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect" aria-label="WhatsApp">☎</a>
+<a class="fab fab-chat" href="/EstheConnect/index.html#contact" aria-label="Chat">💬</a>
+<script>document.getElementById('year').textContent=(new Date).getFullYear()</script>
+</body></html>
