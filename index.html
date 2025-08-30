@@ -1,203 +1,54 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EstheConnect — Plateforme esthétique</title>
-  <meta name="description" content="Comparez les cliniques, obtenez un devis et réservez en toute confiance. FR/NL/EN/DE." />
-  <style>
-    :root{
-      --rose:#e9b5c8; --dore:#d7b362; --dore-2:#f0d9a1;
-      --ink:#0e0c12; --ink-2:#16131a; --text:#f6f6f7; --whatsapp:#25d366;
-    }
-    *{box-sizing:border-box} html,body{margin:0;padding:0}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;color:#eaeaf0;background:var(--ink);line-height:1.5}
-    a{text-decoration:none;color:inherit} [id]{scroll-margin-top:90px}
-
-    /* Topbar gradient */
-    .topbar{position:sticky;top:0;z-index:9999;background:linear-gradient(90deg,var(--rose),var(--dore));color:#2b1f22;border-bottom:1px solid rgba(255,255,255,.06)}
-    .topbar .wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 18px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-    .badge{width:38px;height:38px;border-radius:999px;background:#fff;color:#8a2a4c;display:inline-flex;align-items:center;justify-content:center;font-weight:900;border:2px solid rgba(0,0,0,.08)}
-    .title{display:flex;flex-direction:column;line-height:1}
-    .title span:first-child{font-size:16px}
-    .title span:last-child{font-size:12px;opacity:.85}
-
-    .lang-pills{display:flex;gap:8px}
-    .lang-pills button{border:0;border-radius:999px;padding:6px 10px;font-weight:700;cursor:pointer;background:rgba(255,255,255,.85);color:#222;transition:.15s}
-    .lang-pills button.active{outline:2px solid #222}
-
-    /* Navbar */
-    .navbar{background:var(--ink-2);border-bottom:1px solid rgba(255,255,255,.08)}
-    .navbar .wrap{max-width:1200px;margin:0 auto;display:flex;gap:22px;overflow:auto;padding:12px 18px;scrollbar-width:none}
-    .navbar .wrap::-webkit-scrollbar{display:none}
-    .navbar a{white-space:nowrap;color:#eee;padding:6px 0}
-    .navbar a:hover{color:var(--dore)}
-
-    /* Hero */
-    .hero{
-      position:relative;min-height:68vh;
-      background:url('/EstheConnect/assets/img/hero/hero.jpg') center/cover no-repeat;
-      display:flex;align-items:center;justify-content:center;padding:80px 18px;border-bottom:4px solid var(--dore)
-    }
-    .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,.18), rgba(0,0,0,.65))}
-    .hero .content{position:relative;text-align:center;max-width:960px}
-    .hero h1{font-size:clamp(28px,5.5vw,56px);margin:0 0 10px;color:var(--dore-2);text-shadow:0 2px 12px rgba(0,0,0,.6)}
-    .hero p{color:#e9e9ee;opacity:.95;margin:0 0 24px}
-    .btn{display:inline-block;padding:12px 18px;border-radius:999px;font-weight:800;border:2px solid transparent;transition:.2s}
-    .btn-primary{background:var(--dore-2);color:#2a1f12}
-    .btn-ghost{background:transparent;border-color:#fff;color:#fff}
-    .btn-primary:hover,.btn-ghost:hover{transform:translateY(-1px)}
-
-    /* Sections */
-    section{max-width:1200px;margin:0 auto;padding:40px 18px}
-    h2{font-size:clamp(22px,3.2vw,32px);color:#fff;margin:0 0 12px}
-    .muted{color:#b9b9c6}
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    .card{background:#19171e;border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;box-shadow:0 10px 32px rgba(0,0,0,.25)}
-    .card img{width:100%;height:220px;object-fit:cover;display:block}
-
-    /* Footer & WhatsApp */
-    footer{max-width:1200px;margin:0 auto;padding:30px 18px;color:#bdbdc8;border-top:1px solid rgba(255,255,255,.08)}
-    .wa-float{position:fixed;right:18px;bottom:18px;z-index:99;width:58px;height:58px;border-radius:999px;background:var(--whatsapp);display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;font-weight:900;box-shadow:0 10px 22px rgba(0,0,0,.3)}
-  </style>
-</head>
-<body>
-
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <div class="wrap">
-      <div class="brand">
-        <div class="badge">EC</div>
-        <div class="title">
-          <span>EstheConnect</span>
-          <span data-i18n="strap">Plateforme esthétique</span>
-        </div>
-      </div>
-      <div class="lang-pills">
-        <button data-lang="fr" class="active">FR</button>
-        <button data-lang="nl">NL</button>
-        <button data-lang="en">EN</button>
-        <button data-lang="de">DE</button>
-      </div>
-    </div>
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>EstheConnect — Plateforme esthétique</title>
+<link rel="stylesheet" href="/EstheConnect/assets/site.css"/>
+</head><body>
+<div class="topbar"><div class="wrap"><div class="brand"><div class="badge">EC</div><div class="title"><span>EstheConnect</span><span>Plateforme esthétique</span></div></div><div class="lang-pills"><button class="active">FR</button><button>NL</button><button>EN</button><button>DE</button></div></div></div>
+<nav class="navbar"><div class="wrap">
+  <a href="/EstheConnect/index.html#home">Accueil</a>
+  <a href="/EstheConnect/seins.html">Seins</a>
+  <a href="/EstheConnect/liposuccion.html">Liposuccion</a>
+  <a href="/EstheConnect/visage.html">Visage</a>
+  <a href="/EstheConnect/dents.html">Dents</a>
+  <a href="/EstheConnect/cheveux.html">Cheveux</a>
+  <a href="/EstheConnect/peau.html">Peau</a>
+  <a href="/EstheConnect/perte-poids.html">Perte de poids</a>
+  <a href="/EstheConnect/hommes.html">Hommes</a>
+  <a href="/EstheConnect/avantapres.html">Photos avant/après</a>
+  <a href="/EstheConnect/avis.html">Avis</a>
+</div></nav>
+<section class="hero" id="home"><div class="content">
+  <h1>EstheConnect — Plateforme esthétique</h1>
+  <p>Comparez les cliniques, obtenez un devis et réservez en toute confiance.</p>
+  <div class="cta">
+    <a class="btn btn-primary" href="https://wa.me/21628296239?text=Bonjour%2C%20je%20souhaite%20des%20informations%20via%20EstheConnect.">Contact WhatsApp</a>
+    <a class="btn btn-ghost" href="/EstheConnect/financement.html">Financement</a>
   </div>
+</div></section>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="wrap">
-      <a href="#seins"         data-i18n="nav_seins">Seins</a>
-      <a href="#liposuccion"   data-i18n="nav_lipo">Liposuccion</a>
-      <a href="#visage"        data-i18n="nav_visage">Visage</a>
-      <a href="#corps"         data-i18n="nav_corps">Corps</a>
-      <a href="#pertepoids"    data-i18n="nav_perte">Perte de poids</a>
-      <a href="#cheveux"       data-i18n="nav_cheveux">Cheveux</a>
-      <a href="#peau"          data-i18n="nav_peau">Peau</a>
-      <a href="#dents"         data-i18n="nav_dents">Dents</a>
-      <a href="#hommes"        data-i18n="nav_hommes">Hommes</a>
-      <a href="#avantapres"    data-i18n="nav_avap">Photos avant / après</a>
-      <a href="#avis"          data-i18n="nav_avis">Avis</a>
-      <a href="#contact"       data-i18n="nav_contact">Contact</a>
-    </div>
-  </nav>
+<section id="visage">
+  <h2>Visage</h2>
+  <div class="grid">
+    <article class="card"><img src="/EstheConnect/assets/img/hero/style-chic.jpg" alt="Visage esthétique"><div class="p">Injections & anti-âge</div></article>
+    <article class="card"><img src="/EstheConnect/assets/img/hero/hero.jpg" alt="Chirurgie visage"><div class="p">Mini lift & lipofilling</div></article>
+    <article class="card"><img src="/EstheConnect/assets/img/hero/svc-capillaire.jpg" alt="Capillaire"><div class="p">Greffe capillaire</div></article>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero" id="home" aria-label="EstheConnect hero">
-    <div class="content">
-      <h1 data-i18n="hero_title">EstheConnect — Plateforme esthétique</h1>
-      <p data-i18n="hero_sub">Comparez les cliniques, obtenez un devis et réservez en toute confiance.</p>
-      <div class="cta">
-        <a class="btn btn-primary" id="ctaWhats" href="#">Contact WhatsApp</a>
-        <a class="btn btn-ghost" href="#financement" data-i18n="btn_fin">Financement</a>
-      </div>
-    </div>
-  </section>
+<section id="dents">
+  <h2>Dents</h2>
+  <div class="grid">
+    <article class="card"><img src="/EstheConnect/assets/img/hero/dent.jpg" alt="Dentaire"><div class="p">Facettes & implants</div></article>
+    <article class="card"><img src="/EstheConnect/assets/img/hero/acceuil.png" alt="Sourire"><div class="p">Blanchiment</div></article>
+    <article class="card"><img src="/EstheConnect/assets/img/hero/hero.jpg" alt="Soins premium"><div class="p">Soins premium</div></article>
+  </div>
+</section>
 
-  <!-- VISAGE -->
-  <section id="visage">
-    <h2 data-i18n="h_visage">Visage</h2>
-    <div class="grid">
-      <article class="card">
-        <img src="/EstheConnect/assets/img/hero/style-chic.jpg" alt="Visage esthétique" loading="lazy" onerror="this.src='/EstheConnect/assets/img/hero/hero.jpg'">
-        <div class="p" data-i18n="c_visage1">Injections & anti-âge</div>
-      </article>
-      <article class="card">
-        <img src="/EstheConnect/assets/img/hero/hero.jpg" alt="Chirurgie visage" loading="lazy">
-        <div class="p" data-i18n="c_visage2">Mini lift & lipofilling</div>
-      </article>
-      <article class="card">
-        <img src="/EstheConnect/assets/img/hero/svc-capillaire.jpg" alt="Capillaire" loading="lazy" onerror="this.src='/EstheConnect/assets/img/hero/hero.jpg'">
-        <div class="p" data-i18n="c_visage3">Greffe capillaire</div>
-      </article>
-    </div>
-  </section>
-
-  <!-- DENTS -->
-  <section id="dents">
-    <h2 data-i18n="h_dents">Dents</h2>
-    <div class="grid">
-      <article class="card">
-        <img src="/EstheConnect/assets/img/hero/dent.jpg" alt="Dentaire" loading="lazy">
-        <div class="p" data-i18n="c_dent1">Facettes & implants</div>
-      </article>
-      <article class="card">
-        <img src="/EstheConnect/assets/img/hero/acceuil.png" alt="Sourire" loading="lazy" onerror="this.src='/EstheConnect/assets/img/hero/hero.jpg'">
-        <div class="p" data-i18n="c_dent2">Blanchiment</div>
-      </article>
-      <article class="card">
-        <img src="/EstheConnect/assets/img/hero/hero.jpg" alt="Soins premium" loading="lazy">
-        <div class="p" data-i18n="c_dent3">Soins premium</div>
-      </article>
-    </div>
-  </section>
-
-  <!-- AVANT / APRÈS -->
-  <section id="avantapres">
-    <h2 data-i18n="h_avap">Photos avant / après</h2>
-    <p class="muted" data-i18n="p_avap">Aperçu de résultats. Galeries détaillées disponibles sur demande.</p>
-    <div class="grid">
-      <article class="card"><img src="/EstheConnect/assets/img/hero/style-chic.jpg" alt="Avant Après 1" loading="lazy"></article>
-      <article class="card"><img src="/EstheConnect/assets/img/hero/svc-capillaire.jpg" alt="Avant Après 2" loading="lazy"></article>
-      <article class="card"><img src="/EstheConnect/assets/img/hero/dent.jpg" alt="Avant Après 3" loading="lazy"></article>
-    </div>
-  </section>
-
-  <!-- FINANCEMENT -->
-  <section id="financement">
-    <h2 data-i18n="h_fin">Financement</h2>
-    <p class="muted" data-i18n="p_fin">Plans souples selon le pays et la clinique.</p>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2 data-i18n="h_contact">Contact & Devis</h2>
-    <p class="muted" data-i18n="p_contact">Réponse rapide. Envoi de photos sécurisé.</p>
-  </section>
-
-  <footer>© <span id="year"></span> EstheConnect — <span style="color:var(--dore)">Plateforme esthétique</span></footer>
-
-  <!-- Bouton WhatsApp flottant -->
-  <a class="wa-float" id="waFloat" href="#" aria-label="WhatsApp">⌁</a>
-
-  <script>
-    // Année
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // WhatsApp (numéro masqué)
-    const WA='21628296239';
-    const wMsg=encodeURIComponent("Bonjour, je souhaite des informations via EstheConnect.");
-    document.getElementById('ctaWhats').href=`https://wa.me/${WA}?text=${wMsg}`;
-    document.getElementById('waFloat').href=`https://wa.me/${WA}?text=${wMsg}`;
-
-    // Mini i18n (FR/NL/EN/DE) pour les libellés clés
-    const I18N={
-      fr:{strap:"Plateforme esthétique",nav_seins:"Seins",nav_lipo:"Liposuccion",nav_visage:"Visage",nav_corps:"Corps",nav_perte:"Perte de poids",nav_cheveux:"Cheveux",nav_peau:"Peau",nav_dents:"Dents",nav_hommes:"Hommes",nav_avap:"Photos avant / après",nav_avis:"Avis",nav_contact:"Contact",hero_title:"EstheConnect — Plateforme esthétique",hero_sub:"Comparez les cliniques, obtenez un devis et réservez en toute confiance.",btn_fin:"Financement",h_visage:"Visage",c_visage1:"Injections & anti-âge",c_visage2:"Mini lift & lipofilling",c_visage3:"Greffe capillaire",h_dents:"Dents",c_dent1:"Facettes & implants",c_dent2:"Blanchiment",c_dent3:"Soins premium",h_avap:"Photos avant / après",p_avap:"Aperçu de résultats. Galeries détaillées disponibles sur demande.",h_fin:"Financement",p_fin:"Plans souples selon le pays et la clinique.",h_contact:"Contact & Devis",p_contact:"Réponse rapide. Envoi de photos sécurisé."}
-    };
-    const $=(s,ctx=document)=>[...ctx.querySelectorAll(s)];
-    const pills=document.querySelectorAll('.lang-pills button');
-    function setLang(l){const p=I18N[l.toLowerCase()]||I18N.fr;document.documentElement.lang=l.toLowerCase();$("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n");if(p[k])el.textContent=p[k];});pills.forEach(b=>b.classList.toggle('active',b.textContent===l));localStorage.setItem('esthe_lang',l);}
-    pills.forEach(b=>b.addEventListener('click',()=>setLang(b.textContent)));
-    setLang(localStorage.getItem('esthe_lang')||'FR');
-  </script>
-</body>
-</html>
+<footer>© <span id="year"></span> EstheConnect — <span style="color:var(--dore)">Plateforme esthétique</span></footer>
+<a class="wa-float" id="waFloat" href="#" aria-label="WhatsApp">⌁</a>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const WA='21628296239', wMsg=encodeURIComponent("Bonjour, je souhaite des informations via EstheConnect.");
+  document.getElementById('waFloat').href=`https://wa.me/${WA}?text=${wMsg}`;
+</script>
+</body></html>
