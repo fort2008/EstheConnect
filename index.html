@@ -2,7 +2,6 @@
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Accueil — EstheConnect</title>
 
-<!-- On garde tes chemins CSS pour préserver exactement le style existant -->
 <link rel="stylesheet" href="/EstheConnect/assets/css/style.css"/>
 <link rel="stylesheet" href="/EstheConnect/assets/site.css"/>
 <link rel="stylesheet" href="/EstheConnect/style.css"/>
@@ -16,18 +15,12 @@
 body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:#0c0c0d;color:#eee}
 .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
 a{color:inherit}
-
-/* barre haute (Photos/Prix/Avis...) */
 .topbar-mini{display:flex;align-items:center;gap:18px;justify-content:center;padding:10px 12px;background:var(--rose);color:#222}
 .topbar-mini a{text-decoration:none;color:#222;font-weight:600}
 .topbar-mini .r{margin-left:auto;display:flex;gap:10px;align-items:center}
-
-/* pills langues */
 .pills{display:inline-flex;gap:8px}
 .pills b,.pills a{display:inline-block;border-radius:999px;padding:4px 8px;background:#fff3;border:1px solid #0001;text-decoration:none;color:#222}
 .pills b{background:#fff}
-
-/* barre basse (Seins/Liposuccion/...) + méga menus */
 .nav-cats{background:#141417;position:sticky;top:0;z-index:30}
 .nav-cats .bar{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 12px}
 .nav-cats a{text-decoration:none;color:#ddd;font-weight:700}
@@ -38,25 +31,17 @@ a{color:inherit}
 .mega{display:grid;grid-template-columns:repeat(2,minmax(240px,1fr));gap:12px}
 .mega a{display:flex;gap:12px;align-items:center;background:#fff;border-radius:12px;padding:10px;text-decoration:none;color:#222}
 .ico{width:56px;height:56px;border-radius:50%;background-size:cover;background-position:center;border:1px solid #eee;flex:0 0 auto}
-
-/* hero : on garde ta couverture */
 .hero{position:relative;min-height:62vh;color:#f4eac5;text-align:center;display:flex;align-items:center;justify-content:center}
 .hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.45)}
 .hero .content{position:relative;z-index:2;padding:24px}
 .btn-cta{display:inline-block;margin:6px 6px 0;padding:12px 18px;border-radius:999px;background:#fff2;color:#111;text-decoration:none;font-weight:800;border:2px solid #fff3}
-
-/* sections */
 section{padding:40px 0}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .card{background:#fff;border:1px solid #eee;border-radius:14px;overflow:hidden}
 .card img{width:100%;height:160px;object-fit:cover;display:block}
 .card .p{padding:12px;color:#222}
-
-/* bulle WhatsApp (le chat est géré par Chatbase) */
 .fab{position:fixed;z-index:9999;display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;box-shadow:0 8px 28px rgba(0,0,0,.2);background:#25D366;color:#fff;font-size:28px;text-decoration:none}
 .fab-wa{left:18px;bottom:18px}
-
-/* modale Réserver */
 .reserve-modal[hidden]{display:none}
 .reserve-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:20px}
 .reserve-box{background:#fff;color:#222;max-width:720px;width:100%;border-radius:16px;box-shadow:0 18px 48px rgba(0,0,0,.4);overflow:hidden}
@@ -67,16 +52,20 @@ section{padding:40px 0}
 .flag{font-size:22px;margin-right:8px}
 .reserve-btn{background:#4a68ff;color:#fff;border:0;border-radius:10px;padding:10px 12px;font-weight:700;cursor:pointer}
 .xbtn{background:transparent;border:0;font-size:22px;cursor:pointer}
-
 @media(max-width:720px){
   .menu-panel{left:0;right:0;transform:none;min-width:auto;margin-top:8px}
   .mega{grid-template-columns:1fr}
 }
 </style>
+
+<!-- Chatbase recommandé : dans le <head> pour une initialisation fiable -->
+<script>
+  window.embeddedChatbotConfig = { chatbotId: "fFFT4q2Uol4y-qUwVpYBZ", domain: "www.chatbase.co" };
+</script>
+<script src="https://www.chatbase.co/embed.min.js" chatbotId="fFFT4q2Uol4y-qUwVpYBZ" domain="www.chatbase.co" defer></script>
 </head>
 
 <body>
-<!-- barre haute -->
 <div class="topbar-mini">
   <div class="wrap" style="display:flex;align-items:center;gap:18px;width:100%">
     <div style="display:flex;gap:16px;flex-wrap:wrap">
@@ -94,9 +83,7 @@ section{padding:40px 0}
   </div>
 </div>
 
-<!-- barre basse + méga menus -->
 <nav class="nav-cats"><div class="wrap bar">
-  <!-- Seins -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/seins.html">Seins</a>
     <div class="menu-panel"><div class="mega">
@@ -111,7 +98,6 @@ section{padding:40px 0}
     </div></div>
   </div>
 
-  <!-- Liposuccion -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/liposuccion.html">Liposuccion</a>
     <div class="menu-panel"><div class="mega">
@@ -122,10 +108,8 @@ section{padding:40px 0}
     </div></div>
   </div>
 
-  <!-- Visage -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/visage.html">Visage</a>
-    <!-- CORRECTION ICI : ajout du guillemet manquant -->
     <div class="menu-panel"><div class="mega">
       <a href="/EstheConnect/visage-injections.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/style-chic.jpg)"></span><div><strong>Injections anti-âge</strong><div style="color:#555">Toxine & acide hyaluronique</div></div></a>
       <a href="/EstheConnect/visage-blepharoplastie.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Blépharoplastie</strong><div style="color:#555">Paupières sup/inf</div></div></a>
@@ -134,7 +118,6 @@ section{padding:40px 0}
     </div></div>
   </div>
 
-  <!-- Dents -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/dents.html">Dents</a>
     <div class="menu-panel"><div class="mega">
@@ -145,7 +128,6 @@ section{padding:40px 0}
     </div></div>
   </div>
 
-  <!-- Cheveux -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/cheveux.html">Cheveux</a>
     <div class="menu-panel"><div class="mega">
@@ -156,7 +138,6 @@ section{padding:40px 0}
     </div></div>
   </div>
 
-  <!-- Peau -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/peau.html">Peau</a>
     <div class="menu-panel"><div class="mega">
@@ -167,7 +148,6 @@ section{padding:40px 0}
     </div></div>
   </div>
 
-  <!-- Hommes -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/hommes.html">Hommes</a>
     <div class="menu-panel"><div class="mega">
@@ -177,20 +157,8 @@ section{padding:40px 0}
       <a href="/EstheConnect/dents-implants.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/dent.jpg)"></span><div><strong>Implants dentaires</strong><div style="color:#555">Unitaires, bridges</div></div></a>
     </div></div>
   </div>
-
-  <!-- Perte de poids -->
-  <div class="menu">
-    <a class="menu-btn" href="/EstheConnect/perte-de-poids.html">Perte de poids</a>
-    <div class="menu-panel"><div class="mega">
-      <a href="/EstheConnect/pertepoids-ballon.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Ballon gastrique</strong><div style="color:#555">6–12 mois</div></div></a>
-      <a href="/EstheConnect/pertepoids-sleeve.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Sleeve</strong><div style="color:#555">Chirurgie bariatrique</div></div></a>
-      <a href="/EstheConnect/pertepoids-bypass.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Bypass</strong><div style="color:#555">Roux-en-Y</div></div></a>
-      <a href="/EstheConnect/pertepoids-programme.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Programme médical</strong><div style="color:#555">Suivi nutrition & med</div></div></a>
-    </div></div>
-  </div>
 </div></nav>
 
-<!-- HERO : on garde ta couverture -->
 <header class="hero">
   <div class="bg" style="background-image:url('/EstheConnect/assets/img/hero/hero.jpg')"></div>
   <div class="content wrap">
@@ -221,53 +189,36 @@ section{padding:40px 0}
 
 <footer>© <span id="year"></span> EstheConnect — Plateforme esthétique</footer>
 
-<!-- Bulle WhatsApp -->
 <a class="fab fab-wa" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect" aria-label="WhatsApp">☎</a>
-<!-- ===== SCRIPTS ===== -->
+
 <script>
-  // Année dans le footer
   document.getElementById('year').textContent=(new Date).getFullYear();
 
-  // ---------- Modale "Réserver en ligne" ----------
+  // v2: on sélectionne la modale AU MOMENT DU CLIC (le script peut être chargé avant la modale)
   (function(){
-    function $(sel,ctx){return (ctx||document).querySelector(sel)}
-    const modal = $('#reserveModal');
-    const btnClose = $('#reserveClose');
-
-    // Ouvrir sur tout clic d’un élément [data-reserve-open]
     document.addEventListener('click', function(e){
       const trg = e.target.closest('[data-reserve-open]');
       if(!trg) return;
       e.preventDefault();
+      const modal = document.getElementById('reserveModal');
       if(modal) modal.hidden = false;
     });
 
-    // Fermer (croix, clic hors boîte, Échap)
-    btnClose?.addEventListener('click', ()=>{ modal.hidden = true; });
-    modal?.addEventListener('click', (e)=>{ if(e.target===modal){ modal.hidden = true; }});
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ modal.hidden = true; }});
+    document.addEventListener('click', function(e){
+      const modal = document.getElementById('reserveModal');
+      if(!modal) return;
+      if(e.target.id==='reserveClose' || e.target===modal) modal.hidden = true;
+    });
+    document.addEventListener('keydown', (e)=>{
+      const modal = document.getElementById('reserveModal');
+      if(e.key==='Escape' && modal) modal.hidden = true;
+    });
 
-    // Boutons pays -> ouvrir page réservation (adapte si tu as un système)
-    const go = (slug,label) => {
-      const url = `/EstheConnect/reserver.html?country=${encodeURIComponent(label)}#${slug}`;
-      window.open(url,'_blank');
-    };
-    $('[data-resv-tn]')?.addEventListener('click',()=>go('tn','Tunisie'));
-    $('[data-resv-be]')?.addEventListener('click',()=>go('be','Belgique'));
-    $('[data-resv-fr]')?.addEventListener('click',()=>go('fr','France'));
-  })();
-
-  // ---------- Chatbase (bulle tchat) ----------
-  (function(){
-    if (window.__chatbaseLoaded) return;
-    window.__chatbaseLoaded = true;
-    window.embeddedChatbotConfig = { chatbotId: "fFFT4q2Uol4y-qUwVpYBZ", domain: "www.chatbase.co" };
-    var s=document.createElement("script");
-    s.src="https://www.chatbase.co/embed.min.js";
-    s.defer=true;
-    s.setAttribute("chatbotId","fFFT4q2Uol4y-qUwVpYBZ");
-    s.setAttribute("domain","www.chatbase.co");
-    document.body.appendChild(s);
+    // Boutons pays -> ouvrir reserver.html
+    function hook(id, slug, label){
+      const el = document.querySelector(id);
+      if(!el) return;
+    }
   })();
 </script>
 
@@ -281,15 +232,15 @@ section{padding:40px 0}
     <div class="reserve-body">
       <div class="option">
         <div><span class="flag">🇹🇳</span><strong>Tunisie</strong> — Tunis / Sousse</div>
-        <button class="reserve-btn" data-resv-tn data-country="Tunisie">Réserver en ligne</button>
+        <a class="reserve-btn" href="/EstheConnect/reserver.html?country=Tunisie#tn" target="_blank">Réserver en ligne</a>
       </div>
       <div class="option">
         <div><span class="flag">🇧🇪</span><strong>Belgique</strong> — Bruxelles</div>
-        <button class="reserve-btn" data-resv-be data-country="Belgique">Réserver en ligne</button>
+        <a class="reserve-btn" href="/EstheConnect/reserver.html?country=Belgique#be" target="_blank">Réserver en ligne</a>
       </div>
       <div class="option">
         <div><span class="flag">🇫🇷</span><strong>France</strong> — Paris / Lille</div>
-        <button class="reserve-btn" data-resv-fr data-country="France">Réserver en ligne</button>
+        <a class="reserve-btn" href="/EstheConnect/reserver.html?country=France#fr" target="_blank">Réserver en ligne</a>
       </div>
       <p style="margin-top:12px;color:#555">En réservant et en payant en ligne, vous bénéficiez d’une réduction sur la consultation.</p>
     </div>
