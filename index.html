@@ -222,7 +222,6 @@ section{padding:40px 0}
 
 <!-- Bulle WhatsApp -->
 <a class="fab fab-wa" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect" aria-label="WhatsApp">☎</a>
-
 <!-- ===== SCRIPTS ===== -->
 <script>
   // Année dans le footer
@@ -234,7 +233,7 @@ section{padding:40px 0}
     const modal = $('#reserveModal');
     const btnClose = $('#reserveClose');
 
-    // Ouvre sur tout clic d’un élément [data-reserve-open]
+    // Ouvrir sur tout clic d’un élément [data-reserve-open]
     document.addEventListener('click', function(e){
       const trg = e.target.closest('[data-reserve-open]');
       if(!trg) return;
@@ -242,7 +241,7 @@ section{padding:40px 0}
       if(modal) modal.hidden = false;
     });
 
-    // Fermer
+    // Fermer (croix, clic hors boîte, Échap)
     btnClose?.addEventListener('click', ()=>{ modal.hidden = true; });
     modal?.addEventListener('click', (e)=>{ if(e.target===modal){ modal.hidden = true; }});
     document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ modal.hidden = true; }});
@@ -295,4 +294,5 @@ section{padding:40px 0}
     </div>
   </div>
 </div>
-</body></html>
+
+
