@@ -2,7 +2,7 @@
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Accueil — EstheConnect</title>
 
-<!-- on conserve tes 6 chemins pour capter automatiquement la bonne feuille CSS -->
+<!-- On garde tes chemins CSS pour préserver exactement le style existant -->
 <link rel="stylesheet" href="/EstheConnect/assets/css/style.css"/>
 <link rel="stylesheet" href="/EstheConnect/assets/site.css"/>
 <link rel="stylesheet" href="/EstheConnect/style.css"/>
@@ -39,24 +39,24 @@ a{color:inherit}
 .mega a{display:flex;gap:12px;align-items:center;background:#fff;border-radius:12px;padding:10px;text-decoration:none;color:#222}
 .ico{width:56px;height:56px;border-radius:50%;background-size:cover;background-position:center;border:1px solid #eee;flex:0 0 auto}
 
-/* hero : on garde ta couverture identique */
+/* hero : on garde ta couverture */
 .hero{position:relative;min-height:62vh;color:#f4eac5;text-align:center;display:flex;align-items:center;justify-content:center}
 .hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.45)}
 .hero .content{position:relative;z-index:2;padding:24px}
 .btn-cta{display:inline-block;margin:6px 6px 0;padding:12px 18px;border-radius:999px;background:#fff2;color:#111;text-decoration:none;font-weight:800;border:2px solid #fff3}
 
-/* cartes sections */
+/* sections */
 section{padding:40px 0}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .card{background:#fff;border:1px solid #eee;border-radius:14px;overflow:hidden}
 .card img{width:100%;height:160px;object-fit:cover;display:block}
 .card .p{padding:12px;color:#222}
 
-/* fab (bulle WhatsApp) – la bulle chat est gérée par Chatbase */
+/* bulle WhatsApp (le chat est géré par Chatbase) */
 .fab{position:fixed;z-index:9999;display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;box-shadow:0 8px 28px rgba(0,0,0,.2);background:#25D366;color:#fff;font-size:28px;text-decoration:none}
 .fab-wa{left:18px;bottom:18px}
 
-/* modale Réservation */
+/* modale Réserver */
 .reserve-modal[hidden]{display:none}
 .reserve-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:20px}
 .reserve-box{background:#fff;color:#222;max-width:720px;width:100%;border-radius:16px;box-shadow:0 18px 48px rgba(0,0,0,.4);overflow:hidden}
@@ -125,7 +125,7 @@ section{padding:40px 0}
   <!-- Visage -->
   <div class="menu">
     <a class="menu-btn" href="/EstheConnect/visage.html">Visage</a>
-    <div class="menu-panel"><div class="mega">
+    <div class="menu-panel"><div class="mega>
       <a href="/EstheConnect/visage-injections.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/style-chic.jpg)"></span><div><strong>Injections anti-âge</strong><div style="color:#555">Toxine & acide hyaluronique</div></div></a>
       <a href="/EstheConnect/visage-blepharoplastie.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Blépharoplastie</strong><div style="color:#555">Paupières sup/inf</div></div></a>
       <a href="/EstheConnect/visage-rhinoplastie.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Rhinoplastie</strong><div style="color:#555">Fonction & esthétique</div></div></a>
@@ -223,49 +223,53 @@ section{padding:40px 0}
 <!-- Bulle WhatsApp -->
 <a class="fab fab-wa" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect" aria-label="WhatsApp">☎</a>
 
-<!-- ======== SCRIPTS ======== -->
+<!-- ===== SCRIPTS ===== -->
 <script>
-  // année footer
+  // Année dans le footer
   document.getElementById('year').textContent=(new Date).getFullYear();
 
-  // -------- Modale "Réserver en ligne" --------
-  const modal = document.getElementById('reserveModal');
-  const openers = document.querySelectorAll('[data-reserve-open]');
-  const btnClose = document.getElementById('reserveClose');
+  // ---------- Modale "Réserver en ligne" ----------
+  (function(){
+    function $(sel,ctx){return (ctx||document).querySelector(sel)}
+    const modal = $('#reserveModal');
+    const btnClose = $('#reserveClose');
 
-  openers.forEach(b=>b.addEventListener('click',e=>{
-    e.preventDefault(); modal.hidden=false;
-  }));
-  btnClose.addEventListener('click',()=> modal.hidden=true);
-  modal.addEventListener('click',e=>{
-    if(e.target===modal) modal.hidden=true; // clic en dehors
-  });
-  document.addEventListener('keydown',e=>{
-    if(e.key==='Escape') modal.hidden=true;
-  });
+    // Ouvre sur tout clic d’un élément [data-reserve-open]
+    document.addEventListener('click', function(e){
+      const trg = e.target.closest('[data-reserve-open]');
+      if(!trg) return;
+      e.preventDefault();
+      if(modal) modal.hidden = false;
+    });
 
-  // Ouverture par pays (adapte les URLs si tu as un outil de réservation)
-  const go = (countrySlug,label) => {
-    // vers ta page "reserver.html" avec un paramètre simple
-    const url = `/EstheConnect/reserver.html?country=${encodeURIComponent(label)}#${countrySlug}`;
-    window.open(url,'_blank');
-  };
-  document.querySelector('[data-resv-tn]')?.addEventListener('click',()=>go('tn','Tunisie'));
-  document.querySelector('[data-resv-be]')?.addEventListener('click',()=>go('be','Belgique'));
-  document.querySelector('[data-resv-fr]')?.addEventListener('click',()=>go('fr','France'));
+    // Fermer
+    btnClose?.addEventListener('click', ()=>{ modal.hidden = true; });
+    modal?.addEventListener('click', (e)=>{ if(e.target===modal){ modal.hidden = true; }});
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ modal.hidden = true; }});
+
+    // Boutons pays -> ouvrir page réservation (adapte si tu as un système)
+    const go = (slug,label) => {
+      const url = `/EstheConnect/reserver.html?country=${encodeURIComponent(label)}#${slug}`;
+      window.open(url,'_blank');
+    };
+    $('[data-resv-tn]')?.addEventListener('click',()=>go('tn','Tunisie'));
+    $('[data-resv-be]')?.addEventListener('click',()=>go('be','Belgique'));
+    $('[data-resv-fr]')?.addEventListener('click',()=>go('fr','France'));
+  })();
+
+  // ---------- Chatbase (bulle tchat) ----------
+  (function(){
+    if (window.__chatbaseLoaded) return;
+    window.__chatbaseLoaded = true;
+    window.embeddedChatbotConfig = { chatbotId: "fFFT4q2Uol4y-qUwVpYBZ", domain: "www.chatbase.co" };
+    var s=document.createElement("script");
+    s.src="https://www.chatbase.co/embed.min.js";
+    s.defer=true;
+    s.setAttribute("chatbotId","fFFT4q2Uol4y-qUwVpYBZ");
+    s.setAttribute("domain","www.chatbase.co");
+    document.body.appendChild(s);
+  })();
 </script>
-
-<!-- ======== CHATBASE (bulle tchat en bas à droite) ========
-     ID déjà renseigné : fFFT4q2Uol4y-qUwVpYBZ
-     La bulle apparaît automatiquement sur toutes les pages où ce bloc est présent.
--->
-<script>
-  window.embeddedChatbotConfig = { chatbotId: "fFFT4q2Uol4y-qUwVpYBZ", domain: "www.chatbase.co" };
-</script>
-<script src="https://www.chatbase.co/embed.min.js"
-        chatbotId="fFFT4q2Uol4y-qUwVpYBZ"
-        domain="www.chatbase.co"
-        defer></script>
 
 <!-- Modale Réservation -->
 <div class="reserve-modal" id="reserveModal" hidden>
@@ -287,9 +291,7 @@ section{padding:40px 0}
         <div><span class="flag">🇫🇷</span><strong>France</strong> — Paris / Lille</div>
         <button class="reserve-btn" data-resv-fr data-country="France">Réserver en ligne</button>
       </div>
-      <p style="margin-top:12px;color:#555">
-        En réservant et en payant en ligne, vous bénéficiez d’une réduction sur la consultation.
-      </p>
+      <p style="margin-top:12px;color:#555">En réservant et en payant en ligne, vous bénéficiez d’une réduction sur la consultation.</p>
     </div>
   </div>
 </div>
