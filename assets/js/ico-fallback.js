@@ -1,3 +1,4 @@
+// Fix background-image: url(A), url(B) -> choose only one
 (function () {
   function extractUrls(bg) {
     const out = [];
@@ -15,7 +16,7 @@
       const test = new Image();
       test.onload = () => setSingleBg(el, primary);
       test.onerror = () => setSingleBg(el, fallback);
-      setSingleBg(el, fallback); // provisoire
+      setSingleBg(el, fallback);
       test.src = primary;
     });
   });
