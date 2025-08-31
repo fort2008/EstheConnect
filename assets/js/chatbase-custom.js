@@ -1,4 +1,3 @@
-// Custom Chatbase launcher (no WhatsApp)
 (function(){
   const CHATBOT_ID="fFFT4q2Uol4y-qUwVpYBZ";
   const FRAME_URL=`https://www.chatbase.co/chatbot-iframe/${CHATBOT_ID}`;
@@ -29,15 +28,36 @@
     document.addEventListener("keydown",e=>{if(e.key==="Escape") closeDrawer();});
   }
   function openDrawer(){
-    const d=document.getElementById("cb-drawer"); const f=document.getElementById("cb-frame");
+    const d=document.getElementById("cb-drawer");
+    const f=document.getElementById("cb-frame");
     if(!f.src) f.src=FRAME_URL; d.classList.add("open");
+    // Greeting message if not already shown
+    if(!document.getElementById("cb-greet")){
+      const greet=document.createElement("div");
+      greet.id="cb-greet"; greet.className="cb-greet";
+      greet.innerHTML=`
+        <p class="title">Axenda, l’assistante virtuelle</p>
+        <p class="txt">
+          Bonjour, je suis Axenda, l’assistante virtuelle d’EstheConnect.
+          Posez-moi une question et j’essaierai de vous aider le plus rapidement possible !
+          Veuillez ne pas entrer d’informations confidentielles ou personnelles.
+        </p>
+        <div class="bar">
+          <button class="btn ghost" type="button" id="cb-greet-close">Fermer</button>
+          <button class="btn" type="button" id="cb-greet-start">Commencer</button>
+        </div>`;
+      d.insertBefore(greet,f);
+      const hide=()=>greet.remove();
+      greet.querySelector("#cb-greet-close").addEventListener("click",hide);
+      greet.querySelector("#cb-greet-start").addEventListener("click",()=>{try{f.contentWindow.focus();}catch(e){}hide();});
+    }
   }
-  function closeDrawer(){ const d=document.getElementById("cb-drawer"); if(d) d.classList.remove("open"); }
+  function closeDrawer(){const d=document.getElementById("cb-drawer");if(d) d.classList.remove("open");}
   function loadChatbaseScript(){
     if(document.querySelector('script[src*="chatbase.co/embed.min.js"]')) return;
     window.embeddedChatbotConfig={chatbotId:CHATBOT_ID,domain:"www.chatbase.co"};
-    const s=document.createElement("script"); s.src="https://www.chatbase.co/embed.min.js"; s.defer=true;
-    s.setAttribute("chatbotId",CHATBOT_ID); s.setAttribute("domain","www.chatbase.co"); document.head.appendChild(s);
+    const s=document.createElement("script");s.src="https://www.chatbase.co/embed.min.js";s.defer=true;
+    s.setAttribute("chatbotId",CHATBOT_ID);s.setAttribute("domain","www.chatbase.co");document.head.appendChild(s);
   }
-  document.addEventListener("DOMContentLoaded",()=>{injectUI(); loadChatbaseScript();});
+  document.addEventListener("DOMContentLoaded",()=>{injectUI();loadChatbaseScript();});
 })();
