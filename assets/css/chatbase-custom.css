@@ -1,3 +1,4 @@
+
 /* Chat launcher and drawer */
 .cb-launcher{position:fixed;right:18px;bottom:18px;z-index:9999;width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:#ff6f85;color:#fff;border:none;box-shadow:0 10px 24px rgba(0,0,0,.25);cursor:pointer}
 .cb-launcher svg{width:28px;height:28px;display:block}
@@ -8,3 +9,11 @@
 #cb-frame{border:0;width:100%;height:calc(70vh - 46px);display:block}
 iframe[src*="chatbase"], .chatbase-bubble, .chatbase-widget{display:none !important}
 @media (max-width:520px){#cb-drawer{right:12px;bottom:80px;width:94vw;height:70vh}#cb-frame{height:calc(70vh - 46px)}}
+
+/* Greeting message */
+.cb-greet{padding:14px 14px 8px;background:#fff;border-bottom:1px solid #eee}
+.cb-greet .title{font-weight:800;margin:0 0 6px 0}
+.cb-greet .txt{margin:0;color:#333;line-height:1.45}
+.cb-greet .bar{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:10px}
+.cb-greet .btn{border:0;background:#ff6f85;color:#fff;font-weight:800;padding:8px 12px;border-radius:10px;cursor:pointer}
+.cb-greet .ghost{background:transparent;color:#666;border:1px solid #ddd}
