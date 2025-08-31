@@ -1,44 +1,144 @@
-<!doctype html><html lang="fr"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Augmentation mammaire — EstheConnect</title>
-<link rel="stylesheet" href="/EstheConnect/assets/css/ec-enhance.css"/>
-<link rel="stylesheet" href="/EstheConnect/assets/css/chatbase-custom.css"/>
-</head>
-<body style="background:#0c0c0d;color:#eee;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif">
-<header class="hero"><div class="content wrap">
-  <a href="/EstheConnect/index.html" style="color:#e6b0ba;text-decoration:none;font-weight:700">← Accueil</a>
-  <h1>Augmentation mammaire</h1>
-  <p>Implants ronds ou anatomiques, résultats naturels et sûrs avec nos cliniques partenaires.</p>
-  <a class="btn-cta" href="/EstheConnect/reserver.html?country=tunisie#tn" target="_blank">Réserver en ligne</a>
-</div></header>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Augmentation mammaire — EstheConnect</title>
 
-<main class="wrap" style="padding:20px 0">
-  <div class="grid">
-    <div class="card">
-      <img src="/EstheConnect/assets/img/seins/seins-augmentation.jpg" onerror="this.src='/EstheConnect/assets/img/hero/style-chic.jpg'" alt="Augmentation mammaire">
-      <div class="p"><span class="badge">Avant/Après</span><span class="badge">Implants</span></div>
-    </div>
-    <div class="card"><div class="p">
-      <h2 style="margin-top:0">En bref</h2>
-      <ul>
-        <li>Implants ronds / anatomiques, Dual-Plane ; lipofilling en option.</li>
-        <li>Anesthésie : générale · Séjour : 1 nuit · Reprise : 7–10 jours.</li>
-        <li>Objectif : volume, symétrie, galbe naturel adapté à votre silhouette.</li>
-      </ul>
-      <h3>Prix & devis</h3>
-      <p>Recevez un devis détaillé (prothèses incluses, hospitalisation, soins) en 24–48 h.</p>
-      <a class="btn-cta" href="mailto:aboprof.bm2@gmail.com?subject=Devis%20—%20Augmentation%20mammaire">Devis par e-mail</a>
-    </div></div>
+  <!-- Tes styles globaux existants (on ne touche pas à l'index) -->
+  <link rel="stylesheet" href="/EstheConnect/assets/css/style.css"/>
+  <link rel="stylesheet" href="/EstheConnect/assets/site.css"/>
+  <link rel="stylesheet" href="/EstheConnect/style.css"/>
+
+  <!-- Utilitaires + Chat -->
+  <link rel="stylesheet" href="/EstheConnect/assets/css/ec-enhance.css"/>
+  <link rel="stylesheet" href="/EstheConnect/assets/css/chatbase-custom.css"/>
+
+  <style>
+    body{background:#0c0c0d;color:#eee;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif}
+    .hero{position:relative;min-height:44vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#f4eac5;overflow:hidden}
+    .hero .bg{position:absolute;inset:0}
+    .hero .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
+    .hero .content{position:relative;z-index:2;padding:24px}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:#fff;border:1px solid #eee;border-radius:14px;overflow:hidden;color:#111}
+    .card .p{padding:12px}
+    .card img{width:100%;height:260px;object-fit:cover;display:block}
+    .lead{color:#ddd;line-height:1.55}
+    .btn-cta{display:inline-block;margin:6px 6px 0;padding:12px 18px;border-radius:999px;background:#fff2;color:#111;text-decoration:none;font-weight:800;border:2px solid #fff3}
+    section{padding:36px 0}
+    .badge{display:inline-block;background:#e6b0ba;color:#111;border-radius:999px;padding:6px 10px;font-weight:800;margin-right:8px}
+    details{background:#121215;border:1px solid #222;border-radius:12px;padding:12px 14px}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:700}
+    .video-card{overflow:hidden;border-radius:14px;background:#000}
+    .video-card iframe{width:100%;aspect-ratio:16/9;display:block;border:0}
+    .video-card video{width:100%;display:block;max-height:70vh}
+  </style>
+</head>
+<body>
+
+  <!-- mini barre retour -->
+  <div class="wrap" style="padding:12px 0 0">
+    <a href="/EstheConnect/index.html" style="text-decoration:none;color:#e6b0ba;font-weight:700">← Retour à l’accueil</a>
   </div>
 
-  <section class="wrap" style="padding:20px 0 36px">
-    <h2>Résultat visuel</h2>
-    <div class="grid" style="grid-template-columns:1fr 1fr">
-      <img class="card" src="/EstheConnect/assets/img/seins/seins-augmentation.jpg" onerror="this.src='/EstheConnect/assets/img/hero/style-chic.jpg'" alt="" />
-      <img class="card" src="/EstheConnect/assets/img/before-after/augmentation.jpg" onerror="this.src='/EstheConnect/assets/img/hero/hero.jpg'" alt="" />
+  <!-- HERO image -->
+  <header class="hero">
+    <div class="bg">
+      <img src="/EstheConnect/assets/img/seins/seins-augmentation.jpg" onerror="this.src='/EstheConnect/assets/img/hero/hero.jpg'" alt="Augmentation mammaire — EstheConnect">
+    </div>
+    <div class="content wrap">
+      <h1>Augmentation mammaire</h1>
+      <p class="lead">Informations clés, photos, vidéos et réservation en ligne.</p>
+      <a class="btn-cta" href="/EstheConnect/reserver.html?country=belgique#be" target="_blank">Réserver en ligne</a>
+      <a class="btn-cta" href="mailto:aboprof.bm2@gmail.com?subject=Devis%20—%20Augmentation%20mammaire">Devis par e‑mail</a>
+    </div>
+  </header>
+
+  <!-- Bloc intro + visuel -->
+  <section class="wrap">
+    <div class="grid">
+      <div class="card">
+        <img src="/EstheConnect/assets/img/seins/seins-augmentation.jpg" onerror="this.src='/EstheConnect/assets/img/hero/style-chic.jpg'" alt="Augmentation mammaire">
+        <div class="p">
+          <span class="badge">Esthétique</span><span class="badge">Infos</span>
+          <p>Découvrez les indications, le déroulement et les suites pour <strong>augmentation mammaire</strong>.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="p">
+          <h2 style="margin-top:0">En bref</h2>
+          <ul>
+            <li>Anesthésie : à confirmer selon le cas</li>
+            <li>Séjour : ambulatoire ou 1 nuit</li>
+            <li>Reprise : 5–10 jours (variable)</li>
+            <li>Objectif : résultat naturel et harmonieux</li>
+          </ul>
+          <p class="lead" style="color:#444">Un plan personnalisé est établi après photos/évaluation.</p>
+        </div>
+      </div>
     </div>
   </section>
-</main>
 
-<script defer src="/EstheConnect/assets/js/chatbase-custom.js"></script>
-</body></html>
+  <!-- Avant/Après -->
+  <section class="wrap">
+    <h2>Résultats — Avant/Après</h2>
+    <div class="grid" style="grid-template-columns:1fr 1fr">
+      <img class="card" src="/EstheConnect/assets/img/before-after/augmentation.jpg" onerror="this.src='/EstheConnect/assets/img/hero/style-chic.jpg'" alt="Avant/Après — Augmentation mammaire" loading="lazy">
+      <img class="card" src="/EstheConnect/assets/img/before-after/augmentation-2.jpg" onerror="this.src='/EstheConnect/assets/img/hero/hero.jpg'" alt="Avant/Après — Augmentation mammaire (2)" loading="lazy">
+    </div>
+  </section>
+
+  <!-- Vidéos -->
+  <section class="wrap">
+    <h2>Vidéos</h2>
+    <div class="grid">
+      <div class="video-card">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&modestbranding=1"
+          title="Augmentation mammaire — Témoignage"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <video controls preload="metadata" poster="/EstheConnect/assets/video/poster/seins-augmentation-temoignage-001.jpg">
+          <source src="/EstheConnect/assets/video/seins-augmentation-temoignage-001.webm" type="video/webm">
+          <source src="/EstheConnect/assets/video/seins-augmentation-temoignage-001.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la vidéo HTML5.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="wrap">
+    <h2>FAQ</h2>
+    <details>
+      <summary>Combien de temps pour voir le résultat final ?</summary>
+      <p>Une amélioration est visible rapidement, puis le résultat s'affine sur plusieurs semaines/mois.</p>
+    </details>
+    <details>
+      <summary>Quand reprendre le sport ?</summary>
+      <p>En général après 2–3 semaines pour les activités douces (à confirmer avec le chirurgien).</p>
+    </details>
+  </section>
+
+  <!-- CTA bas de page -->
+  <section class="wrap" style="text-align:center">
+    <a class="btn-cta" href="/EstheConnect/reserver.html?country=france#fr" target="_blank">Réserver en ligne</a>
+    <a class="btn-cta" href="mailto:aboprof.bm2@gmail.com?subject=Devis%20—%20Augmentation%20mammaire">Demander un devis</a>
+  </section>
+
+  <footer class="wrap" style="text-align:center;color:#aaa;padding:24px 0">
+    © <span id="year"></span> EstheConnect
+  </footer>
+
+  <script>document.getElementById('year').textContent=(new Date).getFullYear();</script>
+  <script defer src="/EstheConnect/assets/js/ico-fallback.js"></script>
+  <script defer src="/EstheConnect/assets/js/ec-enhance.js"></script>
+  <script defer src="/EstheConnect/assets/js/chatbase-custom.js"></script>
+</body>
+</html>
