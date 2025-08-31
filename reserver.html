@@ -1,51 +1,16 @@
 <!doctype html><html lang="fr"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Réserver — EstheConnect</title>
-<link rel="stylesheet" href="/EstheConnect/assets/css/style.css"/>
-<link rel="stylesheet" href="assets/css/ec-enhance.css"/>
-<style>
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:#0c0c0d;color:#eee}
-.wrap{max-width:900px;margin:0 auto;padding:0 16px}
-.hero{background:#141417;padding:16px 0;border-bottom:1px solid #222}
-.form{display:grid;gap:12px;background:#fff;color:#111;border-radius:16px;padding:18px;border:1px solid #eee;box-shadow:0 8px 28px rgba(0,0,0,.2);margin:18px 0}
-.form input,.form select,.form textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font:inherit}
-.btn{display:inline-block;background:#e6b0ba;border:1px solid #e6b0ba;border-radius:12px;padding:10px 16px;font-weight:700;cursor:pointer;text-decoration:none;color:#111}
-</style>
-<script>window.embeddedChatbotConfig={chatbotId:"fFFT4q2Uol4y-qUwVpYBZ",domain:"www.chatbase.co"};</script>
-<script src="https://www.chatbase.co/embed.min.js" chatbotId="fFFT4q2Uol4y-qUwVpYBZ" domain="www.chatbase.co" defer></script>
+<link rel="stylesheet" href="/EstheConnect/assets/css/ec-enhance.css"/>
+<link rel="stylesheet" href="/EstheConnect/assets/css/chatbase-custom.css"/>
 </head>
-<body>
-  <div class="hero"><div class="wrap"><a href="/EstheConnect/index.html">← Accueil</a></div></div>
-  <main class="wrap">
-    <h1>Réserver en ligne</h1>
-    <form class="form" id="reserveForm">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
-        <label>Nom complet<input name="name" required></label>
-        <label>Téléphone (WhatsApp)<input name="phone" required></label>
-        <label>Pays<select name="country"><option>Tunisie</option><option>Belgique</option><option>France</option></select></label>
-        <label>Intervention<select name="procedure"><option>Liposuccion</option><option>Abdominoplastie</option><option>BBL</option><option>Facettes dentaires</option><option>Greffe capillaire</option></select></label>
-        <label>Date souhaitée<input type="date" name="date"></label>
-      </div>
-      <label>Message<textarea name="msg" rows="4" placeholder="Ajoutez vos détails (photos, zones, etc.)"></textarea></label>
-      <div style="display:flex;gap:8px;align-items:center">
-        <button class="btn" type="submit">Envoyer via WhatsApp</button>
-        <a class="btn" href="https://wa.me/21628296239" target="_blank">Ouvrir WhatsApp</a>
-      </div>
-      <small>Votre numéro n’est jamais affiché publiquement.</small>
-    </form>
-  </main>
-<script>
-  (function(){
-    const url = new URL(location.href);
-    const c = url.searchParams.get('country');
-    if(c) document.querySelector('[name="country"]').value = c;
-  })();
-  document.getElementById('reserveForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(this));
-    const msg = `Nouvelle demande EstheConnect:%0A- Nom: ${encodeURIComponent(data.name)}%0A- Tél: ${encodeURIComponent(data.phone)}%0A- Pays: ${encodeURIComponent(data.country)}%0A- Intervention: ${encodeURIComponent(data.procedure)}%0A- Date: ${encodeURIComponent(data.date||'à définir') }%0A- Message: ${encodeURIComponent(data.msg||'')}`;
-    location.href = `https://wa.me/21628296239?text=${msg}`;
-  });
-</script>
-  <script defer src="assets/js/ec-enhance.js"></script>
+<body style="background:#0c0c0d;color:#eee;font-family:system-ui">
+<header class="hero"><div class="content wrap"><h1>Réservation en ligne</h1><p>Choisissez votre pays et suivez la procédure sécurisée.</p></div></header>
+<main class="wrap" style="padding:20px 0">
+  <div class="ec-row" id="tn" data-country="tunisie"><div><strong>Tunisie</strong><div style="color:#555">Tunis / Sousse</div></div><a class="ec-btn" href="#" onclick="alert('Flow de réservation Tunisie');return false;">Continuer</a></div>
+  <div class="ec-row" id="be" data-country="belgique"><div><strong>Belgique</strong><div style="color:#555">Bruxelles</div></div><a class="ec-btn" href="#" onclick="alert('Flow de réservation Belgique');return false;">Continuer</a></div>
+  <div class="ec-row" id="fr" data-country="france"><div><strong>France</strong><div style="color:#555">Paris / Lille</div></div><a class="ec-btn" href="#" onclick="alert('Flow de réservation France');return false;">Continuer</a></div>
+</main>
+<script defer src="/EstheConnect/assets/js/reserve.js"></script>
+<script defer src="/EstheConnect/assets/js/chatbase-custom.js"></script>
 </body></html>
