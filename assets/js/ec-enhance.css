@@ -1,0 +1,10 @@
+:root{--rose:#e6b0ba}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.ec-modal[hidden]{display:none}
+.ec-modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;z-index:1000}
+.ec-box{background:#fff;color:#111;max-width:720px;width:100%;border-radius:14px;overflow:hidden;box-shadow:0 18px 48px rgba(0,0,0,.4)}
+.ec-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #eee;background:#f7f7f8}
+.ec-body{padding:16px}
+.ec-row{display:flex;align-items:center;justify-content:space-between;border:1px solid #eee;border-radius:12px;padding:12px 14px;margin:10px 0;background:#fafafa}
+.ec-btn{background:#4a68ff;color:#fff;border:0;border-radius:10px;padding:10px 12px;font-weight:700;text-decoration:none}
+.ec-x{background:transparent;border:0;font-size:22px;cursor:pointer}
