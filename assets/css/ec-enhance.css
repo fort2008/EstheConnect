@@ -1,12 +1,34 @@
-
-/* Patch intégré — styles additionnels (non intrusifs) */
-.ec-fab{position:fixed;right:18px;bottom:18px;z-index:9999;display:inline-flex;align-items:center;gap:8px;padding:12px 14px;border-radius:999px;border:0;box-shadow:0 8px 28px rgba(0,0,0,.25);background:#e6b0ba;color:#111;font-weight:800;cursor:pointer}
+/* Minimal UI styling for modals and cards */
+:root{--rose:#e6b0ba}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
 .ec-modal[hidden]{display:none}
-.ec-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:20px}
-.ec-box{background:#fff;color:#222;max-width:640px;width:100%;border-radius:16px;box-shadow:0 18px 48px rgba(0,0,0,.4);overflow:hidden}
-.ec-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #eee}
-.ec-body{padding:16px 18px}
+.ec-modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;padding:20px;z-index:1000}
+.ec-box{background:#fff;color:#111;max-width:720px;width:100%;border-radius:14px;overflow:hidden;box-shadow:0 18px 48px rgba(0,0,0,.4)}
+.ec-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #eee;background:#f7f7f8}
+.ec-body{padding:16px}
 .ec-row{display:flex;align-items:center;justify-content:space-between;border:1px solid #eee;border-radius:12px;padding:12px 14px;margin:10px 0;background:#fafafa}
-.ec-btn{display:inline-block;background:#e6b0ba;border:1px solid #e6b0ba;border-radius:12px;padding:10px 16px;font-weight:700;cursor:pointer;text-decoration:none;color:#111}
+.ec-btn{background:#4a68ff;color:#fff;border:0;border-radius:10px;padding:10px 12px;font-weight:700;text-decoration:none}
 .ec-x{background:transparent;border:0;font-size:22px;cursor:pointer}
-@media(max-width:720px){.ec-row{flex-direction:column;align-items:flex-start;gap:10px}}
+.badge{display:inline-block;background:var(--rose);color:#111;border-radius:999px;padding:6px 10px;font-weight:800;margin-right:8px}
+.card{background:#fff;color:#111;border:1px solid #eee;border-radius:14px;overflow:hidden}
+.card .p{padding:12px}
+.card img{width:100%;height:220px;object-fit:cover;display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.hero{position:relative;min-height:48vh;color:#f4eac5;text-align:center;display:flex;align-items:center;justify-content:center;background:#141417}
+.hero .content{z-index:2;padding:24px}
+.btn-cta{display:inline-block;margin:6px 6px 0;padding:12px 18px;border-radius:999px;background:#fff2;color:#111;text-decoration:none;font-weight:800;border:2px solid #fff3}
+.nav{background:#141417;color:#ddd;font-weight:700}
+.nav .bar{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 12px}
+.ico{width:56px;height:56px;border-radius:50%;background-size:cover;background-position:center;border:1px solid #eee;flex:0 0 auto}
+.topbar{display:flex;align-items:center;gap:18px;justify-content:center;padding:10px 12px;background:var(--rose);color:#222}
+.topbar a{text-decoration:none;color:#222;font-weight:600}
+.pills{display:inline-flex;gap:8px;margin-left:auto}
+.pills b,.pills a{display:inline-block;border-radius:999px;padding:4px 8px;background:#fff3;border:1px solid #0001;text-decoration:none;color:#222}
+.pills b{background:#fff}
+.menu{position:relative}
+.menu-panel{position:absolute;left:50%;transform:translateX(-50%);top:100%;min-width:560px;background:#1a1a1f;border:1px solid #000;box-shadow:0 18px 40px rgba(0,0,0,.45);border-radius:14px;padding:14px;display:none;z-index:20}
+.menu:hover .menu-panel{display:block}
+.mega{display:grid;grid-template-columns:repeat(2,minmax(240px,1fr));gap:12px}
+.mega a{display:flex;gap:12px;align-items:center;background:#fff;border-radius:12px;padding:10px;text-decoration:none;color:#222}
+footer{padding:28px 0;text-align:center;color:#aaa}
+@media(max-width:720px){.menu-panel{left:0;right:0;transform:none;min-width:auto;margin-top:8px}.mega{grid-template-columns:1fr}}
