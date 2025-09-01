@@ -1,51 +1,107 @@
 [
   {
-    "category": "face",
-    "name": "Rhinoplastie",
-    "desc": "Primaire, sans greffe de cartilage",
-    "price": "—",
-    "notes": "Selon complexité"
-  },
-  {
-    "category": "face",
-    "name": "Blépharoplastie supérieure",
-    "desc": "2 paupières",
-    "price": "—",
-    "notes": ""
+    "category": "body",
+    "name": "Augmentation des fesses",
+    "desc": "Durée : 6 jours et 5 nuits",
+    "price": "2790",
+    "notes": "À partir de"
   },
   {
     "category": "body",
-    "name": "Liposuccion 3 zones",
-    "desc": "Abdomen + flancs + hanches",
-    "price": "—",
-    "notes": "Inclut vêtements de contention"
+    "name": "BBL",
+    "desc": "Durée : 6 jours et 5 nuits",
+    "price": "2400",
+    "notes": "À partir de"
+  },
+  {
+    "category": "body",
+    "name": "Lifting des cuisses",
+    "desc": "Durée : 5 jours et 4 nuits",
+    "price": "1900",
+    "notes": "À partir de"
+  },
+  {
+    "category": "body",
+    "name": "Lifting des bras",
+    "desc": "Durée : 5 jours et 4 nuits",
+    "price": "1900",
+    "notes": "À partir de"
+  },
+  {
+    "category": "body",
+    "name": "Liposuccion",
+    "desc": "Durée : 5 jours et nuits",
+    "price": "1800",
+    "notes": "À partir de"
   },
   {
     "category": "body",
     "name": "Abdominoplastie",
-    "desc": "Avec transposition de l’ombilic",
-    "price": "—",
-    "notes": "1 nuit incluse"
+    "desc": "Durée : 6 jours et 5 nuits",
+    "price": "2200",
+    "notes": "À partir de"
   },
   {
-    "category": "hair",
-    "name": "Greffe de cheveux",
-    "desc": "Technique FUE — 3000 greffons",
-    "price": "—",
-    "notes": "PRP inclus J+1"
+    "category": "body",
+    "name": "Body lift",
+    "desc": "Durée : 5 jours et 4 nuits",
+    "price": "1000",
+    "notes": "À partir de"
   },
   {
-    "category": "dental",
-    "name": "Facettes céramique (par dent)",
-    "desc": "Emax",
-    "price": "—",
-    "notes": "Devis complet après radios"
+    "category": "face",
+    "name": "Lipofilling visage",
+    "desc": "Durée : 5 jours et 4 nuits",
+    "price": "1550",
+    "notes": "À partir de"
   },
   {
-    "category": "dental",
-    "name": "Implant dentaire (par implant)",
-    "desc": "Marque européenne",
-    "price": "—",
-    "notes": "Sans pilier et couronne"
+    "category": "face",
+    "name": "Génioplastie",
+    "desc": "Durée : 5 jours et 4 nuits",
+    "price": "2200",
+    "notes": "À partir de"
+  },
+  {
+    "category": "face",
+    "name": "Lip lift",
+    "desc": "Durée : 6 jours et 5 nuits",
+    "price": "1590",
+    "notes": "À partir de"
+  },
+  {
+    "category": "face",
+    "name": "Septoplastie",
+    "desc": "Durée : 5 jours et 4 nuits",
+    "price": "2200",
+    "notes": "À partir de"
+  },
+  {
+    "category": "face",
+    "name": "Rhinoplastie",
+    "desc": "Durée : 5 jours et 4 nuits",
+    "price": "2000",
+    "notes": "À partir de"
+  },
+  {
+    "category": "face",
+    "name": "Lifting cervico-facial",
+    "desc": "Durée : 6 jours et 5 nuits",
+    "price": "2390",
+    "notes": "À partir de"
+  },
+  {
+    "category": "face",
+    "name": "Blépharoplastie",
+    "desc": "Durée : 5 jours et 4 nuits",
+    "price": "1490",
+    "notes": "À partir de"
+  },
+  {
+    "category": "face",
+    "name": "Otoplastie",
+    "desc": "Durée : 5 jours et 4 nuits",
+    "price": "1650",
+    "notes": "À partir de"
   }
 ]
