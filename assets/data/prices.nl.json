@@ -1,1 +1,51 @@
-
+[
+  {
+    "category": "face",
+    "name": "Rhinoplastie",
+    "desc": "Primaire, sans greffe de cartilage",
+    "price": "—",
+    "notes": "Selon complexité"
+  },
+  {
+    "category": "face",
+    "name": "Blépharoplastie supérieure",
+    "desc": "2 paupières",
+    "price": "—",
+    "notes": ""
+  },
+  {
+    "category": "body",
+    "name": "Liposuccion 3 zones",
+    "desc": "Abdomen + flancs + hanches",
+    "price": "—",
+    "notes": "Inclut vêtements de contention"
+  },
+  {
+    "category": "body",
+    "name": "Abdominoplastie",
+    "desc": "Avec transposition de l’ombilic",
+    "price": "—",
+    "notes": "1 nuit incluse"
+  },
+  {
+    "category": "hair",
+    "name": "Greffe de cheveux",
+    "desc": "Technique FUE — 3000 greffons",
+    "price": "—",
+    "notes": "PRP inclus J+1"
+  },
+  {
+    "category": "dental",
+    "name": "Facettes céramique (par dent)",
+    "desc": "Emax",
+    "price": "—",
+    "notes": "Devis complet après radios"
+  },
+  {
+    "category": "dental",
+    "name": "Implant dentaire (par implant)",
+    "desc": "Marque européenne",
+    "price": "—",
+    "notes": "Sans pilier et couronne"
+  }
+]
