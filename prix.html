@@ -1,274 +1,67 @@
-
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EstheConnect Center — Plateforme esthétique</title>
-  <meta name="description" content="Plateforme esthétique: chirurgies seins, corps, visage, obésité, greffe capillaire, soins dentaires. Devis rapide via WhatsApp et e-mail.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23e91e63'/><circle cx='50' cy='50' r='30' fill='%23d4af37'/></svg>">
-  <style>
-    :root{--rose:#e91e63;--rose-10:#fde6ef;--gold:#d4af37;--text:#2b2b2b;--border:#f2cfe0}
-    html{scroll-behavior:smooth; scroll-padding-top:90px;}
-    body{margin:0;background:#fff}
-    a{color:inherit}
-    .ec-footer{max-width:1100px;margin:40px auto;padding:0 16px 60px;color:#555;font-family:system-ui}
-    .ec-footer small a{color:#c2185b;text-decoration:none}
-    .btn{background:linear-gradient(90deg,#e91e63,#ff7aa8);color:#fff;border:none;padding:10px 14px;border-radius:12px;font-weight:800;text-decoration:none}
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tarifs — EstheConnect</title>
+<link rel="stylesheet" href="assets/css/prix.css"/>
+<meta name="description" content="Tarifs des interventions — EstheConnect Center. Chirurgie esthétique, dentaire, greffe de cheveux. Multilingue FR/NL/EN/DE.">
 </head>
-<body id="top">
-
-<header class="ec-header">
-  <style>
-    .ec-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:2px solid #f7d7e5;font-family:system-ui,-apple-system,Segoe UI,Roboto}
-    .ec-nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;gap:16px}
-    .ec-brand{display:flex;align-items:center;gap:10px}
-    .ec-brand .dot{width:10px;height:10px;border-radius:50%;background:#d4af37;box-shadow:0 0 0 4px rgba(212,175,55,.18)}
-    .ec-brand a{font-weight:800;color:#c2185b;text-decoration:none;font-size:20px;white-space:nowrap}
-    .ec-menu{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-    .ec-menu>li{position:relative;list-style:none}
-    .ec-menu>li>a{padding:10px 8px;border-radius:10px;text-decoration:none;color:#2b2b2b;font-weight:600;display:inline-block}
-    .ec-menu>li>a:hover{background:#fde6ef;color:#c2185b}
-    .ec-dd{position:absolute;left:0;top:100%;background:#fff;border:1px solid #f1cada;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.08);padding:10px;display:none;min-width:270px}
-    .ec-menu>li:hover .ec-dd{display:block}
-    .ec-dd a{display:block;padding:10px 12px;border-radius:10px;color:#5a1240;text-decoration:none;font-weight:600}
-    .ec-dd a:hover{background:#fff3f8;color:#c2185b}
-    .ec-cta{background:linear-gradient(90deg,#e91e63,#ff7aa8);color:#fff;padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:800}
-    .ec-cta:hover{filter:brightness(.97)}
-    .ec-burger{display:none}
-    @media (max-width:980px){
-      .ec-burger{display:block}
-      .ec-menu{display:none;position:fixed;inset:64px 12px auto 12px;background:#fff;border:1px solid #f3cfe0;border-radius:16px;padding:12px}
-      .ec-menu.open{display:block}
-      .ec-menu>li{margin:6px 0}
-      .ec-dd{position:relative;border:none;box-shadow:none;display:block;padding:0;margin-left:8px}
-      .ec-cta{display:inline-block;margin-top:8px}
-    }
-    .ec-section{scroll-margin-top:100px}
-  </style>
-  <nav class="ec-nav">
-    <div class="ec-brand">
-      <span class="dot"></span>
-      <a href="#top">EstheConnect Center</a>
+<body>
+  <header class="header">
+    <div class="container brand">
+      <div class="logo" aria-hidden="true"></div>
+      <h1 id="title">Tarifs</h1>
+      <span class="badge" id="subtitle">Tous les tarifs des interventions</span>
+      <div class="langs">
+        <button id="lang-fr" class="btn">FR</button>
+        <button id="lang-nl" class="btn">NL</button>
+        <button id="lang-en" class="btn">EN</button>
+        <button id="lang-de" class="btn">DE</button>
+      </div>
     </div>
-    <button class="ec-burger ec-cta" style="border:none" aria-label="Menu" onclick="document.querySelector('.ec-menu').classList.toggle('open')">Menu</button>
-    <ul class="ec-menu">
-      <li>
-        <a href="#interventions">Interventions ▾</a>
-        <div class="ec-dd">
-          <strong style="display:block;padding:6px 12px;color:#7a1440">Seins</strong>
-          <a data-proc="Augmentation mammaire" href="#seins">Augmentation mammaire</a>
-          <a data-proc="Lipofilling mammaire" href="#seins">Lipofilling mammaire</a>
-          <a data-proc="Lifting mammaire" href="#seins">Lifting mammaire</a>
-          <a data-proc="Réduction mammaire" href="#seins">Réduction mammaire</a>
-          <a data-proc="Asymétrie mammaire" href="#seins">Asymétrie mammaire</a>
-          <a data-proc="Gynécomastie" href="#seins">Gynécomastie</a>
-          <strong style="display:block;padding:6px 12px;color:#7a1440">Corps</strong>
-          <a data-proc="Liposuccion" href="#corps">Liposuccion</a>
-          <a data-proc="BBL (lipofilling fessier)" href="#corps">Lipofilling des fesses (BBL)</a>
-          <a data-proc="Abdominoplastie" href="#corps">Abdominoplastie</a>
-          <a data-proc="Mini abdominoplastie" href="#corps">Mini abdominoplastie</a>
-          <a data-proc="Lifting des bras" href="#corps">Lifting des bras</a>
-          <a data-proc="Lifting des cuisses" href="#corps">Lifting des cuisses</a>
-          <a data-proc="Implants fessiers" href="#corps">Implants fessiers</a>
-          <a data-proc="Vaser / J-Plasma" href="#corps">Vaser / J-Plasma</a>
-          <strong style="display:block;padding:6px 12px;color:#7a1440">Visage</strong>
-          <a data-proc="Lifting visage" href="#visage">Lifting visage</a>
-          <a data-proc="Blépharoplastie" href="#visage">Blépharoplastie</a>
-          <a data-proc="Rhinoplastie" href="#visage">Rhinoplastie</a>
-          <a data-proc="Lipofilling visage" href="#visage">Lipofilling visage</a>
-          <a data-proc="Liposuccion double menton" href="#visage">Double menton</a>
-          <a data-proc="Bichectomie" href="#visage">Bichectomie</a>
-          <a data-proc="Otoplastie" href="#visage">Otoplastie</a>
-          <strong style="display:block;padding:6px 12px;color:#7a1440">Autres</strong>
-          <a data-proc="Sleeve gastrectomie" href="#obesite">Sleeve</a>
-          <a data-proc="Bypass gastrique" href="#obesite">Bypass</a>
-          <a data-proc="Ballon gastrique" href="#obesite">Ballon gastrique</a>
-          <a data-proc="FUE 2500–3000 greffons" href="#greffe">Greffe FUE</a>
-          <a data-proc="Greffe barbe" href="#greffe">Greffe barbe</a>
-          <a data-proc="Facettes dentaires" href="#dents">Facettes dentaires</a>
-          <a data-proc="Orthodontie invisible" href="#dents">Orthodontie invisible</a>
-          <a data-proc="Blanchiment" href="#dents">Blanchiment</a>
-          <a data-proc="Implant + pilier" href="#dents">Implant + pilier</a>
-          <a data-proc="Chirurgie intime" href="#intime">Chirurgie intime</a>
-        </div>
-      </li>
-      <li><a href="#avantapres">Avant Après</a></li>
-      <li><a href="#chirurgiens">Chirurgiens</a></li>
-      <li><a href="#clinique">Clinique</a></li>
-      <li><a href="#temoignages">Témoignages</a></li>
-      <li><a href="#hotels">Hôtels</a></li>
-      <li><a href="prix.html">Tarifs</a></li>
-      <li><a href="#apropos">À propos</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a class="ec-cta" href="#devis">Demande de devis</a></li>
-    </ul>
-  </nav>
-</header>
+  </header>
 
-<script>
-  document.querySelectorAll('.ec-dd a').forEach(a=>{
-    a.addEventListener('click', e=>{
-      const proc=a.getAttribute('data-proc');
-      const select=document.querySelector('#demande-intervention');
-      if(select && proc){
-        let opt=[...select.options].find(o=>o.value===proc);
-        if(!opt){ opt=new Option(proc,proc); select.add(opt); }
-        select.value=proc;
-      }
-      document.querySelector('.ec-menu')?.classList.remove('open');
-    });
-  });
-</script>
-<section id="tarifs-estheconnect" class="tarifs-ec">
-  <style>
-    .tarifs-ec{--rose:#e91e63;--rose-10:#fde6ef;--gold:#d4af37;--text:#2b2b2b;--border:#f2cfe0;margin:40px auto;max-width:1100px;padding:0 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
-    .tarifs-ec h2{font-size:clamp(26px,4vw,34px);margin:22px 0 10px;color:var(--text)}
-    .tarifs-ec .card{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 6px 18px rgba(0,0,0,.04);overflow:hidden;margin:18px 0}
-    .tarifs-ec .head{display:flex;align-items:center;gap:10px;background:linear-gradient(90deg,var(--rose),#ff7aa8);color:#fff;padding:14px 18px;font-weight:700}
-    .tarifs-ec .head .dot{width:10px;height:10px;border-radius:99px;background:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.25)}
-    .tarifs-ec table{width:100%;border-collapse:collapse}
-    .tarifs-ec th,.tarifs-ec td{padding:13px 14px;border-bottom:1px solid #f6dbe6}
-    .tarifs-ec th{background:var(--rose-10);text-align:left;color:#7a1440}
-    .tarifs-ec td.price{font-weight:800;color:#c2185b}
-    .tarifs-ec .note{font-size:13px;color:#6b6b6b;margin-top:8px}
-    @media (max-width:640px){
-      .tarifs-ec th:nth-child(2),.tarifs-ec td:nth-child(2){text-align:right}
-      .tarifs-ec th{font-size:14px}
-    }
-  </style>
+  <main class="container">
+    <section class="hero">
+      <div class="kicker">EstheConnect Center</div>
+      <div>Utilisez la <strong>recherche</strong> et les <strong>filtres</strong> pour trouver rapidement un acte et son tarif.</div>
+      <div class="notice" id="notice">Prix indicatifs — confirmez par devis personnalisé.</div>
+    </section>
 
-  <h2>Tarifs indicatifs (–50€ appliqué)</h2>
+    <div class="toolbar">
+      <div class="search"><input id="q" type="search" placeholder="Rechercher une intervention..."></div>
+      <div class="filters">
+        <button class="btn active" onclick="setCategory('all', this)"><span data-i18n="all">Toutes</span></button>
+        <button class="btn" onclick="setCategory('face', this)"><span data-i18n="cat.face">Visage</span></button>
+        <button class="btn" onclick="setCategory('body', this)"><span data-i18n="cat.body">Corps</span></button>
+        <button class="btn" onclick="setCategory('dental', this)"><span data-i18n="cat.dental">Dentaire</span></button>
+        <button class="btn" onclick="setCategory('hair', this)"><span data-i18n="cat.hair">Greffe de cheveux</span></button>
+      </div>
+    </div>
 
-  <!-- CHIRURGIE DU SEIN -->
-  <div class="card">
-    <div class="head"><span class="dot"></span><span>Chirurgie du sein</span></div>
-    <table>
-      <thead><tr><th>Acte</th><th>Prix</th></tr></thead>
-      <tbody>
-        <tr><td>Augmentation mammaire avec prothèses rondes</td><td class="price">2 450€</td></tr>
-        <tr><td>Augmentation mammaire avec prothèses anatomiques</td><td class="price">2 450€</td></tr>
-        <tr><td>Liposuccion + lipofilling des seins</td><td class="price">2 650€</td></tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="card">
+      <h2><span data-i18n="title">Tarifs</span></h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="cols.act">Intervention</th>
+              <th data-i18n="cols.desc">Détails</th>
+              <th data-i18n="cols.price">Prix (€)</th>
+              <th data-i18n="cols.notes">Remarques</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
 
-  <div class="card">
-    <div class="head"><span class="dot"></span><span>Lifting des seins</span></div>
-    <table>
-      <thead><tr><th>Acte</th><th>Prix</th></tr></thead>
-      <tbody>
-        <tr><td>Lifting des seins avec prothèses rondes</td><td class="price">2 750€</td></tr>
-        <tr><td>Lifting des seins avec prothèses anatomiques</td><td class="price">2 750€</td></tr>
-        <tr><td>Lifting des seins sans prothèses</td><td class="price">2 150€</td></tr>
-        <tr><td>Réduction mammaire</td><td class="price">2 150€</td></tr>
-        <tr><td>Gynécomastie (hommes)</td><td class="price">1 750€</td></tr>
-      </tbody>
-    </table>
-  </div>
+    <p class="notice">Pour garder votre <em>couverture/accueil</em> inchangé, cette page est indépendante. Ajoutez seulement un lien “Prix” dans votre menu vers <code>prix.html</code>.</p>
+  </main>
 
-  <!-- SILHOUETTE / LIPO -->
-  <div class="card">
-    <div class="head"><span class="dot"></span><span>Chirurgie de la silhouette (Liposuccion)</span></div>
-    <table>
-      <thead><tr><th>Acte / Technique</th><th>Prix</th></tr></thead>
-      <tbody>
-        <tr><td>Liposuccion 1 zone</td><td class="price">1 350€</td></tr>
-        <tr><td>Liposuccion 2 zones</td><td class="price">1 550€</td></tr>
-        <tr><td>Liposuccion 3 zones</td><td class="price">1 750€</td></tr>
-        <tr><td>Liposuccion complète</td><td class="price">2 150€</td></tr>
-        <tr><td>Liposuccion complète + lipofilling des fesses (BBL)</td><td class="price">2 650€</td></tr>
-        <tr><td>Liposuccion complète + Vaser</td><td class="price">2 650€</td></tr>
-        <tr><td>Liposuccion complète HD</td><td class="price">2 650€</td></tr>
-        <tr><td>Liposuccion J-Plasma jusqu’à 2 zones</td><td class="price">3 550€</td></tr>
-        <tr><td>Liposuccion J-Plasma 3 zones et plus</td><td class="price">4 150€</td></tr>
-      </tbody>
-    </table>
-  </div>
+  <footer class="container footer">© EstheConnect Center — Prix & informations indicatives.</footer>
 
-  <!-- PLASTIE ABDOMINALE -->
-  <div class="card">
-    <div class="head"><span class="dot"></span><span>Plastie abdominale</span></div>
-    <table>
-      <thead><tr><th>Acte</th><th>Prix</th></tr></thead>
-      <tbody>
-        <tr><td>Abdominoplastie</td><td class="price">2 400€</td></tr>
-        <tr><td>Abdominoplastie + liposuccion</td><td class="price">2 900€</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- LIFTING BRAS / CUISSES & AUGMENTATION FESSES -->
-  <div class="card">
-    <div class="head"><span class="dot"></span><span>Lifting & Fesses</span></div>
-    <table>
-      <thead><tr><th>Acte</th><th>Prix</th></tr></thead>
-      <tbody>
-        <tr><td>Lifting des bras</td><td class="price">1 650€</td></tr>
-        <tr><td>Lifting des cuisses</td><td class="price">2 250€</td></tr>
-        <tr><td>Augmentation des fesses avec prothèses</td><td class="price">3 050€</td></tr>
-        <tr><td>Liposuccion complète + lipofilling des fesses (BBL)</td><td class="price">2 650€</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- VISAGE -->
-  <div class="card">
-    <div class="head"><span class="dot"></span><span>Chirurgie du visage</span></div>
-    <table>
-      <thead><tr><th>Acte</th><th>Prix</th></tr></thead>
-      <tbody>
-        <tr><td>Lifting cervico-facial</td><td class="price">2 300€</td></tr>
-        <tr><td>Lifting temporal</td><td class="price">1 950€</td></tr>
-        <tr><td>Lifting malaire</td><td class="price">1 950€</td></tr>
-        <tr><td>Lifting complet du visage</td><td class="price">2 900€</td></tr>
-        <tr><td>Lipofilling du visage</td><td class="price">1 550€</td></tr>
-        <tr><td>Blépharoplastie 2 paupières supérieures</td><td class="price">1 650€</td></tr>
-        <tr><td>Blépharoplastie 2 paupières inférieures</td><td class="price">1 650€</td></tr>
-        <tr><td>Blépharoplastie 4 paupières</td><td class="price">1 750€</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- NEZ / LÈVRES / OREILLES / BICHAT / GREFFE -->
-  <div class="card">
-    <div class="head"><span class="dot"></span><span>Nez • Lèvres • Oreilles • Bichat • Greffe capillaire</span></div>
-    <table>
-      <thead><tr><th>Acte</th><th>Prix</th></tr></thead>
-      <tbody>
-        <tr><td>Rhinoplastie esthétique</td><td class="price">2 150€</td></tr>
-        <tr><td>Rhinoplastie ethnique</td><td class="price">2 350€</td></tr>
-        <tr><td>Rhinoplastie septoplastie</td><td class="price">2 350€</td></tr>
-        <tr><td>Lipofilling des lèvres</td><td class="price">950€</td></tr>
-        <tr><td>Otoplastie</td><td class="price">1 750€</td></tr>
-        <tr><td>Bichectomie (boules de Bichat)</td><td class="price">1 650€</td></tr>
-        <tr><td>Greffe de cheveux FUE – 2500 greffons</td><td class="price">1 550€</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- OBÉSITÉ -->
-  <div class="card">
-    <div class="head"><span class="dot"></span><span>Chirurgie de l’obésité</span></div>
-    <table>
-      <thead><tr><th>Acte</th><th>Prix</th></tr></thead>
-      <tbody>
-        <tr><td>Anneau gastrique</td><td class="price">2 950€</td></tr>
-        <tr><td>Sleeve gastrectomie</td><td class="price">3 750€</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <p class="note">* Prix indicatifs — devis personnalisé après photos & visio. Options (vol/hôtel/accompagnant) possibles. Contact : <a href="https://wa.me/21628296239" target="_blank">WhatsApp +216 28 296 239</a> · <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
-</section>
-<footer class="ec-footer">
-  <hr style="border:none;border-top:1px solid #f3cfe0;margin:24px 0">
-  <small>
-    © 2025 EstheConnect Center · WhatsApp <a href="https://wa.me/21628296239" target="_blank">+216 28 296 239</a> ·
-    Email <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a> ·
-    <a href="prix.html">Tarifs</a>
-  </small>
-</footer>
+  <script src="assets/js/prix.js"></script>
 </body>
 </html>
