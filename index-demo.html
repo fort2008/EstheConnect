@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>EstheConnect — Démo (Hero vidéo + Slider + YouTube)</title>
+
+  <!-- Splide (slider) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
+
+  <style>
+    :root{
+      --rose:#e6b0ba;
+      --gold:#c9a34e;
+      --ink:#111;
+    }
+
+    body{
+      margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+      color:#222; background:#fff;
+    }
+
+    /* Header demo minimal (non intrusif) */
+    .mini-header{
+      padding:10px 14px; border-bottom:1px solid #eee; display:flex; gap:12px; align-items:center; justify-content:space-between;
+      background: linear-gradient(90deg, #fff, #fff0f3);
+    }
+    .mini-header b{ color:#222 }
+    .mini-header a{ color:#663; text-decoration:none; border:1px solid #e7d8b4; padding:6px 10px; border-radius:999px }
+    .mini-header a:hover{ background:#faf5e6 }
+
+    /* Section Hero vidéo */
+    .hero-video{
+      position: relative;
+      width: 100%;
+      height: clamp(40vh, 62vw, 88vh);
+      overflow: hidden;
+      border-bottom: 3px solid var(--gold);
+      background:#000;
+    }
+    .hero-video video{
+      position:absolute; top:50%; left:50%;
+      min-width:100%; min-height:100%;
+      transform: translate(-50%,-50%);
+      object-fit: cover;
+    }
+    .hero-overlay{
+      position:absolute; inset:0;
+      background: linear-gradient(0deg, rgba(0,0,0,.45), rgba(0,0,0,.12));
+    }
+    .hero-text{
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      color:#fff; text-align:center; padding:1.2rem;
+    }
+    .hero-text h1{font-size: clamp(1.6rem, 3.5vw, 3rem); margin:0 0 .4rem}
+    .hero-text p{opacity:.92; font-size:clamp(.95rem, 1.4vw, 1.15rem); margin:0}
+    .hero-cta{
+      margin-top:1rem; display:inline-block; padding:.72rem 1.1rem;
+      border-radius:999px; border:1px solid rgba(255,255,255,.35);
+      backdrop-filter: blur(6px);
+      color:#fff; text-decoration:none;
+    }
+    .hero-cta:hover{background: rgba(255,255,255,.12)}
+
+    /* Section Slider */
+    .section-slider{
+      padding: clamp(14px, 2vw, 28px);
+      background:#fff;
+    }
+    .section-slider .title{
+      text-align:center; margin:0 0 6px; color: var(--ink);
+    }
+    .section-slider .subtitle{
+      text-align:center; margin:0 0 16px; color:#444;
+    }
+    .splide__slide{
+      border-radius: 16px; overflow:hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    }
+    .splide__slide img{ display:block; width:100%; height: 360px; object-fit:cover }
+    @media (max-width: 768px){
+      .splide__slide img{ height: 220px; }
+    }
+
+    /* Section YouTube */
+    .video-block{
+      padding: clamp(14px, 2vw, 28px);
+      background: linear-gradient(180deg, #fff 0%, #fff5f7 100%);
+      border-top:1px solid #eee;
+    }
+    .video-card{
+      max-width:1100px; margin:0 auto;
+      background:#fff; border:1px solid #eee; border-radius:16px;
+      overflow:hidden; box-shadow: 0 12px 30px rgba(0,0,0,.06);
+    }
+    .video-card header{
+      padding:14px 18px; background: linear-gradient(90deg, var(--rose), #f7dfe4);
+      color:#2e2e2e; border-bottom:1px solid #f1c9d2; font-weight:600;
+    }
+    .video-card .frame{
+      aspect-ratio:16/9; width:100%; background:#000;
+    }
+    .video-card iframe{ width:100%; height:100%; border:0; display:block }
+
+    footer{
+      padding:24px 14px; text-align:center; color:#666; font-size:.95rem;
+      border-top:1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mini-header">
+    <b>EstheConnect — Page de démonstration (index-demo.html)</b>
+    <a href="./">Retour à l'index actuel</a>
+  </div>
+
+  <!-- HERO VIDEO -->
+  <section class="hero-video" id="video-hero">
+    <video
+      src="assets/video/hero.mp4"
+      autoplay muted playsinline loop
+      poster="assets/img/hero-poster.jpg">
+        Votre navigateur ne supporte pas la vidéo HTML5.
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <div>
+        <h1>Chirurgie & Médecine Esthétique — EstheConnect</h1>
+        <p>Liposuccion, plastie abdominale, BBL, rhinoplastie… Séjour & suivi inclus.</p>
+        <a class="hero-cta" href="#avant-apres">Voir les résultats</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDER IMAGES -->
+  <section class="section-slider" id="avant-apres">
+    <h2 class="title">Avant / Après — Exemples</h2>
+    <p class="subtitle">Images à titre illustratif. Demandez nos galeries détaillées sur WhatsApp.</p>
+
+    <div id="splide-avant-apres" class="splide" aria-label="Galerie avant-après">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide"><img src="assets/img/slide1.jpg" alt="Avant / Après 1" loading="lazy"></li>
+          <li class="splide__slide"><img src="assets/img/slide2.jpg" alt="Avant / Après 2" loading="lazy"></li>
+          <li class="splide__slide"><img src="assets/img/slide3.jpg" alt="Avant / Après 3" loading="lazy"></li>
+          <li class="splide__slide"><img src="assets/img/slide4.jpg" alt="Avant / Après 4" loading="lazy"></li>
+          <li class="splide__slide"><img src="assets/img/slide5.jpg" alt="Avant / Après 5" loading="lazy"></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO YOUTUBE -->
+  <section class="video-block" id="temoignage-video">
+    <div class="video-card">
+      <header>Présentation & témoignage — Vidéo</header>
+      <div class="frame">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&modestbranding=1&autohide=1&playsinline=1"
+          title="Présentation EstheConnect"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer>© EstheConnect — Démo visuelle. Cette page n’altère pas votre index.html existant.</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var splide = new Splide('#splide-avant-apres', {
+        type: 'loop',
+        perPage: 3,
+        gap: '16px',
+        autoplay: true,
+        interval: 3800,
+        pauseOnHover: true,
+        breakpoints: {
+          1024: { perPage: 2 },
+          640:  { perPage: 1 }
+        },
+        arrows: true,
+        pagination: true,
+      });
+      splide.mount();
+
+      // iOS/Android: relancer play au premier touch si besoin
+      const vid = document.querySelector('#video-hero video');
+      if(vid){
+        const ensurePlay = () => vid.play().catch(()=>{});
+        document.addEventListener('touchstart', ensurePlay, {once:true});
+      }
+    });
+  </script>
+</body>
+</html>
