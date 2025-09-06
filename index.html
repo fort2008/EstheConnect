@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Accueil — EstheConnect</title>
 
-<!-- Tes CSS existants -->
+<!-- CSS existants (si présents dans ton repo) -->
 <link rel="stylesheet" href="./assets/css/style.css"/>
 <link rel="stylesheet" href="./assets/site.css"/>
 <link rel="stylesheet" href="./style.css"/>
@@ -62,7 +62,7 @@ section{padding:40px 0}
 .reserve-btn{background:#4a68ff;color:#fff;border:0;border-radius:10px;padding:10px 12px;font-weight:700;cursor:pointer}
 .xbtn{background:transparent;border:0;font-size:22px;cursor:pointer}
 
-/* === Langues (globe + raccourcis) === */
+/* Langues (globe + raccourcis) */
 .lang-switch{position:relative;display:inline-block}
 #langBtn{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid #0002;background:#fff;color:#111;cursor:pointer;font-weight:700}
 #langBtn .globe{font-size:18px}
@@ -78,8 +78,24 @@ body{ top:0 !important; }
 .goog-te-gadget{font-family:inherit!important;font-size:14px!important}
 .goog-te-gadget .goog-te-combo{width:100%;padding:8px 10px;border-radius:10px;border:1px solid #ddd;background:#fff;color:#111;outline:0}
 
-/* Chat : au-dessus de tout */
-iframe[src*="chatbase.co"]{position:fixed!important;bottom:18px!important;right:18px!important;width:auto!important;height:auto!important;border:0!important;z-index:2147483000!important}
+/* Chat custom */
+.chat-fab{
+  position:fixed; right:18px; bottom:18px; z-index:2147483000;
+  width:60px; height:60px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:#ff3e89; color:#fff; font-size:26px; border:none; cursor:pointer;
+  box-shadow:0 10px 28px rgba(0,0,0,.25);
+}
+.chat-panel{
+  position:fixed; right:18px; bottom:90px; z-index:2147483000;
+  width:380px; max-width:92vw; height:520px; max-height:80vh;
+  background:#fff; border-radius:16px; overflow:hidden;
+  box-shadow:0 14px 40px rgba(0,0,0,.35); display:none;
+}
+.chat-head{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:linear-gradient(90deg,#ff3e89,#ffa3c6);color:#222;font-weight:800}
+.chat-close{background:transparent;border:0;font-size:22px;cursor:pointer}
+.chat-welcome{padding:10px 12px;color:#333;border-bottom:1px solid #eee;font-size:14px}
+.chat-frame{width:100%;height:calc(100% - 90px);border:0;display:block}
 
 /* Splide */
 .splide{background:#0b0b0c}
@@ -88,23 +104,6 @@ iframe[src*="chatbase.co"]{position:fixed!important;bottom:18px!important;right:
 @media (max-width:768px){.splide__slide img{height:220px}}
 </style>
 </head>
-<script>
-/* --- Réserver en ligne : ouverture/fermeture de la modale --- */
-(function () {
-  const modal   = document.getElementById('reserveModal');
-  if (!modal) return;
-  const openers = document.querySelectorAll('[data-reserve-open]');
-  const closeBtn= document.getElementById('reserveClose');
-
-  function openModal(){ modal.hidden = false; document.body.style.overflow = 'hidden'; }
-  function closeModal(){ modal.hidden = true;  document.body.style.overflow = ''; }
-
-  openers.forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
-})();
-</script>
 
 <body>
 
@@ -120,7 +119,6 @@ iframe[src*="chatbase.co"]{position:fixed!important;bottom:18px!important;right:
       <a href="./index.html#contact">CONTACT</a>
     </div>
     <div class="r">
-      <!-- Globe langues -->
       <div class="lang-switch">
         <button id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
           <span class="globe">🌐</span> Langues
@@ -230,93 +228,24 @@ iframe[src*="chatbase.co"]{position:fixed!important;bottom:18px!important;right:
 <!-- WhatsApp -->
 <a class="fab fab-wa" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect" aria-label="WhatsApp">☎</a>
 
+<!-- Bouton + panneau de chat -->
+<button class="chat-fab" id="chatOpen" aria-label="Ouvrir le chat">💬</button>
+<div class="chat-panel" id="chatPanel" aria-live="polite">
+  <div class="chat-head">
+    <span>Assistant EstheConnect</span>
+    <button class="chat-close" id="chatClose" aria-label="Fermer">×</button>
+  </div>
+  <div class="chat-welcome">Bonjour 👋 Comment puis-je vous aider ? (devis, prix, organisation…)</div>
+  <iframe class="chat-frame" src="https://www.chatbase.co/chatbot-iframe/fFFT4q2Uol4y-qUwVpYBZ" allow="clipboard-write; microphone" title="Chat EstheConnect"></iframe>
+</div>
+
 <!-- ===== SCRIPTS ===== -->
 
-<!-- Splide (JS) -->
+<!-- Splide -->
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+<!-- Google Translate widget (liste complète si besoin) -->
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Diaporama
-    var splide = new Splide('#splide-avant-apres', {
-      type: 'loop',
-      perPage: 3,
-      gap: '16px',
-      autoplay: true,
-      interval: 3800,
-      pauseOnHover: true,
-      breakpoints: {1024:{perPage:2},640:{perPage:1}},
-      arrows: true,
-      pagination: true
-    });
-    splide.mount();
-
-    // Année footer
-    var y=document.getElementById('year'); if(y) y.textContent=(new Date).getFullYear();
-  });
-</script>
-
-<!-- ===== Langues (boutons fiables via cookie googtrans) ===== -->
-<script>
-  // Ouvre/ferme le menu
-  (function(){
-    const btn = document.getElementById('langBtn');
-    const box = document.getElementById('gtContainer');
-    if(btn && box){
-      btn.addEventListener('click', ()=>{
-        const hidden = box.hasAttribute('hidden');
-        box.toggleAttribute('hidden', !hidden);
-        btn.setAttribute('aria-expanded', String(hidden));
-      });
-      document.addEventListener('click', (e)=>{
-        if(!box.contains(e.target) && !btn.contains(e.target)){
-          box.setAttribute('hidden','');
-          btn.setAttribute('aria-expanded','false');
-        }
-      });
-    }
-  })();
-
-  // RTL
-  const RTL_LANGS = new Set(['ar','he','fa','ur']);
-  function applyDir(code){ document.documentElement.dir = RTL_LANGS.has(code) ? 'rtl' : 'ltr'; }
-
-  // Cookies util
-  function setCookie(name, value, days){
-    const d = new Date(); d.setTime(d.getTime() + (days*24*60*60*1000));
-    const expires = "expires="+ d.toUTCString();
-    document.cookie = name + "=" + value + "; " + expires + "; path=/";
-    const host = location.hostname.replace(/^www\./,'');
-    document.cookie = name + "=" + value + "; " + expires + "; domain=." + host + "; path=/";
-  }
-  function getCookie(name){
-    const n = name + "=";
-    return document.cookie.split(";").map(c=>c.trim()).find(c=>c.indexOf(n)===0)?.slice(n.length) || "";
-  }
-
-  // Appliquer une langue immédiatement
-  function forceLang(code){
-    const val = "/fr/" + code;
-    setCookie("googtrans", val, 365);
-    applyDir(code);
-    location.reload();
-  }
-
-  // Boutons rapides
-  document.addEventListener('click', function(e){
-    const b = e.target.closest('.quickLang');
-    if(!b) return;
-    e.preventDefault();
-    forceLang(b.dataset.lang);
-  });
-
-  // Au chargement, respecte la langue déjà choisie
-  (function(){
-    const v = getCookie("googtrans"); // /fr/<code>
-    const code = v && v.split('/')[2];
-    if(code) applyDir(code);
-  })();
-
-  // Charger le widget (pour liste complète si besoin)
   window.googleTranslateElementInit = function() {
     new google.translate.TranslateElement({
       pageLanguage:'fr',
@@ -327,11 +256,62 @@ iframe[src*="chatbase.co"]{position:fixed!important;bottom:18px!important;right:
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 
-<!-- Chatbase -->
 <script>
-  window.embeddedChatbotConfig = { chatbotId: "fFFT4q2Uol4y-qUwVpYBZ", domain: "www.chatbase.co" };
+document.addEventListener('DOMContentLoaded', function () {
+  /* Diaporama */
+  const splide = new Splide('#splide-avant-apres', {
+    type:'loop', perPage:3, gap:'16px', autoplay:true, interval:3800,
+    pauseOnHover:true, breakpoints:{1024:{perPage:2},640:{perPage:1}}, arrows:true, pagination:true
+  }); splide.mount();
+
+  /* Année footer */
+  const y=document.getElementById('year'); if(y) y.textContent=(new Date).getFullYear();
+});
+
+/* ===== Langues via cookie googtrans (fiable) ===== */
+(function(){
+  const btn = document.getElementById('langBtn');
+  const box = document.getElementById('gtContainer');
+  if(btn && box){
+    btn.addEventListener('click', ()=>{ const h=box.hasAttribute('hidden'); box.toggleAttribute('hidden', !h); btn.setAttribute('aria-expanded', String(h)); });
+    document.addEventListener('click', (e)=>{ if(!box.contains(e.target) && !btn.contains(e.target)){ box.setAttribute('hidden',''); btn.setAttribute('aria-expanded','false'); }});
+  }
+})();
+const RTL_LANGS=new Set(['ar','he','fa','ur']);
+function applyDir(code){ document.documentElement.dir = RTL_LANGS.has(code) ? 'rtl' : 'ltr'; }
+function setCookie(n,v,d){ const t=new Date(Date.now()+d*864e5).toUTCString(); document.cookie=`${n}=${v}; expires=${t}; path=/`; const host=location.hostname.replace(/^www\./,''); document.cookie=`${n}=${v}; expires=${t}; domain=.${host}; path=/`; }
+function getCookie(n){ const k=n+"="; return document.cookie.split(";").map(s=>s.trim()).find(s=>s.indexOf(k)===0)?.slice(k.length)||""; }
+function forceLang(code){ const val=`/fr/${code}`; setCookie("googtrans", val, 365); applyDir(code); location.reload(); }
+document.addEventListener('click', (e)=>{ const b=e.target.closest('.quickLang'); if(b){ e.preventDefault(); forceLang(b.dataset.lang); }});
+(function(){ const v=getCookie("googtrans"); const code=v && v.split('/')[2]; if(code) applyDir(code); })();
+
+/* ===== Chat : bouton rose + panneau ===== */
+(function(){
+  const openBtn=document.getElementById('chatOpen');
+  const panel=document.getElementById('chatPanel');
+  const closeBtn=document.getElementById('chatClose');
+  if(!openBtn||!panel) return;
+  const open=()=>{ panel.style.display='block'; };
+  const close=()=>{ panel.style.display='none'; };
+  openBtn.addEventListener('click', open);
+  if(closeBtn) closeBtn.addEventListener('click', close);
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
+})();
+
+/* ===== Réserver en ligne : fonctionne partout (haut & milieu) ===== */
+(function(){
+  const modal=document.getElementById('reserveModal');
+  const closeBtn=document.getElementById('reserveClose');
+  function openModal(e){ if(e) e.preventDefault(); if(modal){ modal.hidden=false; document.body.style.overflow='hidden'; } }
+  function closeModal(){ if(modal){ modal.hidden=true; document.body.style.overflow=''; } }
+  document.addEventListener('click', (e)=>{
+    const trigger=e.target.closest('[data-reserve-open]'); if(trigger) openModal(e);
+    if(e.target===modal) closeModal();
+  });
+  if(closeBtn) closeBtn.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && modal && !modal.hidden) closeModal(); });
+})();
 </script>
-<script src="https://www.chatbase.co/embed.min.js" defer></script>
 
 <!-- Modale Réservation -->
 <div class="reserve-modal" id="reserveModal" hidden>
