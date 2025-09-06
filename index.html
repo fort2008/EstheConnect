@@ -3,35 +3,219 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Avis patients — EstheConnect</title>
-<link rel="stylesheet" href="/EstheConnect/assets/css/style.css"/>
-<link rel="stylesheet" href="/EstheConnect/assets/site.css"/>
-<link rel="stylesheet" href="/EstheConnect/style.css"/>
+<title>Accueil — EstheConnect</title>
+
+<!-- CSS existants -->
+<link rel="stylesheet" href="./assets/css/style.css"/>
+<link rel="stylesheet" href="./assets/site.css"/>
+<link rel="stylesheet" href="./style.css"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+<link rel="stylesheet" href="assets/site.css"/>
+<link rel="stylesheet" href="style.css"/>
+
+<style>
+:root{--ink:#111;--rose:#e6b0ba;--dark:#121212}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:#0c0c0d;color:#eee}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+a{color:inherit}
+.muted{color:#666}
+
+/* barre haute */
+.topbar-mini{display:flex;align-items:center;gap:18px;justify-content:center;padding:10px 12px;background:var(--rose);color:#222}
+.topbar-mini a{text-decoration:none;color:#222;font-weight:600}
+.topbar-mini .r{margin-left:auto;display:flex;gap:10px;align-items:center}
+
+/* pills langues */
+.pills{display:inline-flex;gap:8px}
+.pills b,.pills a{display:inline-block;border-radius:999px;padding:4px 8px;background:#fff3;border:1px solid #0001;text-decoration:none;color:#222}
+.pills b{background:#fff}
+
+/* barre basse + méga menus */
+.nav-cats{background:#141417;position:sticky;top:0;z-index:30}
+.nav-cats .bar{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 12px}
+.nav-cats a{text-decoration:none;color:#ddd;font-weight:700}
+.menu{position:relative}
+.menu-btn{padding:6px 4px;display:inline-block}
+.menu-panel{position:absolute;left:50%;transform:translateX(-50%);top:100%;min-width:560px;background:#1a1a1f;border:1px solid #000;box-shadow:0 18px 40px rgba(0,0,0,.45);border-radius:14px;padding:14px;display:none}
+.menu:hover .menu-panel{display:block}
+.mega{display:grid;grid-template-columns:repeat(2,minmax(240px,1fr));gap:12px}
+.mega a{display:flex;gap:12px;align-items:center;background:#fff;border-radius:12px;padding:10px;text-decoration:none;color:#222}
+.ico{width:56px;height:56px;border-radius:50%;background-size:cover;background-position:center;border:1px solid #eee;flex:0 0 auto}
+
+/* hero */
+.hero{position:relative;min-height:62vh;color:#f4eac5;text-align:center;display:flex;align-items:center;justify-content:center}
+.hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.45)}
+.hero .content{position:relative;z-index:2;padding:24px}
+.btn-cta{display:inline-block;margin:6px 6px 0;padding:12px 18px;border-radius:999px;background:#fff2;color:#111;text-decoration:none;font-weight:800;border:2px solid #fff3}
+
+/* sections */
+section{padding:40px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:#fff;border:1px solid #eee;border-radius:14px;overflow:hidden}
+.card img{width:100%;height:160px;object-fit:cover;display:block}
+.card .p{padding:12px;color:#222}
+
+/* WhatsApp */
+.fab{position:fixed;z-index:29;display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;box-shadow:0 8px 28px rgba(0,0,0,.2);background:#25D366;color:#fff;font-size:28px;text-decoration:none}
+.fab-wa{left:18px;bottom:18px}
+
+/* Modale Réserver */
+.reserve-modal[hidden]{display:none}
+.reserve-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:20px}
+.reserve-box{background:#fff;color:#222;max-width:720px;width:100%;border-radius:16px;box-shadow:0 18px 48px rgba(0,0,0,.4);overflow:hidden}
+.reserve-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #eee}
+.reserve-head h3{margin:0}
+.reserve-body{padding:18px 20px}
+.option{display:flex;align-items:center;justify-content:space-between;border:1px solid #eee;border-radius:12px;padding:12px 14px;margin:10px 0;background:#fafafa}
+.flag{font-size:22px;margin-right:8px}
+.reserve-btn{background:#4a68ff;color:#fff;border:0;border-radius:10px;padding:10px 12px;font-weight:700;cursor:pointer}
+.xbtn{background:transparent;border:0;font-size:22px;cursor:pointer}
+</style>
 </head>
+
 <body>
-<section class="wrap" style="padding-top:24px">
-  <h1>Avis de nos patients</h1>
-  <p>La satisfaction et la sécurité de nos patients sont au cœur de notre démarche. Voici quelques retours vérifiés.</p>
 
-  <div class="grid">
-    <article class="card">
-      <div class="p"><strong>Camille D. — Blépharoplastie</strong><br/>« Suivi attentif du coordinateur, chirurgien à l’écoute. Résultat très naturel. »</div>
-    </article>
-    <article class="card">
-      <div class="p"><strong>Yanis B. — Rhinoplastie</strong><br/>« Organisation nickel, devis clair. Résultat conforme au projet 3D. »</div>
-    </article>
-    <article class="card">
-      <div class="p"><strong>Sarah L. — Liposuccion</strong><br/>« Très bonne prise en charge, douleurs bien gérées, silhouette affinée. »</div>
-    </article>
-    <article class="card">
-      <div class="p"><strong>Hélène P. — Augmentation mammaire</strong><br/>« Conseils honnêtes sur la taille, cicatrices fines, je recommande. »</div>
-    </article>
+<!-- barre haute -->
+<div class="topbar-mini">
+  <div class="wrap" style="display:flex;align-items:center;gap:18px;width:100%">
+    <div style="display:flex;gap:16px;flex-wrap:wrap">
+      <a href="./avantapres.html">PHOTOS AVANT/APRÈS</a>
+      <a href="./financement.html">PRIX</a>
+      <a href="./avis.html">AVIS</a>
+      <a href="./index.html#etranger">CHIRURGIE À L’ÉTRANGER</a>
+      <a href="./index.html#infos">INFOS</a>
+      <a href="./index.html#contact">CONTACT</a>
+    </div>
+    <div class="r">
+      <div class="pills"><b>FR</b><a href="#">NL</a><a href="#">EN</a><a href="#">DE</a></div>
+      <a href="#" data-reserve-open class="btn-cta">RÉSERVER EN LIGNE</a>
+    </div>
   </div>
+</div>
 
-  <h2>Comment sont collectés les avis ?</h2>
-  <p>Nous contactons nos patients après leur intervention pour recueillir un retour authentique. Les témoignages publiés sont représentatifs et ne sont <strong>jamais rémunérés</strong>. Sur demande, nous pouvons fournir des preuves d’intervention (facture anonymisée).</p>
+<!-- barre basse + méga menus (inchangé) -->
+<nav class="nav-cats"><div class="wrap bar">
+  <!-- … laisse tous tes blocs de catégories comme avant (pas modifiés ici) … -->
+  <div class="menu"><a class="menu-btn" href="./seins.html">Seins</a></div>
+  <div class="menu"><a class="menu-btn" href="./liposuccion.html">Liposuccion</a></div>
+  <div class="menu"><a class="menu-btn" href="./visage.html">Visage</a></div>
+  <div class="menu"><a class="menu-btn" href="./dents.html">Dents</a></div>
+  <div class="menu"><a class="menu-btn" href="./cheveux.html">Cheveux</a></div>
+  <div class="menu"><a class="menu-btn" href="./peau.html">Peau</a></div>
+  <div class="menu"><a class="menu-btn" href="./hommes.html">Hommes</a></div>
+  <div class="menu"><a class="menu-btn" href="./perte-de-poids.html">Perte de poids</a></div>
+</div></nav>
 
-  <p><a href="/EstheConnect/index.html">← Retour à l’accueil</a></p>
+<!-- HERO -->
+<header class="hero">
+  <div class="bg" style="background-image:url('./assets/img/hero/acceuil.png')"></div>
+  <div class="content wrap">
+    <h1>EstheConnect — Plateforme esthétique</h1>
+    <p>Comparez les cliniques, obtenez un devis et réservez en toute confiance.</p>
+    <a class="btn-cta" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect">Devis WhatsApp</a>
+    <a class="btn-cta" href="./financement.html">Financement</a>
+  </div>
+</header>
+
+<section class="wrap" id="visage">
+  <h2>Visage</h2>
+  <div class="grid">
+    <a class="card" href="./visage.html">
+      <img src="./assets/img/hero/style-chic.jpg" alt="Visage">
+      <div class="p"><strong>Visage esthétique</strong><div class="muted">Injections & anti-âge</div></div>
+    </a>
+    <a class="card" href="./visage.html">
+      <img src="./assets/img/hero/hero.jpg" alt="Chirurgie visage">
+      <div class="p"><strong>Chirurgie visage</strong><div class="muted">Mini-lift, blépharo, rhino…</div></div>
+    </a>
+    <a class="card" href="./cheveux.html">
+      <img src="./assets/img/hero/svc-capillaire.jpg" alt="Capillaire">
+      <div class="p"><strong>Capillaire</strong><div class="muted">Greffe FUE/DHI, PRP</div></div>
+    </a>
+  </div>
 </section>
+
+<!-- Sections ancrées (textes pro) -->
+<section class="wrap" id="etranger">
+  <h2>Chirurgie à l’étranger</h2>
+  <p>EstheConnect organise votre séjour médical : devis, choix de la clinique, transferts, hôtel, interprète et suivi. Partenaires sélectionnés pour la <strong>sécurité</strong>, la <strong>qualité</strong> et la <strong>transparence</strong>.</p>
+</section>
+
+<section class="wrap" id="infos">
+  <h2>Infos & déroulé</h2>
+  <ol>
+    <li><strong>Devis personnalisé</strong> (photos + questionnaire santé).</li>
+    <li><strong>Plan de traitement</strong> clair : options, délais, budget.</li>
+    <li><strong>Organisation</strong> du séjour (vols, transferts, hôtel).</li>
+    <li><strong>Suivi</strong> post-opératoire avec l’équipe médicale.</li>
+  </ol>
+</section>
+
+<section class="wrap" id="contact">
+  <h2>Contact</h2>
+  <ul>
+    <li><strong>WhatsApp :</strong> <a target="_blank" rel="noopener" href="https://wa.me/21628296239?text=Bonjour,%20je%20souhaite%20un%20devis%20via%20EstheConnect">+216 28 296 239</a></li>
+    <li><strong>E-mail :</strong> contact@estheconnect.com</li>
+    <li><strong>Réservation en ligne</strong> via le bouton en haut à droite.</li>
+  </ul>
+</section>
+
+<footer style="text-align:center;padding:24px 12px;border-top:1px solid #222">
+  © <span id="year"></span> EstheConnect — Plateforme esthétique
+</footer>
+
+<!-- WhatsApp -->
+<a class="fab fab-wa" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect" aria-label="WhatsApp">☎</a>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  document.getElementById('year').textContent=(new Date).getFullYear();
+
+  // Modale Réserver
+  document.addEventListener('DOMContentLoaded', function () {
+    var modal = document.getElementById('reserveModal');
+    var openers = document.querySelectorAll('[data-reserve-open]');
+    var closer = document.getElementById('reserveClose');
+    openers.forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault(); if(modal) modal.hidden=false;}));
+    if(closer) closer.addEventListener('click',()=>{ if(modal) modal.hidden=true;});
+    if(modal){
+      modal.addEventListener('click',e=>{ if(e.target===modal) modal.hidden=true;});
+      document.addEventListener('keydown',e=>{ if(e.key==='Escape' && !modal.hidden) modal.hidden=true;});
+    }
+  });
+</script>
+
+<!-- Modale Réservation -->
+<div class="reserve-modal" id="reserveModal" hidden>
+  <div class="reserve-box">
+    <div class="reserve-head">
+      <h3>Réservez en ligne et économisez</h3>
+      <button class="xbtn" id="reserveClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="reserve-body">
+      <div class="option">
+        <div><span class="flag">🇹🇳</span><strong>Tunisie</strong> — Tunis / Sousse</div>
+        <a class="reserve-btn" href="./reserver.html?country=Tunisie#tn" target="_blank" rel="noopener">Réserver en ligne</a>
+      </div>
+      <div class="option">
+        <div><span class="flag">🇧🇪</span><strong>Belgique</strong> — Bruxelles</div>
+        <a class="reserve-btn" href="./reserver.html?country=Belgique#be" target="_blank" rel="noopener">Réserver en ligne</a>
+      </div>
+      <div class="option">
+        <div><span class="flag">🇫🇷</span><strong>France</strong> — Paris / Lille</div>
+        <a class="reserve-btn" href="./reserver.html?country=France#fr" target="_blank" rel="noopener">Réserver en ligne</a>
+      </div>
+      <p style="margin-top:12px;color:#555">En réservant en ligne, vous bénéficiez d’une réduction sur la consultation.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Chatbase (officiel, sans CSS custom) -->
+<script>
+  window.embeddedChatbotConfig = { chatbotId: "fFFT4q2Uol4y-qUwVpYBZ", domain: "www.chatbase.co" };
+</script>
+<script src="https://www.chatbase.co/embed.min.js" defer></script>
+
 </body>
 </html>
