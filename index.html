@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Accueil — EstheConnect</title>
 
-<!-- Tes CSS existants (relatifs = OK sur GitHub Pages) -->
+<!-- CSS (relatifs) -->
 <link rel="stylesheet" href="./assets/css/style.css"/>
 <link rel="stylesheet" href="./assets/site.css"/>
 <link rel="stylesheet" href="./style.css"/>
@@ -44,7 +44,7 @@ section{padding:40px 0}
 .card img{width:100%;height:160px;object-fit:cover;display:block}
 .card .p{padding:12px;color:#222}
 
-/* WhatsApp bouton flottant */
+/* WhatsApp bouton */
 .fab{position:fixed;z-index:29;display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;box-shadow:0 8px 28px rgba(0,0,0,.2);background:#25D366;color:#fff;font-size:28px;text-decoration:none}
 .fab-wa{left:18px;bottom:18px}
 
@@ -73,7 +73,7 @@ section{padding:40px 0}
 .goog-te-banner-frame.skiptranslate,.goog-te-gadget-icon{display:none!important}
 body{top:0!important}
 
-/* === Chat : toujours visible au-dessus de tout === */
+/* === Chat : au-dessus de tout === */
 iframe[src*="chatbase.co"]{
   position:fixed!important; bottom:18px!important; right:18px!important;
   width:auto!important; height:auto!important; border:0!important;
@@ -311,23 +311,11 @@ iframe[src*="chatbase.co"]{
   </div>
 </div>
 
-<!-- Chatbase (officiel) + Fallback -->
+<!-- Chatbase (une seule intégration → pas de 404) -->
 <script>
   window.embeddedChatbotConfig = { chatbotId: "fFFT4q2Uol4y-qUwVpYBZ", domain: "www.chatbase.co" };
 </script>
 <script src="https://www.chatbase.co/embed.min.js" defer></script>
-<script>
-  // Fallback : si la bulle n'apparaît pas d'elle-même
-  setTimeout(function(){
-    if(!document.querySelector('iframe[src*="chatbase.co"]')){
-      var f=document.createElement('iframe');
-      f.src="https://www.chatbase.co/chatbot-iframe/fFFT4q2Uol4y-qUwVpYBZ";
-      f.style.position="fixed"; f.style.bottom="18px"; f.style.right="18px";
-      f.style.width="380px"; f.style.height="520px"; f.style.border="0";
-      f.style.zIndex="2147483000"; document.body.appendChild(f);
-    }
-  },3000);
-</script>
 
 </body>
 </html>
