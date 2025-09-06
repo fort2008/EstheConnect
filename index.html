@@ -24,24 +24,12 @@ a{color:inherit}
 /* barre haute */
 .topbar-mini{display:flex;align-items:center;gap:18px;justify-content:center;padding:10px 12px;background:var(--rose);color:#222}
 .topbar-mini a{text-decoration:none;color:#222;font-weight:600}
-.topbar-mini .r{margin-left:auto;display:flex;gap:10px;align-items:center}
+.topbar-mini .r{margin-left:auto;display:flex;gap:12px;align-items:center}
 
-/* pills langues */
-.pills{display:inline-flex;gap:8px}
-.pills b,.pills a{display:inline-block;border-radius:999px;padding:4px 8px;background:#fff3;border:1px solid #0001;text-decoration:none;color:#222}
-.pills b{background:#fff}
-
-/* barre basse + méga menus */
+/* barre basse simple (liens) */
 .nav-cats{background:#141417;position:sticky;top:0;z-index:30}
 .nav-cats .bar{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 12px}
 .nav-cats a{text-decoration:none;color:#ddd;font-weight:700}
-.menu{position:relative}
-.menu-btn{padding:6px 4px;display:inline-block}
-.menu-panel{position:absolute;left:50%;transform:translateX(-50%);top:100%;min-width:560px;background:#1a1a1f;border:1px solid #000;box-shadow:0 18px 40px rgba(0,0,0,.45);border-radius:14px;padding:14px;display:none}
-.menu:hover .menu-panel{display:block}
-.mega{display:grid;grid-template-columns:repeat(2,minmax(240px,1fr));gap:12px}
-.mega a{display:flex;gap:12px;align-items:center;background:#fff;border-radius:12px;padding:10px;text-decoration:none;color:#222}
-.ico{width:56px;height:56px;border-radius:50%;background-size:cover;background-position:center;border:1px solid #eee;flex:0 0 auto}
 
 /* hero */
 .hero{position:relative;min-height:62vh;color:#f4eac5;text-align:center;display:flex;align-items:center;justify-content:center}
@@ -65,12 +53,33 @@ section{padding:40px 0}
 .reserve-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:20px}
 .reserve-box{background:#fff;color:#222;max-width:720px;width:100%;border-radius:16px;box-shadow:0 18px 48px rgba(0,0,0,.4);overflow:hidden}
 .reserve-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #eee}
-.reserve-head h3{margin:0}
 .reserve-body{padding:18px 20px}
 .option{display:flex;align-items:center;justify-content:space-between;border:1px solid #eee;border-radius:12px;padding:12px 14px;margin:10px 0;background:#fafafa}
 .flag{font-size:22px;margin-right:8px}
 .reserve-btn{background:#4a68ff;color:#fff;border:0;border-radius:10px;padding:10px 12px;font-weight:700;cursor:pointer}
 .xbtn{background:transparent;border:0;font-size:22px;cursor:pointer}
+
+/* === LANGUAGES (globe + raccourcis) === */
+.lang-switch{position:relative;display:inline-block}
+#langBtn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 10px;border-radius:999px;border:1px solid #0002;
+  background:#fff;color:#111;cursor:pointer;font-weight:700
+}
+#langBtn .globe{font-size:18px}
+.gtbox{
+  position:absolute;right:0;top:calc(100% + 8px);
+  background:#fff;border:1px solid #ddd;border-radius:12px;
+  box-shadow:0 14px 32px rgba(0,0,0,.12);padding:10px;z-index:2000;min-width:260px
+}
+.gtbox[hidden]{display:none}
+.quick-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.quickLang{border:1px solid #ddd;background:#f7f7f7;border-radius:999px;padding:6px 10px;cursor:pointer;font-weight:700}
+#google_translate_element { font-size:0 }
+.goog-te-gadget { font-family:inherit !important; font-size:14px !important }
+.goog-te-gadget .goog-te-combo { width:100%; padding:8px 10px; border-radius:10px; border:1px solid #ddd; background:#fff; color:#111; outline:0 }
+.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display:none !important }
+body { top:0 !important }
 </style>
 </head>
 
@@ -87,24 +96,42 @@ section{padding:40px 0}
       <a href="./index.html#infos">INFOS</a>
       <a href="./index.html#contact">CONTACT</a>
     </div>
+
     <div class="r">
-      <div class="pills"><b>FR</b><a href="#">NL</a><a href="#">EN</a><a href="#">DE</a></div>
+      <!-- Globe + sélecteur -->
+      <div class="lang-switch">
+        <button id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="globe">🌐</span> Langues
+        </button>
+        <div id="gtContainer" class="gtbox" hidden>
+          <div id="google_translate_element"></div>
+          <div class="quick-row">
+            <button class="quickLang" data-lang="fr" type="button">FR</button>
+            <button class="quickLang" data-lang="nl" type="button">NL</button>
+            <button class="quickLang" data-lang="en" type="button">EN</button>
+            <button class="quickLang" data-lang="de" type="button">DE</button>
+            <button class="quickLang" data-lang="it" type="button">IT</button>
+            <button class="quickLang" data-lang="tr" type="button">TR</button>
+            <button class="quickLang" data-lang="ar" type="button">AR</button>
+          </div>
+        </div>
+      </div>
+
       <a href="#" data-reserve-open class="btn-cta">RÉSERVER EN LIGNE</a>
     </div>
   </div>
 </div>
 
-<!-- barre basse + méga menus (inchangé) -->
+<!-- barre basse -->
 <nav class="nav-cats"><div class="wrap bar">
-  <!-- … laisse tous tes blocs de catégories comme avant (pas modifiés ici) … -->
-  <div class="menu"><a class="menu-btn" href="./seins.html">Seins</a></div>
-  <div class="menu"><a class="menu-btn" href="./liposuccion.html">Liposuccion</a></div>
-  <div class="menu"><a class="menu-btn" href="./visage.html">Visage</a></div>
-  <div class="menu"><a class="menu-btn" href="./dents.html">Dents</a></div>
-  <div class="menu"><a class="menu-btn" href="./cheveux.html">Cheveux</a></div>
-  <div class="menu"><a class="menu-btn" href="./peau.html">Peau</a></div>
-  <div class="menu"><a class="menu-btn" href="./hommes.html">Hommes</a></div>
-  <div class="menu"><a class="menu-btn" href="./perte-de-poids.html">Perte de poids</a></div>
+  <a href="./seins.html">Seins</a>
+  <a href="./liposuccion.html">Liposuccion</a>
+  <a href="./visage.html">Visage</a>
+  <a href="./dents.html">Dents</a>
+  <a href="./cheveux.html">Cheveux</a>
+  <a href="./peau.html">Peau</a>
+  <a href="./hommes.html">Hommes</a>
+  <a href="./perte-de-poids.html">Perte de poids</a>
 </div></nav>
 
 <!-- HERO -->
@@ -136,19 +163,19 @@ section{padding:40px 0}
   </div>
 </section>
 
-<!-- Sections ancrées (textes pro) -->
+<!-- Sections ancrées -->
 <section class="wrap" id="etranger">
   <h2>Chirurgie à l’étranger</h2>
-  <p>EstheConnect organise votre séjour médical : devis, choix de la clinique, transferts, hôtel, interprète et suivi. Partenaires sélectionnés pour la <strong>sécurité</strong>, la <strong>qualité</strong> et la <strong>transparence</strong>.</p>
+  <p>EstheConnect organise votre séjour médical : devis individuel, choix de la clinique, transferts, hôtel, interprète et suivi post-opératoire. Partenaires sélectionnés pour la <strong>sécurité</strong>, la <strong>qualité</strong> et la <strong>transparence</strong>.</p>
 </section>
 
 <section class="wrap" id="infos">
   <h2>Infos & déroulé</h2>
   <ol>
     <li><strong>Devis personnalisé</strong> (photos + questionnaire santé).</li>
-    <li><strong>Plan de traitement</strong> clair : options, délais, budget.</li>
-    <li><strong>Organisation</strong> du séjour (vols, transferts, hôtel).</li>
-    <li><strong>Suivi</strong> post-opératoire avec l’équipe médicale.</li>
+    <li><strong>Plan de traitement</strong> : options, délais, budget détaillé.</li>
+    <li><strong>Organisation</strong> : vols, transferts, hôtel, accompagnement.</li>
+    <li><strong>Suivi</strong> : contrôles et contact direct avec l’équipe médicale.</li>
   </ol>
 </section>
 
@@ -157,7 +184,7 @@ section{padding:40px 0}
   <ul>
     <li><strong>WhatsApp :</strong> <a target="_blank" rel="noopener" href="https://wa.me/21628296239?text=Bonjour,%20je%20souhaite%20un%20devis%20via%20EstheConnect">+216 28 296 239</a></li>
     <li><strong>E-mail :</strong> contact@estheconnect.com</li>
-    <li><strong>Réservation en ligne</strong> via le bouton en haut à droite.</li>
+    <li><strong>Réserver en ligne</strong> via le bouton en haut à droite.</li>
   </ul>
 </section>
 
@@ -184,7 +211,60 @@ section{padding:40px 0}
       document.addEventListener('keydown',e=>{ if(e.key==='Escape' && !modal.hidden) modal.hidden=true;});
     }
   });
+
+  // ===== Globe Langues =====
+  (function(){
+    const btn = document.getElementById('langBtn');
+    const box = document.getElementById('gtContainer');
+    if(btn && box){
+      btn.addEventListener('click', ()=>{
+        const isHidden = box.hasAttribute('hidden');
+        box.toggleAttribute('hidden', !isHidden);
+        btn.setAttribute('aria-expanded', String(isHidden));
+      });
+      document.addEventListener('click', (e)=>{
+        if(!box.contains(e.target) && !btn.contains(e.target)){
+          box.setAttribute('hidden','');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    }
+  })();
+
+  // RTL langues
+  const RTL_LANGS = new Set(['ar','he','fa','ur']);
+  function applyDir(code){ document.documentElement.dir = RTL_LANGS.has(code) ? 'rtl' : 'ltr'; }
+
+  function __setLang(code){
+    const sel = document.querySelector('#google_translate_element select');
+    if(!sel) return;
+    const opt = Array.from(sel.options).find(o => o.value.split('|')[1] === code);
+    if(opt){ sel.value = opt.value; sel.dispatchEvent(new Event('change')); applyDir(code); }
+  }
+  document.addEventListener('click', function(e){
+    const b = e.target.closest('.quickLang');
+    if(b){ e.preventDefault(); __setLang(b.dataset.lang); }
+  });
+  const obs = new MutationObserver(()=>{
+    const sel = document.querySelector('#google_translate_element select');
+    if(sel && !sel.dataset._dirwatch){
+      sel.dataset._dirwatch = '1';
+      sel.addEventListener('change', ()=>{
+        const code = (sel.value.split('|')[1] || 'fr'); applyDir(code);
+      });
+    }
+  });
+  obs.observe(document.body, { childList:true, subtree:true });
+
+  window.googleTranslateElementInit = function() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'fr',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  };
 </script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 
 <!-- Modale Réservation -->
 <div class="reserve-modal" id="reserveModal" hidden>
@@ -211,7 +291,7 @@ section{padding:40px 0}
   </div>
 </div>
 
-<!-- Chatbase (officiel, sans CSS custom) -->
+<!-- Chatbase officiel -->
 <script>
   window.embeddedChatbotConfig = { chatbotId: "fFFT4q2Uol4y-qUwVpYBZ", domain: "www.chatbase.co" };
 </script>
