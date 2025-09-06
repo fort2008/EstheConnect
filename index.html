@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Accueil — EstheConnect</title>
 
-<!-- CSS existants -->
+<!-- Styles existants -->
 <link rel="stylesheet" href="./assets/css/style.css"/>
 <link rel="stylesheet" href="./assets/site.css"/>
 <link rel="stylesheet" href="./style.css"/>
@@ -21,23 +21,23 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvet
 a{color:inherit}
 .muted{color:#666}
 
-/* barre haute */
+/* Barre haute */
 .topbar-mini{display:flex;align-items:center;gap:18px;justify-content:center;padding:10px 12px;background:var(--rose);color:#222}
 .topbar-mini a{text-decoration:none;color:#222;font-weight:600}
 .topbar-mini .r{margin-left:auto;display:flex;gap:12px;align-items:center}
 
-/* barre basse simple (liens) */
+/* Barre basse */
 .nav-cats{background:#141417;position:sticky;top:0;z-index:30}
 .nav-cats .bar{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 12px}
 .nav-cats a{text-decoration:none;color:#ddd;font-weight:700}
 
-/* hero */
+/* Hero */
 .hero{position:relative;min-height:62vh;color:#f4eac5;text-align:center;display:flex;align-items:center;justify-content:center}
 .hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.45)}
 .hero .content{position:relative;z-index:2;padding:24px}
 .btn-cta{display:inline-block;margin:6px 6px 0;padding:12px 18px;border-radius:999px;background:#fff2;color:#111;text-decoration:none;font-weight:800;border:2px solid #fff3}
 
-/* sections */
+/* Sections + cartes */
 section{padding:40px 0}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .card{background:#fff;border:1px solid #eee;border-radius:14px;overflow:hidden}
@@ -59,7 +59,7 @@ section{padding:40px 0}
 .reserve-btn{background:#4a68ff;color:#fff;border:0;border-radius:10px;padding:10px 12px;font-weight:700;cursor:pointer}
 .xbtn{background:transparent;border:0;font-size:22px;cursor:pointer}
 
-/* === LANGUAGES (globe + raccourcis) === */
+/* === Langues (globe + raccourcis) === */
 .lang-switch{position:relative;display:inline-block}
 #langBtn{
   display:inline-flex;align-items:center;gap:8px;
@@ -75,17 +75,27 @@ section{padding:40px 0}
 .gtbox[hidden]{display:none}
 .quick-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .quickLang{border:1px solid #ddd;background:#f7f7f7;border-radius:999px;padding:6px 10px;cursor:pointer;font-weight:700}
-#google_translate_element { font-size:0 }
-.goog-te-gadget { font-family:inherit !important; font-size:14px !important }
-.goog-te-gadget .goog-te-combo { width:100%; padding:8px 10px; border-radius:10px; border:1px solid #ddd; background:#fff; color:#111; outline:0 }
-.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display:none !important }
-body { top:0 !important }
+#google_translate_element{font-size:0}
+.goog-te-gadget{font-family:inherit!important;font-size:14px!important}
+.goog-te-gadget .goog-te-combo{width:100%;padding:8px 10px;border-radius:10px;border:1px solid #ddd;background:#fff;color:#111;outline:0}
+.goog-te-banner-frame.skiptranslate,.goog-te-gadget-icon{display:none!important}
+body{top:0!important}
+
+/* — Chat : forcer visibilité en bas à droite et au-dessus de tout — */
+iframe[src*="chatbase.co"]{
+  position:fixed !important;
+  bottom:18px !important;
+  right:18px !important;
+  width:auto !important;
+  height:auto !important;
+  z-index:2147483000 !important;
+}
 </style>
 </head>
 
 <body>
 
-<!-- barre haute -->
+<!-- Barre haute -->
 <div class="topbar-mini">
   <div class="wrap" style="display:flex;align-items:center;gap:18px;width:100%">
     <div style="display:flex;gap:16px;flex-wrap:wrap">
@@ -98,7 +108,7 @@ body { top:0 !important }
     </div>
 
     <div class="r">
-      <!-- Globe + sélecteur -->
+      <!-- Globe langues -->
       <div class="lang-switch">
         <button id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
           <span class="globe">🌐</span> Langues
@@ -122,7 +132,7 @@ body { top:0 !important }
   </div>
 </div>
 
-<!-- barre basse -->
+<!-- Barre basse -->
 <nav class="nav-cats"><div class="wrap bar">
   <a href="./seins.html">Seins</a>
   <a href="./liposuccion.html">Liposuccion</a>
@@ -163,7 +173,6 @@ body { top:0 !important }
   </div>
 </section>
 
-<!-- Sections ancrées -->
 <section class="wrap" id="etranger">
   <h2>Chirurgie à l’étranger</h2>
   <p>EstheConnect organise votre séjour médical : devis individuel, choix de la clinique, transferts, hôtel, interprète et suivi post-opératoire. Partenaires sélectionnés pour la <strong>sécurité</strong>, la <strong>qualité</strong> et la <strong>transparence</strong>.</p>
@@ -192,7 +201,7 @@ body { top:0 !important }
   © <span id="year"></span> EstheConnect — Plateforme esthétique
 </footer>
 
-<!-- WhatsApp -->
+<!-- Bulle WhatsApp -->
 <a class="fab fab-wa" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect" aria-label="WhatsApp">☎</a>
 
 <!-- ===== SCRIPTS ===== -->
@@ -201,10 +210,10 @@ body { top:0 !important }
 
   // Modale Réserver
   document.addEventListener('DOMContentLoaded', function () {
-    var modal = document.getElementById('reserveModal');
-    var openers = document.querySelectorAll('[data-reserve-open]');
-    var closer = document.getElementById('reserveClose');
-    openers.forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault(); if(modal) modal.hidden=false;}));
+    var modal=document.getElementById('reserveModal');
+    var openers=document.querySelectorAll('[data-reserve-open]');
+    var closer=document.getElementById('reserveClose');
+    openers.forEach(b=>b.addEventListener('click',e=>{e.preventDefault(); if(modal) modal.hidden=false;}));
     if(closer) closer.addEventListener('click',()=>{ if(modal) modal.hidden=true;});
     if(modal){
       modal.addEventListener('click',e=>{ if(e.target===modal) modal.hidden=true;});
@@ -212,17 +221,17 @@ body { top:0 !important }
     }
   });
 
-  // ===== Globe Langues =====
+  /* === Langues : ouverture/fermeture du menu === */
   (function(){
-    const btn = document.getElementById('langBtn');
-    const box = document.getElementById('gtContainer');
+    const btn=document.getElementById('langBtn');
+    const box=document.getElementById('gtContainer');
     if(btn && box){
-      btn.addEventListener('click', ()=>{
-        const isHidden = box.hasAttribute('hidden');
-        box.toggleAttribute('hidden', !isHidden);
-        btn.setAttribute('aria-expanded', String(isHidden));
+      btn.addEventListener('click',()=>{
+        const hidden=box.hasAttribute('hidden');
+        box.toggleAttribute('hidden',!hidden);
+        btn.setAttribute('aria-expanded',String(hidden));
       });
-      document.addEventListener('click', (e)=>{
+      document.addEventListener('click',(e)=>{
         if(!box.contains(e.target) && !btn.contains(e.target)){
           box.setAttribute('hidden','');
           btn.setAttribute('aria-expanded','false');
@@ -231,40 +240,59 @@ body { top:0 !important }
     }
   })();
 
-  // RTL langues
-  const RTL_LANGS = new Set(['ar','he','fa','ur']);
+  /* === Google Translate : raccourcis + RTL === */
+  const RTL_LANGS=new Set(['ar','he','fa','ur']);
   function applyDir(code){ document.documentElement.dir = RTL_LANGS.has(code) ? 'rtl' : 'ltr'; }
 
-  function __setLang(code){
-    const sel = document.querySelector('#google_translate_element select');
-    if(!sel) return;
-    const opt = Array.from(sel.options).find(o => o.value.split('|')[1] === code);
-    if(opt){ sel.value = opt.value; sel.dispatchEvent(new Event('change')); applyDir(code); }
+  function getGTSelect(){ return document.querySelector('#google_translate_element select'); }
+  function findOptionForCode(sel, code){
+    return Array.from(sel.options).find(o => o.value === code || o.value.endsWith('|'+code));
   }
-  document.addEventListener('click', function(e){
-    const b = e.target.closest('.quickLang');
-    if(b){ e.preventDefault(); __setLang(b.dataset.lang); }
+  function setLangWhenReady(code){
+    let tries=0;
+    const iv=setInterval(()=>{
+      const sel=getGTSelect();
+      if(sel){
+        const opt=findOptionForCode(sel, code);
+        if(opt){
+          sel.value=opt.value;
+          sel.dispatchEvent(new Event('change'));
+          applyDir(code);
+          clearInterval(iv);
+        }
+      }
+      if(++tries>60) clearInterval(iv);
+    },100);
+  }
+  document.addEventListener('click',function(e){
+    const b=e.target.closest('.quickLang');
+    if(!b) return;
+    e.preventDefault();
+    setLangWhenReady(b.dataset.lang);
   });
-  const obs = new MutationObserver(()=>{
-    const sel = document.querySelector('#google_translate_element select');
-    if(sel && !sel.dataset._dirwatch){
-      sel.dataset._dirwatch = '1';
-      sel.addEventListener('change', ()=>{
-        const code = (sel.value.split('|')[1] || 'fr'); applyDir(code);
+  const obs=new MutationObserver(()=>{
+    const sel=getGTSelect();
+    if(sel && !sel.dataset._watch){
+      sel.dataset._watch='1';
+      sel.addEventListener('change',()=>{
+        const v=sel.value;
+        const code=v.includes('|') ? v.split('|')[1] : v;
+        applyDir(code||'fr');
       });
     }
   });
-  obs.observe(document.body, { childList:true, subtree:true });
+  obs.observe(document.body,{childList:true,subtree:true});
 
-  window.googleTranslateElementInit = function() {
+  // Callback d’init Google
+  window.googleTranslateElementInit=function(){
     new google.translate.TranslateElement({
-      pageLanguage: 'fr',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
+      pageLanguage:'fr',
+      layout:google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay:false
     }, 'google_translate_element');
   };
 </script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 
 <!-- Modale Réservation -->
 <div class="reserve-modal" id="reserveModal" hidden>
@@ -291,11 +319,24 @@ body { top:0 !important }
   </div>
 </div>
 
-<!-- Chatbase officiel -->
+<!-- Chatbase officiel + fallback -->
 <script>
-  window.embeddedChatbotConfig = { chatbotId: "fFFT4q2Uol4y-qUwVpYBZ", domain: "www.chatbase.co" };
+  window.embeddedChatbotConfig={chatbotId:"fFFT4q2Uol4y-qUwVpYBZ",domain:"www.chatbase.co"};
 </script>
 <script src="https://www.chatbase.co/embed.min.js" defer></script>
+<script>
+  // Fallback si la bulle n’apparaît pas
+  setTimeout(function(){
+    if(!document.querySelector('iframe[src*="chatbase.co"]')){
+      var f=document.createElement('iframe');
+      f.src="https://www.chatbase.co/chatbot-iframe/fFFT4q2Uol4y-qUwVpYBZ";
+      f.style.position="fixed";f.style.bottom="18px";f.style.right="18px";
+      f.style.width="380px";f.style.height="520px";f.style.border="0";
+      f.style.zIndex="2147483000";
+      document.body.appendChild(f);
+    }
+  },3000);
+</script>
 
 </body>
 </html>
