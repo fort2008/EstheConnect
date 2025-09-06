@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Accueil — EstheConnect</title>
 
-<!-- CSS existants (relatifs) -->
+<!-- Tes CSS existants -->
 <link rel="stylesheet" href="./assets/css/style.css"/>
 <link rel="stylesheet" href="./assets/site.css"/>
 <link rel="stylesheet" href="./style.css"/>
@@ -47,7 +47,7 @@ section{padding:40px 0}
 .card img{width:100%;height:160px;object-fit:cover;display:block}
 .card .p{padding:12px;color:#222}
 
-/* WhatsApp bouton */
+/* WhatsApp bouton flottant */
 .fab{position:fixed;z-index:29;display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;box-shadow:0 8px 28px rgba(0,0,0,.2);background:#25D366;color:#fff;font-size:28px;text-decoration:none}
 .fab-wa{left:18px;bottom:18px}
 
@@ -70,16 +70,18 @@ section{padding:40px 0}
 .gtbox[hidden]{display:none}
 .quick-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .quickLang{border:1px solid #ddd;background:#f7f7f7;border-radius:999px;padding:6px 10px;cursor:pointer;font-weight:700}
+
+/* Google Translate — masquer la barre */
+.goog-te-banner-frame.skiptranslate, #goog-gt-tt, .goog-te-balloon-frame { display:none !important; }
+body{ top:0 !important; }
 #google_translate_element{font-size:0}
 .goog-te-gadget{font-family:inherit!important;font-size:14px!important}
 .goog-te-gadget .goog-te-combo{width:100%;padding:8px 10px;border-radius:10px;border:1px solid #ddd;background:#fff;color:#111;outline:0}
-.goog-te-banner-frame.skiptranslate,.goog-te-gadget-icon{display:none!important}
-body{top:0!important}
 
-/* === Chat : au-dessus de tout === */
+/* Chat : au-dessus de tout */
 iframe[src*="chatbase.co"]{position:fixed!important;bottom:18px!important;right:18px!important;width:auto!important;height:auto!important;border:0!important;z-index:2147483000!important}
 
-/* Splide section */
+/* Splide */
 .splide{background:#0b0b0c}
 .splide__slide{border-radius:12px;overflow:hidden}
 .splide__slide img{width:100%;height:360px;object-fit:cover;display:block}
@@ -148,10 +150,8 @@ iframe[src*="chatbase.co"]{position:fixed!important;bottom:18px!important;right:
   </div>
 </header>
 
-<!-- DIAPORAMA Avant/Après (images génériques pour être sûrs qu'elles existent) -->
-<section class="wrap" id="avantapres">
-  <h2>Avant / Après</h2>
-</section>
+<!-- DIAPORAMA -->
+<section class="wrap" id="avantapres"><h2>Avant / Après</h2></section>
 <div id="splide-avant-apres" class="splide" aria-label="Exemples">
   <div class="splide__track">
     <ul class="splide__list">
@@ -238,8 +238,9 @@ iframe[src*="chatbase.co"]{position:fixed!important;bottom:18px!important;right:
   });
 </script>
 
-<!-- ===== Langues (Google Translate + fallback cookie) ===== -->
+<!-- ===== Langues (boutons fiables via cookie googtrans) ===== -->
 <script>
+  // Ouvre/ferme le menu
   (function(){
     const btn = document.getElementById('langBtn');
     const box = document.getElementById('gtContainer');
@@ -258,55 +259,48 @@ iframe[src*="chatbase.co"]{position:fixed!important;bottom:18px!important;right:
     }
   })();
 
+  // RTL
   const RTL_LANGS = new Set(['ar','he','fa','ur']);
   function applyDir(code){ document.documentElement.dir = RTL_LANGS.has(code) ? 'rtl' : 'ltr'; }
 
-  // Utilitaires Google Translate
-  function getGTSelect(){ return document.querySelector('#google_translate_element select'); }
-  function findOptionForCode(sel, code){
-    return Array.from(sel.options).find(o => o.value === code || o.value.endsWith('|'+code));
+  // Cookies util
+  function setCookie(name, value, days){
+    const d = new Date(); d.setTime(d.getTime() + (days*24*60*60*1000));
+    const expires = "expires="+ d.toUTCString();
+    document.cookie = name + "=" + value + "; " + expires + "; path=/";
+    const host = location.hostname.replace(/^www\./,'');
+    document.cookie = name + "=" + value + "; " + expires + "; domain=." + host + "; path=/";
   }
-  function setLangViaSelect(code){
-    const sel=getGTSelect(); if(!sel) return false;
-    const opt=findOptionForCode(sel, code);
-    if(opt){ sel.value=opt.value; sel.dispatchEvent(new Event('change')); return true; }
-    return false;
+  function getCookie(name){
+    const n = name + "=";
+    return document.cookie.split(";").map(c=>c.trim()).find(c=>c.indexOf(n)===0)?.slice(n.length) || "";
   }
-  // Fallback robuste: cookie googtrans + reload
-  function setGoogTransCookie(from,to){
-    const v=`/${from}/${to}`;
-    document.cookie=`googtrans=${v}; path=/; expires=${new Date(Date.now()+31536000000).toUTCString()}`;
-    document.cookie=`googtrans=${v}; domain=.${location.hostname}; path=/; expires=${new Date(Date.now()+31536000000).toUTCString()}`;
+
+  // Appliquer une langue immédiatement
+  function forceLang(code){
+    const val = "/fr/" + code;
+    setCookie("googtrans", val, 365);
+    applyDir(code);
     location.reload();
   }
-  function setLang(code){
-    // essaie 6s d'abord via le select
-    let tries=0;
-    const iv=setInterval(()=>{
-      if(setLangViaSelect(code)){
-        applyDir(code); clearInterval(iv);
-      }else if(++tries>60){ clearInterval(iv); setGoogTransCookie('fr',code); }
-    },100);
-  }
 
+  // Boutons rapides
   document.addEventListener('click', function(e){
-    const b=e.target.closest('.quickLang'); if(!b) return;
-    e.preventDefault(); setLang(b.dataset.lang);
+    const b = e.target.closest('.quickLang');
+    if(!b) return;
+    e.preventDefault();
+    forceLang(b.dataset.lang);
   });
 
-  const obs=new MutationObserver(()=>{
-    const sel=getGTSelect();
-    if(sel && !sel.dataset._watch){
-      sel.dataset._watch='1';
-      sel.addEventListener('change', ()=>{
-        const v=sel.value; const code=v.includes('|')?v.split('|')[1]:v; applyDir(code||'fr');
-      });
-    }
-  });
-  obs.observe(document.body,{childList:true,subtree:true});
+  // Au chargement, respecte la langue déjà choisie
+  (function(){
+    const v = getCookie("googtrans"); // /fr/<code>
+    const code = v && v.split('/')[2];
+    if(code) applyDir(code);
+  })();
 
-  // Callback Google
-  window.googleTranslateElementInit=function(){
+  // Charger le widget (pour liste complète si besoin)
+  window.googleTranslateElementInit = function() {
     new google.translate.TranslateElement({
       pageLanguage:'fr',
       layout:google.translate.TranslateElement.InlineLayout.SIMPLE,
@@ -316,13 +310,13 @@ iframe[src*="chatbase.co"]{position:fixed!important;bottom:18px!important;right:
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 
-<!-- Chatbase (une seule intégration) -->
+<!-- Chatbase -->
 <script>
   window.embeddedChatbotConfig = { chatbotId: "fFFT4q2Uol4y-qUwVpYBZ", domain: "www.chatbase.co" };
 </script>
 <script src="https://www.chatbase.co/embed.min.js" defer></script>
 
-<!-- Modale Réservation (contenu) -->
+<!-- Modale Réservation -->
 <div class="reserve-modal" id="reserveModal" hidden>
   <div class="reserve-box">
     <div class="reserve-head">
