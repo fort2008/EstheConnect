@@ -88,6 +88,23 @@ iframe[src*="chatbase.co"]{position:fixed!important;bottom:18px!important;right:
 @media (max-width:768px){.splide__slide img{height:220px}}
 </style>
 </head>
+<script>
+/* --- Réserver en ligne : ouverture/fermeture de la modale --- */
+(function () {
+  const modal   = document.getElementById('reserveModal');
+  if (!modal) return;
+  const openers = document.querySelectorAll('[data-reserve-open]');
+  const closeBtn= document.getElementById('reserveClose');
+
+  function openModal(){ modal.hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeModal(){ modal.hidden = true;  document.body.style.overflow = ''; }
+
+  openers.forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+})();
+</script>
 
 <body>
 
