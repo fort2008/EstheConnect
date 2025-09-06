@@ -1,144 +1,40 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Facettes dentaires — EstheConnect</title>
-
-  <!-- Tes styles globaux existants (on ne touche pas à l'index) -->
-  <link rel="stylesheet" href="/EstheConnect/assets/css/style.css"/>
-  <link rel="stylesheet" href="/EstheConnect/assets/site.css"/>
-  <link rel="stylesheet" href="/EstheConnect/style.css"/>
-
-  <!-- Utilitaires + Chat -->
-  <link rel="stylesheet" href="/EstheConnect/assets/css/ec-enhance.css"/>
-  <link rel="stylesheet" href="/EstheConnect/assets/css/chatbase-custom.css"/>
-
-  <style>
-    body{background:#0c0c0d;color:#eee;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif}
-    .hero{position:relative;min-height:44vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#f4eac5;overflow:hidden}
-    .hero .bg{position:absolute;inset:0}
-    .hero .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
-    .hero .content{position:relative;z-index:2;padding:24px}
-    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    .card{background:#fff;border:1px solid #eee;border-radius:14px;overflow:hidden;color:#111}
-    .card .p{padding:12px}
-    .card img{width:100%;height:260px;object-fit:cover;display:block}
-    .lead{color:#ddd;line-height:1.55}
-    .btn-cta{display:inline-block;margin:6px 6px 0;padding:12px 18px;border-radius:999px;background:#fff2;color:#111;text-decoration:none;font-weight:800;border:2px solid #fff3}
-    section{padding:36px 0}
-    .badge{display:inline-block;background:#e6b0ba;color:#111;border-radius:999px;padding:6px 10px;font-weight:800;margin-right:8px}
-    details{background:#121215;border:1px solid #222;border-radius:12px;padding:12px 14px}
-    details+details{margin-top:10px}
-    summary{cursor:pointer;font-weight:700}
-    .video-card{overflow:hidden;border-radius:14px;background:#000}
-    .video-card iframe{width:100%;aspect-ratio:16/9;display:block;border:0}
-    .video-card video{width:100%;display:block;max-height:70vh}
-  </style>
-</head>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Facettes dentaires — EstheConnect</title>
+<link rel="stylesheet" href="./assets/css/style.css"/><link rel="stylesheet" href="./assets/site.css"/><link rel="stylesheet" href="./style.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"/>
+<style>:root{--ink:#111;--rose:#e6b0ba;--gold:#c9a34e}*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:#0c0c0d;color:#eee}.wrap{max-width:1100px;margin:0 auto;padding:0 16px}.topbar-mini{display:flex;align-items:center;gap:18px;justify-content:center;padding:10px 12px;background:var(--rose);color:#222}.topbar-mini a{color:#222;font-weight:600}.topbar-mini .r{margin-left:auto;display:flex;gap:12px;align-items:center}.hero{position:relative;min-height:42vh;display:grid;place-items:center;text-align:center;color:#fff;border-bottom:3px solid var(--gold)}.hero::before{content:"";position:absolute;inset:0;background:url('./assets/img/dents/facettes/hero.jpg') center/cover no-repeat;filter:brightness(.45)}.hero .content{position:relative;z-index:1;padding:32px}.hero h1{margin:0 0 8px;font-size:clamp(1.6rem,3.2vw,2.6rem)}section{padding:32px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.card{background:#101115;border:1px solid #222;border-radius:16px;box-shadow:0 10px 26px rgba(0,0,0,.25);overflow:hidden}.card .p{padding:16px}.splide{background:#0b0b0c;border-radius:16px}.splide__slide img{display:block;width:100%;height:420px;object-fit:cover}@media(max-width:768px){.splide__slide img{height:240px}}.footer{padding:20px 0;border-top:1px solid #222;text-align:center;color:#aaa}</style></head>
 <body>
+<div class="topbar-mini"><div class="wrap" style="display:flex;align-items:center;gap:18px;width:100%"><div style="display:flex;gap:16px;flex-wrap:wrap"><a href="./index.html">ACCUEIL</a><a href="./financement.html">PRIX</a><a href="./avantapres.html">PHOTOS</a><a href="./avis.html">AVIS</a><a href="./index.html#contact">CONTACT</a></div><div class="r"><a href="#" data-reserve-open style="border:1px solid #0002;padding:8px 12px;border-radius:999px">RÉSERVER EN LIGNE</a></div></div></div>
+<header class="hero"><div class="content wrap"><h1>Facettes dentaires</h1><p>Sourire harmonieux — forme, couleur et alignement corrigés.</p></div></header>
 
-  <!-- mini barre retour -->
-  <div class="wrap" style="padding:12px 0 0">
-    <a href="/EstheConnect/index.html" style="text-decoration:none;color:#e6b0ba;font-weight:700">← Retour à l’accueil</a>
-  </div>
+<section class="wrap"><div class="grid">
+  <div class="card"><div class="p"><h2>En bref</h2>
+    <ul><li><strong>Durée :</strong> 2–4 j sur place — <strong>Nombre :</strong> selon plan du sourire</li><li><strong>Matériaux :</strong> céramique Emax / composite haut de gamme</li></ul>
+    <p>Empreinte numérique, mock-up, prévisualisation. Préparation conservatrice pour préserver l’émail.</p>
+  </div></div>
+  <div class="card"><div class="p"><h2>Avant / Après</h2>
+    <div id="splide-service" class="splide"><div class="splide__track"><ul class="splide__list">
+      <li class="splide__slide"><img src="./assets/img/dents/facettes/a1.jpg" alt="Facettes — cas 1"></li>
+      <li class="splide__slide"><img src="./assets/img/dents/facettes/a2.jpg" alt="Facettes — cas 2"></li>
+    </ul></div></div>
+  </div></div>
+</div></section>
 
-  <!-- HERO image -->
-  <header class="hero">
-    <div class="bg">
-      <img src="/EstheConnect/assets/img/dents/facettes.jpg" onerror="this.src='/EstheConnect/assets/img/hero/hero.jpg'" alt="Facettes dentaires — EstheConnect">
-    </div>
-    <div class="content wrap">
-      <h1>Facettes dentaires</h1>
-      <p class="lead">Informations clés, photos, vidéos et réservation en ligne.</p>
-      <a class="btn-cta" href="/EstheConnect/reserver.html?country=belgique#be" target="_blank">Réserver en ligne</a>
-      <a class="btn-cta" href="mailto:aboprof.bm2@gmail.com?subject=Devis%20—%20Facettes%20dentaires">Devis par e‑mail</a>
-    </div>
-  </header>
+<section class="wrap"><div class="grid">
+  <div class="card"><div class="p"><h2>Indications</h2><p>Usure, teinte hétérogène, dents courtes/espacées, légères malpositions.</p></div></div>
+  <div class="card"><div class="p"><h2>Technique</h2><p>Planification digitale, essayage, collage adhésif haute résistance.</p></div></div>
+  <div class="card"><div class="p"><h2>Durabilité</h2><p>10–15 ans et plus avec hygiène, gouttière nocturne si bruxisme.</p></div></div>
+  <div class="card"><div class="p"><h2>Prix indicatifs</h2><p>Dès 250–350 € / facette selon pays/labo. Voir <a href="./financement.html">Prix & Financement</a>.</p></div></div>
+</div></section>
 
-  <!-- Bloc intro + visuel -->
-  <section class="wrap">
-    <div class="grid">
-      <div class="card">
-        <img src="/EstheConnect/assets/img/dents/facettes.jpg" onerror="this.src='/EstheConnect/assets/img/hero/style-chic.jpg'" alt="Facettes dentaires">
-        <div class="p">
-          <span class="badge">Esthétique</span><span class="badge">Infos</span>
-          <p>Découvrez les indications, le déroulement et les suites pour <strong>facettes dentaires</strong>.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="p">
-          <h2 style="margin-top:0">En bref</h2>
-          <ul>
-            <li>Anesthésie : à confirmer selon le cas</li>
-            <li>Séjour : ambulatoire ou 1 nuit</li>
-            <li>Reprise : 5–10 jours (variable)</li>
-            <li>Objectif : résultat naturel et harmonieux</li>
-          </ul>
-          <p class="lead" style="color:#444">Un plan personnalisé est établi après photos/évaluation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="wrap"><div class="card"><div class="p"><h2>FAQ</h2>
+<p><strong>Préparation lourde ?</strong> Non : approche minimalement invasive quand c’est possible.</p>
+<p><strong>Teinte trop blanche ?</strong> Choix personnalisé (nuancier + essai).</p>
+</div></div><p style="margin-top:18px"><a href="./index.html" style="border:1px solid #fff6;padding:10px 14px;border-radius:999px">← Retour à l’accueil</a></p></section>
 
-  <!-- Avant/Après -->
-  <section class="wrap">
-    <h2>Résultats — Avant/Après</h2>
-    <div class="grid" style="grid-template-columns:1fr 1fr">
-      <img class="card" src="/EstheConnect/assets/img/before-after/facettes-1.jpg" onerror="this.src='/EstheConnect/assets/img/hero/style-chic.jpg'" alt="Avant/Après — Facettes dentaires" loading="lazy">
-      <img class="card" src="/EstheConnect/assets/img/before-after/facettes-2.jpg" onerror="this.src='/EstheConnect/assets/img/hero/hero.jpg'" alt="Avant/Après — Facettes dentaires (2)" loading="lazy">
-    </div>
-  </section>
-
-  <!-- Vidéos -->
-  <section class="wrap">
-    <h2>Vidéos</h2>
-    <div class="grid">
-      <div class="video-card">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&modestbranding=1"
-          title="Facettes dentaires — Témoignage"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-      </div>
-      <div class="video-card">
-        <video controls preload="metadata" poster="/EstheConnect/assets/video/poster/dents-facettes-temoignage-001.jpg">
-          <source src="/EstheConnect/assets/video/dents-facettes-temoignage-001.webm" type="video/webm">
-          <source src="/EstheConnect/assets/video/dents-facettes-temoignage-001.mp4" type="video/mp4">
-          Votre navigateur ne supporte pas la vidéo HTML5.
-        </video>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="wrap">
-    <h2>FAQ</h2>
-    <details>
-      <summary>Combien de temps pour voir le résultat final ?</summary>
-      <p>Une amélioration est visible rapidement, puis le résultat s'affine sur plusieurs semaines/mois.</p>
-    </details>
-    <details>
-      <summary>Quand reprendre le sport ?</summary>
-      <p>En général après 2–3 semaines pour les activités douces (à confirmer avec le chirurgien).</p>
-    </details>
-  </section>
-
-  <!-- CTA bas de page -->
-  <section class="wrap" style="text-align:center">
-    <a class="btn-cta" href="/EstheConnect/reserver.html?country=france#fr" target="_blank">Réserver en ligne</a>
-    <a class="btn-cta" href="mailto:aboprof.bm2@gmail.com?subject=Devis%20—%20Facettes%20dentaires">Demander un devis</a>
-  </section>
-
-  <footer class="wrap" style="text-align:center;color:#aaa;padding:24px 0">
-    © <span id="year"></span> EstheConnect
-  </footer>
-
-  <script>document.getElementById('year').textContent=(new Date).getFullYear();</script>
-  <script defer src="/EstheConnect/assets/js/ico-fallback.js"></script>
-  <script defer src="/EstheConnect/assets/js/ec-enhance.js"></script>
-  <script defer src="/EstheConnect/assets/js/chatbase-custom.js"></script>
-</body>
-</html>
+<div class="footer">© <span id="year"></span> EstheConnect</div>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script>document.addEventListener('DOMContentLoaded',function(){const s=document.getElementById('splide-service'); if(s){new Splide(s,{type:'loop',gap:'12px',autoplay:true,interval:3400}).mount();}document.getElementById('year').textContent=(new Date).getFullYear();});
+document.addEventListener('click',e=>{const t=e.target.closest('[data-reserve-open]'); if(t){e.preventDefault(); const m=document.getElementById('reserveModal'); if(m){m.hidden=false;document.body.style.overflow='hidden';}}});
+document.addEventListener('click',e=>{const m=document.getElementById('reserveModal'); if(!m)return; if(e.target.id==='reserveClose'||e.target===m){m.hidden=true;document.body.style.overflow='';}});</script>
+</body></html>
