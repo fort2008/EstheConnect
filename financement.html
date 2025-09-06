@@ -1,155 +1,45 @@
-<!doctype html><html lang="fr"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Financement — EstheConnect</title>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Prix & Financement — EstheConnect</title>
+<link rel="stylesheet" href="./assets/css/style.css"/>
+<link rel="stylesheet" href="./assets/site.css"/>
+<link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+<section class="wrap" style="padding-top:24px">
+  <h1>Prix & Financement</h1>
+  <p>Forfaits <strong>transparents</strong> incluant consultation, clinique, anesthésie, honoraires et suivi. Le tarif final est confirmé après avis médical.</p>
 
-<link rel="stylesheet" href="/EstheConnect/assets/css/style.css"/>
-<link rel="stylesheet" href="/EstheConnect/assets/site.css"/>
-<link rel="stylesheet" href="/EstheConnect/style.css"/>
-<link rel="stylesheet" href="assets/css/style.css"/>
-<link rel="stylesheet" href="assets/site.css"/>
-<link rel="stylesheet" href="style.css"/>
-<style>
-:root{--ink:#111;--rose:#e6b0ba;--dark:#121212}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:#0c0c0d;color:#eee}
-.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-a{color:inherit}
-.topbar-mini{display:flex;align-items:center;gap:18px;justify-content:center;padding:10px 12px;background:var(--rose);color:#222}
-.topbar-mini a{text-decoration:none;color:#222;font-weight:600}
-.topbar-mini .r{margin-left:auto;display:flex;gap:10px;align-items:center}
-.pills{display:inline-flex;gap:8px}
-.pills b,.pills a{display:inline-block;border-radius:999px;padding:4px 8px;background:#fff3;border:1px solid #0001;text-decoration:none;color:#222}
-.pills b{background:#fff}
-.nav-cats{background:#141417;position:sticky;top:0;z-index:30}
-.nav-cats .bar{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 12px}
-.nav-cats a{text-decoration:none;color:#ddd;font-weight:700}
-.menu{position:relative}
-.menu-btn{padding:6px 4px;display:inline-block}
-.menu-panel{position:absolute;left:50%;transform:translateX(-50%);top:100%;min-width:560px;background:#1a1a1f;border:1px solid #000;box-shadow:0 18px 40px rgba(0,0,0,.45);border-radius:14px;padding:14px;display:none}
-.menu:hover .menu-panel{display:block}
-.mega{display:grid;grid-template-columns:repeat(2,minmax(240px,1fr));gap:12px}
-.mega a{display:flex;gap:12px;align-items:center;background:#fff;border-radius:12px;padding:10px;text-decoration:none;color:#222}
-.ico{width:56px;height:56px;border-radius:50%;background-size:cover;background-position:center;border:1px solid #eee;flex:0 0 auto}
-.hero{position:relative;min-height:62vh;color:#f4eac5;text-align:center;display:flex;align-items:center;justify-content:center}
-.hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.45)}
-.hero .content{position:relative;z-index:2;padding:24px}
-.btn-cta{display:inline-block;margin:6px 6px 0;padding:12px 18px;border-radius:999px;background:#fff2;color:#111;text-decoration:none;font-weight:800;border:2px solid #fff3}
-section{padding:40px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.card{background:#fff;border:1px solid #eee;border-radius:14px;overflow:hidden}.card img{width:100%;height:160px;object-fit:cover;display:block}.card .p{padding:12px;color:#222}
-.choice-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.choice{display:flex;gap:12px;align-items:center;padding:12px;border:1px solid #eee;border-radius:14px;background:#fff;text-decoration:none;color:#222}
-.choice img{width:72px;height:72px;object-fit:cover;border-radius:10px}
-footer{padding:28px 16px;text-align:center;color:#aaa}
-.breadcrumb{max-width:1100px;margin:16px auto;color:#bbb}
-.check{list-style:none;padding-left:0} .check li{margin:.25rem 0}
-.fab{position:fixed;z-index:9999;display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;box-shadow:0 8px 28px rgba(0,0,0,.2);background:#25D366;color:#fff;font-size:28px;text-decoration:none}
-.fab-wa{left:18px;bottom:18px}.fab-chat{right:18px;bottom:18px;background:#ff8aa0}
-/* Reservation modal */
-.reserve-modal[hidden]{display:none}
-.reserve-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:20px}
-.reserve-box{background:#fff;color:#222;max-width:720px;width:100%;border-radius:16px;box-shadow:0 18px 48px rgba(0,0,0,.4);overflow:hidden}
-.reserve-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #eee}
-.reserve-head h3{margin:0}
-.reserve-body{padding:18px 20px}
-.option{display:flex;align-items:center;justify-content:space-between;border:1px solid #eee;border-radius:12px;padding:12px 14px;margin:10px 0;background:#fafafa}
-.flag{font-size:22px;margin-right:8px}
-.reserve-btn{background:#4a68ff;color:#fff;border:0;border-radius:10px;padding:10px 12px;font-weight:700;cursor:pointer}
-.xbtn{background:transparent;border:0;font-size:22px;cursor:pointer}
-@media(max-width:720px){.menu-panel{left:0;right:0;transform:none;min-width:auto;margin-top:8px}.mega{grid-template-columns:1fr}}
-</style>
+  <h2>Exemples indicatifs</h2>
+  <ul>
+    <li>Blépharoplastie (2 paupières) : dès 1 200 €</li>
+    <li>Rhinoplastie : dès 2 500 €</li>
+    <li>Liposuccion (1–2 zones) : dès 1 600 €</li>
+    <li>Augmentation mammaire : dès 2 900 €</li>
+    <li>Greffe capillaire FUE : dès 1 700 €</li>
+  </ul>
+  <p class="muted">Les prix varient selon le pays, la technique et la complexité.</p>
 
-</head><body>
-<div class="topbar-mini">
-  <div class="wrap" style="display:flex;align-items:center;gap:18px;width:100%">
-    <div style="display:flex;gap:16px;flex-wrap:wrap">
-      <a href="/EstheConnect/avantapres.html">PHOTOS AVANT/APRÈS</a>
-      <a href="/EstheConnect/financement.html">PRIX</a>
-      <a href="/EstheConnect/avis.html">AVIS</a>
-      <a href="/EstheConnect/index.html#etranger">CHIRURGIE À L’ÉTRANGER</a>
-      <a href="/EstheConnect/index.html#infos">INFOS</a>
-      <a href="/EstheConnect/index.html#contact">CONTACT</a>
-    </div>
-    <div class="r">
-      <div class="pills"><b>FR</b><a>NL</a><a>EN</a><a>DE</a></div>
-      <a href="#" data-reserve-open class="btn-cta">RÉSERVER EN LIGNE</a>
-    </div>
-  </div>
-</div>
-<nav class="nav-cats"><div class="wrap bar"><div class="menu"><a class="menu-btn" href="/EstheConnect/seins.html">Seins</a><div class="menu-panel"><div class="mega"><a href="/EstheConnect/seins-augmentation.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/style-chic.jpg)"></span><div><strong>Augmentation mammaire</strong><div style="color:#555">Implants ronds/anatomiques</div></div></a>
-<a href="/EstheConnect/seins-remplacement-implants.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Remplacement d’implants</strong><div style="color:#555">Changement/retrait</div></div></a>
-<a href="/EstheConnect/seins-lipofilling.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Augmentation par lipofilling</strong><div style="color:#555">Graisse autologue</div></div></a>
-<a href="/EstheConnect/seins-lifting.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/acceuil.png)"></span><div><strong>Lifting mammaire</strong><div style="color:#555">Mastopexie</div></div></a>
-<a href="/EstheConnect/seins-reduction-femmes.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/style-chic.jpg)"></span><div><strong>Réduction mammaire — Femmes</strong><div style="color:#555">Confort & posture</div></div></a>
-<a href="/EstheConnect/seins-correction-mamelons.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Correction des mamelons</strong><div style="color:#555">Inversés, hypertrophiques…</div></div></a>
-<a href="/EstheConnect/seins-transgenres.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Augmentation — transgenres</strong><div style="color:#555">Parcours MTF</div></div></a>
-<a href="/EstheConnect/hommes-gynecomastie.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Réduction — Hommes</strong><div style="color:#555">Gynécomastie</div></div></a></div></div></div>
-<div class="menu"><a class="menu-btn" href="/EstheConnect/liposuccion.html">Liposuccion</a><div class="menu-panel"><div class="mega"><a href="/EstheConnect/lipo-liposuccion.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Liposuccion</strong><div style="color:#555">Zones ciblées</div></div></a>
-<a href="/EstheConnect/lipo-lipofilling.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Lipofilling</strong><div style="color:#555">Réinjection de graisse</div></div></a>
-<a href="/EstheConnect/lipo-bbl.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/style-chic.jpg)"></span><div><strong>BBL — Brazilian Butt Lift</strong><div style="color:#555">Fesses plus galbées</div></div></a>
-<a href="/EstheConnect/lipo-liposculpture.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Liposculpture</strong><div style="color:#555">Définition musculaire</div></div></a></div></div></div>
-<div class="menu"><a class="menu-btn" href="/EstheConnect/visage.html">Visage</a><div class="menu-panel"><div class="mega"><a href="/EstheConnect/visage-injections.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/style-chic.jpg)"></span><div><strong>Injections anti-âge</strong><div style="color:#555">Toxine & acide hyaluronique</div></div></a>
-<a href="/EstheConnect/visage-blepharoplastie.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Blépharoplastie</strong><div style="color:#555">Paupières sup/inf</div></div></a>
-<a href="/EstheConnect/visage-rhinoplastie.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Rhinoplastie</strong><div style="color:#555">Fonction & esthétique</div></div></a>
-<a href="/EstheConnect/visage-mini-lift.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Mini-lift / Facelift</strong><div style="color:#555">Ovale du visage</div></div></a></div></div></div>
-<div class="menu"><a class="menu-btn" href="/EstheConnect/dents.html">Dents</a><div class="menu-panel"><div class="mega"><a href="/EstheConnect/dents-facettes.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/dent.jpg)"></span><div><strong>Facettes dentaires</strong><div style="color:#555">Céramique / composite</div></div></a>
-<a href="/EstheConnect/dents-implants.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/dent.jpg)"></span><div><strong>Implants</strong><div style="color:#555">Unitaires / bridges</div></div></a>
-<a href="/EstheConnect/dents-all-on-4.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/dent.jpg)"></span><div><strong>All-on-4 / All-on-6</strong><div style="color:#555">Arcades complètes</div></div></a>
-<a href="/EstheConnect/dents-couronnes.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/dent.jpg)"></span><div><strong>Couronnes & bridges</strong><div style="color:#555">Zircone / Emax</div></div></a></div></div></div>
-<div class="menu"><a class="menu-btn" href="/EstheConnect/cheveux.html">Cheveux</a><div class="menu-panel"><div class="mega"><a href="/EstheConnect/cheveux-fue.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span><div><strong>Greffe FUE</strong><div style="color:#555">Extraction unitaire</div></div></a>
-<a href="/EstheConnect/cheveux-dhi.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span><div><strong>DHI</strong><div style="color:#555">Implanteur CHOI</div></div></a>
-<a href="/EstheConnect/cheveux-saphir.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span><div><strong>FUE Saphir</strong><div style="color:#555">Lames saphir</div></div></a>
-<a href="/EstheConnect/cheveux-prp.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span><div><strong>PRP</strong><div style="color:#555">Stimulation</div></div></a></div></div></div>
-<div class="menu"><a class="menu-btn" href="/EstheConnect/peau.html">Peau</a><div class="menu-panel"><div class="mega"><a href="/EstheConnect/peau-peeling.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Peeling chimique</strong><div style="color:#555">Éclat & texture</div></div></a>
-<a href="/EstheConnect/peau-laser-co2.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Laser CO₂</strong><div style="color:#555">Rides & cicatrices</div></div></a>
-<a href="/EstheConnect/peau-cicatrices.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Cicatrices d’acné</strong><div style="color:#555">Protocoles combinés</div></div></a>
-<a href="/EstheConnect/peau-microneedling.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Microneedling</strong><div style="color:#555">Collagène boost</div></div></a></div></div></div>
-<div class="menu"><a class="menu-btn" href="/EstheConnect/hommes.html">Hommes</a><div class="menu-panel"><div class="mega"><a href="/EstheConnect/hommes-gynecomastie.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Gynécomastie</strong><div style="color:#555">Réduction mammaire</div></div></a>
-<a href="/EstheConnect/lipo-liposculpture.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Liposculpture HD</strong><div style="color:#555">Définition musculaire</div></div></a>
-<a href="/EstheConnect/cheveux-barbe.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/svc-capillaire.jpg)"></span><div><strong>Greffe de barbe</strong><div style="color:#555">Densification</div></div></a>
-<a href="/EstheConnect/dents-implants.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/dent.jpg)"></span><div><strong>Implants dentaires</strong><div style="color:#555">Unitaires, bridges</div></div></a></div></div></div>
-<div class="menu"><a class="menu-btn" href="/EstheConnect/perte-de-poids.html">Perte de poids</a><div class="menu-panel"><div class="mega"><a href="/EstheConnect/pertepoids-ballon.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Ballon gastrique</strong><div style="color:#555">6–12 mois</div></div></a>
-<a href="/EstheConnect/pertepoids-sleeve.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Sleeve</strong><div style="color:#555">Chirurgie bariatrique</div></div></a>
-<a href="/EstheConnect/pertepoids-bypass.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Bypass</strong><div style="color:#555">Roux-en-Y</div></div></a>
-<a href="/EstheConnect/pertepoids-programme.html"><span class="ico" style="background-image:url(/EstheConnect/assets/img/hero/hero.jpg)"></span><div><strong>Programme médical</strong><div style="color:#555">Suivi nutrition & med</div></div></a></div></div></div></div></nav>
-<header class="hero">
-  <div class="bg" style="background-image:url('/EstheConnect/assets/img/hero/hero.jpg')"></div>
-  <div class="content wrap">
-    <h1>Financement</h1>
-    <p>Comparez les cliniques, obtenez un devis et réservez en toute confiance.</p>
-    <a class="btn-cta" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect">Devis WhatsApp</a>
-    <a class="btn-cta" href="/EstheConnect/financement.html">Financement</a>
-  </div>
-</header>
-<section class='wrap'><article class='procedure'><h3>Options</h3><ul class='check'><li>Échéancier avant départ (sans frais).</li><li>Crédit partenaire selon éligibilité.</li><li>Accompagnement administratif.</li></ul></article></section>
-<footer>© <span id="year"></span> EstheConnect — Plateforme esthétique</footer>
-<a class="fab fab-wa" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect" aria-label="WhatsApp">☎</a>
-<a class="fab fab-chat" href="/EstheConnect/index.html#contact" aria-label="Chat">💬</a>
-<script>document.getElementById('year').textContent=(new Date).getFullYear()</script>
-<script src="/EstheConnect/assets/reserve.js" defer></script>
-<script src="/EstheConnect/assets/chat-inject.js" data-chat="chatbase" data-chat-id="YOUR_CHATBASE_ID" defer></script>
+  <h2>Solutions de paiement</h2>
+  <ul>
+    <li><strong>Acompte</strong> à la réservation, solde le jour J.</li>
+    <li><strong>Échelonnement</strong> possible via partenaires (selon pays/dossier).</li>
+    <li><strong>Virement / CB</strong> acceptés selon la clinique.</li>
+  </ul>
 
-<!-- Reservation modal -->
-<div class="reserve-modal" id="reserveModal" hidden>
-  <div class="reserve-box">
-    <div class="reserve-head">
-      <h3>Réservez en ligne et économisez</h3>
-      <button class="xbtn" id="reserveClose" aria-label="Fermer">×</button>
-    </div>
-    <div class="reserve-body">
-      <div class="option">
-        <div><span class="flag">🇹🇳</span><strong>Tunisie</strong> — Tunis / Sousse</div>
-        <button class="reserve-btn" data-resv-tn data-country="Tunisie">Réserver en ligne</button>
-      </div>
-      <div class="option">
-        <div><span class="flag">🇧🇪</span><strong>Belgique</strong> — Bruxelles</div>
-        <button class="reserve-btn" data-resv-be data-country="Belgique">Réserver en ligne</button>
-      </div>
-      <div class="option">
-        <div><span class="flag">🇫🇷</span><strong>France</strong> — Paris / Lille</div>
-        <button class="reserve-btn" data-resv-fr data-country="France">Réserver en ligne</button>
-      </div>
-      <p style="margin-top:12px;color:#555">En réservant et en payant en ligne, vous bénéficiez d’une réduction sur la consultation.</p>
-    </div>
-  </div>
-</div>
-</body></html>
+  <h2>Devis personnalisé</h2>
+  <ol>
+    <li>Envoyez vos photos + objectifs.</li>
+    <li>Évaluation par le chirurgien et plan de traitement.</li>
+    <li>Réception d’un devis détaillé.</li>
+  </ol>
+
+  <p>Demandez votre devis : <a href="https://wa.me/21628296239?text=Devis%20EstheConnect" target="_blank" rel="noopener">WhatsApp</a> — contact@estheconnect.com</p>
+
+  <p><a href="./index.html">← Retour à l’accueil</a></p>
+</section>
+</body>
+</html>
