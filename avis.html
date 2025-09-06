@@ -4,12 +4,22 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Avis patients — EstheConnect</title>
+
 <link rel="stylesheet" href="./assets/css/style.css"/>
 <link rel="stylesheet" href="./assets/site.css"/>
 <link rel="stylesheet" href="./style.css"/>
 
-<!-- Globe langues (mêmes styles que l’index) -->
 <style>
+:root{--ink:#111;--rose:#e6b0ba;--gold:#c9a34e}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:#0c0c0d;color:#eee}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+a{color:inherit;text-decoration:none}
+
+.topbar-mini{display:flex;align-items:center;gap:18px;justify-content:center;padding:10px 12px;background:var(--rose);color:#222}
+.topbar-mini a{color:#222;font-weight:600}
+.topbar-mini .r{margin-left:auto;display:flex;gap:12px;align-items:center}
+
 .lang-switch{position:relative;display:inline-block}
 #langBtn{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid #0002;background:#fff;color:#111;cursor:pointer;font-weight:700}
 #langBtn .globe{font-size:18px}
@@ -17,81 +27,124 @@
 .gtbox[hidden]{display:none}
 .quick-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .quickLang{border:1px solid #ddd;background:#f7f7f7;border-radius:999px;padding:6px 10px;cursor:pointer;font-weight:700}
-#google_translate_element { font-size:0 }
-.goog-te-gadget { font-family:inherit !important; font-size:14px !important }
-.goog-te-gadget .goog-te-combo { width:100%; padding:8px 10px; border-radius:10px; border:1px solid #ddd; background:#fff; color:#111; outline:0 }
-.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display:none !important }
-body { top:0 !important }
+
+.goog-te-banner-frame.skiptranslate,#goog-gt-tt,.goog-te-balloon-frame{display:none!important}
+body{top:0!important}
+#google_translate_element{font-size:0}
+.goog-te-gadget{font-family:inherit!important;font-size:14px!important}
+.goog-te-gadget .goog-te-combo{width:100%;padding:8px 10px;border-radius:10px;border:1px solid #ddd;background:#fff;color:#111;outline:0}
+
+/* HERO */
+.hero{
+  position:relative;min-height:38vh;display:grid;place-items:center;text-align:center;
+  color:#fff;border-bottom:3px solid var(--gold);
+}
+.hero::before{
+  content:""; position:absolute; inset:0;
+  background:url('./assets/img/hero/style-chic.jpg') center/cover no-repeat;
+  filter:brightness(.45);
+}
+.hero .content{position:relative;z-index:1;padding:32px}
+.hero h1{margin:0 0 8px;font-size:clamp(1.6rem,3.2vw,2.6rem)}
+.hero p{opacity:.95}
+
+/* AVIS */
+section{padding:32px 0}
+.list{display:grid;gap:14px}
+.review{background:#101115;border:1px solid #222;border-radius:14px;box-shadow:0 10px 26px rgba(0,0,0,.25);padding:14px}
+.review strong{color:#fff}
+.review .q{color:#ccc;margin-top:6px}
+
+/* Footer */
+.footer{padding:20px 0;border-top:1px solid #222;text-align:center;color:#aaa}
 </style>
 </head>
 <body>
 
+<!-- barre haute -->
 <div class="topbar-mini">
   <div class="wrap" style="display:flex;align-items:center;gap:18px;width:100%">
     <div style="display:flex;gap:16px;flex-wrap:wrap">
       <a href="./index.html">ACCUEIL</a>
       <a href="./financement.html">PRIX</a>
-      <a href="./avantapres.html">PHOTOS</a>
-      <a href="./index.html#contact">CONTACT</a>
+      <a href="./photos.html">PHOTOS</a>
+      <a href="./contact.html">CONTACT</a>
     </div>
     <div class="r">
       <div class="lang-switch">
-        <button id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
-          <span class="globe">🌐</span> Langues
-        </button>
+        <button id="langBtn" type="button"><span class="globe">🌐</span> Langues</button>
         <div id="gtContainer" class="gtbox" hidden>
           <div id="google_translate_element"></div>
           <div class="quick-row">
-            <button class="quickLang" data-lang="fr" type="button">FR</button>
-            <button class="quickLang" data-lang="nl" type="button">NL</button>
-            <button class="quickLang" data-lang="en" type="button">EN</button>
-            <button class="quickLang" data-lang="de" type="button">DE</button>
-            <button class="quickLang" data-lang="it" type="button">IT</button>
-            <button class="quickLang" data-lang="tr" type="button">TR</button>
-            <button class="quickLang" data-lang="ar" type="button">AR</button>
+            <button class="quickLang" data-lang="fr">FR</button>
+            <button class="quickLang" data-lang="nl">NL</button>
+            <button class="quickLang" data-lang="en">EN</button>
+            <button class="quickLang" data-lang="de">DE</button>
+            <button class="quickLang" data-lang="it">IT</button>
+            <button class="quickLang" data-lang="tr">TR</button>
+            <button class="quickLang" data-lang="ar">AR</button>
           </div>
         </div>
       </div>
+      <a href="./index.html#contact" class="btn" style="border:1px solid #fff6;padding:8px 12px;border-radius:999px">Nous écrire</a>
     </div>
   </div>
 </div>
 
-<section class="wrap" style="padding-top:24px">
-  <h1>Avis de nos patients</h1>
-  <p>La satisfaction et la sécurité de nos patients sont au cœur de notre démarche. Voici quelques retours vérifiés.</p>
+<!-- HERO -->
+<header class="hero">
+  <div class="content wrap">
+    <h1>Avis de nos patients</h1>
+    <p>Retours authentiques après intervention. Les témoignages publiés ne sont jamais rémunérés.</p>
+  </div>
+</header>
 
-  <div class="grid">
-    <article class="card"><div class="p"><strong>Camille D. — Blépharoplastie</strong><br/>« Suivi attentif du coordinateur, chirurgien à l’écoute. Résultat très naturel. »</div></article>
-    <article class="card"><div class="p"><strong>Yanis B. — Rhinoplastie</strong><br/>« Organisation nickel, devis clair. Résultat conforme au projet 3D. »</div></article>
-    <article class="card"><div class="p"><strong>Sarah L. — Liposuccion</strong><br/>« Très bonne prise en charge, douleurs bien gérées, silhouette affinée. »</div></article>
-    <article class="card"><div class="p"><strong>Hélène P. — Augmentation mammaire</strong><br/>« Conseils honnêtes sur la taille, cicatrices fines, je recommande. »</div></article>
+<section class="wrap">
+  <div class="list">
+    <div class="review">
+      <strong>Camille D. — Blépharoplastie</strong>
+      <div class="q">« Suivi attentif du coordinateur, chirurgien à l’écoute. Résultat très naturel. »</div>
+    </div>
+    <div class="review">
+      <strong>Yanis B. — Rhinoplastie</strong>
+      <div class="q">« Organisation nickel, devis clair. Résultat conforme au projet 3D. »</div>
+    </div>
+    <div class="review">
+      <strong>Sarah L. — Liposuccion</strong>
+      <div class="q">« Très bonne prise en charge, douleurs bien gérées, silhouette affinée. »</div>
+    </div>
+    <div class="review">
+      <strong>Hélène P. — Augmentation mammaire</strong>
+      <div class="q">« Conseils honnêtes sur la taille, cicatrices fines, je recommande. »</div>
+    </div>
   </div>
 
-  <h2>Comment sont collectés les avis ?</h2>
-  <p>Nous contactons nos patients après leur intervention pour recueillir un retour authentique. Les témoignages publiés ne sont <strong>jamais rémunérés</strong> et peuvent être corroborés (facture anonymisée sur demande).</p>
+  <div style="margin-top:22px;color:#ccc">
+    <strong>Collecte des avis — méthode :</strong>
+    <p>Nous contactons nos patients après leur intervention pour recueillir un retour authentique. Preuves anonymisées disponibles sur demande.</p>
+  </div>
 
-  <p><a href="./index.html">← Retour à l’accueil</a></p>
+  <p style="margin-top:18px"><a href="./index.html" style="border:1px solid #fff6;padding:10px 14px;border-radius:999px">← Retour à l’accueil</a></p>
 </section>
 
-<!-- JS globe langues (identique index) -->
-<script>
-(function(){
-  const btn=document.getElementById('langBtn'), box=document.getElementById('gtContainer');
-  if(btn&&box){
-    btn.addEventListener('click',()=>{const h=box.hasAttribute('hidden');box.toggleAttribute('hidden',!h);btn.setAttribute('aria-expanded',String(h));});
-    document.addEventListener('click',e=>{if(!box.contains(e.target)&&!btn.contains(e.target)){box.setAttribute('hidden','');btn.setAttribute('aria-expanded','false');}});
-  }
-})();
-const RTL_LANGS=new Set(['ar','he','fa','ur']);function applyDir(c){document.documentElement.dir=RTL_LANGS.has(c)?'rtl':'ltr';}
-function __setLang(code){const sel=document.querySelector('#google_translate_element select');if(!sel) return;const o=[...sel.options].find(o=>o.value.split('|')[1]===code);if(o){sel.value=o.value;sel.dispatchEvent(new Event('change'));applyDir(code);}}
-document.addEventListener('click',e=>{const b=e.target.closest('.quickLang');if(b){e.preventDefault();__setLang(b.dataset.lang);}});
-const obs=new MutationObserver(()=>{const sel=document.querySelector('#google_translate_element select');if(sel&&!sel.dataset._w){sel.dataset._w='1';sel.addEventListener('change',()=>{applyDir((sel.value.split('|')[1]||'fr'));});}});obs.observe(document.body,{childList:true,subtree:true});
-window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'fr',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element');};
-</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+<div class="footer">© <span id="year"></span> EstheConnect</div>
 
-<!-- Chatbase -->
-<script>window.embeddedChatbotConfig={chatbotId:"fFFT4q2Uol4y-qUwVpYBZ",domain:"www.chatbase.co"};</script>
-<script src="https://www.chatbase.co/embed.min.js" defer></script>
+<!-- Langues JS -->
+<script>
+  const btn=document.getElementById('langBtn'), box=document.getElementById('gtContainer');
+  btn.addEventListener('click',()=>{ box.toggleAttribute('hidden'); });
+  document.addEventListener('click',e=>{ if(!box.contains(e.target)&&!btn.contains(e.target)) box.setAttribute('hidden',''); });
+
+  const RTL=new Set(['ar','he','fa','ur']);
+  function setCookie(n,v,d){const t=new Date(Date.now()+d*864e5).toUTCString();document.cookie=n+"="+v+"; expires="+t+"; path=/";const h=location.hostname.replace(/^www\./,'');document.cookie=n+"="+v+"; expires="+t+"; domain=."+h+"; path=/";}
+  function getCookie(n){const k=n+"=";return document.cookie.split(";").map(s=>s.trim()).find(s=>s.indexOf(k)===0)?.slice(k.length)||"";}
+  function applyDir(c){document.documentElement.dir=RTL.has(c)?'rtl':'ltr';}
+  function forceLang(c){setCookie("googtrans","/fr/"+c,365);applyDir(c);location.reload();}
+  document.addEventListener('click',e=>{const b=e.target.closest('.quickLang'); if(b){e.preventDefault();forceLang(b.dataset.lang);}});
+  (function(){const v=getCookie("googtrans"), c=v && v.split('/')[2]; if(c) applyDir(c);})();
+  window.googleTranslateElementInit=function(){ new google.translate.TranslateElement({pageLanguage:'fr',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element'); };
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+<script>document.getElementById('year').textContent=(new Date).getFullYear();</script>
 </body>
 </html>
