@@ -13,6 +13,9 @@
 <link rel="stylesheet" href="assets/site.css"/>
 <link rel="stylesheet" href="style.css"/>
 
+<!-- Splide CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"/>
+
 <style>
 :root{--ink:#111;--rose:#e6b0ba;--dark:#121212}
 *{box-sizing:border-box}
@@ -21,88 +24,27 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvet
 a{color:inherit}
 .muted{color:#666}
 
-/* barre haute */
-.topbar-mini{display:flex;align-items:center;gap:18px;justify-content:center;padding:10px 12px;background:var(--rose);color:#222}
-.topbar-mini a{text-decoration:none;color:#222;font-weight:600}
-.topbar-mini .r{margin-left:auto;display:flex;gap:10px;align-items:center}
-
-/* pills langues */
-.pills{display:inline-flex;gap:8px}
-.pills b,.pills a{display:inline-block;border-radius:999px;padding:4px 8px;background:#fff3;border:1px solid #0001;text-decoration:none;color:#222}
-.pills b{background:#fff}
-
-/* barre basse + méga menus */
-.nav-cats{background:#141417;position:sticky;top:0;z-index:30}
-.nav-cats .bar{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 12px}
-.nav-cats a{text-decoration:none;color:#ddd;font-weight:700}
-.menu{position:relative}
-.menu-btn{padding:6px 4px;display:inline-block}
-.menu-panel{position:absolute;left:50%;transform:translateX(-50%);top:100%;min-width:560px;background:#1a1a1f;border:1px solid #000;box-shadow:0 18px 40px rgba(0,0,0,.45);border-radius:14px;padding:14px;display:none}
-.menu:hover .menu-panel{display:block}
-.mega{display:grid;grid-template-columns:repeat(2,minmax(240px,1fr));gap:12px}
-.mega a{display:flex;gap:12px;align-items:center;background:#fff;border-radius:12px;padding:10px;text-decoration:none;color:#222}
-.ico{width:56px;height:56px;border-radius:50%;background-size:cover;background-position:center;border:1px solid #eee;flex:0 0 auto}
-
 /* hero */
 .hero{position:relative;min-height:62vh;color:#f4eac5;text-align:center;display:flex;align-items:center;justify-content:center}
 .hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.45)}
 .hero .content{position:relative;z-index:2;padding:24px}
 .btn-cta{display:inline-block;margin:6px 6px 0;padding:12px 18px;border-radius:999px;background:#fff2;color:#111;text-decoration:none;font-weight:800;border:2px solid #fff3}
 
-/* sections */
-section{padding:40px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.card{background:#fff;border:1px solid #eee;border-radius:14px;overflow:hidden}
-.card img{width:100%;height:160px;object-fit:cover;display:block}
-.card .p{padding:12px;color:#222}
+/* slider */
+.section-slider{ padding:40px 0; background:#111; }
+.section-slider .title{ text-align:center; margin:0 0 12px; color:#f3e9c9; }
+.section-slider .subtitle{ text-align:center; margin:0 0 18px; color:#ccc; }
+.splide__slide{ border-radius:16px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,.25); }
+.splide__slide img{ width:100%; height:320px; object-fit:cover; display:block }
+@media(max-width:768px){ .splide__slide img{ height:200px; } }
 
 /* bulle WhatsApp */
 .fab{position:fixed;z-index:9999;display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;box-shadow:0 8px 28px rgba(0,0,0,.2);background:#25D366;color:#fff;font-size:28px;text-decoration:none}
 .fab-wa{left:18px;bottom:18px}
-
-/* modale Réserver */
-.reserve-modal[hidden]{display:none}
-.reserve-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:20px}
-.reserve-box{background:#fff;color:#222;max-width:720px;width:100%;border-radius:16px;box-shadow:0 18px 48px rgba(0,0,0,.4);overflow:hidden}
-.reserve-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #eee}
-.reserve-head h3{margin:0}
-.reserve-body{padding:18px 20px}
-.option{display:flex;align-items:center;justify-content:space-between;border:1px solid #eee;border-radius:12px;padding:12px 14px;margin:10px 0;background:#fafafa}
-.flag{font-size:22px;margin-right:8px}
-.reserve-btn{background:#4a68ff;color:#fff;border:0;border-radius:10px;padding:10px 12px;font-weight:700;cursor:pointer}
-.xbtn{background:transparent;border:0;font-size:22px;cursor:pointer}
-
-/* slider */
-.section-slider{ padding: clamp(14px, 2vw, 28px); background: #111; border-top:1px solid #222; }
-.section-slider .title{ text-align:center; margin:0 0 8px; color:#f3e9c9; }
-.section-slider .subtitle{ text-align:center; margin:0 0 18px; color:#ccc; }
-.splide__slide{ border-radius: 16px; overflow:hidden; box-shadow: 0 10px 24px rgba(0,0,0,.25); }
-.splide__slide img{ display:block; width:100%; height: 360px; object-fit:cover }
-@media (max-width: 768px){ .splide__slide img{ height: 220px; } }
 </style>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"/>
 </head>
 
 <body>
-
-<!-- barre haute -->
-<div class="topbar-mini">
-  <div class="wrap" style="display:flex;align-items:center;gap:18px;width:100%">
-    <div style="display:flex;gap:16px;flex-wrap:wrap">
-      <a href="/EstheConnect/avantapres.html">PHOTOS AVANT/APRÈS</a>
-      <a href="/EstheConnect/financement.html">PRIX</a>
-      <a href="/EstheConnect/avis.html">AVIS</a>
-      <a href="/EstheConnect/index.html#etranger">CHIRURGIE À L’ÉTRANGER</a>
-      <a href="/EstheConnect/index.html#infos">INFOS</a>
-      <a href="/EstheConnect/index.html#contact">CONTACT</a>
-    </div>
-    <div class="r">
-      <div class="pills"><b>FR</b><a href="#">NL</a><a href="#">EN</a><a href="#">DE</a></div>
-      <a href="#" data-reserve-open class="btn-cta">RÉSERVER EN LIGNE</a>
-    </div>
-  </div>
-</div>
 
 <!-- HERO -->
 <header class="hero">
@@ -125,6 +67,8 @@ section{padding:40px 0}
         <li class="splide__slide"><img src="/EstheConnect/assets/img/hero/hero.jpg" alt=""></li>
         <li class="splide__slide"><img src="/EstheConnect/assets/img/hero/style-chic.jpg" alt=""></li>
         <li class="splide__slide"><img src="/EstheConnect/assets/img/hero/svc-capillaire.jpg" alt=""></li>
+        <li class="splide__slide"><img src="/EstheConnect/assets/img/lipo/liposuccion.jpg" alt=""></li>
+        <li class="splide__slide"><img src="/EstheConnect/assets/img/visage/blepharoplastie.jpg" alt=""></li>
       </ul>
     </div>
   </div>
@@ -142,10 +86,6 @@ section{padding:40px 0}
       <img src="/EstheConnect/assets/img/hero/hero.jpg" alt="Chirurgie visage">
       <div class="p"><strong>Chirurgie visage</strong><div class="muted">Mini-lift, blépharo, rhino…</div></div>
     </a>
-    <a class="card" href="/EstheConnect/cheveux.html">
-      <img src="/EstheConnect/assets/img/hero/svc-capillaire.jpg" alt="Capillaire">
-      <div class="p"><strong>Capillaire</strong><div class="muted">Greffe FUE/DHI, PRP</div></div>
-    </a>
   </div>
 </section>
 
@@ -156,24 +96,30 @@ section{padding:40px 0}
 
 <!-- Scripts -->
 <script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded',function(){
   document.getElementById('year').textContent=(new Date).getFullYear();
-  var root=document.querySelector('#splide-avant-apres');
-  if(root && window.Splide){
+  if(document.querySelector('#splide-avant-apres')){
     new Splide('#splide-avant-apres',{
-      type:'loop',perPage:3,gap:'16px',autoplay:true,interval:3800,pauseOnHover:true,
-      breakpoints:{1024:{perPage:2},640:{perPage:1}},arrows:true,pagination:true
+      type:'loop',
+      perPage:3,
+      gap:'16px',
+      autoplay:true,
+      interval:3800,
+      pauseOnHover:true,
+      breakpoints:{1024:{perPage:2},640:{perPage:1}}
     }).mount();
   }
 });
 </script>
 
-<!-- Chatbase avec TON ID -->
+<!-- Chatbase officiel -->
 <script defer src="https://www.chatbase.co/embed.min.js"
         chatbotId="fFFT4q2Uol4y-qUwVpYBZ"
         domain="www.chatbase.co"></script>
+
+<!-- Ton script custom -->
+<script defer src="/EstheConnect/assets/js/chatbase-custom.js"></script>
 
 </body>
 </html>
