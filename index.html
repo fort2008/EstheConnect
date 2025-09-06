@@ -5,13 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Accueil — EstheConnect</title>
 
-<!-- CSS (relatifs) -->
+<!-- CSS existants (relatifs) -->
 <link rel="stylesheet" href="./assets/css/style.css"/>
 <link rel="stylesheet" href="./assets/site.css"/>
 <link rel="stylesheet" href="./style.css"/>
 <link rel="stylesheet" href="assets/css/style.css"/>
 <link rel="stylesheet" href="assets/site.css"/>
 <link rel="stylesheet" href="style.css"/>
+
+<!-- Splide (diaporama) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"/>
 
 <style>
 :root{--ink:#111;--rose:#e6b0ba;--dark:#121212}
@@ -74,11 +77,13 @@ section{padding:40px 0}
 body{top:0!important}
 
 /* === Chat : au-dessus de tout === */
-iframe[src*="chatbase.co"]{
-  position:fixed!important; bottom:18px!important; right:18px!important;
-  width:auto!important; height:auto!important; border:0!important;
-  z-index:2147483000!important;
-}
+iframe[src*="chatbase.co"]{position:fixed!important;bottom:18px!important;right:18px!important;width:auto!important;height:auto!important;border:0!important;z-index:2147483000!important}
+
+/* Splide section */
+.splide{background:#0b0b0c}
+.splide__slide{border-radius:12px;overflow:hidden}
+.splide__slide img{width:100%;height:360px;object-fit:cover;display:block}
+@media (max-width:768px){.splide__slide img{height:220px}}
 </style>
 </head>
 
@@ -143,6 +148,21 @@ iframe[src*="chatbase.co"]{
   </div>
 </header>
 
+<!-- DIAPORAMA Avant/Après (images génériques pour être sûrs qu'elles existent) -->
+<section class="wrap" id="avantapres">
+  <h2>Avant / Après</h2>
+</section>
+<div id="splide-avant-apres" class="splide" aria-label="Exemples">
+  <div class="splide__track">
+    <ul class="splide__list">
+      <li class="splide__slide"><img src="./assets/img/hero/style-chic.jpg" alt=""></li>
+      <li class="splide__slide"><img src="./assets/img/hero/hero.jpg" alt=""></li>
+      <li class="splide__slide"><img src="./assets/img/hero/svc-capillaire.jpg" alt=""></li>
+      <li class="splide__slide"><img src="./assets/img/hero/dent.jpg" alt=""></li>
+    </ul>
+  </div>
+</div>
+
 <section class="wrap" id="visage">
   <h2>Visage</h2>
   <div class="grid">
@@ -194,23 +214,32 @@ iframe[src*="chatbase.co"]{
 <a class="fab fab-wa" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect" aria-label="WhatsApp">☎</a>
 
 <!-- ===== SCRIPTS ===== -->
+
+<!-- Splide (JS) -->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 <script>
-  document.getElementById('year').textContent=(new Date).getFullYear();
-
-  // Modale Réserver
   document.addEventListener('DOMContentLoaded', function () {
-    var modal = document.getElementById('reserveModal');
-    var openers = document.querySelectorAll('[data-reserve-open]');
-    var closer = document.getElementById('reserveClose');
-    openers.forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault(); if(modal) modal.hidden=false;}));
-    if(closer) closer.addEventListener('click',()=>{ if(modal) modal.hidden=true;});
-    if(modal){
-      modal.addEventListener('click',e=>{ if(e.target===modal) modal.hidden=true;});
-      document.addEventListener('keydown',e=>{ if(e.key==='Escape' && !modal.hidden) modal.hidden=true;});
-    }
-  });
+    // Diaporama
+    var splide = new Splide('#splide-avant-apres', {
+      type: 'loop',
+      perPage: 3,
+      gap: '16px',
+      autoplay: true,
+      interval: 3800,
+      pauseOnHover: true,
+      breakpoints: {1024:{perPage:2},640:{perPage:1}},
+      arrows: true,
+      pagination: true
+    });
+    splide.mount();
 
-  /* ===== Globe Langues (Google Translate) ===== */
+    // Année footer
+    var y=document.getElementById('year'); if(y) y.textContent=(new Date).getFullYear();
+  });
+</script>
+
+<!-- ===== Langues (Google Translate + fallback cookie) ===== -->
+<script>
   (function(){
     const btn = document.getElementById('langBtn');
     const box = document.getElementById('gtContainer');
@@ -229,7 +258,6 @@ iframe[src*="chatbase.co"]{
     }
   })();
 
-  // Gestion RTL (arabe)
   const RTL_LANGS = new Set(['ar','he','fa','ur']);
   function applyDir(code){ document.documentElement.dir = RTL_LANGS.has(code) ? 'rtl' : 'ltr'; }
 
@@ -238,32 +266,34 @@ iframe[src*="chatbase.co"]{
   function findOptionForCode(sel, code){
     return Array.from(sel.options).find(o => o.value === code || o.value.endsWith('|'+code));
   }
-  function setLangWhenReady(code){
+  function setLangViaSelect(code){
+    const sel=getGTSelect(); if(!sel) return false;
+    const opt=findOptionForCode(sel, code);
+    if(opt){ sel.value=opt.value; sel.dispatchEvent(new Event('change')); return true; }
+    return false;
+  }
+  // Fallback robuste: cookie googtrans + reload
+  function setGoogTransCookie(from,to){
+    const v=`/${from}/${to}`;
+    document.cookie=`googtrans=${v}; path=/; expires=${new Date(Date.now()+31536000000).toUTCString()}`;
+    document.cookie=`googtrans=${v}; domain=.${location.hostname}; path=/; expires=${new Date(Date.now()+31536000000).toUTCString()}`;
+    location.reload();
+  }
+  function setLang(code){
+    // essaie 6s d'abord via le select
     let tries=0;
     const iv=setInterval(()=>{
-      const sel=getGTSelect();
-      if(sel){
-        const opt=findOptionForCode(sel, code);
-        if(opt){
-          sel.value=opt.value;
-          sel.dispatchEvent(new Event('change'));
-          applyDir(code);
-          clearInterval(iv);
-        }
-      }
-      if(++tries>60) clearInterval(iv);
+      if(setLangViaSelect(code)){
+        applyDir(code); clearInterval(iv);
+      }else if(++tries>60){ clearInterval(iv); setGoogTransCookie('fr',code); }
     },100);
   }
 
-  // Raccourcis
   document.addEventListener('click', function(e){
-    const b=e.target.closest('.quickLang');
-    if(!b) return;
-    e.preventDefault();
-    setLangWhenReady(b.dataset.lang);
+    const b=e.target.closest('.quickLang'); if(!b) return;
+    e.preventDefault(); setLang(b.dataset.lang);
   });
 
-  // Mise à jour dir si choix via la liste
   const obs=new MutationObserver(()=>{
     const sel=getGTSelect();
     if(sel && !sel.dataset._watch){
@@ -285,6 +315,12 @@ iframe[src*="chatbase.co"]{
   };
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+
+<!-- Chatbase (une seule intégration) -->
+<script>
+  window.embeddedChatbotConfig = { chatbotId: "fFFT4q2Uol4y-qUwVpYBZ", domain: "www.chatbase.co" };
+</script>
+<script src="https://www.chatbase.co/embed.min.js" defer></script>
 
 <!-- Modale Réservation (contenu) -->
 <div class="reserve-modal" id="reserveModal" hidden>
@@ -310,12 +346,6 @@ iframe[src*="chatbase.co"]{
     </div>
   </div>
 </div>
-
-<!-- Chatbase (une seule intégration → pas de 404) -->
-<script>
-  window.embeddedChatbotConfig = { chatbotId: "fFFT4q2Uol4y-qUwVpYBZ", domain: "www.chatbase.co" };
-</script>
-<script src="https://www.chatbase.co/embed.min.js" defer></script>
 
 </body>
 </html>
