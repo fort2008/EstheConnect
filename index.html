@@ -3,123 +3,102 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Accueil — EstheConnect</title>
+<title>Photos Avant / Après — EstheConnect</title>
 
-<!-- On garde tes chemins CSS -->
 <link rel="stylesheet" href="/EstheConnect/assets/css/style.css"/>
 <link rel="stylesheet" href="/EstheConnect/assets/site.css"/>
 <link rel="stylesheet" href="/EstheConnect/style.css"/>
-<link rel="stylesheet" href="assets/css/style.css"/>
-<link rel="stylesheet" href="assets/site.css"/>
-<link rel="stylesheet" href="style.css"/>
-
-<!-- Splide CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"/>
 
 <style>
-:root{--ink:#111;--rose:#e6b0ba;--dark:#121212}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:#0c0c0d;color:#eee}
-.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-a{color:inherit}
-.muted{color:#666}
+:root{--rose:#e6b0ba;--gold:#c9a34e;--ink:#111}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:#fafafa;color:#222}
+.wrap{max-width:1100px;margin:0 auto;padding:20px}
+h1{text-align:center;margin:20px 0;color:var(--ink)}
+h2{margin:30px 0 16px;color:var(--ink);border-left:6px solid var(--rose);padding-left:10px}
 
-/* hero */
-.hero{position:relative;min-height:62vh;color:#f4eac5;text-align:center;display:flex;align-items:center;justify-content:center}
-.hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.45)}
-.hero .content{position:relative;z-index:2;padding:24px}
-.btn-cta{display:inline-block;margin:6px 6px 0;padding:12px 18px;border-radius:999px;background:#fff2;color:#111;text-decoration:none;font-weight:800;border:2px solid #fff3}
+/* galerie */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:#fff;border:1px solid #eee;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.card img{width:100%;display:block;height:260px;object-fit:cover;transition:.3s}
+.card:hover img{transform:scale(1.05)}
+.card .p{padding:12px;text-align:center;font-weight:600;color:#333}
 
-/* slider */
-.section-slider{ padding:40px 0; background:#111; }
-.section-slider .title{ text-align:center; margin:0 0 12px; color:#f3e9c9; }
-.section-slider .subtitle{ text-align:center; margin:0 0 18px; color:#ccc; }
-.splide__slide{ border-radius:16px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,.25); }
-.splide__slide img{ width:100%; height:320px; object-fit:cover; display:block }
-@media(max-width:768px){ .splide__slide img{ height:200px; } }
-
-/* bulle WhatsApp */
-.fab{position:fixed;z-index:9999;display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;box-shadow:0 8px 28px rgba(0,0,0,.2);background:#25D366;color:#fff;font-size:28px;text-decoration:none}
-.fab-wa{left:18px;bottom:18px}
+/* retour */
+.back{display:inline-block;margin:20px auto;padding:10px 18px;border-radius:999px;background:var(--rose);color:#111;text-decoration:none;font-weight:700}
 </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="bg" style="background-image:url('/EstheConnect/assets/img/hero/acceuil.png')"></div>
-  <div class="content wrap">
-    <h1>EstheConnect — Plateforme esthétique</h1>
-    <p>Comparez les cliniques, obtenez un devis et réservez en toute confiance.</p>
-    <a class="btn-cta" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect">Devis WhatsApp</a>
-    <a class="btn-cta" href="/EstheConnect/financement.html">Financement</a>
-  </div>
-</header>
+<div class="wrap">
+  <h1>Photos Avant / Après</h1>
+  <p style="text-align:center;max-width:720px;margin:0 auto 28px">
+    Découvrez quelques résultats obtenus par nos patients. Chaque transformation est unique et dépend de nombreux facteurs.
+  </p>
 
-<!-- SLIDER -->
-<section class="section-slider">
-  <h2 class="title">Avant / Après</h2>
-  <p class="subtitle">Exemples indicatifs — résultats selon les cas.</p>
-  <div id="splide-avant-apres" class="splide">
-    <div class="splide__track">
-      <ul class="splide__list">
-        <li class="splide__slide"><img src="/EstheConnect/assets/img/hero/hero.jpg" alt=""></li>
-        <li class="splide__slide"><img src="/EstheConnect/assets/img/hero/style-chic.jpg" alt=""></li>
-        <li class="splide__slide"><img src="/EstheConnect/assets/img/hero/svc-capillaire.jpg" alt=""></li>
-        <li class="splide__slide"><img src="/EstheConnect/assets/img/lipo/liposuccion.jpg" alt=""></li>
-        <li class="splide__slide"><img src="/EstheConnect/assets/img/visage/blepharoplastie.jpg" alt=""></li>
-      </ul>
+  <h2>Chirurgie du Visage</h2>
+  <div class="gallery">
+    <div class="card">
+      <img src="/EstheConnect/assets/img/visage/blepharoplastie.jpg" alt="Blépharoplastie">
+      <div class="p">Blépharoplastie</div>
+    </div>
+    <div class="card">
+      <img src="/EstheConnect/assets/img/visage/rhinoplastie.jpg" alt="Rhinoplastie">
+      <div class="p">Rhinoplastie</div>
+    </div>
+    <div class="card">
+      <img src="/EstheConnect/assets/img/visage/mini-lift.jpg" alt="Mini-lift">
+      <div class="p">Mini-lift</div>
     </div>
   </div>
-</section>
 
-<!-- Section Visage -->
-<section class="wrap" id="visage">
-  <h2>Visage</h2>
-  <div class="grid">
-    <a class="card" href="/EstheConnect/visage.html">
-      <img src="/EstheConnect/assets/img/hero/style-chic.jpg" alt="Visage">
-      <div class="p"><strong>Visage esthétique</strong><div class="muted">Injections & anti-âge</div></div>
-    </a>
-    <a class="card" href="/EstheConnect/visage.html">
-      <img src="/EstheConnect/assets/img/hero/hero.jpg" alt="Chirurgie visage">
-      <div class="p"><strong>Chirurgie visage</strong><div class="muted">Mini-lift, blépharo, rhino…</div></div>
-    </a>
+  <h2>Liposuccion & Remodelage</h2>
+  <div class="gallery">
+    <div class="card">
+      <img src="/EstheConnect/assets/img/lipo/liposuccion.jpg" alt="Liposuccion">
+      <div class="p">Liposuccion</div>
+    </div>
+    <div class="card">
+      <img src="/EstheConnect/assets/img/lipo/bbl.jpg" alt="BBL">
+      <div class="p">BBL</div>
+    </div>
+    <div class="card">
+      <img src="/EstheConnect/assets/img/lipo/liposculpture.jpg" alt="Liposculpture">
+      <div class="p">Liposculpture</div>
+    </div>
   </div>
-</section>
 
-<footer style="text-align:center;padding:24px 12px;border-top:1px solid #222">© <span id="year"></span> EstheConnect — Plateforme esthétique</footer>
+  <h2>Seins</h2>
+  <div class="gallery">
+    <div class="card">
+      <img src="/EstheConnect/assets/img/seins/seins-augmentation.jpg" alt="Augmentation mammaire">
+      <div class="p">Augmentation mammaire</div>
+    </div>
+    <div class="card">
+      <img src="/EstheConnect/assets/img/seins/seins-lifting.jpg" alt="Lifting mammaire">
+      <div class="p">Lifting mammaire</div>
+    </div>
+    <div class="card">
+      <img src="/EstheConnect/assets/img/seins/seins-reduction.jpg" alt="Réduction mammaire">
+      <div class="p">Réduction mammaire</div>
+    </div>
+  </div>
 
-<!-- Bulle WhatsApp -->
-<a class="fab fab-wa" href="https://wa.me/21628296239?text=Bonjour,%20je%20veux%20un%20devis%20via%20EstheConnect" aria-label="WhatsApp">☎</a>
+  <h2>Dentisterie Esthétique</h2>
+  <div class="gallery">
+    <div class="card">
+      <img src="/EstheConnect/assets/img/hero/dent.jpg" alt="Facettes dentaires">
+      <div class="p">Facettes dentaires</div>
+    </div>
+    <div class="card">
+      <img src="/EstheConnect/assets/img/hero/dent.jpg" alt="Implants dentaires">
+      <div class="p">Implants dentaires</div>
+    </div>
+  </div>
 
-<!-- Scripts -->
-<script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded',function(){
-  document.getElementById('year').textContent=(new Date).getFullYear();
-  if(document.querySelector('#splide-avant-apres')){
-    new Splide('#splide-avant-apres',{
-      type:'loop',
-      perPage:3,
-      gap:'16px',
-      autoplay:true,
-      interval:3800,
-      pauseOnHover:true,
-      breakpoints:{1024:{perPage:2},640:{perPage:1}}
-    }).mount();
-  }
-});
-</script>
-
-<!-- Chatbase officiel -->
-<script defer src="https://www.chatbase.co/embed.min.js"
-        chatbotId="fFFT4q2Uol4y-qUwVpYBZ"
-        domain="www.chatbase.co"></script>
-
-<!-- Ton script custom -->
-<script defer src="/EstheConnect/assets/js/chatbase-custom.js"></script>
+  <div style="text-align:center;margin-top:40px">
+    <a class="back" href="/EstheConnect/index.html">← Retour à l’accueil</a>
+  </div>
+</div>
 
 </body>
 </html>
