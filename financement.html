@@ -7,8 +7,55 @@
 <link rel="stylesheet" href="./assets/css/style.css"/>
 <link rel="stylesheet" href="./assets/site.css"/>
 <link rel="stylesheet" href="./style.css"/>
+
+<!-- Globe langues (mêmes styles) -->
+<style>
+.lang-switch{position:relative;display:inline-block}
+#langBtn{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid #0002;background:#fff;color:#111;cursor:pointer;font-weight:700}
+#langBtn .globe{font-size:18px}
+.gtbox{position:absolute;right:0;top:calc(100% + 8px);background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 14px 32px rgba(0,0,0,.12);padding:10px;z-index:2000;min-width:260px}
+.gtbox[hidden]{display:none}
+.quick-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.quickLang{border:1px solid #ddd;background:#f7f7f7;border-radius:999px;padding:6px 10px;cursor:pointer;font-weight:700}
+#google_translate_element { font-size:0 }
+.goog-te-gadget { font-family:inherit !important; font-size:14px !important }
+.goog-te-gadget .goog-te-combo { width:100%; padding:8px 10px; border-radius:10px; border:1px solid #ddd; background:#fff; color:#111; outline:0 }
+.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display:none !important }
+body { top:0 !important }
+</style>
 </head>
 <body>
+
+<div class="topbar-mini">
+  <div class="wrap" style="display:flex;align-items:center;gap:18px;width:100%">
+    <div style="display:flex;gap:16px;flex-wrap:wrap">
+      <a href="./index.html">ACCUEIL</a>
+      <a href="./avantapres.html">PHOTOS</a>
+      <a href="./avis.html">AVIS</a>
+      <a href="./index.html#contact">CONTACT</a>
+    </div>
+    <div class="r">
+      <div class="lang-switch">
+        <button id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="globe">🌐</span> Langues
+        </button>
+        <div id="gtContainer" class="gtbox" hidden>
+          <div id="google_translate_element"></div>
+          <div class="quick-row">
+            <button class="quickLang" data-lang="fr" type="button">FR</button>
+            <button class="quickLang" data-lang="nl" type="button">NL</button>
+            <button class="quickLang" data-lang="en" type="button">EN</button>
+            <button class="quickLang" data-lang="de" type="button">DE</button>
+            <button class="quickLang" data-lang="it" type="button">IT</button>
+            <button class="quickLang" data-lang="tr" type="button">TR</button>
+            <button class="quickLang" data-lang="ar" type="button">AR</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <section class="wrap" style="padding-top:24px">
   <h1>Prix & Financement</h1>
   <p>Forfaits <strong>transparents</strong> incluant consultation, clinique, anesthésie, honoraires et suivi. Le tarif final est confirmé après avis médical.</p>
@@ -41,5 +88,26 @@
 
   <p><a href="./index.html">← Retour à l’accueil</a></p>
 </section>
+
+<!-- JS globe langues -->
+<script>
+(function(){
+  const btn=document.getElementById('langBtn'), box=document.getElementById('gtContainer');
+  if(btn&&box){
+    btn.addEventListener('click',()=>{const h=box.hasAttribute('hidden');box.toggleAttribute('hidden',!h);btn.setAttribute('aria-expanded',String(h));});
+    document.addEventListener('click',e=>{if(!box.contains(e.target)&&!btn.contains(e.target)){box.setAttribute('hidden','');btn.setAttribute('aria-expanded','false');}});
+  }
+})();
+const RTL_LANGS=new Set(['ar','he','fa','ur']);function applyDir(c){document.documentElement.dir=RTL_LANGS.has(c)?'rtl':'ltr';}
+function __setLang(code){const sel=document.querySelector('#google_translate_element select');if(!sel) return;const o=[...sel.options].find(o=>o.value.split('|')[1]===code);if(o){sel.value=o.value;sel.dispatchEvent(new Event('change'));applyDir(code);}}
+document.addEventListener('click',e=>{const b=e.target.closest('.quickLang');if(b){e.preventDefault();__setLang(b.dataset.lang);}});
+const obs=new MutationObserver(()=>{const sel=document.querySelector('#google_translate_element select');if(sel&&!sel.dataset._w){sel.dataset._w='1';sel.addEventListener('change',()=>{applyDir((sel.value.split('|')[1]||'fr'));});}});obs.observe(document.body,{childList:true,subtree:true});
+window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'fr',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element');};
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+
+<!-- Chatbase -->
+<script>window.embeddedChatbotConfig={chatbotId:"fFFT4q2Uol4y-qUwVpYBZ",domain:"www.chatbase.co"};</script>
+<script src="https://www.chatbase.co/embed.min.js" defer></script>
 </body>
 </html>
