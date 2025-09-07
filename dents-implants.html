@@ -1,60 +1,136 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Implants dentaires — EstheConnect</title>
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
+  <!-- Inclut les feuilles de style principales -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- Charge Splide pour le diaporama -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
   <style>
-    body{margin:0;font-family:system-ui,sans-serif;background:#0c0c0d;color:#eee;}
-    .hero{position:relative;height:38vh;display:flex;align-items:center;justify-content:center;text-align:center}
-    .hero::before{content:"";position:absolute;inset:0;background:url('./assets/img/dents/implants/hero.jpg') center/cover no-repeat;filter:brightness(.45);}
-    .hero .content{position:relative;z-index:1;color:#fff}
-    .section{max-width:1100px;margin:0 auto;padding:32px 16px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .card{background:#111;border-radius:12px;padding:18px}
-    h2{color:#e6b0ba;margin:0 0 10px}
-    .splide__slide img{max-width:460px;height:auto;margin:auto;border-radius:12px}
+    /* Style de base pour assurer une apparence cohérente */
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Helvetica Neue, Arial, sans-serif;
+      background: #0c0c0d;
+      color: #eee;
+    }
+
+    /* Bannière en haut de page avec image éclaircie */
+    .hero {
+      position: relative;
+      height: 38vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('./assets/img/dents/implants/hero.jpg') center/cover no-repeat;
+      filter: brightness(.75); /* éclaircit l'image */
+    }
+    .hero .content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+    }
+
+    /* Mise en page des sections */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 16px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .card {
+      background: #111;
+      border-radius: 12px;
+      padding: 18px;
+    }
+    h2 {
+      color: #e6b0ba;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    /* Réduit la taille apparente des images dans le slider */
+    .splide__slide img {
+      max-width: 460px;
+      height: auto;
+      margin: auto;
+      border-radius: 12px;
+    }
   </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="content">
-    <h1>Implants dentaires</h1>
-    <p>Remplacement durable d’une ou plusieurs dents absentes.</p>
-  </div>
-</header>
+  <!-- En-tête avec image de couverture éclaircie -->
+  <header class="hero">
+    <div class="content">
+      <h1>Implants dentaires</h1>
+      <p>Remplacement durable d’une ou plusieurs dents absentes.</p>
+    </div>
+  </header>
 
-<section class="section grid">
-  <article class="card">
-    <h2>En bref</h2>
-    <ul>
-      <li><strong>Durée :</strong> 45–90 min par implant</li>
-      <li><strong>Matériaux :</strong> Titane ou zircone</li>
-      <li><strong>Suites :</strong> Douleurs légères, reprise rapide des activités</li>
-    </ul>
-  </article>
+  <!-- Contenu principal -->
+  <section class="section grid">
+    <!-- Carte "En bref" pour les informations clés -->
+    <article class="card">
+      <h2>En bref</h2>
+      <ul>
+        <li><strong>Durée :</strong> 45 à 90 minutes par implant</li>
+        <li><strong>Anesthésie :</strong> locale ou générale selon les cas</li>
+        <li><strong>Reprise :</strong> activité légère dès le lendemain, alimentation adaptée</li>
+        <li><strong>Matériaux :</strong> Titane ou zircone</li>
+      </ul>
+    </article>
 
-  <article class="card">
-    <h2>Avant / Après</h2>
+    <!-- Carte "Description & prix" avec explication détaillée -->
+    <article class="card">
+      <h2>Description & prix</h2>
+      <p>
+        Un implant dentaire remplace la racine d’une dent manquante par une vis en titane ou en zircone.
+        Après un bilan 3D et un plan de traitement, l’implant est inséré dans l’os puis coiffé d’une
+        couronne en céramique. L’intervention est indolore sous anesthésie locale ou légère sédation.
+      </p>
+      <p>
+        <strong>Prix à partir de :</strong> environ 600 € par implant (variable selon le pays, le type
+        de couronne et les examens préalables).
+      </p>
+    </article>
+  </section>
+
+  <!-- Section du diaporama avant/après -->
+  <section class="section">
+    <h2 style="color:#e6b0ba; margin-bottom: 10px">Avant / Après</h2>
     <div id="splide" class="splide">
       <div class="splide__track">
         <ul class="splide__list">
-          <li class="splide__slide"><img src="./assets/img/dents/implants/a1.jpg" alt="Implants — cas 1" /></li>
-          <li class="splide__slide"><img src="./assets/img/dents/implants/a2.jpg" alt="Implants — cas 2" /></li>
+          <li class="splide__slide"><img src="./assets/img/dents/implants/a1.jpg" alt="Implant dentaire — cas 1"></li>
+          <li class="splide__slide"><img src="./assets/img/dents/implants/a2.jpg" alt="Implant dentaire — cas 2"></li>
         </ul>
       </div>
     </div>
-  </article>
-</section>
+  </section>
 
-<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    new Splide('#splide', {type:'loop',autoplay:true,interval:3800}).mount();
-  });
-</script>
+  <!-- Scripts Splide -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      new Splide('#splide', {
+        type: 'loop',
+        autoplay: true,
+        interval: 4000,
+        pauseOnHover: true,
+      }).mount();
+    });
+  </script>
 </body>
 </html>
