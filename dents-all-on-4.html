@@ -1,57 +1,60 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Titre du service — EstheConnect</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <!-- Splide pour le diaporama -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All‑on‑4 / All‑on‑6 — EstheConnect</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
   <style>
     body{margin:0;font-family:system-ui,sans-serif;background:#0c0c0d;color:#eee;}
-    .hero{position:relative;height:38vh;display:flex;align-items:center;justify-content:center;}
-    .hero::before{content:"";position:absolute;inset:0;background:url('CHEMIN/hero.jpg') center/cover no-repeat;filter:brightness(.45);}
-    .hero .content{position:relative;z-index:1;color:#fff;text-align:center;}
-    .section{max-width:1100px;margin:0 auto;padding:32px 16px;}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-    .card{background:#111;padding:18px;border-radius:12px;}
-    h2{color:#e6b0ba;margin:0 0 10px;}
-    .splide__slide img{max-width:460px;height:auto;margin:auto;border-radius:12px;}
+    .hero{position:relative;height:38vh;display:flex;align-items:center;justify-content:center;text-align:center}
+    .hero::before{content:"";position:absolute;inset:0;background:url('./assets/img/dents/all-on-4/hero.jpg') center/cover no-repeat;filter:brightness(.45);}
+    .hero .content{position:relative;z-index:1;color:#fff}
+    .section{max-width:1100px;margin:0 auto;padding:32px 16px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .card{background:#111;border-radius:12px;padding:18px}
+    h2{color:#e6b0ba;margin:0 0 10px}
+    .splide__slide img{max-width:460px;height:auto;margin:auto;border-radius:12px}
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="content">
-      <h1>Titre du service</h1>
-      <p>Sous‑titre descriptif.</p>
-    </div>
-  </header>
-  <section class="section grid">
-    <article class="card">
-      <h2>En bref</h2>
-      <ul>
-        <li><strong>Durée :</strong> …</li>
-        <li><strong>Anesthésie :</strong> …</li>
-        <li><strong>Reprise :</strong> …</li>
-      </ul>
-    </article>
-    <article class="card">
-      <h2>Avant / Après</h2>
-      <div id="splide" class="splide">
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide"><img src="CHEMIN/a1.jpg" alt="Cas 1"></li>
-            <li class="splide__slide"><img src="CHEMIN/a2.jpg" alt="Cas 2"></li>
-          </ul>
-        </div>
+
+<header class="hero">
+  <div class="content">
+    <h1>All‑on‑4 / All‑on‑6</h1>
+    <p>Arcade complète sur 4 ou 6 implants pour un sourire stable et esthétique.</p>
+  </div>
+</header>
+
+<section class="section grid">
+  <article class="card">
+    <h2>En bref</h2>
+    <ul>
+      <li><strong>Durée :</strong> 2–3 h</li>
+      <li><strong>Structure :</strong> 4 ou 6 implants supportant 12 dents</li>
+      <li><strong>Suites :</strong> Alimentaire liquide 24 h, confort très rapide</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h2>Avant / Après</h2>
+    <div id="splide" class="splide">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide"><img src="./assets/img/dents/all-on-4/a1.jpg" alt="All‑on‑4 — cas 1" /></li>
+          <li class="splide__slide"><img src="./assets/img/dents/all-on-4/a2.jpg" alt="All‑on‑4 — cas 2" /></li>
+        </ul>
       </div>
-    </article>
-  </section>
-  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      new Splide('#splide',{type:'loop',autoplay:true,interval:3800}).mount();
-    });
-  </script>
+    </div>
+  </article>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    new Splide('#splide', {type:'loop',autoplay:true,interval:3800}).mount();
+  });
+</script>
 </body>
 </html>
