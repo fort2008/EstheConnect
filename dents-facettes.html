@@ -1,74 +1,23 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Facettes dentaires — EstheConnect</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/splide.min.css">
-  <style>
-    body {margin:0;font-family:system-ui,sans-serif;background:#0c0c0d;color:#eee;}
-    .hero{position:relative;height:50vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:0;
-      background:url('./assets/img/dents/facettes.jpg') center/cover no-repeat;
-      filter:brightness(.45);}
-    .hero .content{position:relative;z-index:1;color:#fff}
-    .section{padding:40px 20px;max-width:1100px;margin:auto}
-    h2{color:#e6b0ba;margin-bottom:16px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .card{background:#111;padding:20px;border-radius:12px}
-    .splide__slide img{width:100%;height:auto;border-radius:12px}
-  </style>
-</head>
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Facettes dentaires — EstheConnect</title>
+<link rel="stylesheet" href="./assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+<style>body{margin:0;font-family:system-ui,sans-serif;background:#0c0c0d;color:#eee}
+.hero{position:relative;height:38vh;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero::before{content:"";position:absolute;inset:0;background:url('./assets/img/dents/facettes/hero.jpg') center/cover no-repeat;filter:brightness(.45)}
+.hero .content{position:relative;z-index:1}.section{max-width:1100px;margin:0 auto;padding:32px 16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:#111;border-radius:12px;padding:18px}
+h2{color:#e6b0ba;margin:0 0 10px}.splide__slide img{max-width:460px;height:auto;margin:auto;border-radius:12px}</style></head>
 <body>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="content">
-      <h1>Facettes dentaires</h1>
-      <p>Sourire harmonieux — forme, couleur et alignement corrigés.</p>
-    </div>
-  </header>
-
-  <!-- SECTION INFO -->
-  <section class="section grid">
-    <div class="card">
-      <h2>En bref</h2>
-      <ul>
-        <li><strong>Durée :</strong> 2–4 j sur place</li>
-        <li><strong>Nombre :</strong> selon plan du sourire</li>
-        <li><strong>Matériaux :</strong> céramique Emax / composite haut de gamme</li>
-        <li>Empreinte numérique, mock-up, prévisualisation. Préparation conservatrice pour préserver l’émail.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h2>Avant / Après</h2>
-      <div id="splide" class="splide">
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide">
-              <img src="./assets/img/dents/facettes.jpg" alt="Facettes dentaires — cas 1" loading="lazy">
-            </li>
-            <li class="splide__slide">
-              <img src="./assets/img/dents/facettes.jpg" alt="Facettes dentaires — cas 2" loading="lazy">
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script src="./assets/js/splide.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      new Splide('#splide', {
-        type: 'loop',
-        autoplay: true,
-        interval: 4000,
-        pauseOnHover: true,
-      }).mount();
-    });
-  </script>
-
-</body>
-</html>
+<header class="hero"><div class="content"><h1>Facettes dentaires</h1><p>Sourire harmonieux — forme, couleur et alignement corrigés.</p></div></header>
+<section class="section grid"><article class="card"><h2>En bref</h2>
+<ul><li><strong>Durée :</strong> 2–4 j sur place</li><li><strong>Matériaux :</strong> Emax / composite premium</li><li><strong>Approche :</strong> conservatrice, mock-up, prévisualisation</li></ul></article>
+<article class="card"><h2>Avant / Après</h2>
+<div id="splide" class="splide"><div class="splide__track"><ul class="splide__list">
+<li class="splide__slide"><img src="./assets/img/dents/facettes/a1.jpg" alt="Facettes — cas 1"></li>
+<li class="splide__slide"><img src="./assets/img/dents/facettes/a2.jpg" alt="Facettes — cas 2"></li>
+</ul></div></div></article></section>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>{new Splide('#splide',{type:'loop',autoplay:true,interval:3800}).mount();});</script>
+</body></html>
